@@ -39,7 +39,7 @@ I downloaded the zip file which was encrypted, I then cracked it using &#8220;fc
 
 &nbsp;
 
-<img data-attachment-id="987" data-permalink="https://www.megabeets.net/pragyan-ctf-karaboudjan/krabu1/#main" data-orig-file="http://www.megabeets.net/uploads/krabu1.png" data-orig-size="735,178" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="krabu1" data-image-description="" data-image-caption="" data-medium-file="http://www.megabeets.net/uploads/krabu1-300x73.png" data-large-file="http://www.megabeets.net/uploads/krabu1.png" decoding="async" loading="lazy" class="aligncenter size-full wp-image-987" src="https://www.megabeets.net/uploads/krabu1.png" alt="" width="735" height="178" srcset="https://www.megabeets.net/uploads/krabu1.png 735w, https://www.megabeets.net/uploads/krabu1-150x36.png 150w, https://www.megabeets.net/uploads/krabu1-300x73.png 300w" sizes="(max-width: 735px) 100vw, 735px" /> 
+<img src="../uploads/krabu1.png" /> 
 
 That&#8217;s it, we got the flag 🙂
 
@@ -47,6 +47,6 @@ The flag was **pragyanctf{5n00p_d099}**
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img class="wp-image-149 alignnone" src="https://www.megabeets.net/uploads/megabeets_inline_logo.png" alt="megabeets_inline_logo" width="61" height="45" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>

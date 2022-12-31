@@ -586,7 +586,7 @@ As in similar disassemblers, radare2 has a Graph view. You can access Visual Gra
 
 <figure class="wp-block-image size-large">
 
-<img data-attachment-id="1780" data-permalink="https://www.megabeets.net/image-1/" data-orig-file="http://www.megabeets.net/uploads/radare2-graph-demo.png" data-orig-size="699,934" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="radare2-graph-demo" data-image-description="" data-image-caption="" data-medium-file="http://www.megabeets.net/uploads/radare2-graph-demo-225x300.png" data-large-file="http://www.megabeets.net/uploads/radare2-graph-demo.png" decoding="async" loading="lazy" width="699" height="934" src="https://www.megabeets.net/uploads/radare2-graph-demo.png" alt="radare2-graph-demo" class="wp-image-1780" srcset="https://www.megabeets.net/uploads/radare2-graph-demo.png 699w, https://www.megabeets.net/uploads/radare2-graph-demo-225x300.png 225w, https://www.megabeets.net/uploads/radare2-graph-demo-112x150.png 112w" sizes="(max-width: 699px) 100vw, 699px" /> </figure> 
+<img src="../uploads/radare2-graph-demo.png" /> </figure> 
 
 Use `?`&nbsp;to list all the commands and **make sure not to miss the `R`&nbsp;command.**
 
@@ -601,7 +601,7 @@ After a short break from disassembling. Let&#8217;s go back to it and explore th
 
 Here&#8217;s how `beet`&nbsp;looks like in Visual Graph Mode:<figure class="wp-block-image size-large">
 
-<img data-attachment-id="1783" data-permalink="https://www.megabeets.net/image/" data-orig-file="http://www.megabeets.net/uploads/image.png" data-orig-size="785,609" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="image" data-image-description="" data-image-caption="" data-medium-file="http://www.megabeets.net/uploads/image-300x233.png" data-large-file="http://www.megabeets.net/uploads/image.png" decoding="async" loading="lazy" width="785" height="609" src="https://www.megabeets.net/uploads/image.png" alt="" class="wp-image-1783" srcset="https://www.megabeets.net/uploads/image.png 785w, https://www.megabeets.net/uploads/image-300x233.png 300w, https://www.megabeets.net/uploads/image-150x116.png 150w, https://www.megabeets.net/uploads/image-768x596.png 768w" sizes="(max-width: 785px) 100vw, 785px" /> </figure> 
+<img src="../uploads/image.png" /> </figure> 
 
 We can see that the given argument is copied to a buffer. The buffer is located at `ebp - local_88h`. &#8216;local_88h&#8217; is actually 0x88 which is 136 in decimal. We can see this by executing `? 0x88`. To execute r2 command from inside Visual Graph mode use `:`&nbsp;and then write the command.
 
@@ -681,7 +681,7 @@ Please post&nbsp;comments, or message me&nbsp;[privately][6]&nbsp;if something i
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img class="wp-image-149 alignnone" src="https://www.megabeets.net/uploads/megabeets_inline_logo.png" alt="megabeets_inline_logo" width="61" height="45" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>
 

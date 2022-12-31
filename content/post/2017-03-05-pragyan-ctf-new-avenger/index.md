@@ -69,11 +69,11 @@ Archive:  image_2.zip
 [image_2.zip] 2_image.jpg password:</pre>
   
   <p>
-    Oh-no, it requires a password. Lets have a look at <em>1_image.jpg.<img data-attachment-id="997" data-permalink="https://www.megabeets.net/pragyan-ctf-new-avenger/1_image/#main" data-orig-file="http://www.megabeets.net/uploads/1_image.jpg" data-orig-size="320,320" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="pragyan_avengers_1_image" data-image-description="" data-image-caption="" data-medium-file="http://www.megabeets.net/uploads/1_image-300x300.jpg" data-large-file="http://www.megabeets.net/uploads/1_image.jpg" decoding="async" loading="lazy" class="aligncenter size-full wp-image-997" src="https://www.megabeets.net/uploads/1_image.jpg" alt="" width="320" height="320" srcset="https://www.megabeets.net/uploads/1_image.jpg 320w, https://www.megabeets.net/uploads/1_image-150x150.jpg 150w, https://www.megabeets.net/uploads/1_image-300x300.jpg 300w" sizes="(max-width: 320px) 100vw, 320px" /><br /> </em>Haha, funny image. Now I want to have a deeper look at this picture, I opened it in hex editor and found the password:
+    Oh-no, it requires a password. Lets have a look at <em>1_image.jpg.<img src="../uploads/1_image.jpg" /><br /> </em>Haha, funny image. Now I want to have a deeper look at this picture, I opened it in hex editor and found the password:
   </p>
   
   <p>
-    <img data-attachment-id="998" data-permalink="https://www.megabeets.net/pragyan-ctf-new-avenger/hex/#main" data-orig-file="http://www.megabeets.net/uploads/hex.png" data-orig-size="624,153" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="hex" data-image-description="" data-image-caption="" data-medium-file="http://www.megabeets.net/uploads/hex-300x74.png" data-large-file="http://www.megabeets.net/uploads/hex.png" decoding="async" loading="lazy" class="aligncenter size-full wp-image-998" src="https://www.megabeets.net/uploads/hex.png" alt="" width="624" height="153" srcset="https://www.megabeets.net/uploads/hex.png 624w, https://www.megabeets.net/uploads/hex-150x37.png 150w, https://www.megabeets.net/uploads/hex-300x74.png 300w" sizes="(max-width: 624px) 100vw, 624px" />
+    <img src="../uploads/hex.png" />
   </p>
   
   <p>
@@ -117,7 +117,7 @@ while True:
   </p>
   
   <p>
-    <img data-attachment-id="1000" data-permalink="https://www.megabeets.net/pragyan-ctf-new-avenger/16_image/#main" data-orig-file="http://www.megabeets.net/uploads/16_image.jpg" data-orig-size="720,580" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="pragyan_avengers16_image" data-image-description="" data-image-caption="" data-medium-file="http://www.megabeets.net/uploads/16_image-300x242.jpg" data-large-file="http://www.megabeets.net/uploads/16_image.jpg" decoding="async" loading="lazy" class="aligncenter size-full wp-image-1000" src="https://www.megabeets.net/uploads/16_image.jpg" alt="" width="720" height="580" srcset="https://www.megabeets.net/uploads/16_image.jpg 720w, https://www.megabeets.net/uploads/16_image-150x121.jpg 150w, https://www.megabeets.net/uploads/16_image-300x242.jpg 300w" sizes="(max-width: 720px) 100vw, 720px" />
+    <img src="../uploads/16_image.jpg" />
   </p>
 </div>
 
@@ -158,7 +158,7 @@ print "Result: ", map_result
 
 I ran the script and got meaningless string: _&#8220;etitgepgztgxhiwthexstgbpc&#8221;. _Damn! I was so sure that the mapping is the solution, how can&#8217;t it be?! All the facts point towards mapping the alphabet. I decided not to give up and ran Caesar Cipher on the string:
 
-<img data-attachment-id="1003" data-permalink="https://www.megabeets.net/pragyan-ctf-new-avenger/peter/#main" data-orig-file="http://www.megabeets.net/uploads/peter.png" data-orig-size="622,270" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="pragyan_aveners_peter" data-image-description="" data-image-caption="" data-medium-file="http://www.megabeets.net/uploads/peter-300x130.png" data-large-file="http://www.megabeets.net/uploads/peter.png" decoding="async" loading="lazy" class="aligncenter size-full wp-image-1003" src="https://www.megabeets.net/uploads/peter.png" alt="" width="622" height="270" srcset="https://www.megabeets.net/uploads/peter.png 622w, https://www.megabeets.net/uploads/peter-150x65.png 150w, https://www.megabeets.net/uploads/peter-300x130.png 300w" sizes="(max-width: 622px) 100vw, 622px" /> 
+<img src="../uploads/peter.png" /> 
 
 YAY! I was so happy to find Spidey is the new Avenger!
 
@@ -170,6 +170,6 @@ The flag was: **pragyanctf{peterparkeristhespiderman}**
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img class="wp-image-149 alignnone" src="https://www.megabeets.net/uploads/megabeets_inline_logo.png" alt="megabeets_inline_logo" width="61" height="45" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>

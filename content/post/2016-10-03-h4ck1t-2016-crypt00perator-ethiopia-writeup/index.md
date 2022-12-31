@@ -64,13 +64,13 @@ No luck. It is not the key, but what is it? It should be meaningful somehow but 
 
 Let&#8217;s go to the _main _function and set a breakpoint before the calling to the _Checker _method:
 
-<img data-attachment-id="498" data-permalink="https://www.megabeets.net/h4ck1t-2016-crypt00perator-ethiopia-writeup/h4ck1t_ethiopia1/#main" data-orig-file="http://www.megabeets.net/uploads/h4ck1t_ethiopia1.png" data-orig-size="1794,384" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="h4ck1t_ethiopia1" data-image-description="" data-image-caption="" data-medium-file="http://www.megabeets.net/uploads/h4ck1t_ethiopia1-300x64.png" data-large-file="http://www.megabeets.net/uploads/h4ck1t_ethiopia1-1024x219.png" decoding="async" loading="lazy" class="size-full wp-image-498 aligncenter" src="http://www.megabeets.net/uploads/h4ck1t_ethiopia1.png" alt="h4ck1t_ethiopia1" width="1794" height="384" srcset="https://www.megabeets.net/uploads/h4ck1t_ethiopia1.png 1794w, https://www.megabeets.net/uploads/h4ck1t_ethiopia1-150x32.png 150w, https://www.megabeets.net/uploads/h4ck1t_ethiopia1-300x64.png 300w, https://www.megabeets.net/uploads/h4ck1t_ethiopia1-768x164.png 768w, https://www.megabeets.net/uploads/h4ck1t_ethiopia1-1024x219.png 1024w, https://www.megabeets.net/uploads/h4ck1t_ethiopia1-800x171.png 800w" sizes="(max-width: 1794px) 100vw, 1794px" /> 
+<img src="../uploads/h4ck1t_ethiopia1.png" /> 
 
 &nbsp;
 
 Now let&#8217;s run the program with that long string as the input and look at the registers. We can see that RAX is pushed to the _Checker_ function. The checker function is comparing RAX with the long string and if RAX==long_string we get the _Allowed_ message. But our RAX is different then the long string although we use the long string as our input what means that the inputted string is being manipulated and then compared to the original long string. So, what is our RAX? Let&#8217;s hover RAX with the cursor.
 
-<img data-attachment-id="499" data-permalink="https://www.megabeets.net/h4ck1t-2016-crypt00perator-ethiopia-writeup/h4ck1t_ethiopia2/#main" data-orig-file="http://www.megabeets.net/uploads/h4ck1t_ethiopia2.png" data-orig-size="861,225" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="h4ck1t_ethiopia2" data-image-description="" data-image-caption="" data-medium-file="http://www.megabeets.net/uploads/h4ck1t_ethiopia2-300x78.png" data-large-file="http://www.megabeets.net/uploads/h4ck1t_ethiopia2.png" decoding="async" loading="lazy" class="size-full wp-image-499 aligncenter" src="http://www.megabeets.net/uploads/h4ck1t_ethiopia2.png" alt="h4ck1t_ethiopia2" width="861" height="225" srcset="https://www.megabeets.net/uploads/h4ck1t_ethiopia2.png 861w, https://www.megabeets.net/uploads/h4ck1t_ethiopia2-150x39.png 150w, https://www.megabeets.net/uploads/h4ck1t_ethiopia2-300x78.png 300w, https://www.megabeets.net/uploads/h4ck1t_ethiopia2-768x201.png 768w, https://www.megabeets.net/uploads/h4ck1t_ethiopia2-800x209.png 800w" sizes="(max-width: 861px) 100vw, 861px" /> 
+<img src="../uploads/h4ck1t_ethiopia2.png" /> 
 
 &nbsp;
 
@@ -120,7 +120,7 @@ If you have any questions feel free to ask and I&#8217;ll explain more.
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img class="wp-image-149 alignnone" src="https://www.megabeets.net/uploads/megabeets_inline_logo.png" alt="megabeets_inline_logo" width="61" height="45" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>
 

@@ -76,7 +76,7 @@ tags:
   </p>
   
   <p>
-    <img data-attachment-id="429" data-permalink="https://www.megabeets.net/csaw-2016-gametime-writeup/gametime_1/#main" data-orig-file="http://www.megabeets.net/uploads/gametime_1.png" data-orig-size="840,416" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="gametime_1" data-image-description="" data-image-caption="" data-medium-file="http://www.megabeets.net/uploads/gametime_1-300x149.png" data-large-file="http://www.megabeets.net/uploads/gametime_1.png" decoding="async" loading="lazy" class="wp-image-429 size-full aligncenter" src="http://www.megabeets.net/uploads/gametime_1.png" alt="gametime_1" width="840" height="416" srcset="https://www.megabeets.net/uploads/gametime_1.png 840w, https://www.megabeets.net/uploads/gametime_1-150x74.png 150w, https://www.megabeets.net/uploads/gametime_1-300x149.png 300w, https://www.megabeets.net/uploads/gametime_1-768x380.png 768w, https://www.megabeets.net/uploads/gametime_1-800x396.png 800w" sizes="(max-width: 840px) 100vw, 840px" />
+    <img src="../uploads/gametime_1.png" />
   </p>
   
   <p>
@@ -84,7 +84,7 @@ tags:
   </p>
   
   <p>
-    <img data-attachment-id="430" data-permalink="https://www.megabeets.net/csaw-2016-gametime-writeup/gametime_2/#main" data-orig-file="http://www.megabeets.net/uploads/gametime_2.png" data-orig-size="841,378" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="gametime_2" data-image-description="" data-image-caption="" data-medium-file="http://www.megabeets.net/uploads/gametime_2-300x135.png" data-large-file="http://www.megabeets.net/uploads/gametime_2.png" decoding="async" loading="lazy" class="wp-image-430 size-full aligncenter" src="http://www.megabeets.net/uploads/gametime_2.png" alt="gametime_2" width="841" height="378" srcset="https://www.megabeets.net/uploads/gametime_2.png 841w, https://www.megabeets.net/uploads/gametime_2-150x67.png 150w, https://www.megabeets.net/uploads/gametime_2-300x135.png 300w, https://www.megabeets.net/uploads/gametime_2-768x345.png 768w, https://www.megabeets.net/uploads/gametime_2-800x360.png 800w" sizes="(max-width: 841px) 100vw, 841px" />
+    <img src="../uploads/gametime_2.png" />
   </p>
 </div>
 
@@ -94,6 +94,6 @@ The key is: _(no5c30416d6cf52638460377995c6a8cf5)_
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img class="wp-image-149 alignnone" src="https://www.megabeets.net/uploads/megabeets_inline_logo.png" alt="megabeets_inline_logo" width="61" height="45" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>

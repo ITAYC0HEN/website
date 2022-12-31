@@ -48,11 +48,11 @@ Okay, it&#8217;s an ELF file. Lets execute it:
 
 Okay let&#8217;s disassemble the file and look at the functions call tree:
 
-<img data-attachment-id="1032" data-permalink="https://www.megabeets.net/pragyan-ctf-roller-coaster-ride/call_tree/#main" data-orig-file="http://www.megabeets.net/uploads/call_tree.png" data-orig-size="292,716" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="call_tree" data-image-description="" data-image-caption="" data-medium-file="http://www.megabeets.net/uploads/call_tree-122x300.png" data-large-file="http://www.megabeets.net/uploads/call_tree.png" decoding="async" loading="lazy" class="aligncenter size-full wp-image-1032" src="https://www.megabeets.net/uploads/call_tree.png" alt="" width="292" height="716" srcset="https://www.megabeets.net/uploads/call_tree.png 292w, https://www.megabeets.net/uploads/call_tree-61x150.png 61w, https://www.megabeets.net/uploads/call_tree-122x300.png 122w" sizes="(max-width: 292px) 100vw, 292px" /> 
+<img src="../uploads/call_tree.png" /> 
 
 Oh, we have lot of functions. All of them looks something like this:
 
-<img data-attachment-id="1033" data-permalink="https://www.megabeets.net/pragyan-ctf-roller-coaster-ride/f2_example/#main" data-orig-file="http://www.megabeets.net/uploads/f2_example.png" data-orig-size="345,355" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="f2_example" data-image-description="" data-image-caption="" data-medium-file="http://www.megabeets.net/uploads/f2_example-292x300.png" data-large-file="http://www.megabeets.net/uploads/f2_example.png" decoding="async" loading="lazy" class="aligncenter size-full wp-image-1033" src="https://www.megabeets.net/uploads/f2_example.png" alt="" width="345" height="355" srcset="https://www.megabeets.net/uploads/f2_example.png 345w, https://www.megabeets.net/uploads/f2_example-146x150.png 146w, https://www.megabeets.net/uploads/f2_example-292x300.png 292w" sizes="(max-width: 345px) 100vw, 345px" /> 
+<img src="../uploads/f2_example.png" /> 
 
 An hex value is moved to r9 (smetimes r8) and then xord with hex value that was moved to rax. I manually xord all the values by order of calls, turn the results to characters and end up with the flag:
 
@@ -64,7 +64,7 @@ The flag was **pragyanctf{r01l+th3m_411-up/@nd~4w@y}**
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img class="wp-image-149 alignnone" src="https://www.megabeets.net/uploads/megabeets_inline_logo.png" alt="megabeets_inline_logo" width="61" height="45" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>
 

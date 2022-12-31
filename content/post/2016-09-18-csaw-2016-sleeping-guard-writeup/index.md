@@ -101,11 +101,11 @@ with open('decrypted.png', 'w') as file_:
 
 And you&#8217;ll get the image and the flag:
 
-<img data-attachment-id="400" data-permalink="https://www.megabeets.net/csaw-2016-sleeping-guard-writeup/sleping_guard/#main" data-orig-file="http://www.megabeets.net/uploads/sleping_guard.png" data-orig-size="508,168" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="sleping_guard" data-image-description="" data-image-caption="" data-medium-file="http://www.megabeets.net/uploads/sleping_guard-300x99.png" data-large-file="http://www.megabeets.net/uploads/sleping_guard.png" decoding="async" loading="lazy" class="size-full wp-image-400 aligncenter" src="http://www.megabeets.net/uploads/sleping_guard.png" alt="sleping_guard" width="508" height="168" srcset="https://www.megabeets.net/uploads/sleping_guard.png 508w, https://www.megabeets.net/uploads/sleping_guard-150x50.png 150w, https://www.megabeets.net/uploads/sleping_guard-300x99.png 300w" sizes="(max-width: 508px) 100vw, 508px" />  
+<img src="../uploads/sleping_guard.png" />  
 
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img class="wp-image-149 alignnone" src="https://www.megabeets.net/uploads/megabeets_inline_logo.png" alt="megabeets_inline_logo" width="61" height="45" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>

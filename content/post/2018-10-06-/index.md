@@ -45,11 +45,11 @@ E36RGTbCE4LDtyLi97l9lSFoR7xVMKGN.exe
 
 Upon opening one of them in [Cutter][1] we can see the following information:
 
-[<img data-attachment-id="1569" data-permalink="https://www.megabeets.net/?attachment_id=1569#main" data-orig-file="http://www.megabeets.net/uploads/dashboard.png" data-orig-size="1180,749" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="fleggo_cutter_dashboard" data-image-description="" data-image-caption="" data-medium-file="http://www.megabeets.net/uploads/dashboard-300x190.png" data-large-file="http://www.megabeets.net/uploads/dashboard-1024x650.png" decoding="async" loading="lazy" class="aligncenter size-large wp-image-1569" src="https://www.megabeets.net/uploads/dashboard-1024x650.png" alt="" width="687" height="436" srcset="https://www.megabeets.net/uploads/dashboard-1024x650.png 1024w, https://www.megabeets.net/uploads/dashboard-150x95.png 150w, https://www.megabeets.net/uploads/dashboard-300x190.png 300w, https://www.megabeets.net/uploads/dashboard-768x487.png 768w, https://www.megabeets.net/uploads/dashboard-800x508.png 800w, https://www.megabeets.net/uploads/dashboard.png 1180w" sizes="(max-width: 687px) 100vw, 687px" />][2]
+[<img src="../uploads/dashboard-1024x650.png" />][2]
 
 As we can see, this is a rather tiny PE32 file, nothing too special. Let&#8217;s have a look at the `main()` function of the binary.
 
-[<img data-attachment-id="1570" data-permalink="https://www.megabeets.net/?attachment_id=1570#main" data-orig-file="http://www.megabeets.net/uploads/fleggo_cutter_main.png" data-orig-size="1122,783" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="fleggo_cutter_main" data-image-description="" data-image-caption="" data-medium-file="http://www.megabeets.net/uploads/fleggo_cutter_main-300x209.png" data-large-file="http://www.megabeets.net/uploads/fleggo_cutter_main-1024x715.png" decoding="async" loading="lazy" class="aligncenter size-large wp-image-1570" src="https://www.megabeets.net/uploads/fleggo_cutter_main-1024x715.png" alt="" width="687" height="480" srcset="https://www.megabeets.net/uploads/fleggo_cutter_main-1024x715.png 1024w, https://www.megabeets.net/uploads/fleggo_cutter_main-150x105.png 150w, https://www.megabeets.net/uploads/fleggo_cutter_main-300x209.png 300w, https://www.megabeets.net/uploads/fleggo_cutter_main-768x536.png 768w, https://www.megabeets.net/uploads/fleggo_cutter_main-800x558.png 800w, https://www.megabeets.net/uploads/fleggo_cutter_main.png 1122w" sizes="(max-width: 687px) 100vw, 687px" />][3]
+[<img src="../uploads/fleggo_cutter_main-1024x715.png" />][3]
 
 On the first block, there are two function calls. The first is 0x4012d0 which is responsible for initializing a global array and the second is 0x401050 which is more interesting.
 
@@ -72,7 +72,7 @@ for file in FLEGGO/*; do strings -e l $file | tail -1 | wine $file; done
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img class="wp-image-149 alignnone" src="https://www.megabeets.net/uploads/megabeets_inline_logo.png" alt="megabeets_inline_logo" width="61" height="45" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>
 

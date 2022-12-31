@@ -43,7 +43,7 @@ So foremost found several files in the PCAP from several sources like http and f
 
 I opened the rar archive and found a file named &#8216;key.enc&#8217; which contained &#8220;Salted_<GIBBERISH>&#8221; . I opened it in hex editor:
 
-<img data-attachment-id="596" data-permalink="https://www.megabeets.net/h4ck1t-2016-v01c3_0f_7h3_fu7ur3-australia-writeup/h4ck1t_australia_1/#main" data-orig-file="http://www.megabeets.net/uploads/h4ck1t_australia_1.png" data-orig-size="646,153" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="h4ck1t_australia_1" data-image-description="" data-image-caption="" data-medium-file="http://www.megabeets.net/uploads/h4ck1t_australia_1-300x71.png" data-large-file="http://www.megabeets.net/uploads/h4ck1t_australia_1.png" decoding="async" loading="lazy" class="alignnone size-full wp-image-596" src="http://www.megabeets.net/uploads/h4ck1t_australia_1.png" alt="h4ck1t_australia_1" width="646" height="153" srcset="https://www.megabeets.net/uploads/h4ck1t_australia_1.png 646w, https://www.megabeets.net/uploads/h4ck1t_australia_1-150x36.png 150w, https://www.megabeets.net/uploads/h4ck1t_australia_1-300x71.png 300w" sizes="(max-width: 646px) 100vw, 646px" /> 
+<img src="../uploads/h4ck1t_australia_1.png" /> 
 
 At the first, as the name says, I thought I found the key of some encryption and now I need to find the encrypted file and the cipher. But in a second thought I said to myself that &#8216;*.enc&#8217; is usually for the encrypted files! So that file isn&#8217;t a key, it&#8217;s encrypted and we need to decrypt it. But what is the key and the cipher?
 
@@ -86,7 +86,7 @@ Pseudo code:
 
 And how it was really looks like:
 
-<img data-attachment-id="597" data-permalink="https://www.megabeets.net/h4ck1t-2016-v01c3_0f_7h3_fu7ur3-australia-writeup/h4ck1t_australia_2/#main" data-orig-file="http://www.megabeets.net/uploads/h4ck1t_australia_2.jpg" data-orig-size="769,812" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="h4ck1t_australia_2" data-image-description="" data-image-caption="" data-medium-file="http://www.megabeets.net/uploads/h4ck1t_australia_2-284x300.jpg" data-large-file="http://www.megabeets.net/uploads/h4ck1t_australia_2.jpg" decoding="async" loading="lazy" class="alignnone size-full wp-image-597" src="http://www.megabeets.net/uploads/h4ck1t_australia_2.jpg" alt="h4ck1t_australia_2" width="769" height="812" srcset="https://www.megabeets.net/uploads/h4ck1t_australia_2.jpg 769w, https://www.megabeets.net/uploads/h4ck1t_australia_2-142x150.jpg 142w, https://www.megabeets.net/uploads/h4ck1t_australia_2-284x300.jpg 284w, https://www.megabeets.net/uploads/h4ck1t_australia_2-768x811.jpg 768w" sizes="(max-width: 769px) 100vw, 769px" />  
+<img src="../uploads/h4ck1t_australia_2.jpg" />  
 it took 30 minutes to run.  
 BUT FAILED. No flag.
 
@@ -104,7 +104,7 @@ So the hardest part was actually to figure out the exact keyphrase, the rest was
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img class="wp-image-149 alignnone" src="https://www.megabeets.net/uploads/megabeets_inline_logo.png" alt="megabeets_inline_logo" width="61" height="45" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>
 

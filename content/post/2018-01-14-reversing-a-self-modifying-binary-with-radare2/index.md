@@ -22,7 +22,7 @@ This article is aimed to those of you who are familiar with radare2. If you are 
 
 So, without further ado, let&#8217;s dig into the binary.
 
-[<img data-attachment-id="1385" data-permalink="https://www.megabeets.net/reversing-a-self-modifying-binary-with-radare2/packedup_cover/#main" data-orig-file="http://www.megabeets.net/uploads/packedup_cover.png" data-orig-size="880,440" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="packedup_cover" data-image-description="" data-image-caption="" data-medium-file="http://www.megabeets.net/uploads/packedup_cover-300x150.png" data-large-file="http://www.megabeets.net/uploads/packedup_cover.png" decoding="async" loading="lazy" class="aligncenter wp-image-1385 size-full" src="https://www.megabeets.net/uploads/packedup_cover.png" alt="" width="880" height="440" srcset="https://www.megabeets.net/uploads/packedup_cover.png 880w, https://www.megabeets.net/uploads/packedup_cover-150x75.png 150w, https://www.megabeets.net/uploads/packedup_cover-300x150.png 300w, https://www.megabeets.net/uploads/packedup_cover-768x384.png 768w, https://www.megabeets.net/uploads/packedup_cover-800x400.png 800w" sizes="(max-width: 880px) 100vw, 880px" />][3]
+[<img src="../uploads/packedup_cover.png" />][3]
 
 &nbsp;
 
@@ -585,7 +585,7 @@ As always, please post comments to this post or message me [privately][17] if
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img class="wp-image-149 alignnone" src="https://www.megabeets.net/uploads/megabeets_inline_logo.png" alt="megabeets_inline_logo" width="61" height="45" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>
 

@@ -31,7 +31,7 @@ In this part of the series we&#8217;ll focus on exploiting a simple binary. rada
 
 It&#8217;s really important to be familiar with these topics because I won&#8217;t get deep into them, or even won&#8217;t briefly explain some of them.
 
-## [<img data-attachment-id="1198" data-permalink="https://www.megabeets.net/a-journey-into-radare-2-part-2/r2_part1_2/#main" data-orig-file="http://www.megabeets.net/uploads/r2_part1_2-e1504441308664.png" data-orig-size="500,261" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="r2_part2" data-image-description="" data-image-caption="" data-medium-file="http://www.megabeets.net/uploads/r2_part1_2-300x157.png" data-large-file="http://www.megabeets.net/uploads/r2_part1_2-e1504441308664.png" decoding="async" loading="lazy" class="aligncenter wp-image-1198 size-full" src="https://www.megabeets.net/uploads/r2_part1_2-e1504441308664.png" alt="" width="500" height="261" />][8]
+## [<img src="../uploads/r2_part1_2-e1504441308664.png" />][8]
 
 ## <span class="ez-toc-section" id="Updating_radare2"></span>Updating radare2<span class="ez-toc-section-end"></span>
 
@@ -204,11 +204,11 @@ Now let&#8217;s enter the Visual Graph Mode by pressing  `VV`. As explained in 
 
 Use `?` to list all the commands of Visual Graph mode and **make sure not to miss the `R` command 😉**
 
-[<img data-attachment-id="1201" data-permalink="https://www.megabeets.net/a-journey-into-radare-2-part-2/mainsym/#main" data-orig-file="http://www.megabeets.net/uploads/mainsym.png" data-orig-size="479,569" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="mainsym" data-image-description="" data-image-caption="" data-medium-file="http://www.megabeets.net/uploads/mainsym-253x300.png" data-large-file="http://www.megabeets.net/uploads/mainsym.png" decoding="async" loading="lazy" class="aligncenter size-full wp-image-1201" src="https://www.megabeets.net/uploads/mainsym.png" alt="" width="479" height="569" srcset="https://www.megabeets.net/uploads/mainsym.png 479w, https://www.megabeets.net/uploads/mainsym-126x150.png 126w, https://www.megabeets.net/uploads/mainsym-253x300.png 253w" sizes="(max-width: 479px) 100vw, 479px" />][15]
+[<img src="../uploads/mainsym.png" />][15]
 
 `main()` is the function where our program prompts us for input (via `scanf()` ) and then passes this input to `sym.beet` . By pressing `oc` we can jump to the function `beet()` which handles our input:
 
-[<img data-attachment-id="1202" data-permalink="https://www.megabeets.net/a-journey-into-radare-2-part-2/beetsym/#main" data-orig-file="http://www.megabeets.net/uploads/beetsym.png" data-orig-size="473,567" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="beetsym" data-image-description="" data-image-caption="" data-medium-file="http://www.megabeets.net/uploads/beetsym-250x300.png" data-large-file="http://www.megabeets.net/uploads/beetsym.png" decoding="async" loading="lazy" class="aligncenter size-full wp-image-1202" src="https://www.megabeets.net/uploads/beetsym.png" alt="" width="473" height="567" srcset="https://www.megabeets.net/uploads/beetsym.png 473w, https://www.megabeets.net/uploads/beetsym-125x150.png 125w, https://www.megabeets.net/uploads/beetsym-250x300.png 250w" sizes="(max-width: 473px) 100vw, 473px" />][16]
+[<img src="../uploads/beetsym.png" />][16]
 
 We can see that the user input `[arg_8h]` is copied to a buffer (`[local_88h]`) and then, just as we saw in the previous post, the string `Megabeets` is encrypted with `rot13` and the result is then compared with our input. We saw that before so I won&#8217;t explain it further.
 
@@ -218,7 +218,7 @@ Did you see something fishy? The size of our input is never checked and the inpu
 
 Now that we have found the vulnerable function, we need to gently craft a payload to exploit it. Our goal is simply to get a shell on the system. First, we need to validate that there&#8217;s indeed a vulnerable function and then, we&#8217;ll find the offset at which our payload is overriding the stack.
 
-[<img data-attachment-id="1138" data-permalink="https://www.megabeets.net/a-journey-into-radare-2-part-2/tumblr_m5vxpy8cs41qfoh4t/#main" data-orig-file="http://www.megabeets.net/uploads/tumblr_m5vxpy8Cs41qfoh4t.gif" data-orig-size="280,210" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="r2_0x2_bofAAAA" data-image-description="" data-image-caption="" data-medium-file="http://www.megabeets.net/uploads/tumblr_m5vxpy8Cs41qfoh4t.gif" data-large-file="http://www.megabeets.net/uploads/tumblr_m5vxpy8Cs41qfoh4t.gif" decoding="async" loading="lazy" class="wp-image-1138 size-full aligncenter" src="https://www.megabeets.net/uploads/tumblr_m5vxpy8Cs41qfoh4t.gif" alt="" width="280" height="210" />][17]
+[<img src="../uploads/tumblr_m5vxpy8Cs41qfoh4t.gif" />][17]
 
 We&#8217;ll use a tool in radare&#8217;s framework called `ragg2`, which allows us to generate a cyclic pattern called [De Bruijn Sequence][18] and check the exact offset where our payload overrides the buffer.
 
@@ -939,7 +939,7 @@ if __name__ == "__main__":
                     
                     <div class="nf-post-footer">
                       <p style="text-align: right">
-                        <a href="https://www.megabeets.net/about.html#vegan"><img class="wp-image-149 alignnone" src="https://www.megabeets.net/uploads/megabeets_inline_logo.png" alt="megabeets_inline_logo" width="61" height="45" />Eat Veggies</a>
+                        <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
                       </p>
                     </div>
 

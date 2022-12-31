@@ -38,7 +38,7 @@ Submit without any tags
 
 At first I though that &#8220;#kdudpeh&#8221; is the flag but it isn&#8217;t, neither &#8220;kdudpeh&#8221;. The name of the person in the question is Shal, looking like SHA1, and the binary says &#8220;submit without any tags&#8221;, so &#8220;**hashtag**kdudpeh&#8221; without the tag is just &#8220;**hash**kdudpeh&#8221;. So I tried to submit the result of SHA1(&#8220;kdudpeh&#8221;) as answer but failed again. Then I tried Caesar cipher on &#8220;kdudpeh&#8221; and find &#8220;**harambe&#8221;.**
 
-<img data-attachment-id="982" data-permalink="https://www.megabeets.net/pragyan-ctf-answer-everything/answer_harambe/#main" data-orig-file="http://www.megabeets.net/uploads/answer_harambe.jpg" data-orig-size="783,983" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="answer_harambe" data-image-description="" data-image-caption="" data-medium-file="http://www.megabeets.net/uploads/answer_harambe-239x300.jpg" data-large-file="http://www.megabeets.net/uploads/answer_harambe.jpg" decoding="async" loading="lazy" class="aligncenter size-full wp-image-982" src="https://www.megabeets.net/uploads/answer_harambe.jpg" alt="" width="783" height="983" srcset="https://www.megabeets.net/uploads/answer_harambe.jpg 783w, https://www.megabeets.net/uploads/answer_harambe-119x150.jpg 119w, https://www.megabeets.net/uploads/answer_harambe-239x300.jpg 239w, https://www.megabeets.net/uploads/answer_harambe-768x964.jpg 768w" sizes="(max-width: 783px) 100vw, 783px" /> 
+<img src="../uploads/answer_harambe.jpg" /> 
 
 So I again tried submit the flag, this time with Sha1(&#8220;harabe&#8221;).
 
@@ -48,6 +48,6 @@ The flag was **pragyanctf{31a0d851ea10ad886ad4e99ed05892de06998ab9}Â **which isÂ
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img class="wp-image-149 alignnone" src="https://www.megabeets.net/uploads/megabeets_inline_logo.png" alt="megabeets_inline_logo" width="61" height="45" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>

@@ -20,7 +20,7 @@ While all these tools are great, and although Radare2 was showed there (and oh b
 
 &#8220;Binary Patching&#8221;, for those the term is unfamiliar, is the process of applying small changes and modifications to a binary file, usually in order to change its behavior. By modifying data or code, the user can change certain values in the program or specific instructions, and adjust the binary to their desired outcome.
 
-[<img data-attachment-id="1668" data-permalink="https://www.megabeets.net/5-ways-to-patch-binaries-with-cutter/patch_cover/#main" data-orig-file="http://www.megabeets.net/uploads/patch_cover.png" data-orig-size="1000,500" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="patch_cover" data-image-description="" data-image-caption="" data-medium-file="http://www.megabeets.net/uploads/patch_cover-300x150.png" data-large-file="http://www.megabeets.net/uploads/patch_cover.png" decoding="async" loading="lazy" class="aligncenter wp-image-1668 size-full" src="https://www.megabeets.net/uploads/patch_cover.png" alt="5 Ways to patch binaries with Cutter - banner" width="1000" height="500" srcset="https://www.megabeets.net/uploads/patch_cover.png 1000w, https://www.megabeets.net/uploads/patch_cover-300x150.png 300w, https://www.megabeets.net/uploads/patch_cover-150x75.png 150w, https://www.megabeets.net/uploads/patch_cover-768x384.png 768w, https://www.megabeets.net/uploads/patch_cover-800x400.png 800w" sizes="(max-width: 1000px) 100vw, 1000px" />][3]
+[<img src="../uploads/patch_cover.png" />][3]
 
 **_Wanna skip the boring parts? Jump straight to the methods:_**
 
@@ -79,7 +79,7 @@ Let&#8217;s open Cutter and select the license_1 binary from our computer. On th
 
 Go to the `main` function by choosing it from the Functions list on the side or by typing &#8220;main&#8221; on the navigation-box at the top of the interface. The \`main()\` function is very small and contains all the logic of the program.
 
-[<img data-attachment-id="1640" data-permalink="https://www.megabeets.net/5-ways-to-patch-binaries-with-cutter/patching_main_function/#main" data-orig-file="http://www.megabeets.net/uploads/patching_main_function-4.png" data-orig-size="1108,908" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="patching_main_function" data-image-description="" data-image-caption="" data-medium-file="http://www.megabeets.net/uploads/patching_main_function-4-300x246.png" data-large-file="http://www.megabeets.net/uploads/patching_main_function-4-1024x839.png" decoding="async" loading="lazy" class="aligncenter size-large wp-image-1640" src="https://www.megabeets.net/uploads/patching_main_function-4-1024x839.png" alt="" width="687" height="563" srcset="https://www.megabeets.net/uploads/patching_main_function-4-1024x839.png 1024w, https://www.megabeets.net/uploads/patching_main_function-4-300x246.png 300w, https://www.megabeets.net/uploads/patching_main_function-4-150x123.png 150w, https://www.megabeets.net/uploads/patching_main_function-4-768x629.png 768w, https://www.megabeets.net/uploads/patching_main_function-4-800x656.png 800w, https://www.megabeets.net/uploads/patching_main_function-4.png 1108w" sizes="(max-width: 687px) 100vw, 687px" />][13]
+[<img src="../uploads/patching_main_function-4-1024x839.png" />][13]
 
 The function \`main()\` only has 6 blocks which makes it very easy for us to find the place we want to patch. And indeed, we see the block with `strcmp` comparison and we want to patch the conditional jump in a way that it will continue to the success message. By modifying \`jne 0x400617\` (**j**ump **n**ot **e**qual) to \`je\` (**j**ump **e**qual) we will get the success message as long as we do not give the right key. Muhahah.
 
@@ -90,7 +90,7 @@ The function \`main()\` only has 6 blocks which makes it very easy for us to fin
 
 The easiest and probably the most intuitive way is to right-click the \`jne\` instruction and choose &#8220;Edit -> Reverse jump&#8221;.
 
-[<img data-attachment-id="1643" data-permalink="https://www.megabeets.net/5-ways-to-patch-binaries-with-cutter/patching_reverse_jump/#main" data-orig-file="http://www.megabeets.net/uploads/patching_reverse_jump.gif" data-orig-size="754,572" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="patching_reverse_jump" data-image-description="" data-image-caption="" data-medium-file="http://www.megabeets.net/uploads/patching_reverse_jump-300x228.gif" data-large-file="http://www.megabeets.net/uploads/patching_reverse_jump.gif" decoding="async" loading="lazy" class="aligncenter size-full wp-image-1643" src="https://www.megabeets.net/uploads/patching_reverse_jump.gif" alt="" width="754" height="572" />][14]
+[<img src="../uploads/patching_reverse_jump.gif" />][14]
 
 Cutter is smart and can detect for us the inversed instruction for the condition. In this case, from \`jne\` to \`je\` and vice versa.
 
@@ -111,7 +111,7 @@ If you downloaded the official release version, your Cutter should come with an 
 
 Open the decompiler window from &#8220;Windows -> Decompiler&#8221; and seek to the \`main\` function. Now click on the line where it says `if (iVar1 == 0) {` and again go to &#8220;Edit > Reverse jump.
 
-[<img data-attachment-id="1648" data-permalink="https://www.megabeets.net/5-ways-to-patch-binaries-with-cutter/patching_decompiler_reverse_jump/#main" data-orig-file="http://www.megabeets.net/uploads/patching_decompiler_reverse_jump.gif" data-orig-size="570,495" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="patching_decompiler_reverse_jump" data-image-description="" data-image-caption="" data-medium-file="http://www.megabeets.net/uploads/patching_decompiler_reverse_jump-300x261.gif" data-large-file="http://www.megabeets.net/uploads/patching_decompiler_reverse_jump.gif" decoding="async" loading="lazy" class="aligncenter size-full wp-image-1648" src="https://www.megabeets.net/uploads/patching_decompiler_reverse_jump.gif" alt="" width="570" height="495" />][16]
+[<img src="../uploads/patching_decompiler_reverse_jump.gif" />][16]
 
 This shows the great power of using the decompiler in Cutter.
 
@@ -146,14 +146,14 @@ After:
   In this method, we will change the instructions itself from `jne` to <code>je</code>. Again, right-click on the condition and this time choose &#8220;Edit -> Instruction&#8221;. Then simply change the text from `jne 0x400617` to `je 0x400617`. Cutter will automatically fetch a preview of the bytes that are constructing the instruction. Press Ok.
 </p>
 
-[<img data-attachment-id="1651" data-permalink="https://www.megabeets.net/5-ways-to-patch-binaries-with-cutter/patching_edit_instruction_dialog/#main" data-orig-file="http://www.megabeets.net/uploads/patching_edit_instruction_dialog.png" data-orig-size="456,198" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="patching_edit_instruction_dialog" data-image-description="" data-image-caption="" data-medium-file="http://www.megabeets.net/uploads/patching_edit_instruction_dialog-300x130.png" data-large-file="http://www.megabeets.net/uploads/patching_edit_instruction_dialog.png" decoding="async" loading="lazy" class="aligncenter size-full wp-image-1651" src="https://www.megabeets.net/uploads/patching_edit_instruction_dialog.png" alt="" width="456" height="198" srcset="https://www.megabeets.net/uploads/patching_edit_instruction_dialog.png 456w, https://www.megabeets.net/uploads/patching_edit_instruction_dialog-300x130.png 300w, https://www.megabeets.net/uploads/patching_edit_instruction_dialog-150x65.png 150w" sizes="(max-width: 456px) 100vw, 456px" />][17]
+[<img src="../uploads/patching_edit_instruction_dialog.png" />][17]
 
 ### <span class="ez-toc-section" id="Method_5_Assemble_the_bytes"></span><a id="method-5"></a>  
 **Method 5: Assemble the bytes**<span class="ez-toc-section-end"></span>
 
 If you are tired of assembly and want to go back to the old days of bytes-patching and modify the bytes themselves &#8211; you can! Simply go to &#8220;Edit -> Bytes&#8221; and change from \`750c\` to \`740c\` (from \`jne\` to `je`). Cutter will show you a preview of the instruction to make sure you are not making some mess.
 
-[<img data-attachment-id="1652" data-permalink="https://www.megabeets.net/5-ways-to-patch-binaries-with-cutter/patching_edit_bytes_dialog/#main" data-orig-file="http://www.megabeets.net/uploads/patching_edit_bytes_dialog.png" data-orig-size="456,198" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="patching_edit_bytes_dialog" data-image-description="" data-image-caption="" data-medium-file="http://www.megabeets.net/uploads/patching_edit_bytes_dialog-300x130.png" data-large-file="http://www.megabeets.net/uploads/patching_edit_bytes_dialog.png" decoding="async" loading="lazy" class="aligncenter size-full wp-image-1652" src="https://www.megabeets.net/uploads/patching_edit_bytes_dialog.png" alt="" width="456" height="198" srcset="https://www.megabeets.net/uploads/patching_edit_bytes_dialog.png 456w, https://www.megabeets.net/uploads/patching_edit_bytes_dialog-300x130.png 300w, https://www.megabeets.net/uploads/patching_edit_bytes_dialog-150x65.png 150w" sizes="(max-width: 456px) 100vw, 456px" />][18]
+[<img src="../uploads/patching_edit_bytes_dialog.png" />][18]
 
  
 
@@ -172,7 +172,7 @@ In this article, we learned a little bit more about this great tool called Cutte
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img class="wp-image-149 alignnone" src="https://www.megabeets.net/uploads/megabeets_inline_logo.png" alt="megabeets_inline_logo" width="61" height="45" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>
 

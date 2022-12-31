@@ -26,7 +26,7 @@ The initial idea was to extract the flag using boolean queries of Yara rules. To
 
 &#8220;p4{&#8221; is the known prefix for flags in this CTF, and indeed, this simple rule showed that the concept is potentially possible and we can now start slowly retrieving the flag. <figure class="wp-block-image size-large">
 
-<img data-attachment-id="1701" data-permalink="https://www.megabeets.net/?attachment_id=1701#main" data-orig-file="http://www.megabeets.net/uploads/mquery-screenshot.png" data-orig-size="911,604" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="mquery-screenshot" data-image-description="" data-image-caption="" data-medium-file="http://www.megabeets.net/uploads/mquery-screenshot-300x199.png" data-large-file="http://www.megabeets.net/uploads/mquery-screenshot.png" decoding="async" loading="lazy" width="911" height="604" src="https://www.megabeets.net/uploads/mquery-screenshot.png" alt="" class="wp-image-1701" srcset="https://www.megabeets.net/uploads/mquery-screenshot.png 911w, https://www.megabeets.net/uploads/mquery-screenshot-300x199.png 300w, https://www.megabeets.net/uploads/mquery-screenshot-150x99.png 150w, https://www.megabeets.net/uploads/mquery-screenshot-768x509.png 768w, https://www.megabeets.net/uploads/mquery-screenshot-800x530.png 800w" sizes="(max-width: 911px) 100vw, 911px" /> </figure> 
+<img src="../uploads/mquery-screenshot.png" /> </figure> 
 
 In order to retrieve the rest of the flag, we can slowly &#8220;brute force&#8221; it character by character, hoping there will not be any &#8220;brute force&#8221; mitigation or similar limitation. Since I am familiar with the project, I know it has a REST API we can use for our help. For those of you who weren&#8217;t familiar with _mquery_ before, it can be figured out from the [tests][3].
 
@@ -115,7 +115,7 @@ One of the less-familiar features of Hybrid Analysis is their super-fast Yara sc
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img class="wp-image-149 alignnone" src="https://www.megabeets.net/uploads/megabeets_inline_logo.png" alt="megabeets_inline_logo" width="61" height="45" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>
 

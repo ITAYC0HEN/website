@@ -44,7 +44,7 @@ slack:~$</pre>
 
 Look at the highlighted rows. We can see that we are in _Slack Linux 0.99pl12_ machine, that _flag.txt_ is on the root folder and that only _root_ can read it. Before trying anything special or complicated, lets search online for known exploit to this version.
 
-[<img data-attachment-id="795" data-permalink="https://www.megabeets.net/33c3-ctf-0x90s-called-writeup/90s_called_1/#main" data-orig-file="http://www.megabeets.net/uploads/90s_called_1.png" data-orig-size="792,249" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="90s_called_1" data-image-description="" data-image-caption="" data-medium-file="http://www.megabeets.net/uploads/90s_called_1-300x94.png" data-large-file="http://www.megabeets.net/uploads/90s_called_1.png" decoding="async" loading="lazy" class="aligncenter size-full wp-image-795" src="http://www.megabeets.net/uploads/90s_called_1.png" alt="90s_called_1" width="792" height="249" srcset="https://www.megabeets.net/uploads/90s_called_1.png 792w, https://www.megabeets.net/uploads/90s_called_1-150x47.png 150w, https://www.megabeets.net/uploads/90s_called_1-300x94.png 300w, https://www.megabeets.net/uploads/90s_called_1-768x241.png 768w" sizes="(max-width: 792px) 100vw, 792px" />][3]Oh, this was easy! There&#8217;s a known exploit available on _Github_.
+[<img src="../uploads/90s_called_1.png" />][3]Oh, this was easy! There&#8217;s a known exploit available on _Github_.
 
 
 
@@ -69,7 +69,7 @@ I’ll be happy to read in the comments how the challenge was for you.
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img class="wp-image-149 alignnone" src="https://www.megabeets.net/uploads/megabeets_inline_logo.png" alt="megabeets_inline_logo" width="61" height="45" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>
 

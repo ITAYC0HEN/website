@@ -77,7 +77,7 @@ tags:
   </p>
   
   <p>
-    <img data-attachment-id="442" data-permalink="https://www.megabeets.net/csaw-2016-key-writeup/asm_key_csaw/#main" data-orig-file="http://www.megabeets.net/uploads/asm_key_csaw.png" data-orig-size="1683,417" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="asm_key_csaw" data-image-description="" data-image-caption="" data-medium-file="http://www.megabeets.net/uploads/asm_key_csaw-300x74.png" data-large-file="http://www.megabeets.net/uploads/asm_key_csaw-1024x254.png" decoding="async" loading="lazy" class="alignnone size-full wp-image-442" src="http://www.megabeets.net/uploads/asm_key_csaw.png" alt="asm_key_csaw" width="1683" height="417" srcset="https://www.megabeets.net/uploads/asm_key_csaw.png 1683w, https://www.megabeets.net/uploads/asm_key_csaw-150x37.png 150w, https://www.megabeets.net/uploads/asm_key_csaw-300x74.png 300w, https://www.megabeets.net/uploads/asm_key_csaw-768x190.png 768w, https://www.megabeets.net/uploads/asm_key_csaw-1024x254.png 1024w, https://www.megabeets.net/uploads/asm_key_csaw-800x198.png 800w" sizes="(max-width: 1683px) 100vw, 1683px" />
+    <img src="../uploads/asm_key_csaw.png" />
   </p>
   
   <p>
@@ -89,7 +89,7 @@ tags:
   </p>
   
   <p>
-    <img data-attachment-id="443" data-permalink="https://www.megabeets.net/csaw-2016-key-writeup/csaw_key_eax/#main" data-orig-file="http://www.megabeets.net/uploads/csaw_key_eax.png" data-orig-size="586,541" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="csaw_key_eax" data-image-description="" data-image-caption="" data-medium-file="http://www.megabeets.net/uploads/csaw_key_eax-300x277.png" data-large-file="http://www.megabeets.net/uploads/csaw_key_eax.png" decoding="async" loading="lazy" class="alignnone size-full wp-image-443" src="http://www.megabeets.net/uploads/csaw_key_eax.png" alt="csaw_key_eax" width="586" height="541" srcset="https://www.megabeets.net/uploads/csaw_key_eax.png 586w, https://www.megabeets.net/uploads/csaw_key_eax-150x138.png 150w, https://www.megabeets.net/uploads/csaw_key_eax-300x277.png 300w" sizes="(max-width: 586px) 100vw, 586px" />
+    <img src="../uploads/csaw_key_eax.png" />
   </p>
   
   <p>
@@ -102,6 +102,6 @@ tags:
   
   <div class="nf-post-footer">
     <p style="text-align: right">
-      <a href="https://www.megabeets.net/about.html#vegan"><img class="wp-image-149 alignnone" src="https://www.megabeets.net/uploads/megabeets_inline_logo.png" alt="megabeets_inline_logo" width="61" height="45" />Eat Veggies</a>
+      <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
     </p>
   </div>

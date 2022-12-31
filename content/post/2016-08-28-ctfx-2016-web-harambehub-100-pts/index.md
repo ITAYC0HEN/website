@@ -142,7 +142,7 @@ And we got the flag:
 _ctf(h4r4mb3\_d1dn1t\_d13\_4\_th1s\_f33ls\_b4d)_
 
 <p style="text-align: right;">
-  <img decoding="async" loading="lazy" class="wp-image-149 alignnone" src="http://megabeets.net/uploads/megabeets_inline_logo.png" alt="megabeets_inline_logo" width="61" height="45" />Eat Veggies.
+  <img src="../uploads/megabeets_inline_logo.png" />Eat Veggies.
 </p>
 
 <img decoding="async" loading="lazy" class="alignleft" src="http://www.gannett-cdn.com/-mm-/748c68a68596b4b3be54484af8d31875e45f9fe5/c=179-0-2659-3307&r=537&c=0-0-534-712/local/-/media/2016/05/29/Cincinnati/Cincinnati/636001135964333349-Harambe2.jpg" width="172" height="209" /> 
@@ -153,7 +153,7 @@ _ctf(h4r4mb3\_d1dn1t\_d13\_4\_th1s\_f33ls\_b4d)_
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img class="wp-image-149 alignnone" src="https://www.megabeets.net/uploads/megabeets_inline_logo.png" alt="megabeets_inline_logo" width="61" height="45" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>
 

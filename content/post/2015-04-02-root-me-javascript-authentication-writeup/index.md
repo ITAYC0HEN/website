@@ -33,12 +33,12 @@ Now we can view the source code of this page. Pressing the login button makes th
 This is the actually code that checks whether the credentials are valid or not. By reading this simple script we understand that the expected username is &#8220;**4dm1n&#8221; **and the password is &#8220;**sh.org&#8221;**. All we have to do now is go back to Root-Me and see if **sh.org **is the correct answer. And voilà, we did it. Easy peasy.
 
 <p style="text-align: right;">
-  <img decoding="async" loading="lazy" class="wp-image-149 alignnone" src="http://megabeets.net/uploads/megabeets_inline_logo.png" alt="megabeets_inline_logo" width="61" height="45" />Eat Veggies.
+  <img src="../uploads/megabeets_inline_logo.png" />Eat Veggies.
 </p>
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img class="wp-image-149 alignnone" src="https://www.megabeets.net/uploads/megabeets_inline_logo.png" alt="megabeets_inline_logo" width="61" height="45" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>
 
