@@ -1,0 +1,10 @@
+baseURL: http://example.org/
+languageCode: en-us
+title: Megabeets
+theme: "PaperMod"
+
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
