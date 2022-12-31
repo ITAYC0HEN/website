@@ -17,7 +17,8 @@ You can find the full code and examples in the [repository][1].
 
 Have fun!
 
-<pre class="toolbar:1 lang:python decode:true " title="Python XOR Files">#######################
+```python
+#######################
 # Powershell XOR 2 Files
 # xor.py
 # Jul 2016
@@ -43,7 +44,9 @@ for i in range(size):
 # Write the XORd bytes to the output file	
 open(sys.argv[3], 'wb').write(xord_byte_array)
 
-print "[*] %s XOR %s\n[*] Saved to \033[1;33m%s\033[1;m."%(sys.argv[1], sys.argv[2], sys.argv[3])</pre>
+print "[*] %s XOR %s\n[*] Saved to \033[1;33m%s\033[1;m."%(sys.argv[1], sys.argv[2], sys.argv[3])
+```
+
 
 &nbsp;
 

@@ -9,395 +9,590 @@ categories:
   - Uncategorized
 
 ---
-<pre class='toolbar:1 nums:false lang:1c-kod decode:true'>$ r2 megabeets_0x1
+```1c-kod
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
 
-<pre class='toolbar:1 nums:false lang:asm decode:true'>$ r2 megabeets_0x1
+```
+
+
+```asm
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
+
+```
+
 
-<pre class='toolbar:1 nums:false lang:default decode:true'>$ r2 megabeets_0x1
+```default
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
 
-<pre class='toolbar:1 nums:false lang:ini decode:true'>$ r2 megabeets_0x1
+```
+
+
+```ini
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
+
+```
+
 
-<pre class='toolbar:1 nums:false lang:monkey decode:true'>$ r2 megabeets_0x1
+```monkey
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
 
-<pre class='toolbar:1 nums:false lang:python decode:true'>$ r2 megabeets_0x1
+```
+
+
+```python
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
+
+```
+
 
-<pre class='toolbar:1 nums:false lang:swift decode:true'>$ r2 megabeets_0x1
+```swift
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
 
-<pre class='toolbar:1 nums:false lang:1c-zapros decode:true'>$ r2 megabeets_0x1
+```
+
+
+```1c-zapros
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
+
+```
+
 
-<pre class='toolbar:1 nums:false lang:asp decode:true'>$ r2 megabeets_0x1
+```asp
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
 
-<pre class='toolbar:1 nums:false lang:java decode:true'>$ r2 megabeets_0x1
+```
+
+
+```java
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
+
+```
+
 
-<pre class='toolbar:1 nums:false lang:mysql decode:true'>$ r2 megabeets_0x1
+```mysql
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
 
-<pre class='toolbar:1 nums:false lang:r decode:true'>$ r2 megabeets_0x1
+```
+
+
+```r
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
+
+```
+
 
-<pre class='toolbar:1 nums:false lang:tex decode:true'>$ r2 megabeets_0x1
+```tex
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
 
-<pre class='toolbar:1 nums:false lang:abap decode:true'>$ r2 megabeets_0x1
+```
+
+
+```abap
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
+
+```
+
 
-<pre class='toolbar:1 nums:false lang:autoit decode:true'>$ r2 megabeets_0x1
+```autoit
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
 
-<pre class='toolbar:1 nums:false lang:delphi decode:true'>$ r2 megabeets_0x1
+```
+
+
+```delphi
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
+
+```
+
 
-<pre class='toolbar:1 nums:false lang:js decode:true'>$ r2 megabeets_0x1
+```js
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
 
-<pre class='toolbar:1 nums:false lang:objc decode:true'>$ r2 megabeets_0x1
+```
+
+
+```objc
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
+
+```
+
 
-<pre class='toolbar:1 nums:false lang:tsql decode:true'>$ r2 megabeets_0x1
+```tsql
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
 
-<pre class='toolbar:1 nums:false lang:ada decode:true'>$ r2 megabeets_0x1
+```
+
+
+```ada
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
+
+```
+
 
-<pre class='toolbar:1 nums:false lang:batch decode:true'>$ r2 megabeets_0x1
+```batch
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
 
-<pre class='toolbar:1 nums:false lang:diff decode:true'>$ r2 megabeets_0x1
+```
+
+
+```diff
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
+
+```
+
 
-<pre class='toolbar:1 nums:false lang:kl decode:true'>$ r2 megabeets_0x1
+```kl
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
 
-<pre class='toolbar:1 nums:false lang:ocaml decode:true'>$ r2 megabeets_0x1
+```
+
+
+```ocaml
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
+
+```
+
 
-<pre class='toolbar:1 nums:false lang:reg decode:true'>$ r2 megabeets_0x1
+```reg
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
 
-<pre class='toolbar:1 nums:false lang:vb decode:true'>$ r2 megabeets_0x1
+```
+
+
+```vb
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
+
+```
+
 
-<pre class='toolbar:1 nums:false lang:c decode:true'>$ r2 megabeets_0x1
+```c
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
 
-<pre class='toolbar:1 nums:false lang:dws decode:true'>$ r2 megabeets_0x1
+```
+
+
+```dws
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
+
+```
+
 
-<pre class='toolbar:1 nums:false lang:less decode:true'>$ r2 megabeets_0x1
+```less
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
 
-<pre class='toolbar:1 nums:false lang:papyrus decode:true'>$ r2 megabeets_0x1
+```
+
+
+```papyrus
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
+
+```
+
 
-<pre class='toolbar:1 nums:false lang:ruby decode:true'>$ r2 megabeets_0x1
+```ruby
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
 
-<pre class='toolbar:1 nums:false lang:vbnet decode:true'>$ r2 megabeets_0x1
+```
+
+
+```vbnet
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
 
-<pre class='toolbar:1 nums:false lang:amigados decode:true'>$ r2 megabeets_0x1
+```
+
+
+```amigados
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
+
+```
 
-<pre class='toolbar:1 nums:false lang:c# decode:true'>$ r2 megabeets_0x1
+
+```c#
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
+
+```
 
-<pre class='toolbar:1 nums:false lang:erlang decode:true'>$ r2 megabeets_0x1
+
+```erlang
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
+
+```
 
-<pre class='toolbar:1 nums:false lang:lisp decode:true'>$ r2 megabeets_0x1
+
+```lisp
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
+
+```
 
-<pre class='toolbar:1 nums:false lang:perl decode:true'>$ r2 megabeets_0x1
+
+```perl
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
+
+```
 
-<pre class='toolbar:1 nums:false lang:rust decode:true'>$ r2 megabeets_0x1
+
+```rust
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
+
+```
 
-<pre class='toolbar:1 nums:false lang:vim decode:true'>$ r2 megabeets_0x1
+
+```vim
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
+
+```
 
-<pre class='toolbar:1 nums:false lang:apache decode:true'>$ r2 megabeets_0x1
+
+```apache
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
+
+```
 
-<pre class='toolbar:1 nums:false lang:c++ decode:true'>$ r2 megabeets_0x1
+
+```c++
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
+
+```
 
-<pre class='toolbar:1 nums:false lang:lua decode:true'>$ r2 megabeets_0x1
+
+```lua
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
+
+```
 
-<pre class='toolbar:1 nums:false lang:pgsql decode:true'>$ r2 megabeets_0x1
+
+```pgsql
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
+
+```
 
-<pre class='toolbar:1 nums:false lang:sass decode:true'>$ r2 megabeets_0x1
+
+```sass
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
+
+```
 
-<pre class='toolbar:1 nums:false lang:xhtml decode:true'>$ r2 megabeets_0x1
+
+```xhtml
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
+
+```
 
-<pre class='toolbar:1 nums:false lang:applescript decode:true'>$ r2 megabeets_0x1
+
+```applescript
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
+
+```
 
-<pre class='toolbar:1 nums:false lang:clojure decode:true'>$ r2 megabeets_0x1
+
+```clojure
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
+
+```
 
-<pre class='toolbar:1 nums:false lang:go decode:true'>$ r2 megabeets_0x1
+
+```go
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
+
+```
 
-<pre class='toolbar:1 nums:false lang:matlab decode:true'>$ r2 megabeets_0x1
+
+```matlab
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
+
+```
 
-<pre class='toolbar:1 nums:false lang:php decode:true'>$ r2 megabeets_0x1
+
+```php
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
+
+```
 
-<pre class='toolbar:1 nums:false lang:scala decode:true'>$ r2 megabeets_0x1
+
+```scala
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
+
+```
 
-<pre class='toolbar:1 nums:false lang:yaml decode:true'>$ r2 megabeets_0x1
+
+```yaml
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
+
+```
 
-<pre class='toolbar:1 nums:false lang:arduino decode:true'>$ r2 megabeets_0x1
+
+```arduino
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
+
+```
 
-<pre class='toolbar:1 nums:false lang:coffee decode:true'>$ r2 megabeets_0x1
+
+```coffee
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
+
+```
 
-<pre class='toolbar:1 nums:false lang:haskell decode:true'>$ r2 megabeets_0x1
+
+```haskell
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
+
+```
 
-<pre class='toolbar:1 nums:false lang:mel decode:true'>$ r2 megabeets_0x1
+
+```mel
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
+
+```
 
-<pre class='toolbar:1 nums:false lang:plsql decode:true'>$ r2 megabeets_0x1
+
+```plsql
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
+
+```
 
-<pre class='toolbar:1 nums:false lang:scheme decode:true'>$ r2 megabeets_0x1
+
+```scheme
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
+
+```
 
-<pre class='toolbar:1 nums:false lang:zsh decode:true'>$ r2 megabeets_0x1
+
+```zsh
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
+
+```
 
-<pre class='toolbar:1 nums:false lang:as decode:true'>$ r2 megabeets_0x1
+
+```as
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
+
+```
 
-<pre class='toolbar:1 nums:false lang:css decode:true'>$ r2 megabeets_0x1
+
+```css
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
+
+```
 
-<pre class='toolbar:1 nums:false lang:ilogic decode:true'>$ r2 megabeets_0x1
+
+```ilogic
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
+
+```
 
-<pre class='toolbar:1 nums:false lang:miva decode:true'>$ r2 megabeets_0x1
+
+```miva
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
+
+```
 
-<pre class='toolbar:1 nums:false lang:ps decode:true'>$ r2 megabeets_0x1
+
+```ps
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
+
+```
 
-<pre class='toolbar:1 nums:false lang:sh decode:true'>$ r2 megabeets_0x1
+
+```sh
+$ r2 megabeets_0x1
  -- May the segfault be with you.
 [0x08048370]> aa
 [x] Analyze all flags starting with sym. and entry0 (aa)
-</pre>
+
+```
+
 
 <div class="nf-post-footer">
   <p style="text-align: right">

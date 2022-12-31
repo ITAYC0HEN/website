@@ -38,7 +38,8 @@ tags:
 </div>
 
 <div class="chal-files">
-  <pre class="lang:asm mark:7,10,11,13 decode:true">.rdata:00A17858 00000014 C \rGet ready to play\n                                     
+  ```asm
+.rdata:00A17858 00000014 C \rGet ready to play\n                                     
 .rdata:00A1786C 00000034 C \rZOMGZOMGOZMGKZOMGZOMGOZMGZOMGZOMGOZMGZOMGZOMGOZMG\n     
 ...     
 .rdata:00A17970 00000033 C \rZOMGZOMG           YOU DID IT!!!        ZOMGOZMG\n      
@@ -65,7 +66,9 @@ tags:
 .rdata:00A17C94 0000000D C LETS PLAY !\n                                             
 .rdata:00A17CA4 00000016 C \rooooh, you fancy!!!\n                                   
 .rdata:00A17CBC 00000011 C NIIICE JOB)!!!!\n                                         
-.rdata:00A17CD0 00000012 C \rTURBO TIME!    \n</pre>
+.rdata:00A17CD0 00000012 C \rTURBO TIME!    \n
+```
+
   
   <p>
     I highlighted the important lines: The success message (I know, I got it when I played) and the failure messages. Using X-Refs I found where the failure messages are printed out and patched the program to jump to the success instead. Notice that you&#8217;ll need to change <strong>two</strong> functions.

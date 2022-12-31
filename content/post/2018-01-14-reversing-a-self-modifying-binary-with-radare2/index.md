@@ -32,9 +32,12 @@ So, without further ado, let&#8217;s dig into the binary.
 
 Radare2’s development is pretty quick – the project evolves every day, therefore it&#8217;s recommended to use the current git version over the stable one. Sometimes the stable version is less stable than the current git version!
 
-<pre class="toolbar:2 nums:false lang:sh decode:true" title="Installing radare2">$ git clone https://github.com/radare/radare2.git
+```sh
+$ git clone https://github.com/radare/radare2.git
 $ cd radare2
-$ ./sys/install.sh</pre>
+$ ./sys/install.sh
+```
+
 
 If you don&#8217;t want to install the git version or you want the binaries for another machine (Windows, OS X, iOS, etc.) check out the [download page at the radare2 website.][4]
 
@@ -42,7 +45,10 @@ If you don&#8217;t want to install the git version or you want the binaries for 
 
 As I said before, it is highly recommended to always use the newest version of r2 from the git repository. All you need to do to update your r2 version from the git is to execute:
 
-<pre class="toolbar:2 nums:false lang:sh decode:true" title="Updating radare2">$ ./sys/install.sh</pre>
+```sh
+$ ./sys/install.sh
+```
+
 
 And you&#8217;ll have the latest version from git. I usually update my version of radare2 in the morning with a scheduled task, so I can wake up to the latest version available. If you&#8217;re using radare2 often, I recommend you do the same.
 
@@ -52,11 +58,14 @@ You can download packedup from [here][5]. I suggest you to star (<span style="co
 
 First thing to do, obviously, is to execute the binary and get a basic feeling of what we are going to face.
 
-<pre class="toolbar:2 show-plain:3 lang:default decode:true">$ ./packedup 
+```default
+$ ./packedup 
 Welcome to packedup for r2crackmes :)
 Flag &lt;&lt; MEGABEETS     
 Try again!
-</pre>
+
+```
+
 
 _packedup_ is executed, it requests us to give it a flag. It then probably does some calculations at the backend to see if the inputted flag is the right one. I entered &#8220;MEGABEETS&#8221; which is likely not the correct flag and finished with the fail message &#8212; &#8220;Try again!&#8221;.
 
@@ -84,7 +93,8 @@ I usually begin with executing `aa` (**a**nalyze **a**ll) or with `aas` (to *
 
 So now that we opened our binary with radare2, we have been located automatically at the program&#8217;s entrypoint. But before we start working on the code itself It&#8217;s a good approach to get to know our binary characteristics. radare2 can show us the information we need using the `i` command (I removed some information for the sake of readability):
 
-<pre class="toolbar:2 toolbar-hide:false show-title:false show-lang:2 nums:false nums-toggle:false show-plain:3 lang:batch mark:4,13,20,21 decode:true">[0x004004d0]&gt; i
+```batch
+[0x004004d0]&gt; i
 ...
 file ./packedup
 format elf64
@@ -105,7 +115,9 @@ lang c
 ...
 machine AMD x86-64 architecture
 stripped true
-...</pre>
+...
+```
+
 
 > The `i` command used for getting info about the opened file. It&#8217;s a wrapper around `rabin2` which is an information extractor tool in the radare2 framework. radare2 offers us tons amount of information about the binary. Check out `i?` to list the information&#8217;s subcommands.
 
@@ -261,14 +273,17 @@ The value that was calculated in the previous loop is now moved into `edx` (at _
 
 At _0x<span style="font-weight: 400;">4006a9, </span>_`ecx` (the last char of our input) is bitwise XOR&#8217;d with `eax` (last value of the predefined array), the result is stored in `eax`. Then `al` is zero-extended moved into `eax` and then `eax` is compared with `edx` (The lower byte of <span style="font-weight: 400;"><code>rol(initial_value)</code>). It will be easier to understand this operation using the following pseudo-python example:</span>
 
-<pre class="toolbar:2 show-plain:3 lang:python decode:true">key = 0x???????? # Our initial_value
+```python
+key = 0x???????? # Our initial_value
 our_input = "A" * 44
 predefined_array = [0x0fc9, ... ,0x93a6]
 
 if ( ord(our_input[-1]) ^ predefined_array[-1] ) == ( key & 0xff ):
     return True
 
-</pre>
+
+```
+
 
 If the result is indeed equal, i.e. `ECX ^ EAX == EDX` the loop is repeating itself with the next character from our input (2nd from the end), the next character from the predefined array (again, 2nd from the end) and with the result of `rol(key)`. `key` is actually the result of performing left-rotation on `initial_value`, since this value changed in every rotation it isn&#8217;t &#8220;initial&#8221; anymore so now we&#8217;ll call it `key`.
 
@@ -288,10 +303,13 @@ And that is awesome, right?! That&#8217;s mean that given `ECX` and `EDX` we c
 
 First we&#8217;ll define a lambda function for rotate left:
 
-<pre class="nums:false show-plain:3 lang:python decode:true"># Rotate left lambda
+```python
+# Rotate left lambda
 rol = lambda val, r_bits, max_bits: \
     (val &lt;&lt; r_bits%max_bits) & (2**max_bits-1) | \
-    ((val & (2**max_bits-1)) &gt;&gt; (max_bits-(r_bits%max_bits)))</pre>
+    ((val & (2**max_bits-1)) &gt;&gt; (max_bits-(r_bits%max_bits)))
+```
+
 
 Then, we&#8217;ll create our predefined array. We&#8217;ll use radare for this:
 
@@ -309,17 +327,21 @@ Then, we&#8217;ll create our predefined array. We&#8217;ll use radare for this:
 
 We&#8217;ll add it to the script and define two more variables:
 
-<pre class="toolbar-hide:false nums:false nums-toggle:false show-plain:3 lang:python decode:true"># Byte array from 0x004007A0, modified from the generated results of `pcp 44 @ 0x4007a0`
+```python
+# Byte array from 0x004007A0, modified from the generated results of `pcp 44 @ 0x4007a0`
 arr =[0x0F, 0xC9, 0xA8, 0x86, 0xAC, 0xE0, 0x18, 0x93, 0x8A, 0xAF, 0x91, 0xA2, 0xE4, 0x64, 0x7A, 0x5A, 0x08, 0x8B, 0xA8, 0x9A, 0xB4, 0xD1, 0x1F, 0x84, 0xB4, 0xD1, 0x71, 0x52, 0x1C, 0x8A, 0x80, 0xD2, 0x14, 0x95, 0x82, 0x97, 0x80, 0xD2, 0x1F, 0x90, 0x8F, 0x91, 0x93, 0xA6]
 
 # Initial key value 
 key = 0xdc77df87
 
-flag = []</pre>
+flag = []
+```
+
 
 And the last thing is to implement the logic and combine it all together:
 
-<pre class="toolbar:2 toolbar-hide:false nums:false nums-toggle:false show-plain:3 lang:python decode:true"># Rotate left lambda
+```python
+# Rotate left lambda
 rol = lambda val, r_bits, max_bits: \
     (val &lt;&lt; r_bits%max_bits) & (2**max_bits-1) | \
     ((val & (2**max_bits-1)) &gt;&gt; (max_bits-(r_bits%max_bits)))
@@ -342,7 +364,9 @@ for b in reversed(arr):
     flag.insert(0, char)
 
 
-print '[+] Flag: ', ''.join(flag)</pre>
+print '[+] Flag: ', ''.join(flag)
+```
+
 
 &nbsp;
 
@@ -396,8 +420,11 @@ We know that the end of the loop is at `0x0040066d`, this is where the result of
 
 Great! So now that we have the initial value of the key we can fill the missing part of the script `<span style="font-size: 16px;">key = 0xd477d83e</span>` and execute it:
 
-<pre class="toolbar:2 toolbar-hide:false nums:false show-plain:3 lang:default decode:true">beet:~$ python answer.py
-[+] Flag:  Hj.xIgYj{u]J*l=ok\S6?TJbgh</pre>
+```default
+beet:~$ python answer.py
+[+] Flag:  Hj.xIgYj{u]J*l=ok\S6?TJbgh
+```
+
 
 What? This flag doesn&#8217;t make any sense. We must have made a mistake somewhere along the way, but where?
 
@@ -425,8 +452,11 @@ So, we need to find a way to get the initial value of the key without changing t
 
 <span style="font-weight: 400;">Awesome! This time we found the right initial value, let&#8217;s put it in the python script and find the flag:</span>
 
-<pre class="toolbar:2 toolbar-hide:false nums:false show-plain:3 lang:default decode:true">beet:~$ python answer.py
-[+] Flag: ['\xc8', '*', '\xd9', '&gt;', 'p', '\x0e', '\xef', 'h', '\xf7', '\x91', '\x8e', '\xad', 'c', '\xa7', '\x9b', '\xaa', '\xf0', 'w', '\xd6', '%', 'k', '&gt;', '\xe8', '\x7f', '\xc9', 'o', '\xae', '\xbd', 'k', '\xb1', '\x9d', '\\', '\xd3', 'v', '\xf3', '/', '\\', '&lt;', '\xe8', 'k', '\xf2', '\xaf', '\x8c', '\xa9']</pre>
+```default
+beet:~$ python answer.py
+[+] Flag: ['\xc8', '*', '\xd9', '&gt;', 'p', '\x0e', '\xef', 'h', '\xf7', '\x91', '\x8e', '\xad', 'c', '\xa7', '\x9b', '\xaa', '\xf0', 'w', '\xd6', '%', 'k', '&gt;', '\xe8', '\x7f', '\xc9', 'o', '\xae', '\xbd', 'k', '\xb1', '\x9d', '\\', '\xd3', 'v', '\xf3', '/', '\\', '&lt;', '\xe8', 'k', '\xf2', '\xaf', '\x8c', '\xa9']
+```
+
 
 Come on&#8230; bummer. We failed again. So, what&#8217;s now? What are we missing? I&#8217;m sure the initial value is correct now that we used a hardware breakpoint. It is probably something in the algorithm that we missed, but what?
 
@@ -519,11 +549,14 @@ We can see that there are two functions in this array, including our beloved `en
 
 Just as an extra, you can define an initialization routine in a `gcc` compiled programs by using a template similar to this one:
 
-<pre class="toolbar:2 lang:c decode:true">void __attribute__ ((constructor)) some_func() {
+```c
+void __attribute__ ((constructor)) some_func() {
 
     // code goes here
 
-}</pre>
+}
+```
+
 
 &nbsp;
 
@@ -533,7 +566,8 @@ So now that we know that `entry2.init` changed `rol` to `ror` we need to modi
 
 This is our new script:
 
-<pre class="show-plain:3 lang:python decode:true"># Rotate right lambda
+```python
+# Rotate right lambda
 ror = lambda val, r_bits, max_bits: \
     ((val & (2**max_bits-1)) &gt;&gt; r_bits%max_bits) | \
     (val &lt;&lt; (max_bits-(r_bits%max_bits)) & (2**max_bits-1))
@@ -560,12 +594,17 @@ for b in reversed(arr):
     # Add char to final flag
     flag.insert(0, char)
 
-print '[+] Flag: ', ''.join(flag)</pre>
+print '[+] Flag: ', ''.join(flag)
+```
+
 
 And now let&#8217;s execute it for the third time:
 
-<pre class="nums:false show-plain:3 lang:default decode:true">beet:~$ python answer.py
-[+] Flag:  r2_is_for_packedup_things_like_linux_malware</pre>
+```default
+beet:~$ python answer.py
+[+] Flag:  r2_is_for_packedup_things_like_linux_malware
+```
+
 
 ICE CREAM! 🙂
 

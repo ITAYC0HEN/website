@@ -24,14 +24,18 @@ Guest post by Shak.
 
 <span style="font-weight: 400;">This challenge is a binary which expects one argument and then spits out a string. We get the output of the binary for running it with the flag. Let’s fiddle with that for start.</span>
 
-<pre class="theme:plain-white lang:sh decode:true ">./reverse_box 0000
-28282828</pre>
+```sh
+./reverse_box 0000
+28282828
+```
+
 
 <span style="font-weight: 400;">The binary probably prints a hex value replacing each character. It is also clear that it is a unique value for each character. we must be dealing with some kind of substitution cipher. After running it again with the exact same argument, we get a different output, so the substitution is also randomized somehow. </span>
 
 <span style="font-weight: 400;">Jumping into the binary, we are presented with 2 important functions which i named main and calculate.</span>
 
-<pre class="toolbar:1 lang:c decode:true" title="From Hex-Rays Decompiler">int __cdecl main(int argc, const char **argv, const char **envp)
+```c
+int __cdecl main(int argc, const char **argv, const char **envp)
 {
   int result; // eax@7
   int v4; // ecx@7
@@ -53,13 +57,16 @@ Guest post by Shak.
   v4 = *MK_FP(__GS__, 20) ^ v7;
   return result;
 }
-</pre>
+
+```
+
 
 <span style="font-weight: 400;">The main function is pretty straightforward. It is responsible for checking whether we run the binary with an argument, calling the calculate function, and finally printing the result. Looking the result printing format we can see that we were right with the result being in a hexadecimal format. </span>
 
 <span style="font-weight: 400;">Next we’ll deal with the calculate function.</span>
 
-<pre class="toolbar:1 lang:c decode:true " title="From Hex-Rays Decompiler">int __cdecl calculate(int a1)
+```c
+int __cdecl calculate(int a1)
 {
   unsigned int seed; // eax@1
   int v2; // edx@4
@@ -122,23 +129,29 @@ Guest post by Shak.
   while ( v15 != 1 );
   return result;
 }
-</pre>
+
+```
+
 
 <span style="font-weight: 400;">It is not at all as straightforward as our main, but basically it randomizes a variable, does some memory operations and returns some random value. For now, let’s try debugging the binary without fully understanding calculate. </span>
 
 <span style="font-weight: 400;">The binary iterates the characters in our input and executes the following assembly for printing the result.</span>
 
-<pre class="lang:asm decode:true ">movzx   eax, byte ptr [esp+eax+1Ch]
+```asm
+movzx   eax, byte ptr [esp+eax+1Ch]
 movzx   eax, al
 mov     [esp+4], eax
 mov     dword ptr [esp], offset a02x ; "%02x"
-call    _printf</pre>
+call    _printf
+```
+
 
 <span style="font-weight: 400;">Arriving at this set of instructions, the eax register is holding a character from our input. What is then passed for printf function is an element from an array in [esp+1Ch] at the eax location (line 1). So this array holds our result. Let&#8217;s further examine it and see what it’s all about. Jumping that location on the stack we encounter a 268 Bytes array of hex values, we will save the array to a binary file called </span>_<span style="font-weight: 400;">array</span>_ <span style="font-weight: 400;">for later. </span>
 
 <span style="font-weight: 400;">After running the binary a couple of times, we can understand that the array is also randomized somehow. Maybe it has something to do with the random value that the calculate function is returns. Running the binary a couple of times more, we see that the second element of the array is always equal to the random number from calculate. So, the binary must have a base array which is then manipulates somehow with the random value. The second element in the base array must be a zero if every time the manipulation occurs we get the random number. Let’s try and understand what kind of manipulation the binary performs. We will do that by loading the binary array to a python script, then we will get the base array by performing the assumed manipulation on our saved array elements with the known random value from our execution of the binary, and finally comparing the process to another binary run with a different random value for verification. The first option will be adding the random value to the base array value. It works for the second element, but comparing this process to another binary run does not work. The second guess will be that the binary is XORing the random value with the base array element which will also allow the second array element to be equal to the random value. Bingo, this works. Now all we have to do is get the base array using our saved array and the random value for that binary run. Next thing we will have to consider is the flag structure which is TWCTF{&#8230;.}. We can calculate what was the random value when they run the flag through the binary and finally check where was every hex value from the flag result and get the original output by getting the char representation for the location.</span>
 
-<pre class="lang:python decode:true ">#! /usr/bin/python
+```python
+#! /usr/bin/python
 f = open(r"c:\megabeets\array", "rb")
 buff = f.read(268)
 random_value = 0x66
@@ -171,7 +184,9 @@ for i in range(0, 268):
 #
 for i in xrange(len(flag)):
 	print dic[flag[i]],
-</pre>
+
+```
+
 
 <span style="font-weight: 400;">et voilà</span><span style="font-weight: 400;">, the flag is <span style="font-size: 10pt;">TWCTF{5UBS717U710N_C1PH3R_W17H_R4ND0M123D_5-B0X}.</span></span>
 

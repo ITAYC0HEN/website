@@ -64,7 +64,10 @@ There is a robotic voice that reads out numbers.
 So I now have what seems like a key, so what is the encryption?  
 A bit research about the encryption made me think it&#8217;s AES so I ran:
 
-<pre class="lang:sh decode:true ">openssl aes-256-cbc -d -in key.enc -k &lt;the long key&gt;</pre>
+```sh
+openssl aes-256-cbc -d -in key.enc -k &lt;the long key&gt;
+```
+
 
 -d is for decrypt  
 -k is for keyphrase
@@ -76,13 +79,16 @@ Failed again. Tried it with all the possible _openssl_  encryptions (20+) but f
 So I got mad and tried to decrypt it using all possible encryptions with all possible substrings of the original number from the record.  
 Pseudo code:
 
-<pre class="lang:python decode:true">for sb in all_possible_substrings(key)
+```python
+for sb in all_possible_substrings(key)
 {
 	for enc in all_possible_encryptions:
 	(
 		openssl encr -d -in key.enc -k sb
 	)
-}</pre>
+}
+```
+
 
 And how it was really looks like:
 
@@ -93,8 +99,11 @@ BUT FAILED. No flag.
 At this point I think that 3 or 4 teams already solved it.  
 So I tried more and more combinations and this stupid one finally worked:
 
-<pre class="lang:sh decode:true">Megabeets:/tmp/h4ckit/australia# openssl aes-256-cbc -d -in key.enc -k 75948631736985999017212639734863100000
-h4ck1t{Nic3_7ry}</pre>
+```sh
+Megabeets:/tmp/h4ckit/australia# openssl aes-256-cbc -d -in key.enc -k 75948631736985999017212639734863100000
+h4ck1t{Nic3_7ry}
+```
+
 
 It&#8217;s the full number from the recording but delete the duplicates pairs (the recording was splitted to group of numbers and the speaker said each group twice or three times).
 

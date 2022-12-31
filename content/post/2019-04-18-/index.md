@@ -83,7 +83,8 @@ It’s not trivial to get the plugin to support both Cutter and radare2, since o
 
 The first thing we are going to do is to create a Python class which will be our core class. This class will contain our logic for finding and removing the junk blocks. Let’s start by defining its `__init__` function. The function will receive a pipe, which will be either an `r2pipe` (available from `import r2pipe`) object from radare2 or a `cutter` (available from `import cutter`) object from Cutter.
 
-<pre class="prettyprint lang-python">class GraphDeobfuscator:
+```
+class GraphDeobfuscator:
    def __init__(self, pipe):
        """an initialization function for the class
       
@@ -92,7 +93,9 @@ The first thing we are going to do is to create a Python class which will be our
        """
 
        self.pipe = pipe
-</pre>
+
+```
+
 
 Now we can execute radare2 commands using this pipe. The pipe object contains two major ways to execute r2 commands. The first is `pipe.cmd(<command>)` which will return the results of the command as a string, and the second is `pipe.cmdj(<command>j)` which will return a parsed JSON object from the output of radare2’s command.  
 
@@ -105,7 +108,8 @@ Now we can execute radare2 commands using this pipe. The pipe object contains tw
 
 The next thing we would want to do is to get all the blocks of the current function and then iterate over each one of them. We can do this by using the `afbj` command which stands for **A**nalyze **F**unction **B**locks and will return a **J**son object with all the blocks of the function.
 
-<pre class="prettyprint lang-python">def clean_junk_blocks(self):
+```
+def clean_junk_blocks(self):
        """Search a given function for junk blocks, remove them and fix the flow.
        """
        # Get all the basic blocks of the function
@@ -117,11 +121,14 @@ The next thing we would want to do is to get all the blocks of the current funct
 
        # Iterate over all the basic blocks of the function
        for block in blocks:
-           # do something </pre>
+           # do something 
+```
+
 
 For each block, we want to know if there is a block which fails-to in a case where the conditional jump would not take place. If a block has a block to which it fails, the second block is an initial candidate to be a junk block. 
 
-<pre class="prettyprint lang-python">def get_fail_block(self, block):
+```
+def get_fail_block(self, block):
        """Return the block to which a block branches if the condition is fails
       
        Arguments:
@@ -136,7 +143,9 @@ For each block, we want to know if there is a block which fails-to in a case whe
            return None
        # Get a block context of the fail address
        fail_block = self.get_block(fail_addr)
-       return fail_block if fail_block else None</pre>
+       return fail_block if fail_block else None
+```
+
 
 <blockquote class="wp-block-quote">
   <p>
@@ -146,7 +155,8 @@ For each block, we want to know if there is a block which fails-to in a case whe
 
 Next, we would like to check whether our junk block candidate comes immediately after the block. If no, this is most likely not a junk block since from what we inspected, junk blocks are located in the code immediately after the blocks with the conditional jump.
 
-<pre class="prettyprint lang-python">def is_successive_fail(self, block_A, block_B):
+```
+def is_successive_fail(self, block_A, block_B):
        """Check if the end address of block_A is the start of block_B
 
        Arguments:
@@ -157,11 +167,14 @@ Next, we would like to check whether our junk block candidate comes immediately 
            bool -- True if block_B comes immediately after block_A, False otherwise
        """
 
-      return ((block_A["addr"] + block_A["size"]) == block_B["addr"])</pre>
+      return ((block_A["addr"] + block_A["size"]) == block_B["addr"])
+```
+
 
 Then, we would want to check whether the block candidate contains no meaningful instructions. For example, it is unlikely that a junk block will contain `CALL` instructions or references for strings. To do this, we will use the command `pdsb` which stands for **P**rint **D**isassembly **S**ummary of a **B**lock. This radare2 command prints the interesting instructions that appear in a certain block. We assume that a junk block would not contain interesting instructions.
 
-<pre class="prettyprint lang-python">def contains_meaningful_instructions (self, block):
+```
+def contains_meaningful_instructions (self, block):
        '''Check if a block contains meaningful instructions (references, calls, strings,...)
       
        Arguments:
@@ -174,11 +187,14 @@ Then, we would want to check whether the block candidate contains no meaningful 
        # Get summary of block - strings, calls, references
        summary = self.pipe.cmd("pdsb @ {addr}".format(addr=block["addr"]))
        return summary != ""
-</pre>
+
+```
+
 
 Last, we would like to check whether the conditional jumps of both blocks are opposite. This will be the last piece of the puzzle to determine whether we are dealing with a junk block. For this, we would need to create a list of opposite conditional jumps. The list we’ll show is partial since the x86 architecture contains many conditional jump instructions. That said, from our tests, it seems like the below list is enough to cover all the different pairs of opposite conditional jumps that are presented in APT32’s backdoor. If it doesn’t, adding additional instructions is easy.
 
-<pre class="prettyprint lang-python">jmp_pairs = [
+```
+jmp_pairs = [
        ['jno', 'jo'],
        ['jnp', 'jp'],
        ['jb',  'jnb'],
@@ -211,11 +227,14 @@ Last, we would like to check whether the conditional jumps of both blocks are op
            if sorted_pair == pair:
                return True
        return False
-</pre>
+
+```
+
 
 Now that we defined the validation functions, we can glue these parts together inside the `clean_junk_blocks()` function we created earlier.
 
-<pre class="prettyprint lang-python">def clean_junk_blocks(self):
+```
+def clean_junk_blocks(self):
        """Search a given function for junk blocks, remove them and fix the flow.
        """
 
@@ -234,7 +253,9 @@ Now that we defined the validation functions, we can glue these parts together i
            self.contains_meaningful_instructions(fail_block) or \
            not self.is_opposite_conditional(self.get_last_mnem_of_block(block), self.get_last_mnem_of_block(fail_block)):
                continue
-</pre>
+
+```
+
 
 In case that all the checks are successfully passed, and we can say with a high chance that we found a junk block, we would want to patch the first conditional jump to `JMP` over the junk block, hence removing the junk block from the graph and thus, from the function itself.  
 
@@ -242,7 +263,8 @@ In case that all the checks are successfully passed, and we can say with a high 
 To do this, we use two radare2 commands. The first is `aoj @ <addr>` which stands for **A**nalyze **O**pcode and will give us information on the instruction in a given address. This command can be used to get the target address of the conditional jump. The second command we use is `wai <instruction> @ <addr>` which stands for **W**rite **A**ssembly **I**nside. Unlike the `wa <instruction> @ <addr>` command to overwrite an instruction with another instruction, the `wai` command will fill the remaining bytes with `NOP` instructions. Thus, in a case where the `JMP <addr>` instruction we want to use is shorter than the current conditional-jump instruction, the remaining bytes will be replaced with `NOP`s.  
 
 
-<pre class="prettyprint lang-python">def overwrite_instruction(self, addr):
+```
+def overwrite_instruction(self, addr):
        """Overwrite a conditional jump to an address, with a JMP to it
       
        Arguments:
@@ -252,12 +274,15 @@ To do this, we use two radare2 commands. The first is `aoj @ <addr>` which stand
        jump_destination = self.get_jump(self.pipe.cmdj("aoj @ {addr}".format(addr=addr))[0])
        if (jump_destination):
            self.pipe.cmd("wai jmp 0x{dest:x} @ {addr}".format(dest=jump_destination, addr=addr))
-</pre>
+
+```
+
 
 After overwriting the conditional-jump instruction, we continue to loop over all the blocks of the function and repeat the steps described above. Last, if changes were made in the function, we re-analyze the function so that the changes we made appear in the function graph.  
 
 
-<pre class="prettyprint lang-python">def reanalize_function(self):
+```
+def reanalize_function(self):
        """Re-Analyze a function at a given address
       
        Arguments:
@@ -270,11 +295,14 @@ After overwriting the conditional-jump instruction, we continue to loop over all
 
        # Define and analyze a function in this address
        self.pipe.cmd("afr @ $")
-</pre>
+
+```
+
 
 At last, the `clean_junk_blocks()` function is now ready to be used. We can now also create a function, `clean_graph()`, that cleans the obfuscated function of the backdoor.
 
-<pre class="prettyprint lang-python">def clean_junk_blocks(self):
+```
+def clean_junk_blocks(self):
        """Search a given function for junk blocks, remove them and fix the flow.
        """
 
@@ -310,7 +338,9 @@ At last, the `clean_junk_blocks()` function is now ready to be used. We can now 
        # will not override the binary
        self.pipe.cmd("e io.cache=true")
        self.clean_junk_blocks()
-</pre>
+
+```
+
 
 This concludes the core class.
 
@@ -319,7 +349,8 @@ This concludes the core class.
 As mentioned earlier, our code will be executed either as a plugin for Cutter, or straight from the radare2 CLI as a Python script. That means that we need to have a way to understand whether our code is being executed from Cutter or from radare2. For this, we can use the following simple trick.  
 
 
-<pre class="prettyprint lang-python"># Check if we're running from cutter
+```
+# Check if we're running from cutter
 try:
    import cutter
    from PySide2.QtWidgets import QAction
@@ -330,7 +361,9 @@ except:
    import r2pipe
    pipe = r2pipe.open()
    cutter_available = False
-</pre>
+
+```
+
 
 The code above checks whether the `cutter` library can be imported. If it can, we are running from inside Cutter and can feel safe to do some GUI magic. Otherwise, we’re running from inside radare2, and so we opt to import `r2pipe`. In both statements, we are assigning a variable named `pipe` which will be later passed to the `GraphDeobfuscator` class we created.  
 
@@ -339,17 +372,21 @@ The code above checks whether the `cutter` library can be imported. If it can, w
 
 This is the simplest way to use this plugin. Checking if `__name__` equals &#8220;\_\_main\_\_&#8221; is a common Python idiom that checks if the script was run directly or imported. If this script was run directly, we simply execute the `clean_graph()` function.
 
-<pre class="prettyprint lang-python">if __name__ == "__main__":
+```
+if __name__ == "__main__":
    graph_deobfuscator = GraphDeobfuscator(pipe)
    graph_deobfuscator.clean_graph()
-</pre>
+
+```
+
 
 #### <span class="ez-toc-section" id="Running_from_Cutter"></span>Running from Cutter<span class="ez-toc-section-end"></span>
 
 [Cutter’s documentation][5] describes how to go about building and executing a Plugin for Cutter, and we follow its lead. First, we need to make sure that we are running from inside Cutter. We already created a boolean variable named `cutter_variable`. We simply need to check whether this variable is set to `True`. If it does, we proceed to define our plugin class.  
 
 
-<pre class="prettyprint lang-python">if cutter_available:
+```
+if cutter_available:
    # This part will be executed only if Cutter is available.
    # This will create the cutter plugin and UI objects for the plugin
    class GraphDeobfuscatorCutter(cutter.CutterPlugin):
@@ -366,14 +403,17 @@ This is the simplest way to use this plugin. Checking if `__name__` equals &#822
    
    def create_cutter_plugin():
        return GraphDeobfuscatorCutter()
-</pre>
+
+```
+
 
 This is a skeleton of a Cutter plugin &#8212; it contains no proper functionality at all. The function `create_cutter_plugin()` is called by Cutter upon loading. At this point, if we will place our script in Cutter’s plugins directory, Cutter will recognize our file as a plugin.  
 
 
 To make the plugin execute our functionality, we need to add a menu entry that the user can press to trigger our deobfuscator. We chose to add a menu entry, or an Action, to the &#8220;**_Windows -> Plugins_**&#8221; menu.
 
-<pre class="prettyprint lang-python">if cutter_available:
+```
+if cutter_available:
    # This part will be executed only if Cutter is available. This will
    # create the cutter plugin and UI objects for the plugin
    class GraphDeobfuscatorCutter(cutter.CutterPlugin):
@@ -405,7 +445,9 @@ To make the plugin execute our functionality, we need to add a menu entry that t
 
    def create_cutter_plugin():
        return GraphDeobfuscatorCutter()
-</pre>
+
+```
+
 
 The script is now ready, and can be placed in the Python folder, under Cutter’s plugins directory. The path to the directory is shown in the Plugins Options, under &#8220;**_Edit -> Preferences -> Plugins_**&#8220;. For example, on our machine the path is: &#8220;_~/.local/share/RadareOrg/Cutter/Plugins/Python_&#8220;.  
 
@@ -469,7 +511,8 @@ If you are interested in reading more about Ocean Lotus, we recommend this high-
 
 **APT32 Graph Deobfuscator &#8211; Full Code**
 
-<pre class="prettyprint linenums lang-python">""" A plugin for Cutter and Radare2 to deobfuscate APT32 flow graphs
+```
+""" A plugin for Cutter and Radare2 to deobfuscate APT32 flow graphs
 This is a python plugin for Cutter that is compatible as an r2pipe script for
 radare2 as well. The plugin will help reverse engineers to deobfuscate and remove
 junk blocks from APT32 (Ocean Lotus) samples.
@@ -761,7 +804,9 @@ if __name__ == "__main__":
     graph_deobfuscator = GraphDeobfuscator(pipe)
     graph_deobfuscator.clean_graph()
 
-</pre>
+
+```
+
 
   
 

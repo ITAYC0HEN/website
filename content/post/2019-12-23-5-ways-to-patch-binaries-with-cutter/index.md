@@ -47,7 +47,8 @@ For this article, we will use the same binary that was used on LiveOverflow&#821
 
 The source code can be found here and is also pasted below to make it easy for us.
 
-<pre class="toolbar-hide:false lang:c decode:true">#include &lt;string.h&gt;
+```c
+#include &lt;string.h&gt;
 #include &lt;stdio.h&gt;
 int main(int argc, char *argv[]) {
         if(argc==2) {
@@ -61,19 +62,27 @@ int main(int argc, char *argv[]) {
 		printf("Usage: &lt;key&gt;\n");
 	}
 	return 0;
-}</pre>
+}
+```
+
 
 The program is rather simple. It receives a license-key from the user and then compares it to a hardcoded key &#8220;AAAA-Z10N-42-OK&#8221;. If the keys match, it will print &#8220;Access Granted!&#8221;. Otherwise, it will print &#8220;WRONG!&#8221;
 
-<pre class="toolbar-hide:false lang:c decode:true">$ license_1 test_key
+```c
+$ license_1 test_key
 Checking License: test_key
-WRONG!</pre>
+WRONG!
+```
+
 
 Out goal is to patch the program in a way that we will receive the Success message upon entering a wrong key.
 
 Before we start &#8211; because we are going to modify the binary, I prefer to make a backup of the original file.
 
-<pre class="toolbar-hide:false lang:c decode:true">$ cp license_1 license_1.backup</pre>
+```c
+$ cp license_1 license_1.backup
+```
+
 
 Let&#8217;s open Cutter and select the license_1 binary from our computer. On the next dialog, make sure to select &#8220;Load in write mode (-w)&#8221;. You can leave the other settings as-is and press Ok.
 
@@ -96,9 +105,12 @@ Cutter is smart and can detect for us the inversed instruction for the condition
 
 Now we can testthat our changes indeed work, with the same input we tried before. The changes we do are automatically apllied to the binary so we can simply test it.
 
-<pre class="toolbar-hide:false lang:c decode:true ">$ license_1 test_key
+```c
+$ license_1 test_key
 Checking License: test_key
-Access Granted!</pre>
+Access Granted!
+```
+
 
 Yes! Patching is easy. Let&#8217;s see other ways to do the same.
 
@@ -124,18 +136,24 @@ This is yet another easy way to skip the check and go straight to the success me
 
 Before:
 
-<pre class="toolbar-hide:false lang:asm decode:true">0x00400602 call sym.imp.strcmp ; int strcmp(const char *s1, const char *s2)
+```asm
+0x00400602 call sym.imp.strcmp ; int strcmp(const char *s1, const char *s2)
 0x00400607 test eax, eax
 0x00400609 jne 0x400617
-0x0040060b mov edi, str.Access_Granted</pre>
+0x0040060b mov edi, str.Access_Granted
+```
+
 
 After:
 
-<pre class="lang:asm decode:true ">0x00400602 call sym.imp.strcmp ; int strcmp(const char *s1, const char *s2)
+```asm
+0x00400602 call sym.imp.strcmp ; int strcmp(const char *s1, const char *s2)
 0x00400607 test eax, eax
 0x00400609 nop
 0x0040060a nop
-0x0040060b mov edi, str.Access_Granted</pre>
+0x0040060b mov edi, str.Access_Granted
+```
+
 
  
 

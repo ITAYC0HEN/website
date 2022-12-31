@@ -22,7 +22,8 @@ tags:
 
 It wasn&#8217;t so hard, I asked google for the best way to generate matched string to a given pattern and wrote the following script. The only headache was when my generator used newlines (&#8220;\n&#8221;) so I removed them.
 
-<pre class="lang:python decode:true">from pwn import *
+```python
+from pwn import *
 import rstr
 import exrex
 from time import sleep
@@ -47,7 +48,9 @@ while True:
     # ans=exrex.getone(reg).replace('\n','')  # Another possible option
     r.sendline(ans)
     i+=1
-	sleep(0.2)</pre>
+	sleep(0.2)
+```
+
 
 And after 1000 tests we got the flag: _flag{^regularly\_express\_<wbr />yourself$}_
 

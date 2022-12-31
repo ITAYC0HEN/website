@@ -63,8 +63,11 @@ On the first block, there are two function calls. The first is 0x4012d0 which is
 
 &nbsp;
 
-<pre class=""><code>gci -File *.exe | % { ../strings -u -nobanner $_ | select -last 1 | & $_.fullname}
-</code></pre>
+```
+<code>gci -File *.exe | % { ../strings -u -nobanner $_ | select -last 1 | & $_.fullname}
+</code>
+```
+
 
 &nbsp;
 

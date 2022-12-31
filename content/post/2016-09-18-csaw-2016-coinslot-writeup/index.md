@@ -22,7 +22,8 @@ tags:
 
 Let&#8217;s connect to the server and see what will happen:
 
-<pre class="lang:sh decode:true">[Megabeets] /tmp/CSAW/Coinslot# nc misc.chal.csaw.io 8000
+```sh
+[Megabeets] /tmp/CSAW/Coinslot# nc misc.chal.csaw.io 8000
 $0.07
 $10,000 bills: 0
 $5,000 bills: 0
@@ -30,11 +31,14 @@ $1,000 bills: 0
 $500 bills: 0
 $100 bills: 0
 ...
-...</pre>
+...
+```
+
 
 So, the server is displaying a wanted amount of money and we need to calculate the number of bills and coins given the amount. All we need is writing a simple python script and a coffee break because it will take about 10 minutes for the flag to come up 🙁
 
-<pre class="lang:python decode:true ">from pwn import *
+```python
+from pwn import *
 
 r = remote('misc.chal.csaw.io',8000)
 
@@ -59,7 +63,9 @@ while(True):
 		amount = round((amount - (ans*m)), 2)
 		print "Left with " + str(amount)
 	print "[+] Finished %d" %count
-	print r.recvline()</pre>
+	print r.recvline()
+```
+
 
 &nbsp;
 

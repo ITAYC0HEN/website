@@ -78,9 +78,12 @@ It is important to note that r2&#8217;s learning curve is pretty steep – altho
 
 Radare2’s development is pretty quick –&nbsp;the project evolves&nbsp;every day. Therefore it&#8217;s recommended to use the current git version over the release one.&nbsp;Sometimes the release version is less stable than the current git version because of bug fixes!
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="false" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">git clone https://github.com/radare/radare2.git
+```
+git clone https://github.com/radare/radare2.git
 cd radare2
-./sys/install.sh</pre>
+./sys/install.sh
+```
+
 
 If you don&#8217;t want to install the git version or you want the binaries for another machine (Windows, OS X, iOS, etc) <a href="https://github.com/radareorg/radare2/tags" target="_blank" aria-label="undefined (opens in a new tab)" rel="noreferrer noopener">download the release from github.</a>
 
@@ -88,7 +91,10 @@ If you don&#8217;t want to install the git version or you want the binaries for 
 
 As I said before, it is highly recommended to always use the newest version of r2 from the git repository. All you need to do to update your r2 version from the git is to execute: 
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">./sys/install.sh</pre>
+```
+./sys/install.sh
+```
+
 
 And you&#8217;ll have the latest version from git. I usually update my version of radare2 in the morning, while watching cat videos.
 
@@ -96,8 +102,11 @@ And you&#8217;ll have the latest version from git. I usually update my version o
 
 I Can&#8217;t think of a reason for you to uninstall radare2 so early in the article but if you do want to, you can simply execute:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">make uninstall
-make purge</pre>
+```
+make uninstall
+make purge
+```
+
 
 ## <span class="ez-toc-section" id="Getting_Started"></span>Getting Started<span class="ez-toc-section-end"></span>
 
@@ -109,11 +118,15 @@ Now that radare2 is installed on your system and you have downloaded the binary,
 
 As most command-line utilities, the best approach to reveal the list of the possible arguments is to execute the program with the `-h`&nbsp;flag.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">r2 -h</pre>
+```
+r2 -h
+```
+
 
 I won&#8217;t paste here the full output. Instead, I&#8217;ll point out those which I usually use in my daily work:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">Usage: r2 [-ACdfLMnNqStuvwzX] [-P patch] [-p prj] [-a arch] [-b bits] [-i file]
+```
+Usage: r2 [-ACdfLMnNqStuvwzX] [-P patch] [-p prj] [-a arch] [-b bits] [-i file]
           [-s addr] [-B baddr] [-m maddr] [-c cmd] [-e k=v] file|pid|-|--|=
  -            same as 'r2 malloc://512'
  -a [arch]    set asm.arch
@@ -126,7 +139,9 @@ I won&#8217;t paste here the full output. Instead, I&#8217;ll point out those wh
  -k [OS/kern] set asm.os (linux, macos, w32, netbsd, ...)
  -l [lib]     load plugin file
  -p [prj]     use project, list if no arg, load if no file
- -w           open file in write mode</pre>
+ -w           open file in write mode
+```
+
 
 <!--more-->
 
@@ -146,7 +161,8 @@ Whenever I face a new challenge, the first thing I want is to get information ab
 
 We&#8217;ll call rabin2 with the&nbsp;`-I`&nbsp;flag which prints binary info such as operating system, language, endianness, architecture, mitigations (canary, pic, nx)&nbsp;and more.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">$ rabin2 -I megabeets_0x1
+```
+$ rabin2 -I megabeets_0x1
 arch     x86
 baddr    0x8048000
 binsz    6220
@@ -177,7 +193,9 @@ sanitiz  false
 static   false
 stripped false
 subsys   linux
-va       true</pre>
+va       true
+```
+
 
 As you can clearly see, our binary is a 32bit ELF file, not stripped and dynamically linked. It doesn&#8217;t have exploit mitigation&nbsp; – a piece of useful information for the next articles when we&#8217;ll learn to exploit using radare2.
 
@@ -185,7 +203,8 @@ Now let&#8217;s run it and see what the program does.**Note:** Although I promis
 
 But you can trust me though, you have my dword 😛
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">$ ./megabeets_0x1
+```
+$ ./megabeets_0x1
  
   .:: Megabeets ::.
 Think you can make it?
@@ -195,21 +214,29 @@ $ ./megabeets_0x1 abcdef
  
   .:: Megabeets ::.
 Think you can make it?
-Nop, Wrong argument.</pre>
+Nop, Wrong argument.
+```
+
 
 The first time we run the file we receive a message saying &#8220;Nop, Wrong argument&#8221;. Assuming we need to provide an argument for the program we run it again, this time with &#8216;abcdef&#8217; as an argument. We failed again. Most likely, some password is needed in order to solve this crackme.
 
 Let&#8217;s examine the program using radare2:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">$ r2 megabeets_0x1
+```
+$ r2 megabeets_0x1
  -- Thank you for using radare2. Have a nice night!
-[0x08048370]></pre>
+[0x08048370]>
+```
+
 
 We started a radare2 shell and it automatically greets us with one of its fortunes. Some are funny and others are actually very useful, you can execute the `fo` command to print a fortune. Now r2 shell is waiting for our commands and shows us the address in which we&#8217;re currently at (0x08048370). By default, you&#8217;ll automatically be at the entry-point address. Let&#8217;s see if it&#8217;s correct:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">[0x08048370]> ie
+```
+[0x08048370]> ie
 [Entrypoints]
-vaddr=0x08048370 paddr=0x00000370 haddr=0x00000018 hvaddr=0x08048018 type=program 1 entrypoints</pre>
+vaddr=0x08048370 paddr=0x00000370 haddr=0x00000018 hvaddr=0x08048018 type=program 1 entrypoints
+```
+
 
 <blockquote class="wp-block-quote">
   <p>
@@ -221,7 +248,8 @@ We used the `ie` command that prints the entry points of the binary. r2 commands
 
 
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="false" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">[0x00000000]> i?
+```
+[0x00000000]> i?
 Usage: i   Get info from opened file (see rabin2's manpage)
 Output mode:
 | '*'                Output in radare commands
@@ -252,7 +280,9 @@ Actions:
 | iT                 File signature
 | iV                 Display file version info
 | iz|izj             Strings in data sections (in JSON/Base64)
-| izz                Search for Strings in the whole binary</pre>
+| izz                Search for Strings in the whole binary
+```
+
 
 The `i` (**i**nfo) command aims to get information&nbsp;from the opened file, it&#8217;s actually rabin2 (mentioned earlier) implemented in the radare2 shell. It is recommended to take a minute or two here, and explore the different sub-commands of `i`, you&#8217;ll find many of these subcommands very useful for your RE journey.
 
@@ -262,7 +292,8 @@ radare2 doesn&#8217;t analyze the file by default because analysis is a complex 
 
 Obviously, analysis is still possible and r2 has lots of analysis types to offer. As I noted before, we can explore the analysis options by adding a question mar `?` to the `a` command.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">[0x08048370]> a?
+```
+[0x08048370]> a?
 Usage: a  [abdefFghoprxstc] [...]
 | a                  alias for aai - analysis information
 | a*                 same as afl*;ah*;ax*
@@ -290,11 +321,14 @@ Usage: a  [abdefFghoprxstc] [...]
 | ar[?]              like 'dr' but for the esil vm. (registers)
 | as[?] [num]        analyze syscall using dbg.reg
 | av[?] [.]          show vtables
-| ax[?]              manage refs/xrefs (see also afx?)</pre>
+| ax[?]              manage refs/xrefs (see also afx?)
+```
+
 
 I usually begin with executing `aa` (**a**nalyse&nbsp;**a**ll) or `aaa`. The name is misleading because there is a lot more to analyze (check `aa?`) but it&#8217;s enough for most of the binaries I examined. This time we&#8217;ll start straight with `aaa` to make things simpler and due to the small size of our target binary. You can also run radare2 with the `-A` flag to analyze the binary straight at startup using `aaa` (i.e. `r2 -A megabeets_0x1`).
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">[0x08048370]> aaa
+```
+[0x08048370]> aaa
 [x] Analyze all flags starting with sym. and entry0 (aa)
 [x] Analyze function calls (aac)
 [x] Analyze len bytes of instructions for references (aar)
@@ -303,13 +337,16 @@ I usually begin with executing `aa` (**a**nalyse&nbsp;**a**ll) or `aaa`. The nam
 [x] Type matching analysis for all functions (aaft)
 [x] Propagate noreturn information
 [x] Use -AA or aaaa to perform additional experimental analysis.
-</pre>
+
+```
+
 
 ### <span class="ez-toc-section" id="Flags"></span>Flags<span class="ez-toc-section-end"></span>
 
 After the analysis, radare2 associates names to interesting offsets in the file such as Sections, Function, Symbols, and Strings. Those names are called &#8216;flags&#8217;. Flags can be grouped into &#8216;flag spaces&#8217;. A flag space is a namespace for flags of similar characteristics or type. To list the flag spaces run&nbsp;`'fs'`.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">[0x08048370]> aaa
+```
+[0x08048370]> aaa
 [x] Analyze all flags starting with sym. and entry0 (aa)
 [x] Analyze function calls (aac)
 [x] Analyze len bytes of instructions for references (aar)
@@ -318,27 +355,35 @@ After the analysis, radare2 associates names to interesting offsets in the file 
 [x] Type matching analysis for all functions (aaft)
 [x] Propagate noreturn information
 [x] Use -AA or aaaa to perform additional experimental analysis.
-</pre>
+
+```
+
 
 We can choose a flag space using `fs <flagspace>` and print the flags it contains using `f`. To pass several commands in a single line we can use a semicolon (i.e `cmd1; cmd2; cmd3;...`).
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">[0x08048370]> fs imports; f
+```
+[0x08048370]> fs imports; f
 0x00000000 16 loc.imp.__gmon_start
 0x08048320 6 sym.imp.strcmp
 0x08048330 6 sym.imp.strcpy
 0x08048340 6 sym.imp.puts
 0x08048350 6 sym.imp.__libc_start_main
-</pre>
+
+```
+
 
 As we can see radare2 flagged the imports used by the binary – we can see the well-known &#8216;strcmp&#8217;, &#8216;strcpy&#8217;, &#8216;puts&#8217;, etc., along with their corresponding addresses. We can also list the strings flagspace:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">[0x08048370]> fs strings 
+```
+[0x08048370]> fs strings 
 [0x08048370]> f
 0x08048700 21 str..::_Megabeets_::.
 0x08048715 23 str.Think_you_can_make_it
 0x0804872c 10 str.Success
 0x08048736 22 str.Nop__Wrong_argument.
-</pre>
+
+```
+
 
 Now let&#8217;s get back to the default selection of flagspaces (all of them) by executing `fs *`.
 
@@ -349,7 +394,8 @@ We see that r2 flagged some offsets as strings, some sort of variable names. Now
 `iz`&nbsp;&#8211; List strings in data sections  
 `izz`&nbsp;&#8211; Search for Strings in the whole binary &nbsp;
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">[0x08048370]> iz
+```
+[0x08048370]> iz
 [Strings]
 nth paddr      vaddr      len size section type  string
 ―――――――――――――――――――――――――――――――――――――――――――――――――――――――
@@ -357,15 +403,20 @@ nth paddr      vaddr      len size section type  string
 1   0x00000715 0x08048715 22  23   .rodata ascii Think you can make it?
 2   0x0000072c 0x0804872c 9   10   .rodata ascii Success!\n
 3   0x00000736 0x08048736 21  22   .rodata ascii Nop, Wrong argument.\n
-</pre>
+
+```
+
 
 We already know most of these strings&nbsp;–&nbsp;we saw them when we executed our binary, remember? We didn&#8217;t see the &#8220;Success&#8221; string though, this is probably our &#8216;_good boy_&#8216; message. Now that we got the strings, let&#8217;s see where they&#8217;re used in the program.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">[0x08048370]> axt @@ str.*
+```
+[0x08048370]> axt @@ str.*
 main 0x8048609 [DATA] push str..::_Megabeets_::.
 main 0x8048619 [DATA] push str.Think_you_can_make_it
 main 0x8048646 [DATA] push str.Success
-main 0x8048658 [DATA] push str.Nop__Wrong_argument.</pre>
+main 0x8048658 [DATA] push str.Nop__Wrong_argument.
+```
+
 
 <blockquote class="wp-block-quote">
   <p>
@@ -379,7 +430,8 @@ This command reveals us more of radare2 features. The `axt` command is used to _
 
 As I mentioned before, all this time&nbsp;we were at the entrypoint of the program, now it&#8217;s time to move on. The strings we just listed are all referenced by &#8216;main&#8217;. in order to navigate from offset to offset we need to use the &#8216;seek&#8217; command, represented by `s`. As you already know, appending `?`&nbsp;to (almost) every command is the answer to all your problems.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">[0x08048370]> s?
+```
+[0x08048370]> s?
 Usage: s    # Help for the seek commands. See ?$? to see all variables
 | s                 Print current address
 | s.hexoff          Seek honoring a base from core->offset
@@ -407,11 +459,14 @@ Usage: s    # Help for the seek commands. See ?$? to see all variables
 | so [N]            Seek to N next opcode(s)
 | sr pc             Seek to register
 | ss                Seek silently (without adding an entry to the seek history)
-</pre>
+
+```
+
 
 So basically the seek command accepts an address or math expression as an argument. The expression can be math operations, flag, or memory access operations. We want to seek to the main function, we can do it by executing `s main` but let&#8217;s see first what other functions radare2 flagged for us using the `afl`&nbsp;command (**A**nalyze&nbsp;**F**unctions&nbsp;**L**ist).
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">[0x08048370]> afl
+```
+[0x08048370]> afl
 0x08048370    1 33           entry0
 0x08048350    1 6            sym.imp.__libc_start_main
 0x080483b0    4 43           sym.deregister_tm_clones
@@ -429,7 +484,9 @@ So basically the seek command accepts an address or math expression as an argume
 0x080485f5    5 127          main
 0x080482ec    3 35           sym._init
 0x08048340    1 6            sym.imp.puts
-</pre>
+
+```
+
 
 Sweet! There are the imports we saw before, some .ctors, the entrypoints, libc, main and two interesting functions named `sym.beet` and `sym.rot13`.
 
@@ -471,7 +528,8 @@ It&#8217;s time to look at some assembly (yay!).&nbsp;We first need to seek to t
 
 Take all the time you need and look at the output of `pdf`.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="asm" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="false" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">[0x08048370]> s main
+```
+[0x08048370]> s main
 [0x080485f5]> pdf
             ; DATA XREF from entry0 @ 0x8048387
   int main (int32_t arg_4h);
@@ -521,11 +579,14 @@ Take all the time you need and look at the output of `pdf`.
        0x0804866e      5b             pop ebx
        0x0804866f      5d             pop ebp
        0x08048670      8d61fc         lea esp, [ecx - 4]
-       0x08048673      c3             re </pre>
+       0x08048673      c3             re 
+```
+
 
 From reading the assembly we can generate a quick pseudo-code:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="c" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">//f any argument passed to the program AND the result of beet, given the passed argument, is true
+```
+//f any argument passed to the program AND the result of beet, given the passed argument, is true
 // argc is the number of arguments passed to the program
 // argc will be at least 1 becuase the first argument is the program name
 // argv is the array of parameters passed to the program
@@ -536,7 +597,9 @@ if (argc > 1 && beet(argv[1]) == true)
 } else { 
      print "fail"
 } 
-exit</pre>
+exit
+```
+
 
 ### <span class="ez-toc-section" id="Visual_Mode_Graph_Mode"></span>Visual Mode & Graph Mode<span class="ez-toc-section-end"></span>
 
@@ -605,7 +668,8 @@ Here&#8217;s how `beet`&nbsp;looks like in Visual Graph Mode:<figure class="wp-b
 
 We can see that the given argument is copied to a buffer. The buffer is located at `ebp - local_88h`. &#8216;local_88h&#8217; is actually 0x88 which is 136 in decimal. We can see this by executing `? 0x88`. To execute r2 command from inside Visual Graph mode use `:`&nbsp;and then write the command.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="false" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">:> ? 0x88
+```
+:> ? 0x88
 int32   136
 uint32  136
 hex     0x88
@@ -618,7 +682,9 @@ float:  0.000000f
 double: 0.000000
 binary  0b10001000
 trits   0t12001
-</pre>
+
+```
+
 
 Hence, 128&nbsp;bytes are allocated for the buffer in the stack, the next 4 bytes would be the saved `ebp` pointer of the previous stack frame, and the next 4 bytes will be the return address, this sums up to 136.
 
@@ -636,12 +702,16 @@ The binary performs rot13 on &#8220;Megabeets&#8221; and then compares the resul
   </p>
 </blockquote>
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="false" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">[0x08048585]> !rahash2 -E rot -S s:13 -s "Megabeets\n"
-Zrtnorrgf</pre>
+```
+[0x08048585]> !rahash2 -E rot -S s:13 -s "Megabeets\n"
+Zrtnorrgf
+```
+
 
 rahash2 performed rot13(&#8220;Megabeets&#8221;) and resulted with &#8220;Zrtnorrgf&#8221;. By using `!`&nbsp;we can execute shell commands from within r2 shell as in&nbsp;`system(3)`.&nbsp;We can assume that &#8220;Zrtnorrgf&#8221; is compared with our input. Let&#8217;s open the binary in debug mode with &#8220;Zrtnorrgf&#8221; as an argument using `ood`&nbsp;(check&nbsp;`ood?`) and see what we&#8217;ll get.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="false" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">[0x08048585]> ood?
+```
+[0x08048585]> ood?
 Usage: ood   # Debug (re)open commands
 | ood [args]      # reopen in debug mode (with args)
 | oodf [file]     # reopen in debug mode using the given file
@@ -652,16 +722,21 @@ Process with PID 26850 started...
 = attach 26850 26850
 File dbg:///home/beet/megabeets/crackmes/megabeets_0x1  Zrtnorrgf reopened in read-write mode
 26850
-</pre>
+
+```
+
 
 We opened `megabeets_0x1` with an argument in the radare2 debugger. We can now execute the program using `dc` which stands for &#8220;**d**ebug **c**ontinue&#8221;.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="false" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">[0xf7f4a120]> dc
+```
+[0xf7f4a120]> dc
 
   .:: Megabeets ::.
 Think you can make it?
 Success!
-</pre>
+
+```
+
 
 Woohoo! We received the success message and solved the crack me. After getting the success message&nbsp;we can finally say that what the binary is doing is to take the first argument we pass it and&nbsp;compare it with rot13(&#8220;Megabeets&#8221;) which is&nbsp;&#8220;Zrtnorrgf&#8221;.
 

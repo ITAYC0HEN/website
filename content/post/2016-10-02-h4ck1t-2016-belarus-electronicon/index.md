@@ -39,7 +39,8 @@ Aah ah! It was a HUGE ascii-art. How huge? 11 rows of 1830661 chars each! It&#82
 
 First, I edited the file in order to make it easy for me to parse it. I wanted that every char will be in it&#8217;s own line. I wrote a script to separate the characters:
 
-<pre class="lang:python decode:true">import os
+```python
+import os
 
 fin = open('pain.txt','r')
 fout = open('out.txt', 'w')
@@ -53,7 +54,9 @@ print len(content)
 for j in xrange(len(splitted[0])/width):
 	for i in xrange(len(splitted)):
 		fout.write(splitted[i][:width]+"\n")
-		splitted[i]=splitted[i][width:]</pre>
+		splitted[i]=splitted[i][width:]
+```
+
 
 Now let&#8217;s open the edited file with _EmEditor_ that is capable of open large files and see how our file is looking like:
 
@@ -61,7 +64,8 @@ Now let&#8217;s open the edited file with _EmEditor_ that is capable of open lar
 
 Good! Looks exactly like I wanted! Now in order to parse it we need to tell the code how every letter or digit is looking like so I started to define variable for each letter or digit with the matching ascii-art. It was something like that:
 
-<pre class="lang:python decode:true">f_in = open('out.txt', 'r')
+```python
+f_in = open('out.txt', 'r')
 ff = open('flag.txt', 'w')
 content = f_in.read()
 content = content.split("\n")
@@ -107,7 +111,9 @@ while True:
              ff.write("e")
      elif lines==f:
              ff.write("f")
-     index+=1</pre>
+     index+=1
+```
+
 
 I took the long hex-string and paste in hex editor. It was this photo:<img src="../uploads/img.jpg" />
 

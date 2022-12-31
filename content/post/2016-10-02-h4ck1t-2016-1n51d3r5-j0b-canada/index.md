@@ -21,7 +21,8 @@ tags:
 
 Oh god, this challenge was so fun. The easiest 300 point I&#8217;ve ever got. I&#8217;m sure it wasn&#8217;t the expected solution but it works so who am I to complain. Three commands, that&#8217;s all.
 
-<pre class="lang:sh mark:13 decode:true">Megabeets:/tmp/h4ckit/canada# unzip Tommy_2e00c18e3a480959ba5fb4f65ff7f2b7.zip
+```sh
+Megabeets:/tmp/h4ckit/canada# unzip Tommy_2e00c18e3a480959ba5fb4f65ff7f2b7.zip
 Archive:  Tommy_2e00c18e3a480959ba5fb4f65ff7f2b7.zip
    creating: 300/
   inflating: 300/out.txt
@@ -33,7 +34,9 @@ drwxrwxrwx 2 root root      0 Oct  2 16:04 ../
 drwxrwxrwx 2 root root      0 Sep 24 18:17 300/
 -rwxrwxrwx 1 root root 634168 Sep 28 20:42 Tommy_2e00c18e3a480959ba5fb4f65ff7f2b7.zip*
 Megabeets:/tmp/h4ckit/canada# strings /300/parse | grep -i h4ck1t{
-...h4ck1t{T0mmy_g0t_h1s_Gun}...</pre>
+...h4ck1t{T0mmy_g0t_h1s_Gun}...
+```
+
 
 I don&#8217;t even know what the challenge is about. Just moved to the next challenge without asking any unnecessary questions.
 

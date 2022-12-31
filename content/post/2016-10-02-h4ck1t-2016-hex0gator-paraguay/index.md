@@ -23,19 +23,26 @@ tags:
 
 In this PPC 250 pts challenge we got only one file. Let&#8217;s run _File_ command on it to determine it&#8217;s type.
 
-<pre class="lang:sh decode:true">Megabeets:/tmp/h4ckit/paraguay# file 100_00edb54bed7e46bd5cdb7c06059881c2
-100_00edb54bed7e46bd5cdb7c06059881c2: Zip archive data, at least v2.0 to extract</pre>
+```sh
+Megabeets:/tmp/h4ckit/paraguay# file 100_00edb54bed7e46bd5cdb7c06059881c2
+100_00edb54bed7e46bd5cdb7c06059881c2: Zip archive data, at least v2.0 to extract
+```
+
 
 &nbsp;
 
 This is a zip file which contains another folder within. The folder contains a file named &#8216;_99_&#8216;. Let&#8217;s extract it and figure out it&#8217;s type:
 
-<pre class="lang:sh decode:true">Megabeets:/tmp/h4ckit/paraguay# file 99
-99: Zip archive data, at least v1.0 to extract</pre>
+```sh
+Megabeets:/tmp/h4ckit/paraguay# file 99
+99: Zip archive data, at least v1.0 to extract
+```
+
 
 99 is also a zip file, and inside it has another zip, and another zip&#8230; well, I see where it going to. I wrote a simple Powershell script to extract all the archives using the ultimate archive manipulator &#8211; 7-zip.
 
-<pre class="lang:ps decode:true "># Set $path to a folder only with the file '99'
+```ps
+# Set $path to a folder only with the file '99'
 # 99 Exists in 'work_folder' inside the first archive
 
 $path = "C:\\your\\\path"
@@ -55,12 +62,17 @@ while($true)
     {
         Remove-Item $file.Fullname
     }
-}</pre>
+}
+```
+
 
 Now let&#8217;s run it:
 
-<pre class="lang:ps decode:true">PS C:\h4ckit\paraguay&gt; C:\h4ckit\paraguay\solve.ps1
-FLAG: 0W_MY_G0D_Y0U_M4D3_1T</pre>
+```ps
+PS C:\h4ckit\paraguay&gt; C:\h4ckit\paraguay\solve.ps1
+FLAG: 0W_MY_G0D_Y0U_M4D3_1T
+```
+
 
 &nbsp;
 

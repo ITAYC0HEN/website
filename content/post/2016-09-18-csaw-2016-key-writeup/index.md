@@ -39,7 +39,8 @@ tags:
 </div>
 
 <div class="chal-files">
-  <pre class="lang:asm decode:true ">.rdata:00AB52B8 00000029 C C:\\Users\\CSAW2016\\haha\\flag_dir\\flag.txt
+  ```asm
+.rdata:00AB52B8 00000029 C C:\\Users\\CSAW2016\\haha\\flag_dir\\flag.txt
 .rdata:00AB52E4 00000016 C ?W?h?a?t h?a?p?p?e?n?                        
 .rdata:00AB52FC 00000021 C |------------------------------|             
 .rdata:00AB5320 00000021 C |==============================|             
@@ -47,7 +48,9 @@ tags:
 .rdata:00AB5368 00000021 C  \\/  \\/  \\/  \\/  \\=============|        
 .rdata:00AB538C 00000021 C                  |-------------|             
 .rdata:00AB53B0 00000015 C Congrats You got it!                         
-.rdata:00AB53C8 00000012 C =W=r=o=n=g=K=e=y=</pre>
+.rdata:00AB53C8 00000012 C =W=r=o=n=g=K=e=y=
+```
+
   
   <p>
     We have 4 interesting strings:

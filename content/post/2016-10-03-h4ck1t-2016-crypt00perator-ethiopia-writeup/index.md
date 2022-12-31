@@ -27,16 +27,20 @@ This is a pretty basic reverse challenge. We can solve it in many different ways
 
 So, we got an exe file and we need to find the access key. We are given with a hint that the key is somehow hardcoded in the file itself. Let&#8217;s run the file and see what will happen.
 
-<pre class="lang:amigados decode:true">Megabeets D:\Downloads\h4ckit\ethiopia
+```amigados
+Megabeets D:\Downloads\h4ckit\ethiopia
 &gt; crypt0_0perator_56e0a9f07f54b3634ab5cc2b30e5b29e.exe
 Enter th3 k3y :
 &gt; Megabeets
 
-Denied</pre>
+Denied
+```
+
 
 Seems like all it does is to ask for the key, let&#8217;s take a deeper look and see if we the key is stored clear-text in the file. Open the file in IDA pro and press Shift+F12 to open the Strings subview. The strings that written by the programmer will usually be stored in close adresses. Her&#8217;e are snip of the strings. I marked the most meaningful:
 
-<pre class="theme:coy lang:default mark:2,3,4,5 decode:true">.text:0000000000468093  00000005 C G u$E                                           
+```default
+.text:0000000000468093  00000005 C G u$E                                           
 .data:0000000000472020  00000029 C o3dl6s|41a42344d110746d574e35c2f77ab6&gt;3z        
 .rdata:0000000000488000 00000008 C Allowed                                         
 .rdata:000000000048800E 00000007 C Denied                                          
@@ -49,16 +53,21 @@ Seems like all it does is to ask for the key, let&#8217;s take a deeper look and
 .rdata:0000000000488120 00000024 C __gnu_cxx::__concurrence_lock_error             
 .rdata:0000000000488148 00000026 C __gnu_cxx::__concurrence_unlock_error                                          
 ...
-...</pre>
+...
+```
+
 
 We can easily notice the strings which we already faced when executing the program: &#8216;_Denied&#8217; _and &#8216;_Enter th3 k3y :&#8217;. _The _&#8216;Allowed&#8217;_ string will probably be printed after entering the right key. But what is this strange string:_ &#8216;o3dl6s|41a42344d110746d574e35c2f77ab6>3z&#8217;_? Is it the key? Let&#8217;s try.
 
-<pre class="lang:amigados decode:true">Megabeets D:\Downloads\h4ckit\ethiopia
+```amigados
+Megabeets D:\Downloads\h4ckit\ethiopia
 &gt; crypt0_0perator_56e0a9f07f54b3634ab5cc2b30e5b29e.exe
 Enter th3 k3y :
 &gt; o3dl6s|41a42344d110746d574e35c2f77ab6&gt;3z
 
-Denied</pre>
+Denied
+```
+
 
 No luck. It is not the key, but what is it? It should be meaningful somehow but I don&#8217;t yet know how the program is using this string. I decided to debug the program and set a breakpoint before the decision whether the input is the right key or not is made.
 
@@ -76,12 +85,15 @@ Now let&#8217;s run the program with that long string as the input and look at t
 
 Well, RAX is looking like the flag. We will get the _Denied_ message but at least we now have the flag.
 
-<pre class="lang:amigados decode:true">Megabeets D:\Downloads\h4ckit\ethiopia
+```amigados
+Megabeets D:\Downloads\h4ckit\ethiopia
 &gt; crypt0_0perator_56e0a9f07f54b3634ab5cc2b30e5b29e.exe
 Enter th3 k3y :
 &gt; h4ck1t{36f35433c667031c203b42d5a00fe194}
 
-Allowed</pre>
+Allowed
+```
+
 
 &nbsp;
 
@@ -99,7 +111,8 @@ As you can see, this is probably a [Substitution cipher][2] implementation. Eve
 
 &nbsp;
 
-<pre class="lang:python decode:true">input = "abcdefghijklmnopqrstuvwxyz0123456789{}"     
+```python
+input = "abcdefghijklmnopqrstuvwxyz0123456789{}"     
 rax = "fedcba`onmlkjihwvutsrqp_~}76543210?&gt;|z"        
 expected = "o3dl6s|41a42344d110746d574e35c2f77ab6&gt;3z"                                       
 flag= ''   
@@ -108,7 +121,9 @@ for c in expected:
 	flag += input[rax.index(c)]                       
 
 print flag
-# flag: h4ck1t{36f35433c667031c203b42d5a00fe194}</pre>
+# flag: h4ck1t{36f35433c667031c203b42d5a00fe194}
+```
+
 
 We got the flag 🙂
 

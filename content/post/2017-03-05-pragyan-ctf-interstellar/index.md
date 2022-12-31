@@ -29,8 +29,11 @@ We are given with a photo, I opened it in Photoshop and saw that parts of it are
 
 I grabbed Python and removed the Alpha layer from the image. The Alpha layer controls pixels&#8217; transparency.
 
-<pre class="toolbar:2 show-lang:2 nums:false nums-toggle:false lang:python decode:true ">from PIL import Image
-Image.open('transmission.png').convert('RGB').save('output.png')</pre>
+```python
+from PIL import Image
+Image.open('transmission.png').convert('RGB').save('output.png')
+```
+
 
 We got the result with the flag:
 

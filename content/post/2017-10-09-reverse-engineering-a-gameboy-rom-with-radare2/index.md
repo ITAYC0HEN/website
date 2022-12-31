@@ -46,9 +46,12 @@ I thought of sharing some of my writeups with you, so you can taste a bit from w
 
 Radare2’s development is pretty quick – the project evolves every day, therefore it&#8217;s recommended to use the current git version over the stable one. Sometimes the stable version is less stable than the current git version!
 
-<pre class="toolbar:2 nums:false lang:sh decode:true" title="Installing radare2">$ git clone https://github.com/radare/radare2.git
+```sh
+$ git clone https://github.com/radare/radare2.git
 $ cd radare2
-$ ./sys/install.sh</pre>
+$ ./sys/install.sh
+```
+
 
 If you don&#8217;t want to install the git version or you want the binaries for another machine (Windows, OS X, iOS, etc) check out the [download page at the radare2 website.][5]
 
@@ -56,7 +59,10 @@ If you don&#8217;t want to install the git version or you want the binaries for 
 
 As I said before, it is highly recommended to always use the newest version of r2 from the git repository. All you need to do to update your r2 version from the git is to execute:
 
-<pre class="toolbar:2 nums:false lang:sh decode:true" title="Updating radare2">$ ./sys/install.sh</pre>
+```sh
+$ ./sys/install.sh
+```
+
 
 And you&#8217;ll have the latest version from git. I usually update my version of radare2 in the morning, while watching cat videos.
 
@@ -226,7 +232,8 @@ radare recognized that our function begins at _0x274_. We can see at the bottom 
 
 Let&#8217;s take a look on these blocks for example:
 
-<pre class="toolbar-hide:false toolbar-delay:false show-title:false marking:false ranges:false nums:false nums-toggle:false wrap-toggle:false lang:diff decode:true">[0x000002e4]&gt; pdf                                                                          
+```diff
+[0x000002e4]&gt; pdf                                                                          
 / (fcn) fcn.00000274 107                                                                   
 |   fcn.00000274 ();                                                                       
 |           0x00000274      f802           ld hl, sp + 0x02                                
@@ -267,17 +274,22 @@ Let&#8217;s take a look on these blocks for example:
 |   | |||   0x000002a6      fe05           cp 0x05                                         
 |   |,====&lt; 0x000002a8      c2e402         jp nZ, 0x02e4                                   
 |  ,======&lt; 0x000002ab      1803           jr 0x03                                         
-  ,=======&lt; 0x000002ad      c3e402         jp 0x02e4                   ; fcn.00000274+0x70</pre>
+  ,=======&lt; 0x000002ad      c3e402         jp 0x02e4                   ; fcn.00000274+0x70
+```
+
 
 At the first block, _0x4_ is moved (`ld` instruction) to `hl` which in turn moved to register `bc` and then the value which is referenced in `bc` is compared to _0x3_. As I said, `bc` points to our input so this check checks whether `bc+4` is equals to _0x4_. In the next block we can see that `bc`, which returned to its original value, now increased (`inc`) twice and the value it is referenced to is compared with _0x7_. In the last block of our example, `bc` returns to its initial value and then incremented once and its referenced value is compared with _0x5_..
 
 <span style="font-weight: 400;">Finally I came up with this pseudo Pythonic code:</span>
 
-<pre class="toolbar:2 show-lang:2 marking:false ranges:false nums:false nums-toggle:false wrap-toggle:false lang:python decode:true ">def check_password (guess):
+```python
+def check_password (guess):
     if guess[4]==3 and guess[2]==7 and guess[1]==5 and guess[3]==1 and guess[0]==9:
         print "WIN!"
     else:
-        print "FAIL!"</pre>
+        print "FAIL!"
+```
+
 
 Let’s see if we got it right:
 

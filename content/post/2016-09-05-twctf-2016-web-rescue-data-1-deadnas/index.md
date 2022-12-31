@@ -23,13 +23,16 @@ tags:
 
 We are given an archive containing 3 files:
 
-<pre class="lang:sh decode:true">D:\Megabeets\deadnas&gt; dir 
+```sh
+D:\Megabeets\deadnas&gt; dir 
 Directory of D:\Megabeets\deadnas
         .
         ..
 524,288 disk0
      12 disk1
-524,288 disk2</pre>
+524,288 disk2
+```
+
 
 3 Disk NAS and one has failed? This challenge is obviously about [RAID 5][2]. I was asked to find a way to recover the failed disk and there is no simpler way than just XOR disk0 with disk2 and recreate the original disk1. If you are right now in your &#8220;WTF?!&#8221; mode you better go read about RAID 5 until you understand how it works.
 

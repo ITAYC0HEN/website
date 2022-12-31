@@ -27,14 +27,18 @@ Each words contain only lower case alphabet characters.
 
 Example Input: 3 ab cba c
 Example Answer: ab c cba
-</pre>
+
+```
+
       
       <p>
         <em>You have to connect to ppc1.chal.ctf.westerns.tokyo:31111(TCP) to answer the problem.</em>
       </p>
       
       <pre>$ nc ppc1.chal.ctf.westerns.tokyo 31111
-</pre>
+
+```
+
       
       <ul>
         <li>
@@ -58,16 +62,22 @@ Example Answer: ab c cba
 
 This challenge was pretty simple. I used the given &#8220;_example.py&#8221;_  and added the following function to it:
 
-<pre class="lang:python decode:true ">def makepal(l):
+```python
+def makepal(l):
 	for b in itertools.permutations(l, len(l)):
 		str1 = ''.join(b)
 		if str(str1) == str(str1)[::-1]:
 			print b
-			return b</pre>
+			return b
+```
+
 
 Then I called it using the original script structure:
 
-<pre class="lang:python decode:true ">answer = makepal(words)</pre>
+```python
+answer = makepal(words)
+```
+
 
 And the server returned the flag:  
 **TWCTF{Hiyokko_Tsuppari}**

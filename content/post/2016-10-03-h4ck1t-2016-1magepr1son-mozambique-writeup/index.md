@@ -33,7 +33,8 @@ Looking carefully at the image we can see a pattern of strange dots, such dots m
 
 The dots exists every 24 pixels so I wrote a short pythons script in order to combine them into one image:
 
-<pre class="lang:python decode:true ">from PIL import Image
+```python
+from PIL import Image
 
 original = Image.open("planet.png")
 p_orig = original.load()
@@ -51,7 +52,9 @@ for j in range(0,height,24):
     cord_x=0
 	
 new_image.save('flag.png', 'PNG')
-</pre>
+
+```
+
 
 I ran it and got a big image (the wallpaper size) with this tiny image inside that contains the flag:
 

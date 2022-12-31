@@ -21,8 +21,11 @@ tags:
 
 We are given with a file. I ran `file` command on it to figure it&#8217;s file type:
 
-<pre class="lang:sh decode:true">[Megabeets] /tmp/CSAW/clam# file out.img
-out.img: x86 boot sector</pre>
+```sh
+[Megabeets] /tmp/CSAW/clam# file out.img
+out.img: x86 boot sector
+```
+
 
 Ok, we have raw image file which will probably contain file/s with the flag. I&#8217;ll show 2 methods, choose your preferred one.
 
@@ -55,7 +58,10 @@ Scan it either online or offline to reveal the flag. I was scanning it with [thi
 
 This is less elegant way to solve the challenge. Run `foremost` on the file:
 
-<pre class="lang:sh decode:true ">[Megabeets]$ foremost out.img</pre>
+```sh
+[Megabeets]$ foremost out.img
+```
+
 
 You&#8217;ll get a folder named output with zip file, movie file and pptx file. Extract the pptx file using 7-zip (PPTX is an archive file), go to the `/ppt/media` folder and you&#8217;ll find the MaxiCode image mentioned before.
 

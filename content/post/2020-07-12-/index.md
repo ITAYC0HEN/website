@@ -26,10 +26,13 @@ _class_ <span class="has-inline-color has-vivid-green-cyan-color">Question</span
 
 **EnlighterJS plugin (installed on CPR)**
 
-<pre class="EnlighterJSRAW" data-enlighter-language="python" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">import csv
+```
+import csv
 from enum import Enum
 
-class Question(Enum):</pre>
+class Question(Enum):
+```
+
 
 
 

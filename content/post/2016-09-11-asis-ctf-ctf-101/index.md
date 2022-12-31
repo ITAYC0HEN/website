@@ -25,9 +25,12 @@ The description is telling the whole story. Simply look in the response&#8217;
 
 Decode the string with base64 and reveal the flag.
 
-<pre class="lang:sh decode:true">$ echo QVNJU3szMWE0ODM5MDBiODU3NjQyNmNjY2RmNTU0MDJiOWRkNn0K | base64 --decode
+```sh
+$ echo QVNJU3szMWE0ODM5MDBiODU3NjQyNmNjY2RmNTU0MDJiOWRkNn0K | base64 --decode
 ASIS{31a483900b8576426cccdf55402b9dd6}
-</pre>
+
+```
+
 
 <div class="nf-post-footer">
   <p style="text-align: right">

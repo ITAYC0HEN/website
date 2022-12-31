@@ -28,8 +28,11 @@ tags:
 
 This challenge was the first in the Forensics category and was very very simple. We are given with what seems like a corrupted `pcapng` file, I wasn&#8217;t able to open it in `Wireshark` nor `Tcpdump`. I ran `strings` on it with a hope to find the flag:
 
-<pre class="lang:sh decode:true ">[Megabeets] /tmp/CSAW/kill# strings kill.pcapng | grep -i flag
-=flag{roses_r_blue_violets_r_r3d_mayb3_harambae_is_not_kill}</pre>
+```sh
+[Megabeets] /tmp/CSAW/kill# strings kill.pcapng | grep -i flag
+=flag{roses_r_blue_violets_r_r3d_mayb3_harambae_is_not_kill}
+```
+
 
 And to my great surprise I got it, the flag was written plain-text in the file.
 

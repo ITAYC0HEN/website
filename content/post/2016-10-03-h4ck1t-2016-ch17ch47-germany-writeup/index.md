@@ -33,7 +33,10 @@ I roughly follow the same simple system whenever I face a new challenge. This 
               Examine the file types that are given to you: An image, pcap, pe, etc. You can do it using the <code>file</code> command or just by open it
             </li>
             <li class="im_message_text" dir="auto">
-              Run &#8216;strings&#8217; command on it. <pre class="lang:sh decode:true ">strings file_name | grep - i flag{convention}</pre>
+              Run &#8216;strings&#8217; command on it. ```sh
+strings file_name | grep - i flag{convention}
+```
+
             </li>
             
             <li class="im_message_text" dir="auto">
@@ -60,7 +63,8 @@ I roughly follow the same simple system whenever I face a new challenge. This 
 </div>
 
 <div class="im_history_message_wrap im_grouped_short">
-  <pre class="lang:sh decode:true">Megabeets:/tmp/h4ckit/germany# unzip CorpUser.zip
+  ```sh
+Megabeets:/tmp/h4ckit/germany# unzip CorpUser.zip
 Archive:  CorpUser.zip
    creating: CorpUser/
    creating: CorpUser/AppData/
@@ -85,7 +89,9 @@ Archive:  CorpUser.zip
   ...
   DELETED LOT OF ROWS
   ...
-  ...</pre>
+  ...
+```
+
   
   <p>
     &nbsp;
@@ -95,15 +101,21 @@ Archive:  CorpUser.zip
     We have a lot of files of different types from what seems like Windows machine (AppData, Favorites, Downloads, Desktop&#8230;). We can start step 2 that I mentioned before and recursively search for the flag in the strings of the files.
   </p>
   
-  <pre class="lang:default decode:true">Megabeets:/tmp/h4ckit/germany# grep -R 'h4ck' CorpUser
-Binary file CorpUser/AppData/Roaming/Skype/live#3aames.aldrich/main.db matches</pre>
+  ```default
+Megabeets:/tmp/h4ckit/germany# grep -R 'h4ck' CorpUser
+Binary file CorpUser/AppData/Roaming/Skype/live#3aames.aldrich/main.db matches
+```
+
   
   <p>
     This command iterates recursively all the files in the directory and the sub-directories and grep for the string &#8216;h4ck&#8217;. The command returned that there is a database file that is containing part of the flag. Now let&#8217;s <code>strings</code> command on the file:
   </p>
   
-  <pre class="lang:sh decode:true ">Megabeets:/tmp/h4ckit/germany# strings CorpUser/AppData/Roaming/Skype/live#3aames.aldrich/main.db | grep h4ck1t
-live:black.zogzog blackabauh4ck1t{87e2bc9573392d5f4458393375328cf2}h4ck1t{87e2bc9573392d5f4458393375328cf2}8183ce2902ef71ac62ab02a7c8ec762e6b14e318h4ck1t{87e2bc9573392d5f4458393375328cf2}h4ck1t{87e2bc9573392d5f4458393375328cf2}h4ck1t{87e2bc9573392d5f4458393375328cf2}h4ck1t{87e2bc9573392d5f4458393375328cf2}</pre>
+  ```sh
+Megabeets:/tmp/h4ckit/germany# strings CorpUser/AppData/Roaming/Skype/live#3aames.aldrich/main.db | grep h4ck1t
+live:black.zogzog blackabauh4ck1t{87e2bc9573392d5f4458393375328cf2}h4ck1t{87e2bc9573392d5f4458393375328cf2}8183ce2902ef71ac62ab02a7c8ec762e6b14e318h4ck1t{87e2bc9573392d5f4458393375328cf2}h4ck1t{87e2bc9573392d5f4458393375328cf2}h4ck1t{87e2bc9573392d5f4458393375328cf2}h4ck1t{87e2bc9573392d5f4458393375328cf2}
+```
+
   
   <p>
     And we got the flag. Easy, right?

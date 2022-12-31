@@ -40,8 +40,11 @@ tags:
 </div>
 
 <div>
-  <pre class="lang:diff decode:true ">$ file ./file.kdb
-file: Keepass password database 1.x KDB, 3 groups, 4 entries, 50000 key transformation rounds</pre>
+  ```diff
+$ file ./file.kdb
+file: Keepass password database 1.x KDB, 3 groups, 4 entries, 50000 key transformation rounds
+```
+
   
   <p>
     The file is KDB file which is Keepass password database. Keepass is a famous opensource password manager.
@@ -51,7 +54,8 @@ file: Keepass password database 1.x KDB, 3 groups, 4 entries, 50000 key transfor
     I tried open it using KeePassX for windows, but we need a password to open the database. The password probably should match the regex, so I generated a dictionary with all the possible passwords (more then 300,000 words).
   </p>
   
-  <pre class="lang:python decode:true ">import string
+  ```python
+import string
 import itertools
 
 # strings match the regex
@@ -61,7 +65,9 @@ f = open('dict.txt','a')
 all_permutations = list(itertools.permutations(chars,1))+ list(itertools.permutations(chars,2))+ list(itertools.permutations(chars,3))
 
 for p in all_permutations:
-    f.write(''.join(p)+'\n')</pre>
+    f.write(''.join(p)+'\n')
+```
+
   
   <p>
     &nbsp;
@@ -70,13 +76,16 @@ for p in all_permutations:
 
 And I the ran John the Ripper to crack the password and went to eat lunch.
 
-<pre class="toolbar:2 show-lang:2 nums:false nums-toggle:false lang:diff decode:true ">$ keepass2john file.kdb &gt; kp
+```diff
+$ keepass2john file.kdb &gt; kp
 $ john  --wordlist=dict.txt -format:keepass kp
 Using default input encoding: UTF-8
 Loaded 1 password hash (KeePass [SHA256 AES 32/64 OpenSSL])
 Press 'q' or Ctrl-C to abort, almost any other key for status
 k18              (file.kdb)
-</pre>
+
+```
+
 
 When I came back I saw that John found the password, now lets open the file:
 

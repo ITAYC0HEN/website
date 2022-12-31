@@ -40,20 +40,29 @@ If you want to use the newest version available, with new features and bug fixes
 
 First, you must clone the repository:
 
-<pre class="lang:default decode:true ">git clone --recurse-submodules https://github.com/radareorg/cutter
-cd cutter</pre>
+```default
+git clone --recurse-submodules https://github.com/radareorg/cutter
+cd cutter
+```
+
 
 Building on Linux:
 
 <div class="highlight highlight-source-shell">
-  <pre class="lang:default decode:true">./build.sh</pre>
+  ```default
+./build.sh
+```
+
   
   <p>
     Building on Windows:
   </p>
   
-  <pre class="lang:default decode:true">prepare_r2.bat
-build.bat</pre>
+  ```default
+prepare_r2.bat
+build.bat
+```
+
 </div>
 
 If any of those do not work, check the more detailed instruction page [here][3].
@@ -189,22 +198,31 @@ So, what do we have here? We obviously won&#8217;t go over it step by step, but 
 
 **C half-words (Little Endian):**
 
-<pre class="toolbar:2 nums:false nums-toggle:false show-plain:3 lang:c decode:true">#define _BUFFER_SIZE 11
+```c
+#define _BUFFER_SIZE 11
 const uint16_t buffer[11] = {
   0x0005, 0x0006, 0x000e, 0x0006, 0x001c, 0x0006, 0x0007, 0x000b,
-  0x000e, 0x0006, 0x0022};</pre>
+  0x000e, 0x0006, 0x0022};
+```
+
 
 **Python:**
 
-<pre class="toolbar:2 nums:false plain:false show-plain:3 lang:python decode:true">import struct
+```python
+import struct
 buf = struct.pack ("22B", *[
 0x05,0x00,0x06,0x00,0x0e,0x00,0x06,0x00,0x1c,0x00,0x06,
 0x00,0x07,0x00,0x0b,0x00,0x0e,0x00,0x06,0x00,0x22,0x00])
-</pre>
+
+```
+
 
 **Javascript:**
 
-<pre class="toolbar:2 nums:false nums-toggle:false show-plain:3 lang:js decode:true">var buffer = new Buffer("BQAGAA4ABgAcAAYABwALAA4ABgAiAA==", 'base64');</pre>
+```js
+var buffer = new Buffer("BQAGAA4ABgAcAAYABwALAA4ABgAiAA==", 'base64');
+```
+
 
 This array will help us later to write the decryption script. For now, let&#8217;s continue to figure out how `strings_decrypter` works. Entering the loop, we can see that `eax` will hold the `index` and `ecx` will hold the aforementioned array. Then, a byte from `[ecx + eax*2]` is moved to `edx`. Basically, `edx` now equals to `half_word_array[index*2]`. Next, our buffer is moved to `eax` which in turn is being added with the value of `index`, setting `eax` to a specific offset in the allocated buffer. Then, at `0x004012eb`, we can see that a byte is moved to `cl`. This byte is taken from index `[edx]` of a pre-defined string. Double-clicking the string will reveal us the full string &#8212; `AaCcdDeFfGhiKLlMmnNoOpPrRsSTtUuVvwWxyZz32.\EbgjHI _YQB:"/@\x0a\x0d\x1a`. Immediately after that, the byte from `cl` is copied into the specific index in our `buffer`. The loop continues `length` times.
 
@@ -216,7 +234,8 @@ This is where another great feature of Cutter is being used, an integrated [Jup
 
 So let&#8217;s write a quick proof of concept to confirm that this is really how this decryption function works. Here&#8217;s the quick POC in python:
 
-<pre class="toolbar:2 nums:false nums-toggle:false show-plain:3 lang:python decode:true"># The pre-defined decryption table (the string)
+```python
+# The pre-defined decryption table (the string)
 decryption_table = 'AaCcdDeFfGhiKLlMmnNoOpPrRsSTtUuVvwWxyZz32.\EbgjHI _YQB:"/@\x0a\x0d\x1a'
 
 # The offsets array (0x41b8cc) which is passed to the function
@@ -232,7 +251,9 @@ decrypted_string = ''
 for i in range(length):
     decrypted_string += decryption_table[ offsets_array[ i*2 ] ]
 
-print ("Decrypted: %s" % (decrypted_string))</pre>
+print ("Decrypted: %s" % (decrypted_string))
+```
+
 
 And let&#8217;s run it in Jupyter:
 
@@ -270,29 +291,39 @@ Lucky us, Cutter is coming with the python bindings of `r2pipe` integrated into
 
 The first item on our list is to define the addresses of the components we have already detected: the decryption table and the decryption function.
 
-<pre class="lang:python decode:true">import cutter
+```python
+import cutter
 
 # Declaration of decryption-table related variables
 decryption_table = 0x41BA3C
 decryption_table_end = 0x41BA77
 decryption_table_len = decryption_table_end - decryption_table
-decryption_function = 0x4012A0</pre>
+decryption_function = 0x4012A0
+```
+
 
 Next, we need to analyze the binary so radare2 will detect the xrefs and functions. `aa` is a basic analysis command of radare2. `cutter.cmd` is a function that receives a radare2 command and returns its output, if there&#8217;s any output at all.
 
-<pre class="lang:python decode:true">cutter.cmd('aa')</pre>
+```python
+cutter.cmd('aa')
+```
+
 
 Let&#8217;s move on and dump the content of the decryption_table to a variable. `pxj` is used to **p**rint he**x**dump, the **j** suffix can be used in most of the radare2 commands to get a JSON output. `cutter.cmdj` will parse the JSON output for us.
 
-<pre class="lang:python decode:true"># Dump the decryption table to a variable
+```python
+# Dump the decryption table to a variable
 decryption_table_content = cutter.cmdj(
-    "pxj %d @ %d" % (decryption_table_len, decryption_table))</pre>
+    "pxj %d @ %d" % (decryption_table_len, decryption_table))
+```
+
 
 So basically in this piece of code, we are telling radare2 to take `decryption_table_len` bytes from (`@`) the address of `decryption_table`. Now we have all the data we need in order to start iterate over the references to the decryption function.
 
 Using a Python `for` loop, we will iterate over the output of `axtj`. This command stands for **a**nalyze **x**refs **t**o and it is being used to list all the data and code references to a specific address. In our case, this address will be our decryption function. The first thing that we will do in each iteration is to parse the two arguments that are passed to the decryption function. These will be the offset array and the length of the string to be decrypted. We&#8217;ll parse the arguments using `pdj -2 @ <some xref address>`. `pdj` stands for **p**rint **d**isassembly. Passing `-2` to `pdj` is telling radare2 to print 2 instructions **before** the given address. We assume that these two arguments will be passed to the function right before it is being called by the program.
 
-<pre class="lang:python decode:true"># Iterate x-refs to the decryption function
+```python
+# Iterate x-refs to the decryption function
 for xref in cutter.cmdj('axtj %d' % decryption_function):
     # Get the arguments passed to the decryption function: length and encrypted string
     length_arg, offsets_arg = cutter.cmdj('pdj -2 @ %d' % (xref['from']))
@@ -302,26 +333,35 @@ for xref in cutter.cmdj('axtj %d' % decryption_function):
 
     # Guard rail to avoid exception
     if (not 'val' in length_arg):
-        continue</pre>
+        continue
+```
+
 
 Now for the fun part, decrypting the string. Since we already did a POC of it, we know how the decryption works. This will be easy to implement using a `for` loop:
 
-<pre class="lang:python decode:true "># Manually decrypt the encrypted string
+```python
+# Manually decrypt the encrypted string
     for i in range(0, length_arg['val']):
         decrypted_string += chr(decryption_table_content[cutter.cmdj(
-            'pxj 1 @ %d' % (offsets_arg['val'] + (i*2)))[0]])</pre>
+            'pxj 1 @ %d' % (offsets_arg['val'] + (i*2)))[0]])
+```
+
 
 Great! Now `decypted_string` is holding the, well, the decrypted string. All we left to do is to print it to the console and add inline-comments in each call. The command `CC` will be used to add the comments.
 
-<pre class="lang:python decode:true "># Print the decrypted and the address it was referenced to the console
+```python
+# Print the decrypted and the address it was referenced to the console
     print(decrypted_string + " @ " + hex(xref['from']))
 
     # Add comments to each call of the decryption function
-    cutter.cmd('CC Decrypted: %s @ %d' % (decrypted_string, xref['from']))</pre>
+    cutter.cmd('CC Decrypted: %s @ %d' % (decrypted_string, xref['from']))
+```
+
 
 Now we can combine it all into one script:
 
-<pre class="lang:python decode:true">import cutter
+```python
+import cutter
  
 # Declaration of decryption-table related variables
 decryption_table = 0x41BA3C
@@ -360,7 +400,9 @@ for xref in cutter.cmdj('axtj %d' % decryption_function):
 
     # Refresh the interface
     cutter.refresh()
-</pre>
+
+```
+
 
 &nbsp;
 

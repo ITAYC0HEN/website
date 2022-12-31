@@ -17,7 +17,8 @@ You can find the full code and examples in the [repository][1].
 
 Have fun!
 
-<pre class="toolbar:1 lang:ps decode:true" title="Powershell XOR Files">&lt;#
+```ps
+&lt;#
 .DESCRIPTION
     Powershell XOR 2 Files
 
@@ -62,7 +63,9 @@ for($i=0; $i -lt $len ; $i++)
 [System.IO.File]::WriteAllBytes("$out", $xord_byte_array)
 
 write-host "[*] $file1 XOR $file2`n[*] Saved to " -nonewline;
-Write-host "$out" -foregroundcolor yellow -nonewline; Write-host ".";</pre>
+Write-host "$out" -foregroundcolor yellow -nonewline; Write-host ".";
+```
+
 
 &nbsp;
 

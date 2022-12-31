@@ -32,20 +32,29 @@ If you want to use the newest version available, with new features and bug fixes
 
 First, you must clone the repository:
 
-<pre class="lang:default decode:true">git clone --recurse-submodules https://github.com/radareorg/cutter
-cd cutter</pre>
+```default
+git clone --recurse-submodules https://github.com/radareorg/cutter
+cd cutter
+```
+
 
 Building on Linux:
 
 <div class="highlight highlight-source-shell">
-  <pre class="lang:default decode:true">./build.sh</pre>
+  ```default
+./build.sh
+```
+
   
   <p>
     Building on Windows:
   </p>
   
-  <pre class="lang:default decode:true">prepare_r2.bat
-build.bat</pre>
+  ```default
+prepare_r2.bat
+build.bat
+```
+
 </div>
 
 If any of those do not work, check the more detailed instruction page [here][4]
@@ -113,11 +122,14 @@ Now that we know all this, we can rename this function from `fcn.00403b30` to�
 
 [<img src="../uploads/rename_function_AntiEmulation.png" />][11]After `main` is calling to the AntiEmulation function, we are facing a branch. Here&#8217;s the assembly, copied from Cutter&#8217;s Disassembly widget:
 
-<pre class="lang:sh decode:true">|           0x004041a6           call AntiEmulation
+```sh
+|           0x004041a6           call AntiEmulation
 |           0x004041ab           mov eax, 1
 |           0x004041b0           test eax, eax
 |       ,=&lt; 0x004041b2           je 0x40429d
-|       |   0x004041b8           push 4</pre>
+|       |   0x004041b8           push 4
+```
+
 
 As you can see, the code would never branch to `0x40429d` since this `test eax, eax` followed by `je ...` is basically checking whether `eax` equals 0. One instruction before, the program moved the value 1 to `eax`, thus `0x40429d` would be [The Road Not Taken][12].
 
@@ -149,13 +161,16 @@ After loading the resource, in the next block we can see the start of a loop:
 
 [<img src="../uploads/cutter_dummy_loop_lod.png" />][18]This loop is checking if `local_2ch` equals to 0x270f (Decimal: 9999) and if yes it exits from the loop. Inside this loop, there will be another loop of 999 iterations. So basically, this is how this nested loop looks like:
 
-<pre class="lang:c decode:true">for ( i = 0; i &lt; 9999; ++i )
+```c
+for ( i = 0; i &lt; 9999; ++i )
   {
     for ( j = 0; j &lt; 999; ++j )
     {
         dummy_code;
     }
-  }</pre>
+  }
+```
+
 
 <p style="direction: ltr;">
   This is just another anti-emulation\analysis technique which is basically doing nothing. This is another example of the heavy use of anti-emulation by Dropshot.
@@ -209,7 +224,8 @@ The next part is where things are getting more complicated. We&#8217;ll start by
 
 Take a look at the first block of this function. You&#8217;ll see one `call` and a lot of `mov`, `add` and calculation of offsets. This is how a typical PE parsing looks like.
 
-<pre class="lang:asm decode:true">/ (fcn) fcn.00401c90 468
+```asm
+/ (fcn) fcn.00401c90 468
 |   fcn.00401c90 (int arg_8h, int arg_ch, int arg_10h);
 |           0x00401c90           push ebp
 |           0x00401c91           mov ebp, esp
@@ -254,7 +270,9 @@ Take a look at the first block of this function. You&#8217;ll see one `call` an
 |           0x00401d0e           mov dword [local_14h], 0
 |       ,=&lt; 0x00401d15           jmp 0x401d20
 ...
-...</pre>
+...
+```
+
 
 At first, a handle to the current process is received using `GetModuleHandleW`. Then, the handle (`eax`) is being moved to a variety of local variables. First, it is being moved to `[local_34h]` at `0x00401ca5`. Then you can see `eax` moved to `[local_20h]` which is later being moved to `[local_24h]` using `ecx`.
 
@@ -262,7 +280,10 @@ So basically we have a bunch of local variables that currently hold the handle 
 
 `GetModuleHandle` returns a handle to a mapped module, this basically means that our `hmodule`s point to our binary&#8217;s base address. In line `0x00401cb4` we can see that `[hmodule_3]` is moved to `edx`, then the value at `[edx + 0x3c]` is being moved to `eax` and `[hmodule_3]` is added to it at `0x00401cba`. Finally, `eax` is moved to `[local_38h]`. To put it simply, we can use the following pseudo-code:
 
-<pre class="lang:c decode:true">[local_38h] = (BYTE*)hmodule + *(hmodule + 0x3c)</pre>
+```c
+[local_38h] = (BYTE*)hmodule + *(hmodule + 0x3c)
+```
+
 
 So what&#8217;s in this address? Use your favorite binary structure viewer to find out. In this example, I&#8217;ll use [PEview][22] but you can use any other program you prefer &#8211; including the binary structure parsing feature of radare2, if you&#8217;re already a radare2 pro (see [`pf?`][23]).
 
@@ -316,14 +337,17 @@ The rest of this function is interesting as well but it has nothing to do with d
 
 To sum things up, and before we adding the logic for the resource decryption inside the script we wrote in the previous article &#8211; let&#8217;s sketch how the decryption function should look like. It should be something like this:
 
-<pre class="lang:python decode:true ">rsrc_101 = get_resource("101")
+```python
+rsrc_101 = get_resource("101")
 
 decompressed_payload = decompress(rsrc_101)
 
 decrypted_payload = []
 
 for b in decompressed_payload:
-   decrypted_payload.append(ror3(b))</pre>
+   decrypted_payload.append(ror3(b))
+```
+
 
 ## <span class="ez-toc-section" id="Scripting_time_Decrypting_the_resource"></span>Scripting time! Decrypting the resource<span class="ez-toc-section-end"></span>
 
@@ -344,42 +368,57 @@ Just as in the previous part, let&#8217;s go to the Jupyter widget and open the 
 
 The first thing to do is to read the content of the encrypted and compressed resource to a file:
 
-<pre class="lang:python decode:true ">rsrcs = cutter.cmdj('iRj')
+```python
+rsrcs = cutter.cmdj('iRj')
 rsrc_101 = {}
 
 # Locate resource 101 and dump it to an array
 for rsrc in rsrcs:
     if rsrc['name'] == 101:
         rsrc_101 = cutter.cmdj("pxj %d @ %d" %
-                                (rsrc['size'], rsrc['vaddr']))</pre>
+                                (rsrc['size'], rsrc['vaddr']))
+```
+
 
 > `iR` was used to get the list of resources and their offsets in the file. Next, we iterate through the different resources untill we find a resource named &#8220;101&#8221;. Last, using `px` we are reading the resource&#8217;s bytes into a varibale. We appended `j` to the commands in order to get their output as JSON.
 
 Next, we want to decompress the buffer using zlib. Python is coming with &#8220;zlib&#8221; library by default which is great news for us. Add `import zlib` to the top of the script and use this code to decompress the buffer:
 
-<pre class="lang:python decode:true"># Decompress the zlibbed array
-decompressed_data = zlib.decompress(bytes(rsrc_101))</pre>
+```python
+# Decompress the zlibbed array
+decompressed_data = zlib.decompress(bytes(rsrc_101))
+```
+
 
 Now that our buffer is decompressed in `decompressed_data`, all we left to do is to perform right rotation on the data and save it to a file.
 
 Define [the following][38] `ror` lambda:
 
-<pre class="lang:python decode:true">def ror(val, r_bits, max_bits): return \
+```python
+def ror(val, r_bits, max_bits): return \
     ((val & (2**max_bits-1)) &gt;&gt; r_bits % max_bits) | \
-    (val &lt;&lt; (max_bits-(r_bits % max_bits)) & (2**max_bits-1))</pre>
+    (val &lt;&lt; (max_bits-(r_bits % max_bits)) & (2**max_bits-1))
+```
+
 
 And use it in your code like this:
 
-<pre class="lang:default decode:true">decrypted_payload = []
+```default
+decrypted_payload = []
 
 # Decrypt the payload
 for b in decompressed_data:
-    decrypted_payload.append((ror(b, 3, 8)))</pre>
+    decrypted_payload.append((ror(b, 3, 8)))
+```
+
 
 Last, save it to a file:
 
-<pre class="lang:python decode:true"># Write the payload (a PE binary) to a file
-open(r'./decrypted_rsrc.bin', 'wb').write(bytearray(decrypted_payload))</pre>
+```python
+# Write the payload (a PE binary) to a file
+open(r'./decrypted_rsrc.bin', 'wb').write(bytearray(decrypted_payload))
+```
+
 
 Now let&#8217;s combine the script from the previous article to the one we created now and test it in Jupyter. The combined script should first decode the encrypted scripts, and then it should decrypt the resource and save it to the disk.
 

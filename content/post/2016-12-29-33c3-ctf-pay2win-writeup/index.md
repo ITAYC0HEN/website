@@ -53,7 +53,8 @@ After two manual tries I gave up because automation is always better and here co
 
 I know. It isn&#8217;t the most efficient way to do this but it was short and quick.
 
-<pre class="lang:python decode:true">import itertools
+```python
+import itertools
 import urllib2
 
 hash_parts = ['28df361f896eb3c3706cda0474915040',
@@ -83,7 +84,9 @@ for hash in all_permutations:
 # result:
 # found: 5765679f0870f4309b1a3c83588024d7c146a4104cf9d2c847aae22e7d77d379272d81aff52de2a54f75c9736d3b8e0641e7995bb92506da1ac7f8da5a628e19ae39825a916d8a2f
 # found: 5765679f0870f4309b1a3c83588024d7c146a4104cf9d2c847aae22e7d77d379272d81aff52de2a52f7ef761e2bbe791
-# found: 5765679f0870f4309b1a3c83588024d7c146a4104cf9d2c86e9cc7ab82a57f004f75c9736d3b8e0641e7995bb92506da1ac7f8da5a628e19ae39825a916d8a2f</pre>
+# found: 5765679f0870f4309b1a3c83588024d7c146a4104cf9d2c86e9cc7ab82a57f004f75c9736d3b8e0641e7995bb92506da1ac7f8da5a628e19ae39825a916d8a2f
+```
+
 
 &nbsp;
 

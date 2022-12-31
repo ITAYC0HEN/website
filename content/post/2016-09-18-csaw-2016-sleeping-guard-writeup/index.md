@@ -24,19 +24,26 @@ tags:
 
 We are given with python script, Netcat command and a hint about a PNG file. Let&#8217;s run Netcat and see what we will get:
 
-<pre class="lang:vim decode:true">[Megabeets] /tmp/CSAW/clam# nc crypto.chal.csaw.io 8000
+```vim
+[Megabeets] /tmp/CSAW/clam# nc crypto.chal.csaw.io 8000
 3j8PL1JLRUFleSEyHicFOl9BXrdleSGXX2lBaF9EZRcjeSE/UwgAJR5BX/rqct1eUm9BaH8iFxkoeSFFcW9B6NtBX7FleSG/v29BHW9BX6EFeSEFz29Bfy/d5RpZeSE/Xh8JMSxBX1kReSEtI26fDkA5X0tkIEhrDxsZJRN7PCQIV0BbOA0kRicsL0tleSE/axd7EDIxMi4RGAFHOgMvG2U5YmkEHU5
 ...
 &lt;alot of base64 text here&gt;
-...</pre>
+...
+```
+
 
 We received a base64 encoded text from the server. It is probably our image so let&#8217;s decode it and save it to file:
 
-<pre class="lang:vim decode:true">[Megabeets]$&gt; nc crypto.chal.csaw.io 8000 | base64 --decode &gt; out.png</pre>
+```vim
+[Megabeets]$&gt; nc crypto.chal.csaw.io 8000 | base64 --decode &gt; out.png
+```
+
 
 Trying to open the image we faced with an error, our image-viewer could not open the file. Open the file with text viewer and see that there is no PNG header. So, we have the image but it somehow encoded and we need to find out how to decode it. Let&#8217;s look at the script, the answer will probably be there. It&#8217;s not so long so I attached it here:
 
-<pre class="lang:python mark:11,13,14,21 decode:true">import base64
+```python
+import base64
 from twisted.internet import reactor, protocol
 import os
 
@@ -71,7 +78,9 @@ class MyServerFactory(protocol.Factory):
 
 factory = MyServerFactory()
 reactor.listenTCP(PORT, factory)
-reactor.run()</pre>
+reactor.run()
+```
+
 
 Look at the highlighted rows. You can see that after encoding the file with base64 the script is checking whether the size of the encryption key is 12 . We don&#8217;t see any encryption in the script except the encoding itself but we can assume that in the original script an encryption is done using 12 bytes long key. But what encryption? There are billion of options, how can we find the right decryption algorithm to use? Well, the answer is simple &#8211; this is a CTF and the admins know that we cannot try all the possible decryption methods so it will probably be the banal option: XOR.
 
@@ -83,7 +92,8 @@ After choosing our encryption method let&#8217;s think how can we find the key i
 
 Now that we have the key we can let python do it&#8217;s magic:
 
-<pre class="lang:python decode:true ">def xor(data, key):
+```python
+def xor(data, key):
     l = len(key)
     return bytearray((
         (data[i] ^ key[i % l]) for i in range(0,len(data))
@@ -97,7 +107,9 @@ key = bytearray([0x57, 0x6f, 0x41, 0x68, 0x5f, 0x41, 0x5f, 0x4b, 0x65, 0x79, 0x2
 
 with open('decrypted.png', 'w') as file_:
     file_.write(xor(data,key))
-</pre>
+
+```
+
 
 And you&#8217;ll get the image and the flag:
 
