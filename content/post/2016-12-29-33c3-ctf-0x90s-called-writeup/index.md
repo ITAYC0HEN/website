@@ -47,7 +47,7 @@ slack:~$
 
 Look at the highlighted rows. We can see that we are in _Slack Linux 0.99pl12_ machine, that _flag.txt_ is on the root folder and that only _root_ can read it. Before trying anything special or complicated, lets search online for known exploit to this version.
 
-[<img src="../uploads/90s_called_1.png" />][3]Oh, this was easy! There&#8217;s a known exploit available on _Github_.
+[<img src="./90s_called_1.png" />][3]Oh, this was easy! There&#8217;s a known exploit available on _Github_.
 
 
 
@@ -75,11 +75,11 @@ I’ll be happy to read in the comments how the challenge was for you.
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="./megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>
 
  [1]: http://78.46.224.70:8080/
- [2]: https://33c3ctf.ccc.ac/uploads/qemu-xmas-slackware.tar.xz
- [3]: http://www.megabeets.net/uploads/90s_called_1.png
+ [2]: https://33c3ctf.ccc../qemu-xmas-slackware.tar.xz
+ [3]: http://www.megabeets.n./90s_called_1.png
  [4]: https://github.com/HackerFantastic/Public/blob/master/exploits/prdelka-vs-GNU-lpr.c

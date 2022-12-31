@@ -50,7 +50,7 @@ $path = "C:\\your\\\path"
 while($true)
 {
     $file = (gci $path)[0]
-    &'C:\Program Files\7-Zip\7z.exe' e $file.Fullname -y &gt; $null
+    &'C:\Program Files\7-Zip\7z.exe' e $file.Fullname -y > $null
     if($file.Name -eq 'flag')
     {
         # print the content of the file
@@ -69,7 +69,7 @@ while($true)
 Now let&#8217;s run it:
 
 ```ps
-PS C:\h4ckit\paraguay&gt; C:\h4ckit\paraguay\solve.ps1
+PS C:\h4ckit\paraguay> C:\h4ckit\paraguay\solve.ps1
 FLAG: 0W_MY_G0D_Y0U_M4D3_1T
 ```
 
@@ -78,7 +78,7 @@ FLAG: 0W_MY_G0D_Y0U_M4D3_1T
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="./megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>
 

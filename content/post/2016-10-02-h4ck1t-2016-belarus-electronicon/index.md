@@ -25,15 +25,15 @@ tags:
 
 As the attached file says, it was real pain. I opened the file in the browser and saw this horrible thing:
 
-<img src="../uploads/h4ck1t_belarus_1.png" /> 
+<img src="./h4ck1t_belarus_1.png" /> 
 
 Looks bad and it crashed my browser. This text file was too big for it to handle. So I opened it on Notepad++ and it was&#8217;t any better:
 
-<img src="../uploads/h4ck1t_belarus_2.png" /> 
+<img src="./h4ck1t_belarus_2.png" /> 
 
 Still terrifying and it was heavy for notepad++ also. But this time something catched my eye. Look at the rows panel on the left, it says only 1 line. Let&#8217;s cancel word wrap (View > Word wrap) and check what it is:
 
-<img src="../uploads/h4ck1t_belarus_3.png" /> 
+<img src="./h4ck1t_belarus_3.png" /> 
 
 Aah ah! It was a HUGE ascii-art. How huge? 11 rows of 1830661 chars each! It&#8217;s a long hex string. So now we need to parse it. I tried using [this][2] module but without any success so I decided to go for the hard way. I parsed it myself.
 
@@ -60,7 +60,7 @@ for j in xrange(len(splitted[0])/width):
 
 Now let&#8217;s open the edited file with _EmEditor_ that is capable of open large files and see how our file is looking like:
 
-<img src="../uploads/h4ck1t_belarus_4.png" /> 
+<img src="./h4ck1t_belarus_4.png" /> 
 
 Good! Looks exactly like I wanted! Now in order to parse it we need to tell the code how every letter or digit is looking like so I started to define variable for each letter or digit with the matching ascii-art. It was something like that:
 
@@ -115,7 +115,7 @@ while True:
 ```
 
 
-I took the long hex-string and paste in hex editor. It was this photo:<img src="../uploads/img.jpg" />
+I took the long hex-string and paste in hex editor. It was this photo:<img src="./img.jpg" />
 
 Well, that&#8217;s it. We got the flag and we now can rest in peace.
 
@@ -123,7 +123,7 @@ Well, that&#8217;s it. We got the flag and we now can rest in peace.
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="./megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>
 

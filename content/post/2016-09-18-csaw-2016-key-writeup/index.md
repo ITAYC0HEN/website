@@ -21,7 +21,7 @@ tags:
 > _NOTE: Flag is not in normal flag format._
 > 
 > <div class="chal-files">
->   <em><a class="chal-file" href="https://ctf.csaw.io/static/uploads/6c3bc1cb1618348f549dd059ed2bf23d/key.exe" target="_blank">key.exe</a></em>
+>   <em><a class="chal-file" href="https://ctf.csaw.io/stat./6c3bc1cb1618348f549dd059ed2bf23d/key.exe" target="_blank">key.exe</a></em>
 > </div>
 
 <div class="chal-files">
@@ -80,7 +80,7 @@ tags:
   </p>
   
   <p>
-    <img src="../uploads/asm_key_csaw.png" />
+    <img src="./asm_key_csaw.png" />
   </p>
   
   <p>
@@ -92,7 +92,7 @@ tags:
   </p>
   
   <p>
-    <img src="../uploads/csaw_key_eax.png" />
+    <img src="./csaw_key_eax.png" />
   </p>
   
   <p>
@@ -105,6 +105,6 @@ tags:
   
   <div class="nf-post-footer">
     <p style="text-align: right">
-      <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
+      <a href="https://www.megabeets.net/about.html#vegan"><img src="./megabeets_inline_logo.png" />Eat Veggies</a>
     </p>
   </div>

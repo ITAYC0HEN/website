@@ -45,11 +45,11 @@ E36RGTbCE4LDtyLi97l9lSFoR7xVMKGN.exe
 
 Upon opening one of them in [Cutter][1] we can see the following information:
 
-[<img src="../uploads/dashboard-1024x650.png" />][2]
+[<img src="./dashboard-1024x650.png" />][2]
 
 As we can see, this is a rather tiny PE32 file, nothing too special. Let&#8217;s have a look at the `main()` function of the binary.
 
-[<img src="../uploads/fleggo_cutter_main-1024x715.png" />][3]
+[<img src="./fleggo_cutter_main-1024x715.png" />][3]
 
 On the first block, there are two function calls. The first is 0x4012d0 which is responsible for initializing a global array and the second is 0x401050 which is more interesting.
 
@@ -75,10 +75,10 @@ for file in FLEGGO/*; do strings -e l $file | tail -1 | wine $file; done
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="./megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>
 
  [1]: https://github.com/radareorg/cutter/
- [2]: https://www.megabeets.net/uploads/dashboard.png
- [3]: https://www.megabeets.net/uploads/fleggo_cutter_main.png
+ [2]: https://www.megabeets.n./dashboard.png
+ [3]: https://www.megabeets.n./fleggo_cutter_main.png

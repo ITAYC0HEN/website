@@ -24,7 +24,7 @@ tags:
 We are given an archive containing 3 files:
 
 ```sh
-D:\Megabeets\deadnas&gt; dir 
+D:\Megabeets\deadnas> dir 
 Directory of D:\Megabeets\deadnas
         .
         ..
@@ -38,28 +38,28 @@ Directory of D:\Megabeets\deadnas
 
 I used simple software called [XorFiles][3].
 
-<img src="../uploads/XorFiles.png" /> 
+<img src="./XorFiles.png" /> 
 
 I then used OSForensics to rebuild the RAID:
 
-<img src="../uploads/OSForensics.png" /> 
+<img src="./OSForensics.png" /> 
 
 Mounted the output file:
 
-<img src="../uploads/OSForensics2.png" /> 
+<img src="./OSForensics2.png" /> 
 
 And accessed the new drive. The flag and a cute cat was waiting for me there.
 
-<img src="../uploads/GlobalPage_Flag.png" /> 
+<img src="./GlobalPage_Flag.png" /> 
 
 <span style="font-size: 10pt; color: #ff0000;">* I know you tried using <strong>mdadm</strong> and <strong>ReclaiMe</strong>. Poor you.</span>
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="./megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>
 
- [1]: https://twctf7qygt6ujk.azureedge.net/uploads/deadnas.7z-b1651b1230b507235cbb9c6f7e98ccc437f5f3675d02a5e70951e2cbcf9df407
+ [1]: https://twctf7qygt6ujk.azureedge.n./deadnas.7z-b1651b1230b507235cbb9c6f7e98ccc437f5f3675d02a5e70951e2cbcf9df407
  [2]: http://blog.open-e.com/how-does-raid-5-work/
  [3]: http://www.nirsoft.net/utils/xorfiles.html

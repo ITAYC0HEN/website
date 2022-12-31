@@ -20,7 +20,7 @@ While all these tools are great, and although Radare2 was showed there (and oh b
 
 &#8220;Binary Patching&#8221;, for those the term is unfamiliar, is the process of applying small changes and modifications to a binary file, usually in order to change its behavior. By modifying data or code, the user can change certain values in the program or specific instructions, and adjust the binary to their desired outcome.
 
-[<img src="../uploads/patch_cover.png" />][3]
+[<img src="./patch_cover.png" />][3]
 
 **_Wanna skip the boring parts? Jump straight to the methods:_**
 
@@ -48,8 +48,8 @@ For this article, we will use the same binary that was used on LiveOverflow&#821
 The source code can be found here and is also pasted below to make it easy for us.
 
 ```c
-#include &lt;string.h&gt;
-#include &lt;stdio.h&gt;
+#include <string.h>
+#include <stdio.h>
 int main(int argc, char *argv[]) {
         if(argc==2) {
 		printf("Checking License: %s\n", argv[1]);
@@ -59,7 +59,7 @@ int main(int argc, char *argv[]) {
 			printf("WRONG!\n");
 		}
 	} else {
-		printf("Usage: &lt;key&gt;\n");
+		printf("Usage: <key>\n");
 	}
 	return 0;
 }
@@ -88,7 +88,7 @@ Let&#8217;s open Cutter and select the license_1 binary from our computer. On th
 
 Go to the `main` function by choosing it from the Functions list on the side or by typing &#8220;main&#8221; on the navigation-box at the top of the interface. The \`main()\` function is very small and contains all the logic of the program.
 
-[<img src="../uploads/patching_main_function-4-1024x839.png" />][13]
+[<img src="./patching_main_function-4-1024x839.png" />][13]
 
 The function \`main()\` only has 6 blocks which makes it very easy for us to find the place we want to patch. And indeed, we see the block with `strcmp` comparison and we want to patch the conditional jump in a way that it will continue to the success message. By modifying \`jne 0x400617\` (**j**ump **n**ot **e**qual) to \`je\` (**j**ump **e**qual) we will get the success message as long as we do not give the right key. Muhahah.
 
@@ -99,7 +99,7 @@ The function \`main()\` only has 6 blocks which makes it very easy for us to fin
 
 The easiest and probably the most intuitive way is to right-click the \`jne\` instruction and choose &#8220;Edit -> Reverse jump&#8221;.
 
-[<img src="../uploads/patching_reverse_jump.gif" />][14]
+[<img src="./patching_reverse_jump.gif" />][14]
 
 Cutter is smart and can detect for us the inversed instruction for the condition. In this case, from \`jne\` to \`je\` and vice versa.
 
@@ -123,7 +123,7 @@ If you downloaded the official release version, your Cutter should come with an 
 
 Open the decompiler window from &#8220;Windows -> Decompiler&#8221; and seek to the \`main\` function. Now click on the line where it says `if (iVar1 == 0) {` and again go to &#8220;Edit > Reverse jump.
 
-[<img src="../uploads/patching_decompiler_reverse_jump.gif" />][16]
+[<img src="./patching_decompiler_reverse_jump.gif" />][16]
 
 This shows the great power of using the decompiler in Cutter.
 
@@ -164,14 +164,14 @@ After:
   In this method, we will change the instructions itself from `jne` to <code>je</code>. Again, right-click on the condition and this time choose &#8220;Edit -> Instruction&#8221;. Then simply change the text from `jne 0x400617` to `je 0x400617`. Cutter will automatically fetch a preview of the bytes that are constructing the instruction. Press Ok.
 </p>
 
-[<img src="../uploads/patching_edit_instruction_dialog.png" />][17]
+[<img src="./patching_edit_instruction_dialog.png" />][17]
 
 ### <span class="ez-toc-section" id="Method_5_Assemble_the_bytes"></span><a id="method-5"></a>  
 **Method 5: Assemble the bytes**<span class="ez-toc-section-end"></span>
 
 If you are tired of assembly and want to go back to the old days of bytes-patching and modify the bytes themselves &#8211; you can! Simply go to &#8220;Edit -> Bytes&#8221; and change from \`750c\` to \`740c\` (from \`jne\` to `je`). Cutter will show you a preview of the instruction to make sure you are not making some mess.
 
-[<img src="../uploads/patching_edit_bytes_dialog.png" />][18]
+[<img src="./patching_edit_bytes_dialog.png" />][18]
 
  
 
@@ -190,13 +190,13 @@ In this article, we learned a little bit more about this great tool called Cutte
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="./megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>
 
  [1]: https://www.youtube.com/watch?v=LyNyf3UM9Yc
  [2]: https://cutter.re/
- [3]: https://www.megabeets.net/uploads/patch_cover.png
+ [3]: https://www.megabeets.n./patch_cover.png
  [4]: #method-1
  [5]: #method-2
  [6]: #method-3
@@ -206,9 +206,9 @@ In this article, we learned a little bit more about this great tool called Cutte
  [10]: https://github.com/radareorg/radare2
  [11]: https://cutter.re/docs/building
  [12]: https://github.com/LiveOverflow/liveoverflow_youtube/raw/master/0x05_simple_crackme_intro_assembler/license_1
- [13]: https://www.megabeets.net/uploads/patching_main_function-4.png
- [14]: https://www.megabeets.net/uploads/patching_reverse_jump.gif
+ [13]: https://www.megabeets.n./patching_main_function-4.png
+ [14]: https://www.megabeets.n./patching_reverse_jump.gif
  [15]: https://github.com/radareorg/r2ghidra-dec
- [16]: https://www.megabeets.net/uploads/patching_decompiler_reverse_jump.gif
- [17]: https://www.megabeets.net/uploads/patching_edit_instruction_dialog.png
- [18]: https://www.megabeets.net/uploads/patching_edit_bytes_dialog.png
+ [16]: https://www.megabeets.n./patching_decompiler_reverse_jump.gif
+ [17]: https://www.megabeets.n./patching_edit_instruction_dialog.png
+ [18]: https://www.megabeets.n./patching_edit_bytes_dialog.png

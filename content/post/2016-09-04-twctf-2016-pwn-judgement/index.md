@@ -26,7 +26,7 @@ Guest post by Shak.
 ```sh
 [Megabeets]$ nc pwn1.chal.ctf.westerns.tokyo 31729
 Flag judgment system
-Input flag &gt;&gt; FLAG
+Input flag >> FLAG
 FLAG
 Wrong flag...
 
@@ -74,7 +74,7 @@ int __cdecl main(int argc, const char **argv, const char **envp)
   v8 = &argc;
   v7 = *MK_FP(__GS__, 20);
   v3 = alloca(144);
-  printf("Flag judgment system\nInput flag &gt;&gt; ");
+  printf("Flag judgment system\nInput flag >> ");
   if ( getnline(&input, 64) ) {
     printf(&input);
     if ( !strcmp(&input, flag) )
@@ -97,7 +97,7 @@ int __cdecl main(int argc, const char **argv, const char **envp)
 
 ```sh
 Flag judgment system
-Input flag &gt;&gt; %2$s
+Input flag >> %2$s
 פJr≈
 Wrong flag…
 ```
@@ -143,8 +143,8 @@ Wrong flag...
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="./megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>
 
- [1]: https://twctf7qygt6ujk.azureedge.net/uploads/judgement-4da7533784aa31b96ca158fbda9677ee8507781ead6625dc6d577fd5d2ff697c
+ [1]: https://twctf7qygt6ujk.azureedge.n./judgement-4da7533784aa31b96ca158fbda9677ee8507781ead6625dc6d577fd5d2ff697c

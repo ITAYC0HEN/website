@@ -36,7 +36,7 @@ During r2con this year there was a Crackmes competition where all the attendees 
   * Radare2 stickers
   * A beer 🍺
 
-[<img src="../uploads/r2con17_swags.png" />][3]
+[<img src="./r2con17_swags.png" />][3]
 
 I thought of sharing some of my writeups with you, so you can taste a bit from what we had in the competition and so that others, coming from google, twitter and such, could learn how to use radare2 for solving different challenges. This article is aimed to those of you who are familiar with radare2. If you are not, I suggest you to start from [part 1][4] of my series _&#8220;A Journy Into Radare2&#8221;._
 
@@ -106,11 +106,11 @@ The obvious thing to do is open the ROM in an Gameboy emulator. <span style="fo
 
 <span style="font-weight: 400;">Let&#8217;s open the ROM in our emulator and see what we have:</span>
 
-[<img src="../uploads/pokemonGold_VGA.png" />][9]
+[<img src="./pokemonGold_VGA.png" />][9]
 
 <span style="font-weight: 400;"><br /> Woops, wrong file. Bad habits&#8230; Let&#8217;s try again:</span>
 
-[<img src="../uploads/simple_gb_screenshot1.png" />][10]
+[<img src="./simple_gb_screenshot1.png" />][10]
 
 <span style="font-weight: 400;">Cool! It&#8217;s a simple game where, by using the arrow keys, you increase/decrease 5 digits. We &#8216;simply&#8217; need to find the correct password.</span>
 
@@ -118,7 +118,7 @@ The obvious thing to do is open the ROM in an Gameboy emulator. <span style="fo
 
 <span style="font-weight: 400;">After randomly choosing digits and pressing the Enter key we receive the </span><i style="font-family: inherit; font-weight: inherit;"><span style="font-weight: 400;">badboy </span></i><span style="font-weight: 400;">message:</span>
 
-[<img src="../uploads/simple_gb_screenshot2.png" />][11]
+[<img src="./simple_gb_screenshot2.png" />][11]
 
 <span style="font-weight: 400;">Okay let&#8217;s start analyzing the code and search for the function that checks our input:</span>
 
@@ -204,27 +204,27 @@ radare recognized that our function begins at _0x274_. We can see at the bottom 
 
 <span style="font-weight: 400;">I used Visual Graph mode for convenience, the function combined from a lot of <em>jumps</em> and <em>if-conditions</em> so it&#8217;s much more easier that way.</span>
 
-[<img src="../uploads/conditions.png" />][12]
+[<img src="./conditions.png" />][12]
 
 > Use `p` and `P` to toggle between the different visual modes.
 
 <span style="font-weight: 400;">Seems like we found the place where the function checks each digit and compares it with the correct one. On the left we can see the flow of valid digits. Let&#8217;s have a quick view of the blocks. We&#8217;ll toggle again between the views using <code>p</code> until we reach the regular graph mode.</span>
 
 <p style="text-align: center;">
-  <a href="https://www.megabeets.net/uploads/firstlook.png"><img src="../uploads/firstlook.png" /></a>
+  <a href="https://www.megabeets.n./firstlook.png"><img src="./firstlook.png" /></a>
 </p>
 
 <p style="text-align: center;">
   <em>This is just a snip of the full graph since it is too long to put as an image.</em>
 </p>
 
-<span style="font-weight: 400;">From a quick view, and without fully understanding the instructions, it seems like the binary is checking whether the digit in each place is equals to a specific immediate value. It checks it by using <code>cmp &lt;em>imm&lt;/em></code></span><span style="font-weight: 400;"> in this order: 3, 7, 5, 1, 9.<br /> Hooray! That was so easy, let&#8217;s just enter this value and get the <em>WIN!</em> message:</span>
+<span style="font-weight: 400;">From a quick view, and without fully understanding the instructions, it seems like the binary is checking whether the digit in each place is equals to a specific immediate value. It checks it by using <code>cmp <em>imm</em></code></span><span style="font-weight: 400;"> in this order: 3, 7, 5, 1, 9.<br /> Hooray! That was so easy, let&#8217;s just enter this value and get the <em>WIN!</em> message:</span>
 
-[<img src="../uploads/simple_gb_screenshot3.png" />][13]
+[<img src="./simple_gb_screenshot3.png" />][13]
 
 <span style="font-weight: 400;"><br /> What? Fail?? Okay, okay, maybe the other way:</span>
 
-[<img src="../uploads/simple_gb_screenshot4.png" />][14]
+[<img src="./simple_gb_screenshot4.png" />][14]
 
 <span style="font-weight: 400;">Bummer&#8230; So it&#8217;s not so easy after all. I probably need to have a closer look at this function.</span>
 
@@ -233,7 +233,7 @@ radare recognized that our function begins at _0x274_. We can see at the bottom 
 Let&#8217;s take a look on these blocks for example:
 
 ```diff
-[0x000002e4]&gt; pdf                                                                          
+[0x000002e4]> pdf                                                                          
 / (fcn) fcn.00000274 107                                                                   
 |   fcn.00000274 ();                                                                       
 |           0x00000274      f802           ld hl, sp + 0x02                                
@@ -247,11 +247,11 @@ Let&#8217;s take a look on these blocks for example:
 |           0x0000027f      0a             ld a, [bc]                                      
 |           0x00000280      4f             ld c, a                                         
 |           0x00000281      fe03           cp 0x03                                         
-|       ,=&lt; 0x00000283      c2e402         jp nZ, 0x02e4                                   
-|      ,==&lt; 0x00000286      1803           jr 0x03                                         
-      ,===&lt; 0x00000288      c3e402         jp 0x02e4                   ; fcn.00000274+0x70 
+|       ,=< 0x00000283      c2e402         jp nZ, 0x02e4                                   
+|      ,==< 0x00000286      1803           jr 0x03                                         
+      ,===< 0x00000288      c3e402         jp 0x02e4                   ; fcn.00000274+0x70 
 |     |||      ; JMP XREF from 0x00000286 (fcn.00000274)                                   
-|     |`--&gt; 0x0000028b      f802           ld hl, sp + 0x02                                
+|     |`--> 0x0000028b      f802           ld hl, sp + 0x02                                
 |     | |   0x0000028d      4e             ld c, [hl]                                      
 |     | |   0x0000028e      23             inc hl                                          
 |     | |   0x0000028f      46             ld b, [hl]                                      
@@ -260,11 +260,11 @@ Let&#8217;s take a look on these blocks for example:
 |     | |   0x00000292      0a             ld a, [bc]                                      
 |     | |   0x00000293      4f             ld c, a                                         
 |     | |   0x00000294      fe07           cp 0x07                                         
-|     |,==&lt; 0x00000296      c2e402         jp nZ, 0x02e4                                   
-|    ,====&lt; 0x00000299      1803           jr 0x03                                         
-    ,=====&lt; 0x0000029b      c3e402         jp 0x02e4                   ; fcn.00000274+0x70 
+|     |,==< 0x00000296      c2e402         jp nZ, 0x02e4                                   
+|    ,====< 0x00000299      1803           jr 0x03                                         
+    ,=====< 0x0000029b      c3e402         jp 0x02e4                   ; fcn.00000274+0x70 
 |   |||||      ; JMP XREF from 0x00000299 (fcn.00000274)                                   
-|   |`----&gt; 0x0000029e      f802           ld hl, sp + 0x02                                
+|   |`----> 0x0000029e      f802           ld hl, sp + 0x02                                
 |   | |||   0x000002a0      4e             ld c, [hl]                                      
 |   | |||   0x000002a1      23             inc hl                                          
 |   | |||   0x000002a2      46             ld b, [hl]                                      
@@ -272,9 +272,9 @@ Let&#8217;s take a look on these blocks for example:
 |   | |||   0x000002a4      0a             ld a, [bc]                                      
 |   | |||   0x000002a5      4f             ld c, a                                         
 |   | |||   0x000002a6      fe05           cp 0x05                                         
-|   |,====&lt; 0x000002a8      c2e402         jp nZ, 0x02e4                                   
-|  ,======&lt; 0x000002ab      1803           jr 0x03                                         
-  ,=======&lt; 0x000002ad      c3e402         jp 0x02e4                   ; fcn.00000274+0x70
+|   |,====< 0x000002a8      c2e402         jp nZ, 0x02e4                                   
+|  ,======< 0x000002ab      1803           jr 0x03                                         
+  ,=======< 0x000002ad      c3e402         jp 0x02e4                   ; fcn.00000274+0x70
 ```
 
 
@@ -293,7 +293,7 @@ def check_password (guess):
 
 Let’s see if we got it right:
 
-[<img src="../uploads/simple_gb_screenshot5-1.png" />][15]
+[<img src="./simple_gb_screenshot5-1.png" />][15]
 
 <span style="font-weight: 400;">Yes! We did it and ended up with our beloved </span>_<span style="font-weight: 400;">goodboy.</span>_
 
@@ -307,23 +307,23 @@ As always, please post comments to this post or message me [privately][16] if
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="./megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>
 
  [1]: http://rada.re/con/2017/
  [2]: https://www.amazon.com/PoC-GTFO-MANUL-Laphroaig/dp/1593278802
- [3]: https://www.megabeets.net/uploads/r2con17_swags.png
+ [3]: https://www.megabeets.n./r2con17_swags.png
  [4]: https://www.megabeets.net/a-journey-into-radare-2-part-1/
  [5]: http://radare.org/r/down.html
  [6]: https://github.com/ITAYC0HEN/A-journey-into-Radare2/blob/master/Generic/Reversing%20Gameboy%20ROM/simple.gb
  [7]: http://marc.rawer.de/Gameboy/Docs/GBCPUman.pdf
  [8]: https://sourceforge.net/projects/vba
- [9]: https://www.megabeets.net/uploads/pokemonGold_VGA.png
- [10]: https://www.megabeets.net/uploads/simple_gb_screenshot1.png
- [11]: https://www.megabeets.net/uploads/simple_gb_screenshot2.png
- [12]: https://www.megabeets.net/uploads/conditions.png
- [13]: https://www.megabeets.net/uploads/simple_gb_screenshot3.png
- [14]: https://www.megabeets.net/uploads/simple_gb_screenshot4.png
- [15]: https://www.megabeets.net/uploads/simple_gb_screenshot5-1.png
+ [9]: https://www.megabeets.n./pokemonGold_VGA.png
+ [10]: https://www.megabeets.n./simple_gb_screenshot1.png
+ [11]: https://www.megabeets.n./simple_gb_screenshot2.png
+ [12]: https://www.megabeets.n./conditions.png
+ [13]: https://www.megabeets.n./simple_gb_screenshot3.png
+ [14]: https://www.megabeets.n./simple_gb_screenshot4.png
+ [15]: https://www.megabeets.n./simple_gb_screenshot5-1.png
  [16]: https://www.megabeets.net/about.html#contact

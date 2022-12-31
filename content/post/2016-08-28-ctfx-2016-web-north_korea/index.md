@@ -24,9 +24,9 @@ Entering the URL I faced with only a sentence:
 That’s all? I took a look at the source code (ctrl+u) to see if something is hiding, and indeed I saw a hidden button and a simple script:
 
 ```js
-&lt;button hidden type="button"&gt;Retrieve nuclear codes&lt;/button&gt;
-&lt;span&gt;&lt;/span&gt;
-&lt;script type="text/javascript"&gt;
+<button hidden type="button">Retrieve nuclear codes</button>
+<span></span>
+<script type="text/javascript">
 $(function() {
 	$("button").click(function() {
 		$.get('code', function(code) {
@@ -34,7 +34,7 @@ $(function() {
 		});
 	});
 });
-&lt;/script&gt;
+</script>
 ```
 
 
@@ -51,11 +51,11 @@ And the response came with the flag:
 _ctf(jk\_we\_aint\_got\_n0_nuk35)_
 
 <p style="text-align: right;">
-  <img src="../uploads/megabeets_inline_logo.png" />Eat Veggies.
+  <img src="./megabeets_inline_logo.png" />Eat Veggies.
 </p>
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="./megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>

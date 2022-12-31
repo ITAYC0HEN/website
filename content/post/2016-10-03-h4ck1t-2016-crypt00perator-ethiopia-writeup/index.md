@@ -29,9 +29,9 @@ So, we got an exe file and we need to find the access key. We are given with a
 
 ```amigados
 Megabeets D:\Downloads\h4ckit\ethiopia
-&gt; crypt0_0perator_56e0a9f07f54b3634ab5cc2b30e5b29e.exe
+> crypt0_0perator_56e0a9f07f54b3634ab5cc2b30e5b29e.exe
 Enter th3 k3y :
-&gt; Megabeets
+> Megabeets
 
 Denied
 ```
@@ -41,7 +41,7 @@ Seems like all it does is to ask for the key, let&#8217;s take a deeper look and
 
 ```default
 .text:0000000000468093  00000005 C G u$E                                           
-.data:0000000000472020  00000029 C o3dl6s|41a42344d110746d574e35c2f77ab6&gt;3z        
+.data:0000000000472020  00000029 C o3dl6s|41a42344d110746d574e35c2f77ab6>3z        
 .rdata:0000000000488000 00000008 C Allowed                                         
 .rdata:000000000048800E 00000007 C Denied                                          
 .rdata:0000000000488015 00000010 C Enter th3 k3y :                                 
@@ -61,9 +61,9 @@ We can easily notice the strings which we already faced when executing the progr
 
 ```amigados
 Megabeets D:\Downloads\h4ckit\ethiopia
-&gt; crypt0_0perator_56e0a9f07f54b3634ab5cc2b30e5b29e.exe
+> crypt0_0perator_56e0a9f07f54b3634ab5cc2b30e5b29e.exe
 Enter th3 k3y :
-&gt; o3dl6s|41a42344d110746d574e35c2f77ab6&gt;3z
+> o3dl6s|41a42344d110746d574e35c2f77ab6>3z
 
 Denied
 ```
@@ -73,13 +73,13 @@ No luck. It is not the key, but what is it? It should be meaningful somehow but 
 
 Let&#8217;s go to the _main _function and set a breakpoint before the calling to the _Checker _method:
 
-<img src="../uploads/h4ck1t_ethiopia1.png" /> 
+<img src="./h4ck1t_ethiopia1.png" /> 
 
 &nbsp;
 
 Now let&#8217;s run the program with that long string as the input and look at the registers. We can see that RAX is pushed to the _Checker_ function. The checker function is comparing RAX with the long string and if RAX==long_string we get the _Allowed_ message. But our RAX is different then the long string although we use the long string as our input what means that the inputted string is being manipulated and then compared to the original long string. So, what is our RAX? Let&#8217;s hover RAX with the cursor.
 
-<img src="../uploads/h4ck1t_ethiopia2.png" /> 
+<img src="./h4ck1t_ethiopia2.png" /> 
 
 &nbsp;
 
@@ -87,9 +87,9 @@ Well, RAX is looking like the flag. We will get the _Denied_ message but at lea
 
 ```amigados
 Megabeets D:\Downloads\h4ckit\ethiopia
-&gt; crypt0_0perator_56e0a9f07f54b3634ab5cc2b30e5b29e.exe
+> crypt0_0perator_56e0a9f07f54b3634ab5cc2b30e5b29e.exe
 Enter th3 k3y :
-&gt; h4ck1t{36f35433c667031c203b42d5a00fe194}
+> h4ck1t{36f35433c667031c203b42d5a00fe194}
 
 Allowed
 ```
@@ -113,8 +113,8 @@ As you can see, this is probably a [Substitution cipher][2] implementation. Eve
 
 ```python
 input = "abcdefghijklmnopqrstuvwxyz0123456789{}"     
-rax = "fedcba`onmlkjihwvutsrqp_~}76543210?&gt;|z"        
-expected = "o3dl6s|41a42344d110746d574e35c2f77ab6&gt;3z"                                       
+rax = "fedcba`onmlkjihwvutsrqp_~}76543210?>|z"        
+expected = "o3dl6s|41a42344d110746d574e35c2f77ab6>3z"                                       
 flag= ''   
 
 for c in expected:                                    
@@ -135,7 +135,7 @@ If you have any questions feel free to ask and I&#8217;ll explain more.
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="./megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>
 

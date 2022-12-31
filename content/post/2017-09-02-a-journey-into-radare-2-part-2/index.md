@@ -31,7 +31,7 @@ In this part of the series we&#8217;ll focus on exploiting a simple binary. rada
 
 It&#8217;s really important to be familiar with these topics because I won&#8217;t get deep into them, or even won&#8217;t briefly explain some of them.
 
-## [<img src="../uploads/r2_part1_2-e1504441308664.png" />][8]
+## [<img src="./r2_part1_2-e1504441308664.png" />][8]
 
 ## <span class="ez-toc-section" id="Updating_radare2"></span>Updating radare2<span class="ez-toc-section-end"></span>
 
@@ -73,7 +73,7 @@ int main(int argc, char *argv[])
 {
     printf("\n  .:: Megabeets ::.\n");
     printf("Think you can make it?\n");
-    if (argc &gt;= 2 && beet(argv[1]))
+    if (argc >= 2 && beet(argv[1]))
     {
         printf("Success!\n\n");
     }
@@ -222,11 +222,11 @@ Now let&#8217;s enter the Visual Graph Mode by pressing  `VV`. As explained in 
 
 Use `?` to list all the commands of Visual Graph mode and **make sure not to miss the `R` command 😉**
 
-[<img src="../uploads/mainsym.png" />][15]
+[<img src="./mainsym.png" />][15]
 
 `main()` is the function where our program prompts us for input (via `scanf()` ) and then passes this input to `sym.beet` . By pressing `oc` we can jump to the function `beet()` which handles our input:
 
-[<img src="../uploads/beetsym.png" />][16]
+[<img src="./beetsym.png" />][16]
 
 We can see that the user input `[arg_8h]` is copied to a buffer (`[local_88h]`) and then, just as we saw in the previous post, the string `Megabeets` is encrypted with `rot13` and the result is then compared with our input. We saw that before so I won&#8217;t explain it further.
 
@@ -236,17 +236,17 @@ Did you see something fishy? The size of our input is never checked and the inpu
 
 Now that we have found the vulnerable function, we need to gently craft a payload to exploit it. Our goal is simply to get a shell on the system. First, we need to validate that there&#8217;s indeed a vulnerable function and then, we&#8217;ll find the offset at which our payload is overriding the stack.
 
-[<img src="../uploads/tumblr_m5vxpy8Cs41qfoh4t.gif" />][17]
+[<img src="./tumblr_m5vxpy8Cs41qfoh4t.gif" />][17]
 
 We&#8217;ll use a tool in radare&#8217;s framework called `ragg2`, which allows us to generate a cyclic pattern called [De Bruijn Sequence][18] and check the exact offset where our payload overrides the buffer.
 
 ```default
 $ ragg2 -
-&lt;truncated&gt;
+<truncated>
  -P [size]       prepend debruijn pattern
-&lt;truncated&gt;
+<truncated>
  -r              show raw bytes instead of hexpairs
-&lt;truncated&gt;
+<truncated>
 
 $ ragg2 -P 100 -r
 AAABAACAADAAEAAFAAGAAHAAIAAJAAKAALAAMAANAAOAAPAAQAARAASAATAAUAAVAAWAAXAAYAAZAAaAAbAAcAAdAAeAAfAAgAAh
@@ -984,7 +984,7 @@ if __name__ == "__main__":
                     
                     <div class="nf-post-footer">
                       <p style="text-align: right">
-                        <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
+                        <a href="https://www.megabeets.net/about.html#vegan"><img src="./megabeets_inline_logo.png" />Eat Veggies</a>
                       </p>
                     </div>
 
@@ -995,16 +995,16 @@ if __name__ == "__main__":
  [5]: https://en.wikipedia.org/wiki/Buffer_overflow
  [6]: https://en.wikipedia.org/wiki/Return-oriented_programming
  [7]: https://en.wikipedia.org/wiki/X86_calling_conventions
- [8]: https://www.megabeets.net/uploads/r2_part1_2.png
+ [8]: https://www.megabeets.n./r2_part1_2.png
  [9]: https://github.com/ITAYC0HEN/A-journey-into-Radare2/blob/master/Part%202%20-%20Exploitation/megabeets_0x2
  [10]: https://github.com/ITAYC0HEN/A-journey-into-Radare2/blob/master/Part%202%20-%20Exploitation/megabeets_0x2.c
  [11]: https://en.wikipedia.org/wiki/Stack_buffer_overflow#Stack_canaries
  [12]: https://en.wikipedia.org/wiki/Position-independent_code
  [13]: https://tk-blog.blogspot.co.il/2009/02/relro-not-so-well-known-memory.html
  [14]: https://reverseengineering.stackexchange.com/a/16115/18698
- [15]: https://www.megabeets.net/uploads/mainsym.png
- [16]: https://www.megabeets.net/uploads/beetsym.png
- [17]: https://www.megabeets.net/uploads/tumblr_m5vxpy8Cs41qfoh4t.gif
+ [15]: https://www.megabeets.n./mainsym.png
+ [16]: https://www.megabeets.n./beetsym.png
+ [17]: https://www.megabeets.n./tumblr_m5vxpy8Cs41qfoh4t.gif
  [18]: https://en.wikipedia.org/wiki/De_Bruijn_sequence
  [19]: https://en.wikipedia.org/wiki/C_standard_library
  [20]: https://en.wikipedia.org/wiki/Return-to-libc_attack

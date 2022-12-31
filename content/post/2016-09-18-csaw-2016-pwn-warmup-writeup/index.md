@@ -19,7 +19,7 @@ tags:
 > _So you want to be a pwn-er huh? Well let&#8217;s throw you an easy one 😉_  
 > _nc pwn.chal.csaw.io 8000_
 > 
-> _<a class="chal-file" href="https://ctf.csaw.io/static/uploads/8ef117ec4c05f79aebdf043f3d003c2b/warmup" target="_blank">warmup</a>_
+> _<a class="chal-file" href="https://ctf.csaw.io/stat./8ef117ec4c05f79aebdf043f3d003c2b/warmup" target="_blank">warmup</a>_
 
 Let&#8217;s connect to the server and play with it a little bit:
 
@@ -27,17 +27,17 @@ Let&#8217;s connect to the server and play with it a little bit:
 [Meabeets] /tmp/CSAW/Warmup# nc pwn.chal.csaw.io 8000
 -Warm Up-
 WOW:0x40060d
-&gt;Beet
+>Beet
 
 [Meabeets] /tmp/CSAW/Warmup# nc pwn.chal.csaw.io 8000
 -Warm Up-
 WOW:0x40060d
-&gt;Beetttttttttttttttttttttt
+>Beetttttttttttttttttttttt
 
 [Meabeets] /tmp/CSAW/Warmup# nc pwn.chal.csaw.io 8000
 -Warm Up-
 WOW:0x40060d
-&gt;aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 ```
 
 
@@ -54,7 +54,7 @@ int __cdecl main(int argc, const char **argv, const char **envp)
 	  sprintf(&s, "%p\n", 4195853LL);
 	  write(1, &s, 9uLL);
 	  write(1, (const void *)'@\aU', 1uLL);
-	  return gets(&v5, '&gt;');
+	  return gets(&v5, '>');
 }b
 ```
 
@@ -77,6 +77,6 @@ And we got the flag: _FLAG{LET\_US\_BEGIN\_CSAW\_2016}_
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="./megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>

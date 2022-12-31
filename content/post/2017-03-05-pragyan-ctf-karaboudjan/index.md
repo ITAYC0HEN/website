@@ -39,7 +39,7 @@ I downloaded the zip file which was encrypted, I then cracked it using &#8220;fc
 
 &nbsp;
 
-<img src="../uploads/krabu1.png" /> 
+<img src="./krabu1.png" /> 
 
 That&#8217;s it, we got the flag 🙂
 
@@ -47,6 +47,6 @@ The flag was **pragyanctf{5n00p_d099}**
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="./megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>

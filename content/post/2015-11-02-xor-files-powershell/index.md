@@ -18,7 +18,7 @@ You can find the full code and examples in the [repository][1].
 Have fun!
 
 ```ps
-&lt;#
+<#
 .DESCRIPTION
     Powershell XOR 2 Files
 
@@ -32,7 +32,7 @@ Have fun!
 
 .SYNOPSIS
     .
-#&gt;
+#>
 
 
 param (
@@ -73,7 +73,7 @@ Write-host "$out" -foregroundcolor yellow -nonewline; Write-host ".";
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="./megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>
 

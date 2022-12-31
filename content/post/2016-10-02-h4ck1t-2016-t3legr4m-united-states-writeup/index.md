@@ -24,7 +24,7 @@ In order to solve this challenge you need to join the [Telegram][1] group and g
 The group description is the flag:
 
 <div id="attachment_486" style="width: 478px" class="wp-caption alignnone">
-  <img src="../uploads/h4ck1t_usa.png" />
+  <img src="./h4ck1t_usa.png" />
   
   <p id="caption-attachment-486" class="wp-caption-text">
     H4CK1T T3legr4m
@@ -35,7 +35,7 @@ The group description is the flag:
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="./megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>
 

@@ -27,7 +27,7 @@ This challenge was tricky for lot of people, the riddle was hiding in the questi
 
 From the question we know it&#8217;s a CBC cipher, but which? I got it just after the first hint was released, something to do with **snakes**. hmm&#8230; Serpent! Serpent is another term for Snake, and there&#8217;s Serpent-CBC cipher.
 
-<img src="../uploads/serpent1.jpg" /> 
+<img src="./serpent1.jpg" /> 
 
 What about the IV? We know several things about the IV:
 
@@ -40,13 +40,13 @@ So, this made me believe that the IV is &#8220;fsocietyevilcorp&#8221; because \
 
 So we now know the algorithm and the IV, what is the Key? The question says &#8220;the key is relatively simple&#8221;. So I tried [online][1] with some simple and &#8220;obvious&#8221; keys until I recognize a valid header of file and found that the key was &#8220;_fsociety_&#8220;.
 
-<img src="../uploads/evil_1.png" /> 
+<img src="./evil_1.png" /> 
 
 * * *
 
 We got a leet JPEG image with the flag:
 
-<img src="../uploads/odt-IV-66736f63696574796576696c636f7270.jpg" /> 
+<img src="./odt-IV-66736f63696574796576696c636f7270.jpg" /> 
 
 * * *
 
@@ -54,7 +54,7 @@ The flag was **pragyanctf{hellofriend}**
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="./megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>
 

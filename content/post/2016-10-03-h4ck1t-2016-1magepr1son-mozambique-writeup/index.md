@@ -25,11 +25,11 @@ tags:
 
 For the start we are given with a wallpaper image named _planet.png_ (2560&#215;1850)
 
-<img src="../uploads/h4ck1t_mozambiqu1.png" /> 
+<img src="./h4ck1t_mozambiqu1.png" /> 
 
 Looking carefully at the image we can see a pattern of strange dots, such dots may be connected to the cryptosystem. Those are pixels in different colors that probably belongs to another image. My thought is that the pixels of the flag image was splitted into the wallpaper.
 
-<img src="../uploads/h4ck1t_mozambiqu2.png" /> 
+<img src="./h4ck1t_mozambiqu2.png" /> 
 
 The dots exists every 24 pixels so I wrote a short pythons script in order to combine them into one image:
 
@@ -58,13 +58,13 @@ new_image.save('flag.png', 'PNG')
 
 I ran it and got a big image (the wallpaper size) with this tiny image inside that contains the flag:
 
-<img src="../uploads/h4ck1t_mozambiqu3.png" /> 
+<img src="./h4ck1t_mozambiqu3.png" /> 
 
 **Flag: **_h4ck1t{SPACE\_IS\_THE_KEY}_
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="./megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>
 

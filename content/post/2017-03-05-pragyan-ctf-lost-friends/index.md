@@ -39,7 +39,7 @@ Image.open('lost_friends.png').convert('RGB').save('output.png')
 
 I got this image:
 
-<img src="../uploads/2output.png" /> 
+<img src="./2output.png" /> 
 
 Wooho, Chipmunks! It seems like every chipmunk is on another channel, lets split the channels:
 
@@ -56,7 +56,7 @@ cv2.imwrite('r.png',r)
 
 Now we have three images of chipmunks:
 
-<img src="../uploads/chip3.png" /> 
+<img src="./chip3.png" /> 
 
 I played with them, trying to find the flag but found nothing. So I got back to the original image and opened it with Hex Editor. At the bottom of the file I found this hint: **&#8220;Psssst, Director, maybe ??&#8221;. **So the flag is probably the name of the director of chipmunks. According to Wikipedia, Chipmunks has 4 movies, I tried to submit with each director and found that the director of the third movie is the flag.
 
@@ -64,6 +64,6 @@ The flag was **praganctf{MikeMitchell}**
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="./megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>

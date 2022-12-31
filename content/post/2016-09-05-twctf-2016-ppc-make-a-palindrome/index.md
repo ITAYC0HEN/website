@@ -21,7 +21,7 @@ tags:
     <td>
       <em>Your task is to make a palindrome string by rearranging and concatenating given words.</em></p> 
       
-      <pre>Input Format: N &lt;Word_1&gt; &lt;Word_2&gt; ... &lt;Word_N&gt;
+      <pre>Input Format: N <Word_1> <Word_2> ... <Word_N>
 Answer Format: Rearranged words separated by space.
 Each words contain only lower case alphabet characters.
 
@@ -51,7 +51,7 @@ Example Answer: ab c cba
           <em>There are 30 cases. You can get flag 1 on case 1. You can get flag 2 on case 30.</em>
         </li>
         <li>
-          <em><a class="attachment" href="https://twctf7qygt6ujk.azureedge.net/uploads/samples.7z-663f3427d93add2142cbce3bdf1181107ae83866d60a2b8830e911612d080eaf" target="_blank">samples.7z</a> Server connection examples.</em>
+          <em><a class="attachment" href="https://twctf7qygt6ujk.azureedge.n./samples.7z-663f3427d93add2142cbce3bdf1181107ae83866d60a2b8830e911612d080eaf" target="_blank">samples.7z</a> Server connection examples.</em>
         </li>
       </ul>
     </td>
@@ -86,6 +86,6 @@ The full script can be found <a href="https://gist.github.com/ITAYC0HEN/b88bfd65
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="./megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>

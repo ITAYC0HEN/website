@@ -33,7 +33,7 @@ And indeed, this simple rule showed that the concept is potentially possible and
 
 </p> <figure class="wp-block-image size-large">
 
-<img src="../uploads/mquery-screenshot.png" /> </figure> 
+<img src="./mquery-screenshot.png" /> </figure> 
 
 In order to retrieve the rest of the flag, we can start to slowly &#8220;brute force&#8221; it character by character, hoping there will not be any &#8220;brute force&#8221; mitigation or similar limitation. Since I am familiar with the project, I know it has a REST API we can use for our help. For those of you who aren&#8217;t familiar, can figure this out from the [tests][3].
 
@@ -115,7 +115,7 @@ $ python3 solution.py
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="./megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>
 

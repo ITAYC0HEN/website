@@ -26,26 +26,26 @@ This challenge was pretty tricky to understand at the beginning. I solved it wit
 
 We&#8217;re given with a website in where we can buy two products: &#8216;cheap&#8217; (13.37 USD) and &#8216;flag&#8217; (31337.42 USD). We, of course, want to buy the &#8216;cheap&#8217; one because we don&#8217;t want to spend our money on some leet flag with the answer to life, the universe and blah blah. So &#8212; the &#8216;cheap&#8217; it is.
 
-<img src="../uploads/pay2win_1.png" /> 
+<img src="./pay2win_1.png" /> 
 
 In order to buy the product we need to supply a valid credit card number, there are bunch of examples of valid credit cards online.
 
-<img src="../uploads/pay2win_2-1.png" /> 
+<img src="./pay2win_2-1.png" /> 
 
 Lets try one of them and see what we get.
 
-<img src="../uploads/pay2win_3-1.png" /> 
+<img src="./pay2win_3-1.png" /> 
 
 Woo-hoo! We finally bought the &#8216;cheap&#8217; product and fulfilled our dream.  
 Kidding. Lets move on and see what will we get when trying to buy the &#8216;flag&#8217;.
 
-<img src="../uploads/pay2win_4.png" /> 
+<img src="./pay2win_4.png" /> 
 
-<img src="../uploads/pay2win_5-1.png" /> 
+<img src="./pay2win_5-1.png" /> 
 
 &#8220;failed&#8221;? Oh no. The server says that we exceeded the credit card limit. The first thing to come in my mind was to brute force the server with valid CC numbers, but I figured out very fast that this isn&#8217;t the right way to the solution. At this time I noticed something interesting about the URLs of the pages: there&#8217;s a GET parameter named &#8216;data&#8217; that some parts of it are the same on every request. Until now I thought it&#8217;s always a new hash. I grabbed pencil and paper and started to figure out the patterns and the mutual parts. Okay, okay, I admit &#8211; opened VS Code and made a simple table. The mutual parts highlighted using Photoshop.
 
-[<img src="../uploads/pay2win_6.png" />][2]
+[<img src="./pay2win_6.png" />][2]
 
 As you can see, every hash is combined from 3 parts. The beginning of each type is mutual and so is the end. I thought that certain combination is required to get the flag. But how I mix the parts to the correct hash so as to get the &#8216;flag&#8217; content. Now it&#8217;s about trial and error. **Or not**.
 
@@ -92,7 +92,7 @@ for hash in all_permutations:
 
 It took the script 2 minutes to run and then it came up with 3 possible hashes, lets try one of them to see if we indeed got the flag:
 
-[<img src="../uploads/pay2win_7.png" />][3]
+[<img src="./pay2win_7.png" />][3]
 
 YES! We got the flag! I took a deep breath and analysed the matched hashes to find out what is the right pattern. I came out with two possible patterns:
 
@@ -107,10 +107,10 @@ I&#8217;ll be happy to read in the comments how the challenge was for you.
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="./megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>
 
  [1]: http://78.46.224.78:5000/
- [2]: http://www.megabeets.net/uploads/pay2win_6.png
- [3]: http://www.megabeets.net/uploads/pay2win_7.png
+ [2]: http://www.megabeets.n./pay2win_6.png
+ [3]: http://www.megabeets.n./pay2win_7.png

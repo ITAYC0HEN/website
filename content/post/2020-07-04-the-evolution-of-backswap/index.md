@@ -5,7 +5,7 @@ type: post
 date: 2020-07-04T14:14:33+00:00
 excerpt: 'The BackSwap banker has been in the spotlight recently due to its unique and innovative techniques to steal money from victims while staying under the radar and remaining undetected. '
 url: /the-evolution-of-backswap/
-featured_image: /uploads/backswap.jpg
+featured_image: ./backswap.jpg
 categories:
   - Articles
   - Malware
@@ -28,7 +28,7 @@ _This research was done and published by me on Check Point Research Blog_
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="./megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>
 

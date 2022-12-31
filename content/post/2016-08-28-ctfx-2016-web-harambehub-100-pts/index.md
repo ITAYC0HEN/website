@@ -28,14 +28,14 @@ The main file, HarambeHub.java, contains two methods which are actually get() an
 ```java
 public class HarambeHub {
     public static void main(String[] args) {
-        post("/users", (req, res) -&gt; {
+        post("/users", (req, res) -> {
             String username = req.queryParams("username");
             String password = req.queryParams("password");
             String realName = req.queryParams("real_name");
            ...
         });
 		
-        get("/name", (req, res) -&gt; {
+        get("/name", (req, res) -> {
             String username = req.queryParams("username");
             String password = req.queryParams("password");
       	...
@@ -172,7 +172,7 @@ And we got the flag:
 _ctf(h4r4mb3\_d1dn1t\_d13\_4\_th1s\_f33ls\_b4d)_
 
 <p style="text-align: right;">
-  <img src="../uploads/megabeets_inline_logo.png" />Eat Veggies.
+  <img src="./megabeets_inline_logo.png" />Eat Veggies.
 </p>
 
 <img decoding="async" loading="lazy" class="alignleft" src="http://www.gannett-cdn.com/-mm-/748c68a68596b4b3be54484af8d31875e45f9fe5/c=179-0-2659-3307&r=537&c=0-0-534-712/local/-/media/2016/05/29/Cincinnati/Cincinnati/636001135964333349-Harambe2.jpg" width="172" height="209" /> 
@@ -183,7 +183,7 @@ _ctf(h4r4mb3\_d1dn1t\_d13\_4\_th1s\_f33ls\_b4d)_
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="./megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>
 

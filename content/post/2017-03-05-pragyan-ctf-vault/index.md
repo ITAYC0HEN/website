@@ -77,7 +77,7 @@ for p in all_permutations:
 And I the ran John the Ripper to crack the password and went to eat lunch.
 
 ```diff
-$ keepass2john file.kdb &gt; kp
+$ keepass2john file.kdb > kp
 $ john  --wordlist=dict.txt -format:keepass kp
 Using default input encoding: UTF-8
 Loaded 1 password hash (KeePass [SHA256 AES 32/64 OpenSSL])
@@ -89,7 +89,7 @@ k18              (file.kdb)
 
 When I came back I saw that John found the password, now lets open the file:
 
-<img src="../uploads/vault1.png" /> 
+<img src="./vault1.png" /> 
 
 &nbsp;
 
@@ -97,6 +97,6 @@ The flag was **pragyanctf{closed\_no\_more}**
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="./megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>

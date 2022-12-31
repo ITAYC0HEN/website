@@ -20,7 +20,7 @@ tags:
 >  _nc crypto.chal.csaw.io 8000_
 > 
 > _Author: Sophia D&#8217;Antoine_  
-> _<a class="chal-file" href="https://ctf.csaw.io/static/uploads/69a76e75bc0277cb8ead3782870dee13/sleeping_dist.py" target="_blank">sleeping_dist.py</a>_
+> _<a class="chal-file" href="https://ctf.csaw.io/stat./69a76e75bc0277cb8ead3782870dee13/sleeping_dist.py" target="_blank">sleeping_dist.py</a>_
 
 We are given with python script, Netcat command and a hint about a PNG file. Let&#8217;s run Netcat and see what we will get:
 
@@ -28,7 +28,7 @@ We are given with python script, Netcat command and a hint about a PNG file. Let
 [Megabeets] /tmp/CSAW/clam# nc crypto.chal.csaw.io 8000
 3j8PL1JLRUFleSEyHicFOl9BXrdleSGXX2lBaF9EZRcjeSE/UwgAJR5BX/rqct1eUm9BaH8iFxkoeSFFcW9B6NtBX7FleSG/v29BHW9BX6EFeSEFz29Bfy/d5RpZeSE/Xh8JMSxBX1kReSEtI26fDkA5X0tkIEhrDxsZJRN7PCQIV0BbOA0kRicsL0tleSE/axd7EDIxMi4RGAFHOgMvG2U5YmkEHU5
 ...
-&lt;alot of base64 text here&gt;
+<alot of base64 text here>
 ...
 ```
 
@@ -36,7 +36,7 @@ We are given with python script, Netcat command and a hint about a PNG file. Let
 We received a base64 encoded text from the server. It is probably our image so let&#8217;s decode it and save it to file:
 
 ```vim
-[Megabeets]$&gt; nc crypto.chal.csaw.io 8000 | base64 --decode &gt; out.png
+[Megabeets]$> nc crypto.chal.csaw.io 8000 | base64 --decode > out.png
 ```
 
 
@@ -113,11 +113,11 @@ with open('decrypted.png', 'w') as file_:
 
 And you&#8217;ll get the image and the flag:
 
-<img src="../uploads/sleping_guard.png" />  
+<img src="./sleping_guard.png" />  
 
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="./megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>

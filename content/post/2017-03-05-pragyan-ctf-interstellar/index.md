@@ -23,7 +23,7 @@ tags:
 
 We are given with a photo, I opened it in Photoshop and saw that parts of it are transparent.
 
-<img src="../uploads/Interstellar_transmission.png" /> 
+<img src="./Interstellar_transmission.png" /> 
 
 &nbsp;
 
@@ -37,7 +37,7 @@ Image.open('transmission.png').convert('RGB').save('output.png')
 
 We got the result with the flag:
 
-<img src="../uploads/2output-1.png" /> 
+<img src="./2output-1.png" /> 
 
 &nbsp;
 
@@ -45,6 +45,6 @@ The flag was **pragyanctf{Cooper_Brand}**
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="./megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>

@@ -78,11 +78,11 @@ Archive:  image_2.zip
 
   
   <p>
-    Oh-no, it requires a password. Lets have a look at <em>1_image.jpg.<img src="../uploads/1_image.jpg" /><br /> </em>Haha, funny image. Now I want to have a deeper look at this picture, I opened it in hex editor and found the password:
+    Oh-no, it requires a password. Lets have a look at <em>1_image.jpg.<img src="./1_image.jpg" /><br /> </em>Haha, funny image. Now I want to have a deeper look at this picture, I opened it in hex editor and found the password:
   </p>
   
   <p>
-    <img src="../uploads/hex.png" />
+    <img src="./hex.png" />
   </p>
   
   <p>
@@ -92,7 +92,7 @@ Archive:  image_2.zip
   ```diff
 Megabeets$ unzip ./image_2.zip
 Archive:  image_2.zip
-[image_2.zip] 2_image.jpg password: &lt;em&gt;sgtgFhswhfrighaulmvCavmpsb&lt;/em&gt;
+[image_2.zip] 2_image.jpg password: <em>sgtgFhswhfrighaulmvCavmpsb</em>
   inflating: 2_image.jpg
  extracting: image_3.zip
 ```
@@ -132,7 +132,7 @@ while True:
   </p>
   
   <p>
-    <img src="../uploads/16_image.jpg" />
+    <img src="./16_image.jpg" />
   </p>
 </div>
 
@@ -179,7 +179,7 @@ print "Result: ", map_result
 
 I ran the script and got meaningless string: _&#8220;etitgepgztgxhiwthexstgbpc&#8221;. _Damn! I was so sure that the mapping is the solution, how can&#8217;t it be?! All the facts point towards mapping the alphabet. I decided not to give up and ran Caesar Cipher on the string:
 
-<img src="../uploads/peter.png" /> 
+<img src="./peter.png" /> 
 
 YAY! I was so happy to find Spidey is the new Avenger!
 
@@ -191,6 +191,6 @@ The flag was: **pragyanctf{peterparkeristhespiderman}**
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="./megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>

@@ -43,12 +43,12 @@ I was playing a lot with radare2 in the past years, ever since I began participa
 Because I got really enthusiastic about the project and I want more and more researchers to be familiar with it, use it and hopefully contribute to the project, I decided to create a series of articles and use-cases of r2. Since these articles aim to teach you the basics of radare2, its features, and capabilities, I&#8217;ll explain much more than you actually need to know in order to solve each task.
 
 <div class="wp-block-image wp-image-828 size-full">
-  <figure class="aligncenter"><img data-attachment-id="828" data-permalink="https://www.megabeets.net/a-journey-into-radare-2-part-1/r2_part1_1/#main" data-orig-file="http://www.megabeets.net/uploads/r2_part1_1.png" data-orig-size="510,248" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="r2 logo &#038; fortune" data-image-description="" data-image-caption="<p>Welcome to IDA 10.0. (see radare2/doc/fortunes.fun for more fortunes)</p>
-" data-medium-file="http://www.megabeets.net/uploads/r2_part1_1
+  <figure class="aligncenter"><img data-attachment-id="828" data-permalink="https://www.megabeets.net/a-journey-into-radare-2-part-1/r2_part1_1/#main" data-orig-file="http://www.megabeets.n./r2_part1_1.png" data-orig-size="510,248" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="r2 logo &#038; fortune" data-image-description="" data-image-caption="<p>Welcome to IDA 10.0. (see radare2/doc/fortunes.fun for more fortunes)</p>
+" data-medium-file="http://www.megabeets.n./r2_part1_1
 ```
-png" data-large-file="http://www.megabeets.net/uploads/r2_part1_1.png" decoding="async" loading="lazy" width="510" height="248" src="http://www.megabeets.net/uploads/r2_part1_1.png" alt="" class="wp-image-828" srcset="https://www.megabeets.net/uploads/r2_part1_1.png 510w, https://www.megabeets.net/uploads/r2_part1_1
+png" data-large-file="http://www.megabeets.n./r2_part1_1.png" decoding="async" loading="lazy" width="510" height="248" src="http://www.megabeets.n./r2_part1_1.png" alt="" class="wp-image-828" srcset="https://www.megabeets.n./r2_part1_1.png 510w, https://www.megabeets.n./r2_part1_1
 ```
-png 150w, https://www.megabeets.net/uploads/r2_part1_1
+png 150w, https://www.megabeets.n./r2_part1_1
 ```
 png 300w" sizes="(max-width: 510px) 100vw, 510px" /><figcaption>Welcome to IDA 10.0. (see radare2/doc/fortunes.fun for more fortunes)</figcaption></figure>
 </div>
@@ -62,12 +62,12 @@ This framework is composed of a set of utilities that can be used either togethe
 It is important to note that r2&#8217;s learning curve is pretty steep – although it has an amazing GUI called [Cutter][1], which I co-maintain, it is still young to compete with more mature RE applications such as IDA or Ghidra. The CLI, however, including its Visual Mode, is still the core of radare2 and where its power lays. Because of its complexity, I&#8217;ll try to make things as clear and simple as I can.
 
 <div class="wp-block-image wp-image-817 size-full">
-  <figure class="aligncenter"><img data-attachment-id="817" data-permalink="https://www.megabeets.net/a-journey-into-radare-2-part-1/r2_learning_curve/#main" data-orig-file="http://www.megabeets.net/uploads/r2_learning_curve.png" data-orig-size="692,413" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="radare2 learning curve" data-image-description="" data-image-caption="<p>This is more or less how r2 learning curve works.</p>
-" data-medium-file="http://www.megabeets.net/uploads/r2_learning_curve
+  <figure class="aligncenter"><img data-attachment-id="817" data-permalink="https://www.megabeets.net/a-journey-into-radare-2-part-1/r2_learning_curve/#main" data-orig-file="http://www.megabeets.n./r2_learning_curve.png" data-orig-size="692,413" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="radare2 learning curve" data-image-description="" data-image-caption="<p>This is more or less how r2 learning curve works.</p>
+" data-medium-file="http://www.megabeets.n./r2_learning_curve
 ```
-png" data-large-file="http://www.megabeets.net/uploads/r2_learning_curve.png" decoding="async" loading="lazy" width="692" height="413" src="http://www.megabeets.net/uploads/r2_learning_curve.png" alt="This is more or less how r2 learning curve works." class="wp-image-817" srcset="https://www.megabeets.net/uploads/r2_learning_curve.png 692w, https://www.megabeets.net/uploads/r2_learning_curve
+png" data-large-file="http://www.megabeets.n./r2_learning_curve.png" decoding="async" loading="lazy" width="692" height="413" src="http://www.megabeets.n./r2_learning_curve.png" alt="This is more or less how r2 learning curve works." class="wp-image-817" srcset="https://www.megabeets.n./r2_learning_curve.png 692w, https://www.megabeets.n./r2_learning_curve
 ```
-png 150w, https://www.megabeets.net/uploads/r2_learning_curve
+png 150w, https://www.megabeets.n./r2_learning_curve
 ```
 png 300w" sizes="(max-width: 692px) 100vw, 692px" /><figcaption>This is more or less how r2 learning curve works.</figcaption></figure>
 </div>
@@ -564,7 +564,7 @@ Take all the time you need and look at the output of `pdf`.
        0x0804861e      e81dfdffff     call sym.imp.puts     ; int puts(const char *s)
        0x08048623      83c410         add esp, 0x10
        0x08048626      833b01         cmp dword [ebx], 1
-   ╭─&lt; 0x08048629      7e2a           jle 0x8048655
+   ╭─< 0x08048629      7e2a           jle 0x8048655
    │   0x0804862b      8b4304         mov eax, dword [ebx + 4]
    │   0x0804862e      83c004         add eax, 4
    │   0x08048631      8b00           mov eax, dword [eax]
@@ -573,12 +573,12 @@ Take all the time you need and look at the output of `pdf`.
    │   0x08048637      e849ffffff     call sym.beet
    │   0x0804863c      83c410         add esp, 0x10
    │   0x0804863f      85c0           test eax, eax
-  ╭──&lt; 0x08048641      7412           je 0x8048655
+  ╭──< 0x08048641      7412           je 0x8048655
   ││   0x08048643      83ec0c         sub esp, 0xc
   ││   0x08048646      682c870408     push str.Success       ; "Success!\n" ; const char *s
   ││   0x0804864b      e8f0fcffff     call sym.imp.puts      ; int puts(const char *s)
   ││   0x08048650      83c410         add esp, 0x10
- ╭───&lt; 0x08048653      eb10           jmp 0x8048665
+ ╭───< 0x08048653      eb10           jmp 0x8048665
  │││   ; CODE XREFS from main @ 0x8048629, 0x8048641
  │╰╰─> 0x08048655      83ec0c         sub esp, 0xc
  │     0x08048658      6836870408     push str.Nop__Wrong_argument. ; "Nop, Wrong argument.\n" ; const char *s

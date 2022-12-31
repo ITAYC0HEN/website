@@ -128,7 +128,7 @@ live:black.zogzog blackabauh4ck1t{87e2bc9573392d5f4458393375328cf2}h4ck1t{87e2bc
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="./megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>
 

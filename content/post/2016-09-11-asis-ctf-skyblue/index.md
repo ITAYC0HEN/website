@@ -31,19 +31,19 @@ DECIMAL       HEXADECIMAL     DESCRIPTION
 
 Binwalk found a PNG image but couldn&#8217;t export it. I opened Wireshark and searched for the string &#8220;PNG&#8221; in the packet bytes. I found the 7 packets containing the PNG and exported their packet bytes (i.e Only the **DATA**, without the header bytes of each packet: 02 0C 20 FC 03 F8 03 47 00 63 EF E6 07). I then concatenated the output files using HxD,
 
-<img src="../uploads/hxd.png" /> 
+<img src="./hxd.png" /> 
 
 and deleted the extra data preceding the PNG file header.
 
-<img src="../uploads/hxd2.png" /> 
+<img src="./hxd2.png" /> 
 
 We now have the PNG file which is the flag:
 
-<img src="../uploads/out4.png" /> 
+<img src="./out4.png" /> 
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="./megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>
 

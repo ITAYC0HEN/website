@@ -4,7 +4,7 @@ author: Megabeets
 type: post
 date: 2020-07-04T15:27:48+00:00
 url: /mapping-the-connections-inside-russias-apt-ecosystem/
-featured_image: /uploads/russian_apt_ecosystem_map.png
+featured_image: ./russian_apt_ecosystem_map.png
 categories:
   - Articles
   - Malware
@@ -52,11 +52,11 @@ During this research, we analyzed approximately 2,000 samples that were attribut
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="./megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>
 
- [1]: https://media.kasperskycontenthub.com/wp-content/uploads/sites/43/2018/03/07180251/Penquins_Moonlit_Maze_PDF_eng.pdf
+ [1]: https://media.kasperskycontenthub.com/wp-conte./sites/43/2018/03/07180251/Penquins_Moonlit_Maze_PDF_eng.pdf
  [2]: https://web.archive.org/web/20090221124901/https://articles.latimes.com/2008/nov/28/nation/na-cyberattack28
  [3]: https://www.wired.com/story/crash-override-malware/
  [4]: https://www.dhs.gov/news/2016/10/07/joint-statement-department-homeland-security-and-office-director-national

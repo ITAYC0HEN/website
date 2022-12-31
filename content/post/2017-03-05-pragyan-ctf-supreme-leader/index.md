@@ -21,7 +21,7 @@ tags:
 
 For the second web challenge we&#8217;re given with a URL, lets open it.
 
-<img src="../uploads/supreme_leader.png" /> 
+<img src="./supreme_leader.png" /> 
 
 Cute Kim 🙂
 
@@ -45,13 +45,13 @@ Content-Type: text/html
 
 We can see an interesting cookie:  _KimJongUn=**2541d938b0a58946090d7abdde0d3890_b8e2e0e422cae4838fb788c891afb44**_**f**. The value of the cookie is looking like 2 MD5 hashes combined with &#8220;_&#8221;. Let&#8217;s try to crack them online using my [favorite site][1].
 
-<img src="../uploads/supreme_hash_Crack.png" /> 
+<img src="./supreme_hash_Crack.png" /> 
 
 That&#8217;s it! Here is the flag: **pragyanctf{send_nukes}**
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="./megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>
 

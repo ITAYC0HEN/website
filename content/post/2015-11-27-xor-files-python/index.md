@@ -34,7 +34,7 @@ file1_b = bytearray(open(sys.argv[1], 'rb').read())
 file2_b = bytearray(open(sys.argv[2], 'rb').read())
 
 # Set the length to be the smaller one
-size = len(file1_b) if len(file1_b) &lt; len(file2_b) else len(file2_b)
+size = len(file1_b) if len(file1_b) < len(file2_b) else len(file2_b)
 xord_byte_array = bytearray(size)
 
 # XOR between the files
@@ -54,7 +54,7 @@ print "[*] %s XOR %s\n[*] Saved to \033[1;33m%s\033[1;m."%(sys.argv[1], sys.argv
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="./megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>
 

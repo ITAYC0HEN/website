@@ -4,7 +4,7 @@ author: Megabeets
 type: post
 date: 2020-07-04T14:25:38+00:00
 url: /deobfuscating-apt32-flow-graphs-with-cutter-and-radare2/
-featured_image: /uploads/apt32deobf.jpg
+featured_image: ./apt32deobf.jpg
 categories:
   - Articles
   - Malware
@@ -48,6 +48,6 @@ In this article, we get up and close with one of these obfuscation techniques. T
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="./megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>

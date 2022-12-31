@@ -99,7 +99,7 @@ The following table describes the possible respond pages:
 Looking at the source code i saw the following comment:
 
 ```php
-&lt;!--&lt;li &gt;&lt;a href="?page=flag"&gt;My secrets&lt;/a&gt;&lt;/li&gt; --&gt;
+<!--<li ><a href="?page=flag">My secrets</a></li> -->
 ```
 
 
@@ -117,7 +117,7 @@ So the page is using assert() which is vulnerable to Command Injection attack. A
 And received the flag:
 
 ```php
-string(52) "&lt;?php $FLAG="flag{3vald_@ss3rt_1s_best_a$$ert}"; ?&gt;
+string(52) "<?php $FLAG="flag{3vald_@ss3rt_1s_best_a$$ert}"; ?>
 "
 Detected hacking attempt!
 ```
@@ -127,7 +127,7 @@ If you try entering [the url][2] in a browser, look in the source of the page
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="./megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>
 

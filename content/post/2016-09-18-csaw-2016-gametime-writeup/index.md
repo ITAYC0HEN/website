@@ -21,7 +21,7 @@ tags:
 > 
 > _note: flag is not in `flag{}` format_
 > 
-> _<a class="chal-file" href="https://ctf.csaw.io/static/uploads/121e6daf97e57856de8183ba1e56e55b/gametime.exe" target="_blank">gametime.exe</a>_
+> _<a class="chal-file" href="https://ctf.csaw.io/stat./121e6daf97e57856de8183ba1e56e55b/gametime.exe" target="_blank">gametime.exe</a>_
 
 <div class="chal-files">
 </div>
@@ -79,7 +79,7 @@ tags:
   </p>
   
   <p>
-    <img src="../uploads/gametime_1.png" />
+    <img src="./gametime_1.png" />
   </p>
   
   <p>
@@ -87,7 +87,7 @@ tags:
   </p>
   
   <p>
-    <img src="../uploads/gametime_2.png" />
+    <img src="./gametime_2.png" />
   </p>
 </div>
 
@@ -97,6 +97,6 @@ The key is: _(no5c30416d6cf52638460377995c6a8cf5)_
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="./megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>

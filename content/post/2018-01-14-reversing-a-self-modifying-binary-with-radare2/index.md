@@ -22,7 +22,7 @@ This article is aimed to those of you who are familiar with radare2. If you are 
 
 So, without further ado, let&#8217;s dig into the binary.
 
-[<img src="../uploads/packedup_cover.png" />][3]
+[<img src="./packedup_cover.png" />][3]
 
 &nbsp;
 
@@ -61,7 +61,7 @@ First thing to do, obviously, is to execute the binary and get a basic feeling o
 ```default
 $ ./packedup 
 Welcome to packedup for r2crackmes :)
-Flag &lt;&lt; MEGABEETS     
+Flag << MEGABEETS     
 Try again!
 
 ```
@@ -94,7 +94,7 @@ I usually begin with executing `aa` (**a**nalyze **a**ll) or with `aas` (to *
 So now that we opened our binary with radare2, we have been located automatically at the program&#8217;s entrypoint. But before we start working on the code itself It&#8217;s a good approach to get to know our binary characteristics. radare2 can show us the information we need using the `i` command (I removed some information for the sake of readability):
 
 ```batch
-[0x004004d0]&gt; i
+[0x004004d0]> i
 ...
 file ./packedup
 format elf64
@@ -186,8 +186,8 @@ So basically, the seek command accepts an address or math expression as an argum
 
 Now that we are at the `main` function we want to print its disassembly to examine it. There are many ways to disassemble a function using radare. You can use `pdf` (**p**rint **d**isassembly **f**unction) or you can use more interactive ways &#8211; the Visual Mode (`v`) and the Visual Graph Mode (`VV`). You can use the way you find most comfortable to you. I usually use the visual modes since they&#8217;re more rich and interactive. Sadly, because this is not radare2 101 writeup I&#8217;m not going to explain how to use it, I explained it thoroughly in the [previous][2] articles.
 
-[<img data-attachment-id="1356" data-permalink="https://www.megabeets.net/reversing-a-self-modifying-binary-with-radare2/packedup_vv_vs_vp/#main" data-orig-file="http://www.megabeets.net/uploads/packedup_vv_vs_vp.png" data-orig-size="1680,940" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="packedup_vv_vs_vp" data-image-description="<p>Visual Graph Mode vs Visual Mode</p>
-" data-image-caption="" data-medium-file="http://www.megabeets.net/uploads/packedup_vv_vs_vp-300x168.png" data-large-file="http://www.megabeets.net/uploads/packedup_vv_vs_vp-1024x573.png" decoding="async" loading="lazy" class="aligncenter size-large wp-image-1356" src="https://www.megabeets.net/uploads/packedup_vv_vs_vp-1024x573.png" alt="" width="687" height="384" srcset="https://www.megabeets.net/uploads/packedup_vv_vs_vp-1024x573.png 1024w, https://www.megabeets.net/uploads/packedup_vv_vs_vp-150x84.png 150w, https://www.megabeets.net/uploads/packedup_vv_vs_vp-300x168.png 300w, https://www.megabeets.net/uploads/packedup_vv_vs_vp-768x430.png 768w, https://www.megabeets.net/uploads/packedup_vv_vs_vp-800x448.png 800w, https://www.megabeets.net/uploads/packedup_vv_vs_vp.png 1680w" sizes="(max-width: 687px) 100vw, 687px" />][7]
+[<img data-attachment-id="1356" data-permalink="https://www.megabeets.net/reversing-a-self-modifying-binary-with-radare2/packedup_vv_vs_vp/#main" data-orig-file="http://www.megabeets.n./packedup_vv_vs_vp.png" data-orig-size="1680,940" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="packedup_vv_vs_vp" data-image-description="<p>Visual Graph Mode vs Visual Mode</p>
+" data-image-caption="" data-medium-file="http://www.megabeets.n./packedup_vv_vs_vp-300x168.png" data-large-file="http://www.megabeets.n./packedup_vv_vs_vp-1024x573.png" decoding="async" loading="lazy" class="aligncenter size-large wp-image-1356" src="https://www.megabeets.n./packedup_vv_vs_vp-1024x573.png" alt="" width="687" height="384" srcset="https://www.megabeets.n./packedup_vv_vs_vp-1024x573.png 1024w, https://www.megabeets.n./packedup_vv_vs_vp-150x84.png 150w, https://www.megabeets.n./packedup_vv_vs_vp-300x168.png 300w, https://www.megabeets.n./packedup_vv_vs_vp-768x430.png 768w, https://www.megabeets.n./packedup_vv_vs_vp-800x448.png 800w, https://www.megabeets.n./packedup_vv_vs_vp.png 1680w" sizes="(max-width: 687px) 100vw, 687px" />][7]
 
 <p style="text-align: center;">
   Visual Graph Mode vs Visual Mode
@@ -306,8 +306,8 @@ First we&#8217;ll define a lambda function for rotate left:
 ```python
 # Rotate left lambda
 rol = lambda val, r_bits, max_bits: \
-    (val &lt;&lt; r_bits%max_bits) & (2**max_bits-1) | \
-    ((val & (2**max_bits-1)) &gt;&gt; (max_bits-(r_bits%max_bits)))
+    (val << r_bits%max_bits) & (2**max_bits-1) | \
+    ((val & (2**max_bits-1)) >> (max_bits-(r_bits%max_bits)))
 ```
 
 
@@ -343,8 +343,8 @@ And the last thing is to implement the logic and combine it all together:
 ```python
 # Rotate left lambda
 rol = lambda val, r_bits, max_bits: \
-    (val &lt;&lt; r_bits%max_bits) & (2**max_bits-1) | \
-    ((val & (2**max_bits-1)) &gt;&gt; (max_bits-(r_bits%max_bits)))
+    (val << r_bits%max_bits) & (2**max_bits-1) | \
+    ((val & (2**max_bits-1)) >> (max_bits-(r_bits%max_bits)))
 
 # Byte array from 0x004007A0, modified from the generated results of `pcp 44 @ 0x4007a0`
 arr =[0x0F, 0xC9, 0xA8, 0x86, 0xAC, 0xE0, 0x18, 0x93, 0x8A, 0xAF, 0x91, 0xA2, 0xE4, 0x64, 0x7A, 0x5A, 0x08, 0x8B, 0xA8, 0x9A, 0xB4, 0xD1, 0x1F, 0x84, 0xB4, 0xD1, 0x71, 0x52, 0x1C, 0x8A, 0x80, 0xD2, 0x14, 0x95, 0x82, 0x97, 0x80, 0xD2, 0x1F, 0x90, 0x8F, 0x91, 0x93, 0xA6]
@@ -454,7 +454,7 @@ So, we need to find a way to get the initial value of the key without changing t
 
 ```default
 beet:~$ python answer.py
-[+] Flag: ['\xc8', '*', '\xd9', '&gt;', 'p', '\x0e', '\xef', 'h', '\xf7', '\x91', '\x8e', '\xad', 'c', '\xa7', '\x9b', '\xaa', '\xf0', 'w', '\xd6', '%', 'k', '&gt;', '\xe8', '\x7f', '\xc9', 'o', '\xae', '\xbd', 'k', '\xb1', '\x9d', '\\', '\xd3', 'v', '\xf3', '/', '\\', '&lt;', '\xe8', 'k', '\xf2', '\xaf', '\x8c', '\xa9']
+[+] Flag: ['\xc8', '*', '\xd9', '>', 'p', '\x0e', '\xef', 'h', '\xf7', '\x91', '\x8e', '\xad', 'c', '\xa7', '\x9b', '\xaa', '\xf0', 'w', '\xd6', '%', 'k', '>', '\xe8', '\x7f', '\xc9', 'o', '\xae', '\xbd', 'k', '\xb1', '\x9d', '\\', '\xd3', 'v', '\xf3', '/', '\\', '<', '\xe8', 'k', '\xf2', '\xaf', '\x8c', '\xa9']
 ```
 
 
@@ -569,8 +569,8 @@ This is our new script:
 ```python
 # Rotate right lambda
 ror = lambda val, r_bits, max_bits: \
-    ((val & (2**max_bits-1)) &gt;&gt; r_bits%max_bits) | \
-    (val &lt;&lt; (max_bits-(r_bits%max_bits)) & (2**max_bits-1))
+    ((val & (2**max_bits-1)) >> r_bits%max_bits) | \
+    (val << (max_bits-(r_bits%max_bits)) & (2**max_bits-1))
 
 # Byte array from 0x004007A0, modified from the generated results of `pcp 44 @ 0x4007a0`
 arr = [
@@ -624,17 +624,17 @@ As always, please post comments to this post or message me [privately][17] if
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="./megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>
 
  [1]: https://www.megabeets.net/reverse-engineering-a-gameboy-rom-with-radare2/
  [2]: https://www.megabeets.net/a-journey-into-radare-2-part-1/
- [3]: https://www.megabeets.net/uploads/packedup_cover.png
+ [3]: https://www.megabeets.n./packedup_cover.png
  [4]: http://radare.org/r/down.html
  [5]: https://github.com/ITAYC0HEN/A-journey-into-Radare2/blob/master/Generic/packedup - Self-modifying binary/packedup
  [6]: https://reverseengineering.stackexchange.com/a/16115/18698
- [7]: https://www.megabeets.net/uploads/packedup_vv_vs_vp.png
+ [7]: https://www.megabeets.n./packedup_vv_vs_vp.png
  [8]: https://en.wikipedia.org/wiki/X86_calling_conventions#System_V_AMD64_ABI
  [9]: https://radare.gitbooks.io/radare2book/content/basic_commands/flags.html
  [10]: https://en.wikipedia.org/wiki/Involution_(mathematics)

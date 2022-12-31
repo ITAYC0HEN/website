@@ -433,7 +433,7 @@ if cutter_available:
            # A click on this action will trigger the function
            action.triggered.connect(self.cleaner)
 
-           # Add the action to the "Windows -&gt; Plugins" menu
+           # Add the action to the "Windows -> Plugins" menu
            pluginsMenu = main.getMenuByType(main.MenuType.Plugins)
            pluginsMenu.addAction(action)
 
@@ -786,7 +786,7 @@ if cutter_available:
             # A click on this action will trigger the function
             action.triggered.connect(self.cleaner)
 
-            # Add the action to the "Windows -&gt; Plugins" menu
+            # Add the action to the "Windows -> Plugins" menu
             pluginsMenu = main.getMenuByType(main.MenuType.Plugins)
             pluginsMenu.addAction(action)
 
@@ -813,7 +813,7 @@ if __name__ == "__main__":
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="./megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>
 
@@ -823,4 +823,4 @@ if __name__ == "__main__":
  [4]: https://github.com/radare/radare2-r2pipe/tree/master/python
  [5]: https://cutter.re/docs/plugins
  [6]: https://github.com/CheckPointSW/Cyber-Research/blob/master/Malware/APT32/APT32GraphDeobfuscator.py
- [7]: https://www.welivesecurity.com/wp-content/uploads/2018/03/ESET_OceanLotus.pdf
+ [7]: https://www.welivesecurity.com/wp-conte./2018/03/ESET_OceanLotus.pdf

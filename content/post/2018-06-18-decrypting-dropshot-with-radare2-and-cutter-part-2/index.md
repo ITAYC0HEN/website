@@ -20,7 +20,7 @@ Previously, in the first part of this article, we used Cutter, a GUI for radare2
 
 Today&#8217;s article will be shorter, now that we are familiar with cutter and r2pipe, we can quickly analyze another interesting component of Dropshot &#8212; an encrypted resource that includes Dropshot&#8217;s actual payload. So without further ado, let&#8217;s start.
 
-[<img src="../uploads/cutter_logo_trimmed.png" />][2]
+[<img src="./cutter_logo_trimmed.png" />][2]
 
 ## 
 
@@ -80,7 +80,7 @@ _Since we&#8217;ll analyze Dropshot statically, you can use a Linux machine, as 
 Assuming you went through the first part of the article, you are already familiar with Cutter and r2pipe. Moreover, you should already have a basic clue of how Dropshot behaves. Open the Dropshot sample in Cutter, execute in Jupyter the r2pipe script we wrote and seek to the \`main\` function using the &#8220;Functions&#8221; widget or the upper search bar.
 
 <div id="attachment_1540" style="width: 697px" class="wp-caption aligncenter">
-  <a href="https://www.megabeets.net/uploads/cutter_dropshot_loadnt.png"><img src="../uploads/cutter_dropshot_loadnt-1024x563.png" /></a>
+  <a href="https://www.megabeets.n./cutter_dropshot_loadnt.png"><img src="./cutter_dropshot_loadnt-1024x563.png" /></a>
   
   <p id="caption-attachment-1540" class="wp-caption-text">
     A function we analyzed in the previous article | Click to enlarge
@@ -91,13 +91,13 @@ Assuming you went through the first part of the article, you are already familia
 
 The [role of the `main()` function][9] in a program shouldn&#8217;t be new to you since it is one of the fundamental concepts of programming. Using the Graph mode, we&#8217;ll go thorugh `main`&#8216;s flow in order to find our target &#8211; the resource decryption routine. We can see that a function at `0x403b30` is being called at the first block of `main`.
 
-[<img src="../uploads/dropshot_cutter_main.png" />][10]
+[<img src="./dropshot_cutter_main.png" />][10]
 
 Double-clicking this line will take us to the graph of `fcn.00403b30`, a rather big function. Going through this function, we&#8217;ll see some non-sense Windows API calls with invalid arguments. When describing Dropshot, I said that it uses anti-emulation heavily &#8211; this function, for example, performs anti-emulation.
 
 <div id="attachment_1523" style="width: 626px" class="wp-caption aligncenter">
-  <a href="https://www.megabeets.net/uploads/dropshot_anti_emulation_1.png"><img aria-describedby="caption-attachment-1523" data-attachment-id="1523" data-permalink="https://www.megabeets.net/decrypting-dropshot-with-radare2-and-cutter-part-2/dropshot_anti_emulation_1/#main" data-orig-file="http://www.megabeets.net/uploads/dropshot_anti_emulation_1.png" data-orig-size="626,584" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="dropshot_anti_emulation_1" data-image-description="" data-image-caption="<p>Click to enlarge</p>
-" data-medium-file="http://www.megabeets.net/uploads/dropshot_anti_emulation_1-300x280.png" data-large-file="http://www.megabeets.net/uploads/dropshot_anti_emulation_1.png" decoding="async" loading="lazy" class="size-full wp-image-1523" src="https://www.megabeets.net/uploads/dropshot_anti_emulation_1.png" alt="" width="626" height="584" srcset="https://www.megabeets.net/uploads/dropshot_anti_emulation_1.png 626w, https://www.megabeets.net/uploads/dropshot_anti_emulation_1-150x140.png 150w, https://www.megabeets.net/uploads/dropshot_anti_emulation_1-300x280.png 300w" sizes="(max-width: 626px) 100vw, 626px" /></a>
+  <a href="https://www.megabeets.n./dropshot_anti_emulation_1.png"><img aria-describedby="caption-attachment-1523" data-attachment-id="1523" data-permalink="https://www.megabeets.net/decrypting-dropshot-with-radare2-and-cutter-part-2/dropshot_anti_emulation_1/#main" data-orig-file="http://www.megabeets.n./dropshot_anti_emulation_1.png" data-orig-size="626,584" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="dropshot_anti_emulation_1" data-image-description="" data-image-caption="<p>Click to enlarge</p>
+" data-medium-file="http://www.megabeets.n./dropshot_anti_emulation_1-300x280.png" data-large-file="http://www.megabeets.n./dropshot_anti_emulation_1.png" decoding="async" loading="lazy" class="size-full wp-image-1523" src="https://www.megabeets.n./dropshot_anti_emulation_1.png" alt="" width="626" height="584" srcset="https://www.megabeets.n./dropshot_anti_emulation_1.png 626w, https://www.megabeets.n./dropshot_anti_emulation_1-150x140.png 150w, https://www.megabeets.n./dropshot_anti_emulation_1-300x280.png 300w" sizes="(max-width: 626px) 100vw, 626px" /></a>
   
   <p id="caption-attachment-1523" class="wp-caption-text">
     Click to enlarge
@@ -120,13 +120,13 @@ In our case, Dropshot is calling some esoteric functions as well as passing non-
 
 Now that we know all this, we can rename this function from `fcn.00403b30` to a more meaningful name. I used &#8220;AntiEmulation&#8221; but you can choose whatever name you want, as long as it is meaningful to you. Clicking the call instruction and then pressing Shift+N will open the Rename dialog box. Right-clicking the row and choosing &#8220;Rename&#8221; will do the job as well.
 
-[<img src="../uploads/rename_function_AntiEmulation.png" />][11]After `main` is calling to the AntiEmulation function, we are facing a branch. Here&#8217;s the assembly, copied from Cutter&#8217;s Disassembly widget:
+[<img src="./rename_function_AntiEmulation.png" />][11]After `main` is calling to the AntiEmulation function, we are facing a branch. Here&#8217;s the assembly, copied from Cutter&#8217;s Disassembly widget:
 
 ```sh
 |           0x004041a6           call AntiEmulation
 |           0x004041ab           mov eax, 1
 |           0x004041b0           test eax, eax
-|       ,=&lt; 0x004041b2           je 0x40429d
+|       ,=< 0x004041b2           je 0x40429d
 |       |   0x004041b8           push 4
 ```
 
@@ -135,7 +135,7 @@ As you can see, the code would never branch to `0x40429d` since this `test eax,
 
 We&#8217;ll skip the next block which is responsible for creating temporary files and take a look at the block starting at `0x4041f9`. In this block, we&#8217;ll see that Dropshot is creating a modeless Dialog box using [`CreateDialogParamA`][13] with the following parameters: `CreateDialogParamA(0, 0x410, 0, DialogFunc, 0);`.
 
-[<img src="../uploads/main_CreateDialog.png" />][14]
+[<img src="./main_CreateDialog.png" />][14]
 
 The DialogPrc callback which is passed to `CreateDialogParamA` is recognized by radare2 and shown by Cutter as `fcn.DialogFunc`. This function contains the main logic of the dropper and this is the function that we&#8217;ll focus on. Later in this block, `ShowWindow` is being called in order to &#8220;show&#8221; the window. Obviously, this is a dummy window which would never be shown since the malware author doesn&#8217;t want any artifact to be shown to the victim. `ShowWindow` will trigger the execution of `fcn.DialogFunc`.
 
@@ -147,24 +147,24 @@ Double-clikcing on `fcn.DialogFunc` will take us to the function itself. We ca
 
 The first block of `fcn.00403240` is pretty straightforward. Dropshot is getting a handle to itself using `GetModuleHandleA`. Then, by using `FindResourceA`, it is locating a resource with a dummy type 0x67 (Decimal: 111) and a name 0x6e (Decimal: 110). Finally, it is loading a resource with this name using `LoadResource`.
 
-[<img src="../uploads/first_bb_load_dummy_rsrc.png" />][15]
+[<img src="./first_bb_load_dummy_rsrc.png" />][15]
 
 Using Cutter, we can see the content of this resource. Simply go to the Resources widget and locate the resource with the name &#8220;110&#8221;.
 
-[<img src="../uploads/Cutter_Resources_window1.png" />][16]As you can see in the screenshot above, the size of the resource is 28 Bytes and its Lang is Farsi which might hint us about the threat actor behind Dropshot.
+[<img src="./Cutter_Resources_window1.png" />][16]As you can see in the screenshot above, the size of the resource is 28 Bytes and its Lang is Farsi which might hint us about the threat actor behind Dropshot.
 
 Double-clicking the resource will take us to the resource&#8217;s address. Let&#8217;s click on the Hexdump widget to see its data. In the hexdump we can see that this resource contains the following bytes: `01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 01 00 00 00 00 00 00 00`. Those of you who are familiar with radare2 may use the Console widget in the bottom left to do this quickly with `px`:
 
-[<img src="../uploads/cutter_console_px28.png" />][17]This resource will be used later but we won&#8217;t be getting into it since it is out of the scope of this post.
+[<img src="./cutter_console_px28.png" />][17]This resource will be used later but we won&#8217;t be getting into it since it is out of the scope of this post.
 
 After loading the resource, in the next block we can see the start of a loop:
 
-[<img src="../uploads/cutter_dummy_loop_lod.png" />][18]This loop is checking if `local_2ch` equals to 0x270f (Decimal: 9999) and if yes it exits from the loop. Inside this loop, there will be another loop of 999 iterations. So basically, this is how this nested loop looks like:
+[<img src="./cutter_dummy_loop_lod.png" />][18]This loop is checking if `local_2ch` equals to 0x270f (Decimal: 9999) and if yes it exits from the loop. Inside this loop, there will be another loop of 999 iterations. So basically, this is how this nested loop looks like:
 
 ```c
-for ( i = 0; i &lt; 9999; ++i )
+for ( i = 0; i < 9999; ++i )
   {
-    for ( j = 0; j &lt; 999; ++j )
+    for ( j = 0; j < 999; ++j )
     {
         dummy_code;
     }
@@ -179,7 +179,7 @@ for ( i = 0; i &lt; 9999; ++i )
 After this loop, the right branch is taken and this is an interesting one.
 
 <div id="attachment_1499" style="width: 500px" class="wp-caption aligncenter">
-  <a href="https://www.megabeets.net/uploads/tdecrypt_2ndbranch.png"><img src="../uploads/tdecrypt_2ndbranch.png" /></a>
+  <a href="https://www.megabeets.n./tdecrypt_2ndbranch.png"><img src="./tdecrypt_2ndbranch.png" /></a>
   
   <p id="caption-attachment-1499" class="wp-caption-text">
     Click to enlarge
@@ -189,7 +189,7 @@ After this loop, the right branch is taken and this is an interesting one.
 At first, `VirutalAlloc` in the size of 512 bytes is being called. Next, `fcn.00401560` is called with 3 arguments. Let&#8217;s enter this function and see what&#8217;s in there:
 
 <div id="attachment_1500" style="width: 912px" class="wp-caption aligncenter">
-  <a href="https://www.megabeets.net/uploads/fcn00401560.png"><img src="../uploads/fcn00401560.png" /></a>
+  <a href="https://www.megabeets.n./fcn00401560.png"><img src="./fcn00401560.png" /></a>
   
   <p id="caption-attachment-1500" class="wp-caption-text">
     Click to enlarge
@@ -206,7 +206,7 @@ Right after the call to `w_GetModuleFileNameW`, Dropshot is using VirtualAlloc
 
 Right after the program is zeroing-out the allocated memory, we see a call to another function &#8211; `fcn.00401c90`. We can see 3 arguments which are being passed to it, 0x14, 0x66, and 0x68. Since sometimes we prefer to see decimal numbers and not hex, let&#8217;s use another useful trick of Cutter. Right-click on any of these hex numbers and choose &#8220;Set Immediate Base to&#8230;&#8221; and then select &#8220;Decimal&#8221;.
 
-[<img src="../uploads/cutter_set_imm_base.png" />][20]Now we can see that the values which are being passed to `fcn.00401c90` are 20, 102 and 104. Looks familiar? 20 was the size of the buffer that was just allocated. 102 and 104 remind us the Resource name and type that used before (110 and 111). Are we dealing with resources here? Let&#8217;s see.
+[<img src="./cutter_set_imm_base.png" />][20]Now we can see that the values which are being passed to `fcn.00401c90` are 20, 102 and 104. Looks familiar? 20 was the size of the buffer that was just allocated. 102 and 104 remind us the Resource name and type that used before (110 and 111). Are we dealing with resources here? Let&#8217;s see.
 
 Moving to the Resources widget again, we can see that there&#8217;s indeed a resource named &#8220;102&#8221; which &#8220;104&#8221; is its type. And yes, it is 19B long, close enough 😉
 
@@ -268,7 +268,7 @@ Take a look at the first block of this function. You&#8217;ll see one `call` an
 |           0x00401d09           add edx, ecx
 |           0x00401d0b           mov dword [local_ch], edx
 |           0x00401d0e           mov dword [local_14h], 0
-|       ,=&lt; 0x00401d15           jmp 0x401d20
+|       ,=< 0x00401d15           jmp 0x401d20
 ...
 ...
 ```
@@ -289,12 +289,12 @@ So what&#8217;s in this address? Use your favorite binary structure viewer to fi
 
 Open Dropshot in PEview and inspect the DOS Header:
 
-[<img src="../uploads/cutter-peview_dos_header.png" />][24]As you can see, in offset `0x3c` there is a pointer (0x108) to the offset to the new EXE Header which is basically the [IMAGE\_NT\_HEADER][25]. Awesome! So `[local_38h]` holds the address of the NT Header. Let&#8217;s rename it to `NT_HEADER` and move on.
+[<img src="./cutter-peview_dos_header.png" />][24]As you can see, in offset `0x3c` there is a pointer (0x108) to the offset to the new EXE Header which is basically the [IMAGE\_NT\_HEADER][25]. Awesome! So `[local_38h]` holds the address of the NT Header. Let&#8217;s rename it to `NT_HEADER` and move on.
 
 At address `0x00401cc0` we can see that `NT_HEADER` is moved to `ecx` and then the program is adding 0x18 to `ecx`. Last, the value in `ecx` is moved to `[local_3ch]`. Just as before, let&#8217;s open again our PE parser and check what is in `NT_HEADER + 0x18`. Adding 0x18 to 0x108 will give us 0x120. Let&#8217;s see what is in this offset:
 
 <div id="attachment_1506" style="width: 945px" class="wp-caption aligncenter">
-  <a href="https://www.megabeets.net/uploads/cutter-peview_nt_header.png" target="_blank" rel="noopener noreferrer"><img src="../uploads/cutter-peview_nt_header.png" /></a>
+  <a href="https://www.megabeets.n./cutter-peview_nt_header.png" target="_blank" rel="noopener noreferrer"><img src="./cutter-peview_nt_header.png" /></a>
   
   <p id="caption-attachment-1506" class="wp-caption-text">
     Click to enlarge
@@ -307,12 +307,12 @@ Now we can rename the function to `get_resource` and the arguments to the corre
 
 Now that we are sure about what this function does, we can see where else it is referenced. Right-click on the function and choosing &#8220;Show X-Refs&#8221; (or simply pressing &#8216;x&#8217;) will take us to the X-Refs window. We can see that `get_resource` is being called from two locations. One (`0x0040336d`) is already familiar to us, it is called to get resource &#8220;102&#8221;. The second call (at `0x00403439`), a few instructions later, is new to us &#8212; it is called to get the content of another resource, named &#8220;101&#8221; (0x65).
 
-[<img src="../uploads/x-refs_to_get_resource.png" />][28]
+[<img src="./x-refs_to_get_resource.png" />][28]
 
 Remember the screenshot of the Resources widget from before? We can see there the resource named &#8220;101&#8221;. What makes &#8220;101&#8221; so interesting is that it is **much** bigger than the other &#8212; its size is 69.6 KB! This is Dropshot&#8217;s payload. By going to the Resources widget and double-clicking &#8220;101&#8221; will take us to the resource&#8217;s offset in the binary. In the Hexdump widget, we can see that the content of this resource makes no sense and has a really high entropy (7.8 out of the maximum 8):
 
 <div id="attachment_1509" style="width: 697px" class="wp-caption aligncenter">
-  <a href="https://www.megabeets.net/uploads/resource_101_content_and_entropy.png"><img src="../uploads/resource_101_content_and_entropy-1024x560.png" /></a>
+  <a href="https://www.megabeets.n./resource_101_content_and_entropy.png"><img src="./resource_101_content_and_entropy-1024x560.png" /></a>
   
   <p id="caption-attachment-1509" class="wp-caption-text">
     Click to enlarge
@@ -331,7 +331,7 @@ I&#8217;ll tell you now that simply a decompression of the buffer isn&#8217;t en
 
 So how `fcn.00402620` decrypts the decompressed payload? Simply, it uses `ror 3` to rotate-right each byte in the decompressed buffer. 3 stands for the number of bits to rotate.
 
-[<img src="../uploads/ror3_dropshot.png" />][32]
+[<img src="./ror3_dropshot.png" />][32]
 
 The rest of this function is interesting as well but it has nothing to do with decrypting the resource so I&#8217;ll leave it to you.
 
@@ -396,8 +396,8 @@ Define [the following][38] `ror` lambda:
 
 ```python
 def ror(val, r_bits, max_bits): return \
-    ((val & (2**max_bits-1)) &gt;&gt; r_bits % max_bits) | \
-    (val &lt;&lt; (max_bits-(r_bits % max_bits)) & (2**max_bits-1))
+    ((val & (2**max_bits-1)) >> r_bits % max_bits) | \
+    (val << (max_bits-(r_bits % max_bits)) & (2**max_bits-1))
 ```
 
 
@@ -428,14 +428,14 @@ Now let&#8217;s combine the script from the previous article to the one we creat
 
 Copy it and paste it into your Jupyter notebook. You can also execute your version of the code to see if you got it right by yourself.
 
-[<img src="../uploads/jupyter_final_output.png" />][39]
+[<img src="./jupyter_final_output.png" />][39]
 
 Seems like our script was executed successfully and &#8220;Saved the PE to ./decrypted_rsrc.bin&#8221;. Great!
 
 The last thing we want to do is to open `decrypted_rsrc.bin` in a new instance of Cutter in order to verify that this is indeed a PE file and that we didn&#8217;t corrupt the file in some way.
 
 <div id="attachment_1520" style="width: 889px" class="wp-caption aligncenter">
-  <a href="https://www.megabeets.net/uploads/cutter_dashboard_dropped_payload.png"><img src="../uploads/cutter_dashboard_dropped_payload.png" /></a>
+  <a href="https://www.megabeets.n./cutter_dashboard_dropped_payload.png"><img src="./cutter_dashboard_dropped_payload.png" /></a>
   
   <p id="caption-attachment-1520" class="wp-caption-text">
     Click to enlarge
@@ -454,12 +454,12 @@ As always, please post comments to this post or message me [privately][40] if
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="./megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>
 
  [1]: https://www.megabeets.net/decrypting-dropshot-with-radare2-and-cutter-part-1/
- [2]: https://www.megabeets.net/uploads/cutter_logo_trimmed.png
+ [2]: https://www.megabeets.n./cutter_logo_trimmed.png
  [3]: https://github.com/radareorg/cutter/releases
  [4]: https://github.com/radareorg/cutter/blob/master/docs/Compiling.md
  [5]: https://en.wikipedia.org/wiki/Shamoon
@@ -467,34 +467,34 @@ As always, please post comments to this post or message me [privately][40] if
  [7]: https://www.fireeye.com/blog/threat-research/2017/09/apt33-insights-into-iranian-cyber-espionage.html
  [8]: https://github.com/ITAYC0HEN/A-journey-into-Radare2/blob/master/Part%203%20-%20Malware%20analysis/dropshot.exe.zip
  [9]: http://en.cppreference.com/w/cpp/language/main_function
- [10]: https://www.megabeets.net/uploads/dropshot_cutter_main.png
- [11]: https://www.megabeets.net/uploads/rename_function_AntiEmulation.png
+ [10]: https://www.megabeets.n./dropshot_cutter_main.png
+ [11]: https://www.megabeets.n./rename_function_AntiEmulation.png
  [12]: https://www.poetryfoundation.org/poems/44272/the-road-not-taken
  [13]: https://msdn.microsoft.com/en-us/library/windows/desktop/ms645445(v=vs.85).aspx
- [14]: https://www.megabeets.net/uploads/main_CreateDialog.png
- [15]: https://www.megabeets.net/uploads/first_bb_load_dummy_rsrc.png
- [16]: https://www.megabeets.net/uploads/Cutter_Resources_window1.png
- [17]: https://www.megabeets.net/uploads/cutter_console_px28.png
- [18]: https://www.megabeets.net/uploads/cutter_dummy_loop_lod.png
+ [14]: https://www.megabeets.n./main_CreateDialog.png
+ [15]: https://www.megabeets.n./first_bb_load_dummy_rsrc.png
+ [16]: https://www.megabeets.n./Cutter_Resources_window1.png
+ [17]: https://www.megabeets.n./cutter_console_px28.png
+ [18]: https://www.megabeets.n./cutter_dummy_loop_lod.png
  [19]: http://www.cplusplus.com/reference/cstring/memset/
- [20]: https://www.megabeets.net/uploads/cutter_set_imm_base.png
+ [20]: https://www.megabeets.n./cutter_set_imm_base.png
  [21]: http://en.cppreference.com/w/c/string/byte/memcpy
  [22]: http://wjradburn.com/software/
  [23]: http://radare.today/posts/parsing-a-fileformat-with-radare2/
- [24]: https://www.megabeets.net/uploads/cutter-peview_dos_header.png
+ [24]: https://www.megabeets.n./cutter-peview_dos_header.png
  [25]: https://msdn.microsoft.com/en-us/library/windows/desktop/ms680336(v=vs.85).aspx
  [26]: https://msdn.microsoft.com/en-us/library/windows/desktop/ms680339(v=vs.85).aspx
  [27]: https://msdn.microsoft.com/en-us/library/windows/desktop/ms680305(v=vs.85).aspx
- [28]: https://www.megabeets.net/uploads/x-refs_to_get_resource.png
+ [28]: https://www.megabeets.n./x-refs_to_get_resource.png
  [29]: https://zlib.net/
  [30]: https://github.com/madler/zlib/blob/master/inflate.c#L622
  [31]: https://attack.mitre.org/wiki/Technique/T1093
- [32]: https://www.megabeets.net/uploads/ror3_dropshot.png
+ [32]: https://www.megabeets.n./ror3_dropshot.png
  [33]: https://github.com/radare/radare2-r2pipe
  [34]: https://github.com/radare/radare2-r2pipe/tree/master/python
  [35]: https://github.com/radare/radare2-r2pipe/tree/master/nodejs/r2pipe
  [36]: https://github.com/radare/radare2-r2pipe/tree/master/rust
  [37]: https://github.com/radare/radare2-r2pipe/tree/master/c
  [38]: https://www.falatic.com/index.php/108/python-and-bitwise-rotation
- [39]: https://www.megabeets.net/uploads/jupyter_final_output.png
+ [39]: https://www.megabeets.n./jupyter_final_output.png
  [40]: https://www.megabeets.net/about.html#contact

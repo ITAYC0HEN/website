@@ -19,7 +19,7 @@ tags:
 As a reverse engineer and malware researcher, the tools I use are super important for me. I have invested hours and hours in creating the best malware analysis environment for myself and chose the best tools for me and my needs. For the last two years, radare2 is my go-to tool for a lot of reverse-engineering tasks such as automating RE related work, scripting, CTFing, exploitation and more. That said, I almost never used radare2 for malware analysis, or more accurately, for analysis of malware for Windows. The main reason was that radare2 command-line interface felt too clumsy, complicated and an over-kill. IDA Pro was simply better for these tasks, a quick inspection of functions, data structures, renaming, commenting, et cetera. It felt more intuitive for me and that what I was searching for while doing malware analysis. And then came Cutter.
 
 <p style="text-align: center;">
-  <a href="https://www.megabeets.net/uploads/cutter_logo_smaller.png"><img src="../uploads/cutter_logo_smaller.png" /></a>
+  <a href="https://www.megabeets.n./cutter_logo_smaller.png"><img src="./cutter_logo_smaller.png" /></a>
 </p>
 
 &nbsp;
@@ -97,7 +97,7 @@ _Since we&#8217;ll analyze Dropshot statically, you can use a Linux machine, as 
 
 Now that we have Cutter installed, we are set to go and start our analysis. Open Cutter by double-clicking on its Icon or typing `./Cutter` in the command line. Under the &#8220;Open File&#8221; tab select a new file and press &#8220;open&#8221;. After opening the file, we landed on the &#8220;Load Options&#8221; window of Cutter. This is an intuitive dialog where we can tell radare2 how to analyze the file. By expanding the &#8220;Advanced options&#8221;, we can set a specific Architecture, a CPU, choose a file format and many more.
 
-[<img src="../uploads/cutter_Load_Screen_ux.png" />][8]
+[<img src="./cutter_Load_Screen_ux.png" />][8]
 
 &nbsp;
 
@@ -106,7 +106,7 @@ In order to analyze this sample more accurately, I chose to modify a more advanc
 After clicking &#8220;OK&#8221; we&#8217;ll see the main window of Cutter, the dashboard. In your case, it might look different than mine but it can be easily configured. For example, by clicking &#8220;View -> Preferences&#8221; you will be able to change the theme colors and to configure the disassembly. The widgets are very flexible and can be located almost anywhere on the screen. You can also add more widgets to the screen by choosing the desired widget from the &#8220;Window&#8221; menu item. Take a few minutes to play with the environment since we&#8217;ll not dive deep into the interface.
 
 <div id="attachment_1442" style="width: 697px" class="wp-caption aligncenter">
-  <a href="https://www.megabeets.net/uploads/cutter_main_screen_graph.png"><img src="../uploads/cutter_main_screen_graph-1024x621.png" /></a>
+  <a href="https://www.megabeets.n./cutter_main_screen_graph.png"><img src="./cutter_main_screen_graph-1024x621.png" /></a>
   
   <p id="caption-attachment-1442" class="wp-caption-text">
     Click to enlarge
@@ -133,11 +133,11 @@ Simply put, entropy (in our case) is the measurement of randomness in a given s
 
 We can easily see the calculated entropy of Dropshot by looking at Cutter&#8217;s Dashboard widget:
 
-[<img src="../uploads/cutter_entropy_dashboard.png" />][11]
+[<img src="./cutter_entropy_dashboard.png" />][11]
 
 As you can see, our file has an entropy of 7.1 which is a very good indication of a compressed\packed data. To be more specific, we can see in the Sections widget the entropy of each section:
 
-[<img src="../uploads/cutter_entropy_sections.png" />  
+[<img src="./cutter_entropy_sections.png" />  
 ][12] Look how high the entropy of `.rsrc` section is. Remember that the highest possible entropy value is 8.0. No doubt, we have an interesting data in this section. We&#8217;ll get to that later in the 2nd part of this series.
 
 # <span class="ez-toc-section" id="Understanding_the_strings_decryption_process"></span>Understanding the strings decryption process<span class="ez-toc-section-end"></span>
@@ -151,7 +151,7 @@ As said before, spotting the decryption function was done thanks to its populari
 Whether you found it or were too lazy to even search, here&#8217;s the answer &#8212; the decryption function is located at `0x4012a0` and appears to take two parameters. In the next screenshot, we&#8217;ll see a function which is using the decryption function.
 
 <div id="attachment_1417" style="width: 873px" class="wp-caption aligncenter">
-  <a href="https://www.megabeets.net/uploads/calling_function_17a0.png"><img src="../uploads/calling_function_17a0.png" /></a>
+  <a href="https://www.megabeets.n./calling_function_17a0.png"><img src="./calling_function_17a0.png" /></a>
   
   <p id="caption-attachment-1417" class="wp-caption-text">
     Click to enlarge
@@ -160,12 +160,12 @@ Whether you found it or were too lazy to even search, here&#8217;s the answer &#
 
 The demonstrated function above (`0x4017a0`) is passing two parameters into our decryption function (`0x4012a0`). The first argument is `0xb` (Decimal: 11) and the second argument is an address at `0x41b8cc`. This is the time to rename our strings decryption function in order to ease our analysis. It can be easily done by clicking on `fcn.004012a0` and pressing `Shift + N` or by right-clicking and choosing &#8220;Rename `fcn.004012a0`&#8220;. Enter the new name and press OK. I chose to call it `strings_decrypter`.
 
-[<img src="../uploads/cutter_rename_function.png" />][13]
+[<img src="./cutter_rename_function.png" />][13]
 
 Next, we can see that the output of `strings_decrypter` (`eax`) is being pushed to another function at `0x4013b0` in addition to another argument, 1. Let&#8217;s have a look at this function:
 
 <div id="attachment_1420" style="width: 697px" class="wp-caption aligncenter">
-  <a href="https://www.megabeets.net/uploads/cutter_graph_13b0.png"><img src="../uploads/cutter_graph_13b0-1024x509.png" /></a>
+  <a href="https://www.megabeets.n./cutter_graph_13b0.png"><img src="./cutter_graph_13b0-1024x509.png" /></a>
   
   <p id="caption-attachment-1420" class="wp-caption-text">
     Click to enlarge
@@ -183,7 +183,7 @@ We don&#8217;t have any idea which API function is being called. That&#8217;s wh
 We talked about this function constantly but we didn&#8217;t see it yet. Here&#8217;s the graph of the function as created by Cutter:
 
 <div id="attachment_1421" style="width: 697px" class="wp-caption aligncenter">
-  <a href="https://www.megabeets.net/uploads/cutter_strings_decrypter_man.png"><img src="../uploads/cutter_strings_decrypter_man-1024x711.png" /></a>
+  <a href="https://www.megabeets.n./cutter_strings_decrypter_man.png"><img src="./cutter_strings_decrypter_man-1024x711.png" /></a>
   
   <p id="caption-attachment-1421" class="wp-caption-text">
     Click to enlarge
@@ -192,9 +192,9 @@ We talked about this function constantly but we didn&#8217;t see it yet. Here&#8
 
 So, what do we have here? We obviously won&#8217;t go over it step by step, but we need to, and will, understand the general idea. We already know that this function receives two arguments. The first one is an address and the second is a number. The address argument is held by a variable named `arg_8h`, the integer is stored at `arg_ch`. At the first block, starting at `0x4012a0`, we can see that a buffer at the size of `arg_ch+1` is allocated by `VirtualAlloc`. Then the address to the allocated buffer is assigned to `local_8h`. We can rename it to `buffer` by clicking on its name and pressing Shift+N. This can also be done using the right-click context menu.
 
-[<img src="../uploads/cutter_rename-local_8h.png" />][14]After that, we can see that zero is assigned to `local_4h`. The next block is a starting of a loop. We can see that the integer stored at `arg_ch` is assigned to `edx` which in turn is compared with `local_4h`. We can understand now that `arg_ch` is some kind of length or size and `local_4h` is a loop index. Let&#8217;s rename both to `length` and `index`. Now that we know the purpose of one argument of the two and the purpose of the two local variables, we need to understand what is in the address that is passed via `arg_8h`. In our example, we saw the value `0x41b8cc` being passed to our `strings_decrypter` function. Let&#8217;s go to the Hexdump widget and seek to this address. Just type this address in the upper textbox in order to seek a flag or an address. We can see that this is a half-word (2 bytes) array of integers that starts from `0x41b8cc` and ends at `0x0041b8e1`. Using another great feature from Cutter (at the right side of the screen), we can generate a C array of half-words:
+[<img src="./cutter_rename-local_8h.png" />][14]After that, we can see that zero is assigned to `local_4h`. The next block is a starting of a loop. We can see that the integer stored at `arg_ch` is assigned to `edx` which in turn is compared with `local_4h`. We can understand now that `arg_ch` is some kind of length or size and `local_4h` is a loop index. Let&#8217;s rename both to `length` and `index`. Now that we know the purpose of one argument of the two and the purpose of the two local variables, we need to understand what is in the address that is passed via `arg_8h`. In our example, we saw the value `0x41b8cc` being passed to our `strings_decrypter` function. Let&#8217;s go to the Hexdump widget and seek to this address. Just type this address in the upper textbox in order to seek a flag or an address. We can see that this is a half-word (2 bytes) array of integers that starts from `0x41b8cc` and ends at `0x0041b8e1`. Using another great feature from Cutter (at the right side of the screen), we can generate a C array of half-words:
 
-[<img src="../uploads/hexdump_c_half_words.png" />][15]That&#8217;s a really great feature, right?! Cutter can generate different types of arrays to ease scripting tasks. Here are some examples:
+[<img src="./hexdump_c_half_words.png" />][15]That&#8217;s a really great feature, right?! Cutter can generate different types of arrays to ease scripting tasks. Here are some examples:
 
 **C half-words (Little Endian):**
 
@@ -230,7 +230,7 @@ After all this mess we can say that the array which is passed to this function,�
 
 This is where another great feature of Cutter is being used, an integrated [Jupyter notebook][16]. We don&#8217;t need to open any external Python shell, we can use Cutter&#8217;s Jupyter widget.
 
-[<img src="../uploads/Cutter_jupyter_hello_world.png" />][17]Oh, I love this feature!
+[<img src="./Cutter_jupyter_hello_world.png" />][17]Oh, I love this feature!
 
 So let&#8217;s write a quick proof of concept to confirm that this is really how this decryption function works. Here&#8217;s the quick POC in python:
 
@@ -257,12 +257,12 @@ print ("Decrypted: %s" % (decrypted_string))
 
 And let&#8217;s run it in Jupyter:
 
-[<img src="../uploads/Cutter_jupyter_poc.png" />][18]Great! We can see that we successfully decrypted the string and got &#8220;DeleteFileW&#8221; which is an API function. So now we can feel confident to rename the last argument, `arg_8h`, to &#8220;offsets_array&#8221;.
+[<img src="./Cutter_jupyter_poc.png" />][18]Great! We can see that we successfully decrypted the string and got &#8220;DeleteFileW&#8221; which is an API function. So now we can feel confident to rename the last argument, `arg_8h`, to &#8220;offsets_array&#8221;.
 
 Now that we figured out how `strings_decrypter` is working, and even decrypted one string, we can see where else this function is being called and decrypt all the other strings. To see the cross-references to `strings_decypter`, click on its name and press X on the keyboard. This will open the xrefs window. Cutter will also show us a preview of each reference to this function which makes the task of inspecting xrefs much easier.
 
 <div id="attachment_1430" style="width: 697px" class="wp-caption aligncenter">
-  <a href="https://www.megabeets.net/uploads/cutter_xrefs.png"><img src="../uploads/cutter_xrefs-1024x457.png" /></a>
+  <a href="https://www.megabeets.n./cutter_xrefs.png"><img src="./cutter_xrefs-1024x457.png" /></a>
   
   <p id="caption-attachment-1430" class="wp-caption-text">
     Click to enlarge
@@ -408,10 +408,10 @@ for xref in cutter.cmdj('axtj %d' % decryption_function):
 
 Now we can paste the script to the Jupyter notebook inside Cutter and execute it. A second after, we can take a look at the Comments widget and see that our script worked and updated the comments:
 
-[<img src="../uploads/cutter_comments_widget-1024x496.png" />][25]We can also see these comments inline in the disassembly:
+[<img src="./cutter_comments_widget-1024x496.png" />][25]We can also see these comments inline in the disassembly:
 
 <div id="attachment_1448" style="width: 697px" class="wp-caption aligncenter">
-  <a href="https://www.megabeets.net/uploads/cutter_inlinecomments.png"><img src="../uploads/cutter_inlinecomments-1024x401.png" /></a>
+  <a href="https://www.megabeets.n./cutter_inlinecomments.png"><img src="./cutter_inlinecomments-1024x401.png" /></a>
   
   <p id="caption-attachment-1448" class="wp-caption-text">
     Click to enlarge
@@ -434,7 +434,7 @@ As always, please post comments to this post or message me [privately][27] if
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="./megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>
 
@@ -445,23 +445,23 @@ As always, please post comments to this post or message me [privately][27] if
  [5]: https://app.box.com/s/olc867zxc9nkjzm3wkjwi0b0e2awahtn
  [6]: https://www.fireeye.com/blog/threat-research/2017/09/apt33-insights-into-iranian-cyber-espionage.html
  [7]: https://github.com/ITAYC0HEN/A-journey-into-Radare2/blob/master/Part%203%20-%20Malware%20analysis/dropshot.exe.zip
- [8]: https://www.megabeets.net/uploads/cutter_Load_Screen_ux.png
+ [8]: https://www.megabeets.n./cutter_Load_Screen_ux.png
  [9]: https://exelab.ru/art/wasm2.php#4
  [10]: http://n10info.blogspot.co.il/2014/06/entropy-and-distinctive-signs-of-packed.html
- [11]: https://www.megabeets.net/uploads/cutter_entropy_dashboard.png
- [12]: https://www.megabeets.net/uploads/cutter_entropy_sections.png
- [13]: https://www.megabeets.net/uploads/cutter_rename_function.png
- [14]: https://www.megabeets.net/uploads/cutter_rename-local_8h.png
- [15]: https://www.megabeets.net/uploads/hexdump_c_half_words.png
+ [11]: https://www.megabeets.n./cutter_entropy_dashboard.png
+ [12]: https://www.megabeets.n./cutter_entropy_sections.png
+ [13]: https://www.megabeets.n./cutter_rename_function.png
+ [14]: https://www.megabeets.n./cutter_rename-local_8h.png
+ [15]: https://www.megabeets.n./hexdump_c_half_words.png
  [16]: http://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/what_is_jupyter.html
- [17]: https://www.megabeets.net/uploads/Cutter_jupyter_hello_world.png
- [18]: https://www.megabeets.net/uploads/Cutter_jupyter_poc.png
+ [17]: https://www.megabeets.n./Cutter_jupyter_hello_world.png
+ [18]: https://www.megabeets.n./Cutter_jupyter_poc.png
  [19]: https://github.com/radare/radare2-r2pipe
  [20]: https://github.com/radare/radare2-r2pipe/tree/master/python
  [21]: https://github.com/radare/radare2-r2pipe/tree/master/nodejs/r2pipe
  [22]: https://github.com/radare/radare2-r2pipe/tree/master/rust
  [23]: https://github.com/radare/radare2-r2pipe/tree/master/c
  [24]: https://www.megabeets.net/a-journey-into-radare-2-part-1/
- [25]: https://www.megabeets.net/uploads/cutter_comments_widget.png
+ [25]: https://www.megabeets.n./cutter_comments_widget.png
  [26]: https://github.com/ITAYC0HEN/A-journey-into-Radare2/blob/master/Part%203%20-%20Malware%20analysis/decrypt_dropshot.py
  [27]: https://www.megabeets.net/about.html#contact

@@ -44,7 +44,7 @@ Submit without any tags
 
 At first I though that &#8220;#kdudpeh&#8221; is the flag but it isn&#8217;t, neither &#8220;kdudpeh&#8221;. The name of the person in the question is Shal, looking like SHA1, and the binary says &#8220;submit without any tags&#8221;, so &#8220;**hashtag**kdudpeh&#8221; without the tag is just &#8220;**hash**kdudpeh&#8221;. So I tried to submit the result of SHA1(&#8220;kdudpeh&#8221;) as answer but failed again. Then I tried Caesar cipher on &#8220;kdudpeh&#8221; and find &#8220;**harambe&#8221;.**
 
-<img src="../uploads/answer_harambe.jpg" /> 
+<img src="./answer_harambe.jpg" /> 
 
 So I again tried submit the flag, this time with Sha1(&#8220;harabe&#8221;).
 
@@ -54,6 +54,6 @@ The flag was **pragyanctf{31a0d851ea10ad886ad4e99ed05892de06998ab9}Â **which isÂ
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="./megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>

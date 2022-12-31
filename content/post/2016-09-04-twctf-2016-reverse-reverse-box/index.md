@@ -44,13 +44,13 @@ int __cdecl main(int argc, const char **argv, const char **envp)
   int v7; // [sp+11Ch] [bp-8h]@1
 
   v7 = *MK_FP(__GS__, 20);
-  if ( argc &lt;= 1 )
+  if ( argc <= 1 )
   {
     printf("usage: %s flag\n", *argv);
     exit(1);
   }
   calculate((int)&v6);
-  for ( i = 0; i &lt; strlen(argv[1]); ++i )
+  for ( i = 0; i < strlen(argv[1]); ++i )
     printf("%02x", *((_BYTE *)&v6 + argv[1][i]));
   putchar('\n');
   result = 0;
@@ -98,14 +98,14 @@ int __cdecl calculate(int a1)
   do
   {
     v2 = (unsigned __int8)v15 ^ 2 * (unsigned __int8)v15;
-    if ( v15 &gt;= 0 )
+    if ( v15 >= 0 )
       v3 = 0;
     else
       v3 = 27;
     v15 = v2 ^ v3;
     v4 = 4 * (2 * v16 ^ v16) ^ 2 * v16 ^ v16;
     v17 = 16 * v4 ^ v4;
-    if ( v17 &gt;= 0 )
+    if ( v17 >= 0 )
       v5 = 0;
     else
       v5 = 9;
@@ -192,8 +192,8 @@ for i in xrange(len(flag)):
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="./megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>
 
- [1]: https://twctf7qygt6ujk.azureedge.net/uploads/reverse_box.7z-f1ffb64d2a0848fdccd02ed63f0f2de6937545fa294ee530d73bf2c1fec27691
+ [1]: https://twctf7qygt6ujk.azureedge.n./reverse_box.7z-f1ffb64d2a0848fdccd02ed63f0f2de6937545fa294ee530d73bf2c1fec27691

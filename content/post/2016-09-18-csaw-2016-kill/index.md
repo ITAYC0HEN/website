@@ -21,7 +21,7 @@ tags:
   
   <blockquote>
     <p>
-      <em>Is kill can fix? Sign the autopsy file?</em><br /> <em> <a class="chal-file" href="https://ctf.csaw.io/static/uploads/a23ef5ecca7f30b77f59f21dba413b07/kill.pcapng" target="_blank">kill.pcapng</a></em>
+      <em>Is kill can fix? Sign the autopsy file?</em><br /> <em> <a class="chal-file" href="https://ctf.csaw.io/stat./a23ef5ecca7f30b77f59f21dba413b07/kill.pcapng" target="_blank">kill.pcapng</a></em>
     </p>
   </blockquote>
 </div>
@@ -38,6 +38,6 @@ And to my great surprise I got it, the flag was written plain-text in the file.
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="./megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>

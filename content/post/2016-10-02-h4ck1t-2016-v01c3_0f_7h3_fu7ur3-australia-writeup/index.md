@@ -43,7 +43,7 @@ So foremost found several files in the PCAP from several sources like http and f
 
 I opened the rar archive and found a file named &#8216;key.enc&#8217; which contained &#8220;Salted_<GIBBERISH>&#8221; . I opened it in hex editor:
 
-<img src="../uploads/h4ck1t_australia_1.png" /> 
+<img src="./h4ck1t_australia_1.png" /> 
 
 At the first, as the name says, I thought I found the key of some encryption and now I need to find the encrypted file and the cipher. But in a second thought I said to myself that &#8216;*.enc&#8217; is usually for the encrypted files! So that file isn&#8217;t a key, it&#8217;s encrypted and we need to decrypt it. But what is the key and the cipher?
 
@@ -65,7 +65,7 @@ So I now have what seems like a key, so what is the encryption?
 A bit research about the encryption made me think it&#8217;s AES so I ran:
 
 ```sh
-openssl aes-256-cbc -d -in key.enc -k &lt;the long key&gt;
+openssl aes-256-cbc -d -in key.enc -k <the long key>
 ```
 
 
@@ -92,7 +92,7 @@ for sb in all_possible_substrings(key)
 
 And how it was really looks like:
 
-<img src="../uploads/h4ck1t_australia_2.jpg" />  
+<img src="./h4ck1t_australia_2.jpg" />  
 it took 30 minutes to run.  
 BUT FAILED. No flag.
 
@@ -113,7 +113,7 @@ So the hardest part was actually to figure out the exact keyphrase, the rest was
 
 <div class="nf-post-footer">
   <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img src="../uploads/megabeets_inline_logo.png" />Eat Veggies</a>
+    <a href="https://www.megabeets.net/about.html#vegan"><img src="./megabeets_inline_logo.png" />Eat Veggies</a>
   </p>
 </div>
 
