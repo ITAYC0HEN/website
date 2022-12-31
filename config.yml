@@ -1,10 +1,65 @@
-baseURL: http://example.org/
+baseURL: https://www.megabeets.net/
 languageCode: en-us
 title: Megabeets
 theme: "PaperMod"
-
 
 markup:
   goldmark:
     renderer:
       unsafe: true
+
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+
+menu:
+    main:
+      - name: Blog
+        url: /posts/
+        weight: 5
+      - name: Organization
+        url: /organization/
+        weight: 10
+      - name: Community
+        url: /community/
+        weight: 15
+      - name: GSoC
+        url: /gsoc/
+        weight: 20
+
+params:
+  env: production # to enable google analytics, opengraph, twitter-cards and schema.
+  title: Megabeets
+  description: 'Rizin is a free and Open Source Reverse Engineering Framework'
+  author: Megabeets
+  images:
+    - /images/rizin_preview.png
+  
+  header:
+    title: 'Megabeets'
+    imageUrl: '/images/rizin.svg'
+    subtitle: 'Free and Open Source Reverse Engineering Framework'
+
+  ShowReadingTime: true
+  ShowShareButtons: true
+  comments: false
+  # dark, light, auto
+  defaultTheme: auto
+  disableThemeToggle : false
+  disableSpecial1stPost : false
+
+  socialIcons:
+    - name: twitter
+      url: 'https://twitter.com/megabeets_'
+    - name: github
+      url: 'https://github.com/rizinorg'
+    
+  ShowBreadCrumbs: true
+
+outputs:
+    home:
+        - HTML
+        - RSS
+        - JSON # is necessary
