@@ -2,6 +2,7 @@ baseURL: https://www.megabeets.net/
 languageCode: en-us
 title: Megabeets
 theme: "PaperMod"
+pluralizelisttitles: false
 
 markup:
   goldmark:
@@ -19,7 +20,7 @@ buildExpired: false
 menu:
     main:
       - name: Blog
-        url: /posts/
+        url: /blog/
         weight: 5
       - name: Veganism x Megabeets
         url: /veganism/
@@ -34,15 +35,15 @@ menu:
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   title: Megabeets
-  description: 'Rizin is a free and Open Source Reverse Engineering Framework'
+  description: 'Security Researcher | Reverse Engineer | Animal liberation activist'
   author: Megabeets
   images:
-    - /images/rizin_preview.png
+    - /images/megabeets.png
   
   header:
     title: 'Megabeets'
-    imageUrl: '/images/rizin.svg'
-    subtitle: 'Free and Open Source Reverse Engineering Framework'
+    imageUrl: '/images/megabeets.png'
+    subtitle: 'Security Researcher | Reverse Engineer | Animal liberation activist'
 
   ShowReadingTime: true
   ShowShareButtons: true
@@ -65,3 +66,4 @@ outputs:
         - HTML
         - RSS
         - JSON # is necessary
+

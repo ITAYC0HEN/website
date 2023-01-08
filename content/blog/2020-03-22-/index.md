@@ -35,7 +35,7 @@ In order to retrieve the rest of the flag, we can slowly &#8220;brute force&#822
 
 And indeed, we can quickly write a script to brute force the flag, character by character.
 
-```
+```python
 import string
 import requests
 
@@ -121,12 +121,6 @@ CrowdStrike&#8217;s Hybrid-Analysis is a free automated malware analysis service
 One of the less-familiar features of Hybrid Analysis is their super-fast Yara scanner. It lets the users the ability to &#8220;Hunt samples matching YARA rules at the byte level.&#8221;. Essentially, users can create their Yara rule and scan it on the entire sample repository of one of the most popular malware analysis services out there. You see where I&#8217;m going at, right? If some samples are not shared publicly, but we do have their metadata, including their hash and some strings from them, we can easily start leaking the entire binary, or parts of it as we wish. Adding that to the fact that Hybrid Analysis&#8217; Yara scanner is very fast, we can run a Yara query 
 
 
-
-<div class="nf-post-footer">
-  <p style="text-align: right">
-    <a href="https://www.megabeets.net/about.html#vegan"><img src="./megabeets_inline_logo.png" />Eat Veggies</a>
-  </p>
-</div>
 
  [1]: https://github.com/CERT-Polska/mquery
  [2]: https://www.cert.pl/en/
