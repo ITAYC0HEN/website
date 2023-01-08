@@ -6,19 +6,19 @@
 /* ==== THEME VARIABLES ==== */
 
 :root {
-  --alternate-strong: var(--purple-strong);
+  --alternate-strong: var(--primary-color);
   --alternate: #35276f;
   --button-primary: #281b5c;
   --entry: #f0f0f0;
   --footer: #fff;
-  --main-title: #edb11d;
+  --main-title: #ffffff;
   --main: #fff;
   --mark: #ffbf59;
-  --purple-strong: #5e50c5;
+  --primary-color: #1abc9c;
   --purple: #fad000;
-  --subtitle-color: #fad000;
-  --theme: var(--purple-strong);
-  --title-tertiary: var(--purple-strong);
+  --subtitle-color: #ffffff;
+  --theme: var(--primary-color);
+  --title-tertiary: var(--primary-color);
 }
 
 .dark {
@@ -30,7 +30,7 @@
   --footer: var(--theme);
   --main: #333160;
   --mark: #5d37f0;
-  --purple: var(--purple-strong);
+  --purple: var(--primary-color);
   --subtitle-color: #fad000;
   --theme: #222244;
   --title-tertiary: #fff;
@@ -43,6 +43,7 @@
 .nav a {
   color: #fff;
 }
+
 .menu a:hover {
   color: #fff;
 }
@@ -126,6 +127,7 @@
 /* Override */
 .header {
   padding-top: 10px;
+
 }
 
 /* Override */
@@ -524,7 +526,7 @@
 }
 
 .community-icon svg:hover {
-  fill: var(--purple-strong);
+  fill: var(--primary-color);
   -webkit-filter: drop-shadow(4px 4px 0px rgb(255, 157, 0));
   filter: drop-shadow(4px 4px 0px rgb(255, 157, 0)); /* Same syntax as box-shadow */
 }
