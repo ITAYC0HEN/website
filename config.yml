@@ -45,6 +45,11 @@ params:
     imageUrl: '/images/megabeets.png'
     subtitle: 'Security Researcher | Reverse Engineer | Animal liberation activist'
 
+  editPost: # Add a button to suggest changes by using the file path of the post to link to a edit destination.
+    URL: "https://github.com/itayc0hen/website"
+    Text: "Suggest Changes" # edit text
+    appendFilePath: true # to append file path to Edit link
+
   ShowReadingTime: true
   ShowShareButtons: true
   comments: false
