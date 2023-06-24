@@ -1,0 +1,13 @@
+{{ $url := .Get "url" }}
+{{ $name := .Get "name" }}
+
+{{ with $url }}
+<div>
+    <a class="read-externally-btn external_link" href="{{ . }}" target="_blank"> 🔗 Continue Reading 
+        {{ with $name }}
+        on {{ . }}
+        {{ else }}
+        Externally
+        {{ end }}</a>
+</div>
+{{ end }}

@@ -1,0 +1,3 @@
+{{- if not .Date.IsZero -}}
+<span class="author-date">{{ dateFormat "January 2, 2006" .Date }}</span>
+{{- end }}

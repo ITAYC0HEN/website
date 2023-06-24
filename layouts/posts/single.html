@@ -1,0 +1,28 @@
+{{ define "body_classes" }}page-blog-single{{ end }}
+
+{{ define "main" }}
+<div class="blog">
+
+  <div class="intro">
+    {{- if not (.Param "hideMeta") }}
+    <div class="post-meta">
+      {{- partial "date.html" . -}}
+      {{- partial "edit_post.html" . -}}
+    </div>
+    {{- end }}
+    <h1>{{ .Title }}{{ if .Site.Params.addDot }}<span class="dot">.</span>{{ end }}</h1>
+    {{ if .Params.image }}
+    <img src="{{ .Params.image | relURL }}" />
+    {{ end }}
+  </div>
+  <div class="content">
+    {{ .Content }}
+  </div>
+  <div class="post-footer">
+    <p style="text-align: right">
+      <a href="https://www.megabeets.net/about.html#vegan"><img src="/images/megabeets_inline_logo.png">Eat Veggies</a>
+    </p>
+  </div>
+</div>
+
+{{ end }}

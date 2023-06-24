@@ -1,0 +1,55 @@
+baseURL = "/"
+languageCode = "en-us"
+theme = "hugo-winston-theme"
+themesDir = "themes"
+title = "Megabeets"
+paginate = 3
+pygmentsCodeFences = true
+pygmentsCodefencesGuessSyntax = true
+pygmentsUseClasses = true
+
+[module]
+  [module.hugoVersion]
+    extended = true
+    min = "0.55.0"
+
+[params]
+  google_analytics_id = ""
+  twitter_handle = "@megabeets_"
+  showAuthorOnHomepage = false
+  showAuthorOnPosts = false
+  showPostsOnHomepage = false
+  showIntroContentOnHomepage = true
+  addDot = true
+  addFrame = true
+  highlightColor = '#7b16ff'
+  baseColor = "#ffffff"
+  baseOffsetColor = "#eaeaea"
+  headingColor = "#1c1b1d"
+  textColor = "#4e5157"
+  dotColor = "#7b16ff"
+    [params.editPost]
+      URL = "https://github.com/ITAYC0HEN/website/edit/main/content/"
+      Text = "Suggest Changes" # edit text
+      appendFilePath = true # to append file path to Edit link
+
+# markdown config settings https://gohugo.io/getting-started/configuration-markup/#goldmark
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      hardWraps = false
+      unsafe = true
+      xhtml = false
+  [markup.highlight]
+      noClasses = true
+      style = 'witch-hazel'
+[menu]
+  [[menu.main]]
+    name = "Vegan"
+    identifier = "Vegan"
+    weight = 300
+    url = "/Vegan/"
+
+
+[permalinks]
+  blog = '/blog/:title/'

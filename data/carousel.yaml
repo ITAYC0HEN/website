@@ -1,0 +1,11 @@
+images: 
+  - image: /images/me.jpg
+    content_html: ""
+  - image: /images/forbes2023.jpeg
+    content_html: ""
+  - image: /images/writer.jpeg
+    content_html: ""
+  - image: https://hugocodex.org/uploads/slider/image4.jpg
+    content_html: ""
+  - image: https://hugocodex.org/uploads/slider/image2.jpg
+    content_html: ""
