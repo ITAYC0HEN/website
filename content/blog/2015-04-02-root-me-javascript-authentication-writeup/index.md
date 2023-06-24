@@ -23,7 +23,7 @@ When entering the [challenge][2] we&#8217;re presented with a login form which
 
 We know it&#8217;s a client-side challenge which involves JS (the title, duh) so let&#8217;s check out what&#8217;s really happening when we click the login button. To open the browser&#8217;s Inspector, right click on the login button and then select &#8220;Inspect Element&#8221; (you can also press F12, or Ctrl+U if you are old fashioned and prefer the good-old &#8220;View Source&#8221;).
 
-Now we can view the source code of this page. Pressing the login button makes the browser call a Javascript function named &#8220;Login&#8221; (**1**) which exists in external script called &#8220;login.js&#8221;. You can view it under the <script> tag in the <head> section (**2**). Pressing the link shows the code of login.js.
+Now we can view the source code of this page. Pressing the login button makes the browser call a Javascript function named &#8220;Login&#8221; (**1**) which exists in external script called &#8220;login.js&#8221;. You can view it under the `<script>` tag in the `<head>` section (**2**). Pressing the link shows the code of login.js.
 
 This is the actually code that checks whether the credentials are valid or not. By reading this simple script we understand that the expected username is &#8220;**4dm1n&#8221; **and the password is &#8220;**sh.org&#8221;**. All we have to do now is go back to Root-Me and see if **sh.org **is the correct answer. And voilà, we did it. Easy peasy.
 
