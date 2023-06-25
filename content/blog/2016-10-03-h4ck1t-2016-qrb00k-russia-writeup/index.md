@@ -33,11 +33,11 @@ So let&#8217;s create a message:
 
 We got a QR code which is the key to read our message:
 
-<img src="./h4ck1t_russia_2-279x300.png" /> 
+<img src="./h4ck1t_russia_2.png" /> 
 
 Now let&#8217;s read the message using the QR code:
 
-<img src="./h4ck1t_russia_3-271x300.png" /> 
+<img src="./h4ck1t_russia_3.png" /> 
 
 &nbsp;
 
@@ -70,7 +70,7 @@ Whoops, Busted. The system recognized my SQLi attack. I tried some filter byp
 
 <span style="font-size: 8pt;">Reverse(Base64(input)) == &#8220;==wc0VWZiF2Zl10JvoiLuoyL0NWZsV2cvoiLuoyLu9WauV3Lq4iLq8SKoU2chJWY0FGZvoiLuoyL0NWZsV2cvoiLuoyLu9WauV3Lq4iLq8yJ&#8221;</span>
 
-<img src="./h4ck1t_russia_6-1024x478.png" /> 
+<img src="./h4ck1t_russia_6.png" /> 
 
 It worked! now let&#8217;s find the correct table (&#8220;messages&#8221;) and column by using some queries to map the database:
 
@@ -81,7 +81,7 @@ It worked! now let&#8217;s find the correct table (&#8220;messages&#8221;) and c
 ```
 
 
-<img src="./h4ck1t_russia_7-1024x679.png" /> 
+<img src="./h4ck1t_russia_7.png" /> 
 
 &#8220;secret_field&#8221;? Sounds suspicious. Let&#8217;s query it and see what it contains:
 
@@ -90,7 +90,7 @@ It worked! now let&#8217;s find the correct table (&#8220;messages&#8221;) and c
 ```
 
 
-<img src="./h4ck1t_russia_8-1024x744.png" /> 
+<img src="./h4ck1t_russia_8.png" /> 
 
 And we got the flag! I honestly really enjoyed this challenge.
 

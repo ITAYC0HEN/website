@@ -87,7 +87,7 @@ Let&#8217;s open Cutter and select the license_1 binary from our computer. On th
 
 Go to the `main` function by choosing it from the Functions list on the side or by typing &#8220;main&#8221; on the navigation-box at the top of the interface. The \`main()\` function is very small and contains all the logic of the program.
 
-![](././patching_main_function-4-1024x839.png)
+![](././patching_main_function-4.png)
 
 The function \`main()\` only has 6 blocks which makes it very easy for us to find the place we want to patch. And indeed, we see the block with `strcmp` comparison and we want to patch the conditional jump in a way that it will continue to the success message. By modifying \`jne 0x400617\` (**j**ump **n**ot **e**qual) to \`je\` (**j**ump **e**qual) we will get the success message as long as we do not give the right key. Muhahah.
 

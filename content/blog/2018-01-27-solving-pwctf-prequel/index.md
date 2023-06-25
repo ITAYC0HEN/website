@@ -22,7 +22,7 @@ PwCTF is an on-site CTF event in Israel. It will take part on January 29-31 in C
 
 It was a morning time, I was eating my breakfast while reading messages on my security groups. One of the messages, by my friend [Netanel Fisher][1], announced of the opening of CTF Prequalification Challenge. They said &#8220;challenge&#8221; and immediately caught my attention. I cannot say &#8220;no&#8221; to a challenge. So, I thought to myself that I&#8217;ll sign up and see what challenges are there. I clicked on the link to the [CTF&#8217;s website][2] and got into this lovely landing page:
 
-![](././login_screen-295x300.png)
+![](././login_screen.png)
 
 It is clearly a login page, but since I didn&#8217;t have an account yet I (obviously) can&#8217;t log in. I searched for the register tab but couldn&#8217;t find it anywhere. There was only &#8220;Home&#8221; and &#8220;About&#8221; pages at the top navigation bar. I thought it might be a bug in the website so I changed the URL from `/login.php` to `/register.php`, ended up with &#8220;302 Not Found&#8221; and redirected back to the login page. There is where I started to think that the challenge is to register.
 
@@ -271,7 +271,7 @@ Not Mississippilessly? https://prequal.pwctf.com/register.php?token=f871b787bce1
 
 Et voilà! We got a [link][18] to the registration form and successfully finished the prequels 🙂
 
-![](././registration_screen-1024x371.png)
+![](././registration_screen.png)
 
 &nbsp;
 

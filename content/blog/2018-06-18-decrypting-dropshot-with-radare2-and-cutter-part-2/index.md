@@ -76,7 +76,7 @@ _Since we&#8217;ll analyze Dropshot statically, you can use a Linux machine, as 
 Assuming you went through the first part of the article, you are already familiar with Cutter and r2pipe. Moreover, you should already have a basic clue of how Dropshot behaves. Open the Dropshot sample in Cutter, execute in Jupyter the r2pipe script we wrote and seek to the \`main\` function using the &#8220;Functions&#8221; widget or the upper search bar.
 
 <div id="attachment_1540" style="width: 697px" class="wp-caption aligncenter">
-  <a href="https://www.megabeets.n./cutter_dropshot_loadnt.png"><img src="./cutter_dropshot_loadnt-1024x563.png" /></a>
+  <a href="https://www.megabeets.n./cutter_dropshot_loadnt.png"><img src="./cutter_dropshot_loadnt.png" /></a>
   
   <p id="caption-attachment-1540" class="wp-caption-text">
     A function we analyzed in the previous article | Click to enlarge
@@ -93,7 +93,7 @@ Double-clicking this line will take us to the graph of `fcn.00403b30`, a rather
 
 <div id="attachment_1523" style="width: 626px" class="wp-caption aligncenter">
   <a href="https://www.megabeets.n./dropshot_anti_emulation_1.png"><img aria-describedby="caption-attachment-1523" data-attachment-id="1523" data-permalink="https://www.megabeets.net/decrypting-dropshot-with-radare2-and-cutter-part-2/dropshot_anti_emulation_1/#main" data-orig-file="http://www.megabeets.n./dropshot_anti_emulation_1.png" data-orig-size="626,584" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="dropshot_anti_emulation_1" data-image-description="" data-image-caption="<p>Click to enlarge</p>
-" data-medium-file="http://www.megabeets.n./dropshot_anti_emulation_1-300x280.png" data-large-file="http://www.megabeets.n./dropshot_anti_emulation_1.png" decoding="async" loading="lazy" class="size-full wp-image-1523" src="https://www.megabeets.n./dropshot_anti_emulation_1.png" alt="" width="626" height="584" srcset="https://www.megabeets.n./dropshot_anti_emulation_1.png 626w, https://www.megabeets.n./dropshot_anti_emulation_1-150x140.png 150w, https://www.megabeets.n./dropshot_anti_emulation_1-300x280.png 300w" sizes="(max-width: 626px) 100vw, 626px" /></a>
+" data-medium-file="http://www.megabeets.n./dropshot_anti_emulation_1.png" data-large-file="http://www.megabeets.n./dropshot_anti_emulation_1.png" decoding="async" loading="lazy" class="size-full wp-image-1523" src="https://www.megabeets.n./dropshot_anti_emulation_1.png" alt="" width="626" height="584" srcset="https://www.megabeets.n./dropshot_anti_emulation_1.png 626w, https://www.megabeets.n./dropshot_anti_emulation_1.png 150w, https://www.megabeets.n./dropshot_anti_emulation_1.png 300w" sizes="(max-width: 626px) 100vw, 626px" /></a>
   
   <p id="caption-attachment-1523" class="wp-caption-text">
     Click to enlarge
@@ -308,7 +308,7 @@ Now that we are sure about what this function does, we can see where else it is 
 Remember the screenshot of the Resources widget from before? We can see there the resource named &#8220;101&#8221;. What makes &#8220;101&#8221; so interesting is that it is **much** bigger than the other &#8212; its size is 69.6 KB! This is Dropshot&#8217;s payload. By going to the Resources widget and double-clicking &#8220;101&#8221; will take us to the resource&#8217;s offset in the binary. In the Hexdump widget, we can see that the content of this resource makes no sense and has a really high entropy (7.8 out of the maximum 8):
 
 <div id="attachment_1509" style="width: 697px" class="wp-caption aligncenter">
-  <a href="https://www.megabeets.n./resource_101_content_and_entropy.png"><img src="./resource_101_content_and_entropy-1024x560.png" /></a>
+  <a href="https://www.megabeets.n./resource_101_content_and_entropy.png"><img src="./resource_101_content_and_entropy.png" /></a>
   
   <p id="caption-attachment-1509" class="wp-caption-text">
     Click to enlarge

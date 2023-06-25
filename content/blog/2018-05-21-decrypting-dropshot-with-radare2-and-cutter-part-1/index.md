@@ -100,7 +100,7 @@ In order to analyze this sample more accurately, I chose to modify a more advanc
 
 After clicking &#8220;OK&#8221; we&#8217;ll see the main window of Cutter, the dashboard. In your case, it might look different than mine but it can be easily configured. For example, by clicking &#8220;View -> Preferences&#8221; you will be able to change the theme colors and to configure the disassembly. The widgets are very flexible and can be located almost anywhere on the screen. You can also add more widgets to the screen by choosing the desired widget from the &#8220;Window&#8221; menu item. Take a few minutes to play with the environment since we&#8217;ll not dive deep into the interface.
 
-![](./cutter_main_screen_graph-1024x621.png)
+![](./cutter_main_screen_graph.png)
 
 
 &nbsp;
@@ -149,7 +149,7 @@ The demonstrated function above (`0x4017a0`) is passing two parameters into our 
 
 Next, we can see that the output of `strings_decrypter` (`eax`) is being pushed to another function at `0x4013b0` in addition to another argument, 1. Let&#8217;s have a look at this function:
 
-![](./cutter_graph_13b0-1024x509.png)
+![](./cutter_graph_13b0.png)
 
 
 The function is taking the right branch if the argument passed to it is 0 (i.e `EAX == 0`) and the left branch if it is not. Either way, it will call `LoadLibraryA` with a string that would be decrypted using our beloved decryption function. I&#8217;ll spoil it for you &#8212; the function would load `ntdll.dll` on the right branch and `kernel32.dll` on the left. Simply put, the function is loading the required library in order to use a function from it. I&#8217;ll rename this function to `load_ntdll_or_kernel32`. Now let&#8217;s get back to the previous function and continue to examine it.
@@ -162,7 +162,7 @@ We don&#8217;t have any idea which API function is being called. That&#8217;s wh
 
 We talked about this function constantly but we didn&#8217;t see it yet. Here&#8217;s the graph of the function as created by Cutter:
 
-![](./cutter_strings_decrypter_man-1024x711.png)
+![](./cutter_strings_decrypter_man.png)
 
 
 So, what do we have here? We obviously won&#8217;t go over it step by step, but we need to, and will, understand the general idea. We already know that this function receives two arguments. The first one is an address and the second is a number. The address argument is held by a variable named `arg_8h`, the integer is stored at `arg_ch`. At the first block, starting at `0x4012a0`, we can see that a buffer at the size of `arg_ch+1` is allocated by `VirtualAlloc`. Then the address to the allocated buffer is assigned to `local_8h`. We can rename it to `buffer` by clicking on its name and pressing Shift+N. This can also be done using the right-click context menu.
@@ -236,7 +236,7 @@ And let&#8217;s run it in Jupyter:
 
 Now that we figured out how `strings_decrypter` is working, and even decrypted one string, we can see where else this function is being called and decrypt all the other strings. To see the cross-references to `strings_decypter`, click on its name and press X on the keyboard. This will open the xrefs window. Cutter will also show us a preview of each reference to this function which makes the task of inspecting xrefs much easier.
 
-![](./cutter_xrefs-1024x457.png)
+![](./cutter_xrefs.png)
 
 
 We can see dozens of calls to `strings_decrypter`, too much for a manual decryption. That is where the power of radare2 and Cutter scripting will come handy!
@@ -378,9 +378,9 @@ for xref in cutter.cmdj('axtj %d' % decryption_function):
 
 Now we can paste the script to the Jupyter notebook inside Cutter and execute it. A second after, we can take a look at the Comments widget and see that our script worked and updated the comments:
 
-![](././cutter_comments_widget-1024x496.png)We can also see these comments inline in the disassembly:
+![](././cutter_comments_widget.png)We can also see these comments inline in the disassembly:
 
-![](./cutter_inlinecomments-1024x401.png)
+![](./cutter_inlinecomments.png)
 
 
 Awesome! We did it, we decrypted the encrypted strings and added inline comments to ease the analysis process. The final script can be found [here][26].
