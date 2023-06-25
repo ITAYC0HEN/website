@@ -26,6 +26,20 @@
   background: #8a16ff;
 }
 
+@media (max-width: 480px) {
+  body {
+    padding: 11px !important;
+    
+  }
+  body.frame {
+    border: 7px solid var(--highlight-color) !important;
+  }
+  .read-externally-btn {
+    max-width: 100% !important;
+  }
+}
+
+
 /* RECONSIDER */
 .content a {
   text-decoration: none;
