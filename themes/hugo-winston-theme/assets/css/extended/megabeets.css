@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
 
 :root {
-  --font-family-paragraph: courier-std,monospace;
+  --font-family-paragraph: courier-std, monospace;
 }
 
-.header  {
+.header {
   font-family: Helvetica, sans-serif;
 
 }
@@ -26,16 +26,24 @@
   background: #8a16ff;
 }
 
+/* Mobile */
+
 @media (max-width: 480px) {
   body {
     padding: 11px !important;
-    
+
   }
+
   body.frame {
     border: 7px solid var(--highlight-color) !important;
   }
+
   .read-externally-btn {
     max-width: 100% !important;
+  }
+
+  .content p {
+    font-size: 16px !important;
   }
 }
 
@@ -59,7 +67,7 @@
   font-size: 20px;
 }
 
-.content>p> code {
+.content>p>code {
   font: 15px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
   border-top-left-radius: 4px 4px;
   border-top-right-radius: 4px 4px;
@@ -105,7 +113,8 @@
   box-shadow: none !important;
 }
 
-.read-externally-btn:before, .read-externally-btn:after {
+.read-externally-btn:before,
+.read-externally-btn:after {
   display: block;
   content: " ";
   border-top: none;
@@ -127,7 +136,7 @@
 .read-externally-btn:after {
   bottom: 0;
   right: 0;
-  
+
 }
 
 .read-externally-btn.external_link:hover:before {
@@ -150,10 +159,10 @@
   background: transparent;
 
 }
+
 .read-externally-btn.external_link:hover {
   background: transparent;
   color: var(--highlight-color) !important;
   text-decoration: none;
 
 }
-
