@@ -1,0 +1,52 @@
+{{ define "title" }}Page Not Found - {{ .Site.Title }}{{ end }}
+
+{{ define "body_classes" }}page-404{{ end }}
+
+{{ define "main" }}
+<div class="intro">
+  <h1>Page Not Found<span class="dot">.</span></h1>
+</div>
+
+<div class="content">
+  <div id="redirect-message" style="display: none;">
+    <p>Redirecting you to the new location...</p>
+  </div>
+  <div id="not-found-message">
+    <p>The page you're looking for doesn't exist or has been moved.</p>
+    <p><a href="/">Go to homepage</a> or <a href="/blog/">browse the blog</a>.</p>
+  </div>
+</div>
+
+<script>
+(function() {
+  var path = window.location.pathname;
+
+  // Known sections that should NOT be redirected to /blog/
+  var knownPrefixes = ['/blog/', '/publications/', '/vegan/', '/pages/', '/images/', '/css/', '/js/', '/assets/'];
+
+  // Check if path already starts with a known prefix
+  var isKnownSection = knownPrefixes.some(function(prefix) {
+    return path.startsWith(prefix);
+  });
+
+  // If not a known section and not the root, try redirecting to /blog/
+  if (!isKnownSection && path !== '/' && path.length > 1) {
+    // Remove leading slash for the redirect
+    var slug = path.startsWith('/') ? path.substring(1) : path;
+    // Remove trailing slash if present
+    slug = slug.replace(/\/$/, '');
+
+    var newUrl = '/blog/' + slug + '/';
+
+    // Show redirect message and redirect
+    document.getElementById('redirect-message').style.display = 'block';
+    document.getElementById('not-found-message').style.display = 'none';
+
+    // Redirect after a brief moment
+    setTimeout(function() {
+      window.location.replace(newUrl);
+    }, 100);
+  }
+})();
+</script>
+{{ end }}

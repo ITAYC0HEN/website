@@ -14,7 +14,14 @@
 
   {{/* Google Scholar meta tags */}}
   <meta name="citation_title" content="{{ .Params.scholar_title | default .Title }}">
+  {{/* Support multiple authors - one meta tag per author */}}
+  {{ if .Params.scholar_authors }}
+    {{ range .Params.scholar_authors }}
+  <meta name="citation_author" content="{{ . }}">
+    {{ end }}
+  {{ else }}
   <meta name="citation_author" content="{{ .Params.scholar_author | default "Itay Cohen" }}">
+  {{ end }}
   {{ if .Params.scholar_date }}
   <meta name="citation_publication_date" content="{{ .Params.scholar_date }}">
   {{ end }}
@@ -24,7 +31,7 @@
   {{ if .Params.scholar_pdf_url }}
   <meta name="citation_pdf_url" content="{{ .Params.scholar_pdf_url }}">
   {{ end }}
-  <meta name="citation_public_url" content="{{ .Permalink }}">
+  <meta name="citation_public_url" content="{{ .Permalink | absURL }}">
 
   {{/* Canonical URL */}}
   <link rel="canonical" href="{{ .Permalink }}">
