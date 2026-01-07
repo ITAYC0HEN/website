@@ -57,7 +57,7 @@ pygmentsUseClasses = true
     name = "Vegan"
     identifier = "Vegan"
     weight = 300
-    url = "/Vegan/"
+    url = "/vegan/"
 
 
 [permalinks]
