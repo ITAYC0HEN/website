@@ -34,6 +34,12 @@ coverage_count: 43
 
 # Coverage items (top 20)
 coverage:
+  - title: "Check Point Software crée un événement virtuel inédit"
+    url: "https://www.forbes.fr/technologie/26-novembre-cybersecurite-check-point-software-cree-un-evenement-virtuel-inedit/"
+    outlet: "Forbes France"
+    date: ""
+    type: "news"
+    roles: ["mentioned"]
   - title: "Ryuk Update – HC3 Intelligence Brief"
     url: "https://www.hhs.gov/sites/default/files/ryuk-update.pdf"
     outlet: "U.S. Department of Health & Human Services"
@@ -142,12 +148,6 @@ coverage:
   - title: "The Art of Cyberwarfare: An Investigator's Guide to Espionage, Ransomware, and Organized Cybercrime"
     url: "https://academic.oup.com/book/61451/chapter-abstract/534806300"
     outlet: "Oxford University Press"
-    date: ""
-    type: "academic"
-    roles: ["cited"]
-  - title: "Work: Cybersecurity in the Information Society (Metadata)"
-    url: "https://ouci.dntb.gov.ua/en/works/4ywGzap9/"
-    outlet: "Open Ukrainian Citation Index"
     date: ""
     type: "academic"
     roles: ["cited"]

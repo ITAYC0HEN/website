@@ -2,7 +2,7 @@
 title: "Modern Approach to Attributing Hacktivist Groups"
 date: 2024-10-01
 year: 2024
-combined_venue_label: "Research Publication & Conference Paper"
+combined_venue_label: "Conference Paper & Research Publication"
 primary_url: "https://research.checkpoint.com/2025/modern-approach-to-attributing-hacktivist-groups/"
 pdf_url: "https://www.virusbulletin.com/uploads/pdf/conference/vb2024/papers/Modern-approach-to-attributing-hacktivist-groups.pdf"
 pub_ids: ["modern-approach-to-attributing-hacktivist-groups-78b541", "modern-approach-to-attributing-hacktivist-groups-fb08a9"]
@@ -46,19 +46,27 @@ coverage:
     date: ""
     type: "academic"
     roles: ["cited", "referenced"]
+  - title: "Hacktivism In Russian Cyber Strategy - The Defence Horizon Journal"
+    url: "https://tdhj.org/blog/post/hacktivism-russia-cyber-strategy-2/"
+    outlet: "tdhj.org"
+    date: ""
+    type: "blog"
+    roles: ["cited", "mentioned", "referenced"]
+  - title: "CTO at NCSC Research Recommendations"
+    url: "https://ctoatncsc.substack.com/p/cto-at-ncsc-summary-week-ending-march-b85"
+    outlet: "UK National Cyber Security Centre"
+    date: ""
+    type: "blog"
+    roles: ["referenced"]
+  - title: "Russian DDoS Groups Frothing After Europe Backs Ukraine"
+    url: "https://www.govinfosecurity.com/blogs/russian-ddos-groups-frothing-after-europe-backs-ukraine-p-3831"
+    outlet: "govinfosecurity.com"
+    date: ""
+    type: "blog"
+    roles: ["referenced"]
   - title: "Hacktivist Groups Emerge With Powerful Tools for Large-Scale Cyber Operations"
     url: "https://gbhackers.com/hacktivist-groups-emerge-with-powerful-tools/"
     outlet: "GBHackers"
-    date: ""
-    type: "news"
-  - title: "Unmasking Hacktivist Groups: A Modern Approach to Attribution - APN News"
-    url: "https://www.apnnews.com/unmasking-hacktivist-groups-a-modern-approach-to-attribution/"
-    outlet: "apnnews.com"
-    date: ""
-    type: "news"
-  - title: "Unmasking Hacktivist Groups: A Modern Approach to Attribution - NCNONLINE"
-    url: "https://www.ncnonline.net/unmasking-hacktivist-groups-a-modern-approach-to-attribution-check-point/"
-    outlet: "ncnonline.net"
     date: ""
     type: "news"
   - title: "pivotcon.org"
@@ -86,24 +94,16 @@ coverage:
     outlet: "youtube.com"
     date: ""
     type: "news"
-  - title: "CTO at NCSC Research Recommendations"
-    url: "https://ctoatncsc.substack.com/p/cto-at-ncsc-summary-week-ending-march-b85"
-    outlet: "UK National Cyber Security Centre"
+  - title: "Unmasking Hacktivist Groups: A Modern Approach to Attribution - APN News"
+    url: "https://www.apnnews.com/unmasking-hacktivist-groups-a-modern-approach-to-attribution/"
+    outlet: "apnnews.com"
     date: ""
-    type: "blog"
-    roles: ["referenced"]
-  - title: "Hacktivism In Russian Cyber Strategy - The Defence Horizon Journal"
-    url: "https://tdhj.org/blog/post/hacktivism-russia-cyber-strategy-2/"
-    outlet: "tdhj.org"
+    type: "news"
+  - title: "Unmasking Hacktivist Groups: A Modern Approach to Attribution - NCNONLINE"
+    url: "https://www.ncnonline.net/unmasking-hacktivist-groups-a-modern-approach-to-attribution-check-point/"
+    outlet: "ncnonline.net"
     date: ""
-    type: "blog"
-    roles: ["cited", "mentioned", "referenced"]
-  - title: "Russian DDoS Groups Frothing After Europe Backs Ukraine"
-    url: "https://www.govinfosecurity.com/blogs/russian-ddos-groups-frothing-after-europe-backs-ukraine-p-3831"
-    outlet: "govinfosecurity.com"
-    date: ""
-    type: "blog"
-    roles: ["referenced"]
+    type: "news"
 
 # Conference presentations
 presentation_count: 3

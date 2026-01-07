@@ -34,6 +34,11 @@ coverage_count: 5
 
 # Coverage items (top 20)
 coverage:
+  - title: "Russian Ransomware Gangs Weaponize Open-Source AdaptixC2 for Advanced Attacks"
+    url: "https://thehackernews.com/2025/10/russian-ransomware-gangs-weaponize-open.html"
+    outlet: "The Hacker News"
+    date: ""
+    type: "news"
   - title: "Open-Source Security Tool AdaptixC2 Fueling Ransomware Attacks"
     url: "https://www.technewsworld.com/story/open-source-security-tool-adaptixc2-fueling-ransomware-attacks-177603.html"
     outlet: "TechNewsWorld"
@@ -53,11 +58,6 @@ coverage:
   - title: "Open-source pentesting tool AdaptixC2 increasingly used in cyberattacks | SC World"
     url: "https://www.scworld.com/news/open-source-pentesting-tool-adaptixc2-increasingly-used-in-cyberattacks"
     outlet: "SC World"
-    date: ""
-    type: "news"
-  - title: "Russian Ransomware Gangs Weaponize Open-Source AdaptixC2 for Advanced Attacks"
-    url: "https://thehackernews.com/2025/10/russian-ransomware-gangs-weaponize-open.html"
-    outlet: "The Hacker News"
     date: ""
     type: "news"
 ---

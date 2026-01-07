@@ -34,6 +34,18 @@ coverage_count: 24
 
 # Coverage items (top 20)
 coverage:
+  - title: "China Unleashes Hackers Against Its Friend Russia, Seeking War Secrets | The New York Times"
+    url: "https://www.nytimes.com/2025/06/19/world/europe/china-hackers-russia-war-ukraine.html"
+    outlet: "nytimes.com"
+    date: "2019-25-06"
+    type: "news"
+    roles: ["interviewed", "quoted", "mentioned"]
+  - title: "Chinese Hackers Tried to Steal Russian Defense Data, Report Says | The New York Times"
+    url: "https://www.nytimes.com/2022/05/19/world/asia/china-hackers-russia.html"
+    outlet: "nytimes.com"
+    date: "2019-22-05"
+    type: "news"
+    roles: ["interviewed", "quoted", "mentioned"]
   - title: "Chinese hackers target Russian defence research institutes: Report"
     url: "https://www.kashmirdigest.com/chinese-hackers-target-russian-defence-research-institutes-report/"
     outlet: "Indo-Asian News Service"
@@ -46,18 +58,18 @@ coverage:
     date: ""
     type: "gov"
     roles: ["cited", "referenced"]
-  - title: "How Russia went to war: The Kremlin’s Preparations for its Aggression against Ukraine"
-    url: "https://icds.ee/wp-content/uploads/dlm_uploads/2023/04/ICDS_Report_How_Russia_Went_to_War_Stoicescu_Nazarov_Giles_Johnson_April_2023.pdf"
-    outlet: "ICDS – International Centre for Defence and Security"
-    date: ""
-    type: "gov"
-    roles: ["mentioned"]
   - title: "Vortex 5 cahier intérieur (Fr)"
     url: "https://www.defense.gouv.fr/sites/default/files/cesa/Vortex%205%20cahier%20inte%CC%81rieur%20Fr.pdf"
     outlet: "Ministère des Armées"
     date: ""
     type: "gov"
     roles: ["cited", "referenced"]
+  - title: "How Russia went to war: The Kremlin’s Preparations for its Aggression against Ukraine"
+    url: "https://icds.ee/wp-content/uploads/dlm_uploads/2023/04/ICDS_Report_How_Russia_Went_to_War_Stoicescu_Nazarov_Giles_Johnson_April_2023.pdf"
+    outlet: "ICDS – International Centre for Defence and Security"
+    date: ""
+    type: "gov"
+    roles: ["mentioned"]
   - title: "China spied on Russian defence research institutes"
     url: "https://www.itnews.com.au/news/china-spied-on-russian-defence-research-institutes-580247"
     outlet: "iTnews, Technology News Media"
@@ -81,42 +93,17 @@ coverage:
     date: ""
     type: "academic"
     roles: ["mentioned"]
-  - title: "China Unleashes Hackers Against Its Friend Russia, Seeking War Secrets | The New York Times"
-    url: "https://www.nytimes.com/2025/06/19/world/europe/china-hackers-russia-war-ukraine.html"
-    outlet: "nytimes.com"
-    date: "2019-25-06"
-    type: "news"
-    roles: ["interviewed", "quoted", "mentioned"]
-  - title: "Chinese Hackers Tried to Steal Russian Defense Data, Report Says | The New York Times"
-    url: "https://www.nytimes.com/2022/05/19/world/asia/china-hackers-russia.html"
-    outlet: "nytimes.com"
-    date: "2019-22-05"
-    type: "news"
-    roles: ["interviewed", "quoted", "mentioned"]
-  - title: "A Year-Long Chinese Cyber Espionage Campaign in Russia now Targets Defense Research Institutes | NCNONLINE"
-    url: "https://www.ncnonline.net/a-year-long-chinese-cyber-espionage-campaign-in-russia-now-targets-defense-research-institutes-2/"
-    outlet: "ncnonline.net"
+  - title: "Chinese Hackers Targeted Dozens of Russian Research Institutes"
+    url: "https://thehackernews.com/2022/08/chinese-hackers-targeted-dozens-of.html"
+    outlet: "The Hacker News, Cybersecurity News Media"
     date: ""
     type: "news"
-    roles: ["quoted"]
-  - title: "A year-long Chinese Cyber Espionage Campaign in Russia now targets Defense Research Institutes | Global Security Mag"
-    url: "https://www.globalsecuritymag.com/A-year-long-Chinese-Cyber,20220520,125626.html"
-    outlet: "globalsecuritymag.com"
-    date: ""
-    type: "news"
-    roles: ["quoted"]
   - title: "A year-long Chinese cyber-espionage campaign in Russia now targets defence research institutes: Check Point Research"
     url: "https://www.expresscomputer.in/news/a-year-long-chinese-cyber-espionage-campaign-in-russia-now-targets-defense-research-institutes-check-point-research/86291/"
     outlet: "Express Computer, Technology Media"
     date: ""
     type: "news"
     roles: ["interviewed", "quoted"]
-  - title: "Check Point enttarnt laufende chinesische Spionage-Kampagne | Infopoint Security"
-    url: "https://www.infopoint-security.de/check-point-enttarnt-laufende-chinesische-spionage-kampagne/a31207/"
-    outlet: "infopoint-security.de"
-    date: ""
-    type: "news"
-    roles: ["quoted"]
   - title: "Chinese cyber spooks exploit western sanctions on Russia"
     url: "https://www.computerweekly.com/news/252518464/Chinese-cyber-spooks-exploit-western-sanctions-on-Russia"
     outlet: "ComputerWeekly, Major Enterprise & Technology Media"
@@ -129,6 +116,24 @@ coverage:
     date: ""
     type: "news"
     roles: ["interviewed", "quoted"]
+  - title: "A year-long Chinese Cyber Espionage Campaign in Russia now targets Defense Research Institutes | Global Security Mag"
+    url: "https://www.globalsecuritymag.com/A-year-long-Chinese-Cyber,20220520,125626.html"
+    outlet: "globalsecuritymag.com"
+    date: ""
+    type: "news"
+    roles: ["quoted"]
+  - title: "A Year-Long Chinese Cyber Espionage Campaign in Russia now Targets Defense Research Institutes | NCNONLINE"
+    url: "https://www.ncnonline.net/a-year-long-chinese-cyber-espionage-campaign-in-russia-now-targets-defense-research-institutes-2/"
+    outlet: "ncnonline.net"
+    date: ""
+    type: "news"
+    roles: ["quoted"]
+  - title: "Check Point enttarnt laufende chinesische Spionage-Kampagne | Infopoint Security"
+    url: "https://www.infopoint-security.de/check-point-enttarnt-laufende-chinesische-spionage-kampagne/a31207/"
+    outlet: "infopoint-security.de"
+    date: ""
+    type: "news"
+    roles: ["quoted"]
   - title: "Panda campaign hits Russian defense sector"
     url: "https://www.anvilogic.com/threat-reports/panda-campaign-hits-russian-def"
     outlet: "Anvilogic, Security Vendor / Threat Research"
@@ -141,16 +146,10 @@ coverage:
     date: ""
     type: "news"
     roles: ["cited", "referenced"]
-  - title: "Targeting of Rostec"
-    url: "https://www.cfr.org/cyber-operations/2022/05/19/targeting-of-rostec/"
-    outlet: "Council on Foreign Relations, Think Tank / Policy Institute"
-    date: "2019-22-05"
-    type: "news"
-    roles: ["cited", "referenced"]
-  - title: "サイバーレスキュー隊 (J-CRAT) 活動状況（2022年度上半期）"
-    url: "https://www.ipa.go.jp/security/j-crat/ug65p9000000nks8-att/000106897.pdf"
-    outlet: "IPA"
-    date: ""
-    type: "news"
+  - title: "Russia-Ukraine Cybersecurity Updates"
+    url: "https://www.rapid7.com/blog/post/2022/03/04/russia-ukraine-cybersecurity-updates/"
+    outlet: "Rapid7, Security Vendor"
+    date: "2004-22-03"
+    type: "blog"
     roles: ["cited", "referenced"]
 ---

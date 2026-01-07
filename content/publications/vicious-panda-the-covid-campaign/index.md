@@ -34,6 +34,17 @@ coverage_count: 51
 
 # Coverage items (top 20)
 coverage:
+  - title: "Coronavirus Malware Attacks: Chinese Hackers Target Government Officials"
+    url: "https://www.forbes.com/sites/zakdoffman/2020/03/12/chinese-hackers-weaponized-coronavirus-data-to-launch-this-new-cyber-attack/"
+    outlet: "Forbes"
+    date: "2012-20-03"
+    type: "news"
+    roles: ["interviewed"]
+  - title: "Hackers are seizing on coronavirus fears to steal data, researchers and U.S. regulators warn"
+    url: "https://www.washingtonpost.com/technology/2020/03/12/hackers-are-using-coronavirus-fears-target-people-looking-information-infection-maps/"
+    outlet: "The Washington Post"
+    date: "2012-20-03"
+    type: "news"
   - title: "COVID-19 Cyber Threat Resources Roundup"
     url: "https://auscert.org.au/blogs/2020-03-16-covid-19-observations-osint-and-safety-recommendations/"
     outlet: "AUSCERT"
@@ -138,18 +149,6 @@ coverage:
   - title: "Cyber Security Challenges during COVID-19 Pandemic"
     url: "https://bbrc.in/wp-content/uploads/2021/01/13_14-SPL-Galley-proof-011.pdf"
     outlet: "Bioscience Biotechnology Research Communications"
-    date: ""
-    type: "academic"
-    roles: ["cited"]
-  - title: "Cyber Security in the Age of COVID-19: A Timeline and Analysis"
-    url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC9367180/"
-    outlet: "National Institutes of Health"
-    date: ""
-    type: "academic"
-    roles: ["cited"]
-  - title: "Cyber Security in the Age of COVID-19: A Timeline and Analysis"
-    url: "https://kar.kent.ac.uk/86976/1/Cyber_Security_in_the_Age_of_COVID_19.pdf"
-    outlet: "University of Kent"
     date: ""
     type: "academic"
     roles: ["cited"]

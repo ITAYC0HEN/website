@@ -64,6 +64,12 @@ coverage:
     date: ""
     type: "academic"
     roles: ["cited"]
+  - title: "SolarWinds Hack: SUNBURST Malware Uses Stealthy Evasion Techniques"
+    url: "https://www.bankinfosecurity.com/solarwinds-orion-campaign-victims-include-cisco-intel-a-15619"
+    outlet: "BankInfoSecurity"
+    date: ""
+    type: "news"
+    roles: ["quoted", "cited"]
   - title: "Malware Analysis Report for SolarWinds.Orion.Core.BusinessLayer.dll"
     url: "https://www.osti.gov/servlets/purl/1813804"
     outlet: "Office of Science within the U.S. Department of Energy"
@@ -76,12 +82,6 @@ coverage:
     date: ""
     type: "news"
     roles: ["referenced"]
-  - title: "SolarWinds Hack: SUNBURST Malware Uses Stealthy Evasion Techniques"
-    url: "https://www.bankinfosecurity.com/solarwinds-orion-campaign-victims-include-cisco-intel-a-15619"
-    outlet: "BankInfoSecurity"
-    date: ""
-    type: "news"
-    roles: ["quoted", "cited"]
   - title: "GitHub - ITAYC0HEN/SUNBURST-Cracked: The following repository contains a modified version of SUNBURST with cracked hashes, comments and annotations."
     url: "https://github.com/ITAYC0HEN/SUNBURST-Cracked"
     outlet: "github.com"

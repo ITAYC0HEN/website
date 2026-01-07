@@ -34,6 +34,30 @@ coverage_count: 33
 
 # Coverage items (top 20)
 coverage:
+  - title: "Mysterious Hacker Group Suspected in July Cyberattack on Iranian Trains - The New York Times"
+    url: "https://www.nytimes.com/2021/08/14/world/middleeast/iran-trains-cyberattack.html"
+    outlet: "nytimes.com"
+    date: "2014-21-08"
+    type: "news"
+    roles: ["interviewed", "quoted"]
+  - title: "Predatory Sparrow: Who are the hackers who say they started a fire in Iran?"
+    url: "https://www.bbc.com/news/technology-62072480"
+    outlet: "BBC"
+    date: ""
+    type: "news"
+    roles: ["interviewed", "quoted"]
+  - title: "Officials say cyberattack crippled gas stations across Iran | The Washington Post"
+    url: "https://www.washingtonpost.com/world/iran-cyberattack-fuel-gas-khamenei/2021/10/26/72374fca-3659-11ec-9662-399cfa75efee_story.html"
+    outlet: "washingtonpost.com"
+    date: "2026-21-10"
+    type: "news"
+    roles: ["referenced"]
+  - title: "A cyberattack paralyzed every gas station in Iran : NPR"
+    url: "https://www.npr.org/2021/10/27/1049566231/irans-president-says-cyberattack-was-meant-to-create-disorder-at-gas-pumps"
+    outlet: "npr.org"
+    date: "2027-21-10"
+    type: "news"
+    roles: ["mentioned"]
   - title: "The Cybersecurity 202: Sensitive government data could be another casualty of Afghan pullout - The Washington Post"
     url: "https://www.washingtonpost.com/politics/2021/08/17/cybersecurity-202-sensitive-government-data-could-be-another-casualty-afghan-pullout/"
     outlet: "washingtonpost.com"
@@ -64,60 +88,18 @@ coverage:
     date: ""
     type: "academic"
     roles: ["cited", "referenced"]
-  - title: "Mysterious Hacker Group Suspected in July Cyberattack on Iranian Trains - The New York Times"
-    url: "https://www.nytimes.com/2021/08/14/world/middleeast/iran-trains-cyberattack.html"
-    outlet: "nytimes.com"
-    date: "2014-21-08"
-    type: "news"
-    roles: ["interviewed", "quoted"]
-  - title: "Officials say cyberattack crippled gas stations across Iran | The Washington Post"
-    url: "https://www.washingtonpost.com/world/iran-cyberattack-fuel-gas-khamenei/2021/10/26/72374fca-3659-11ec-9662-399cfa75efee_story.html"
-    outlet: "washingtonpost.com"
-    date: "2026-21-10"
-    type: "news"
-    roles: ["referenced"]
-  - title: "Predatory Sparrow: Who are the hackers who say they started a fire in Iran?"
-    url: "https://www.bbc.com/news/technology-62072480"
-    outlet: "BBC"
+  - title: "Iranian steel facilities suffer apparent cyberattacks | CyberScoop"
+    url: "https://cyberscoop.com/iran-cyberattack-israel-hacktivist-steel-ics/"
+    outlet: "cyberscoop.com"
     date: ""
     type: "news"
-    roles: ["interviewed", "quoted"]
-  - title: "A cyberattack paralyzed every gas station in Iran : NPR"
-    url: "https://www.npr.org/2021/10/27/1049566231/irans-president-says-cyberattack-was-meant-to-create-disorder-at-gas-pumps"
-    outlet: "npr.org"
-    date: "2027-21-10"
-    type: "news"
-    roles: ["mentioned"]
-  - title: "Balancing on the rail – considering responsibility and restraint in the July 2021 Iran railways incident"
-    url: "https://offensivecyber.org/2021/09/23/balancing-on-the-rail/"
-    outlet: "The Offensive Cyber Working Group"
-    date: "2023-21-09"
-    type: "news"
-    roles: ["cited", "referenced"]
-  - title: "Behind Cyber Influence Operations - Ransomware Attacks as a Case Study"
-    url: "https://www.intelligence-research.org.il/userfiles/image/cat10/180-188.pdf"
-    outlet: "Institute for the Research of the Methodology of Intelligence"
-    date: ""
-    type: "news"
-    roles: ["cited"]
-  - title: "City Preparedness for Cyber-Enabled Terrorism"
-    url: "https://www.london.gov.uk/sites/default/files/ctpn_preparedness_for_cyber-enabled_terrorism_report_single_pages.pdf"
-    outlet: "Counter Terrorism Preparedness Network"
-    date: ""
-    type: "news"
-    roles: ["cited", "mentioned"]
+    roles: ["interviewed", "quoted", "referenced"]
   - title: "Cyber Attack in Iran Reportedly Cripples Gas Stations Across the Country"
     url: "https://thehackernews.com/2021/10/cyber-attack-in-iran-reportedly.html"
     outlet: "The Hacker News"
     date: ""
     type: "news"
     roles: ["quoted", "mentioned"]
-  - title: "Cyber Conservative Operations 2025"
-    url: "https://www.osti.gov/servlets/purl/3006950?utm_source=chatgpt.com"
-    outlet: "The Office of Scientific and Technical Information, U.S Department of Energy"
-    date: ""
-    type: "news"
-    roles: ["cited", "referenced"]
   - title: "Hackers behind Iranian wiper attacks linked to Syrian breaches"
     url: "https://www.bleepingcomputer.com/news/security/hackers-behind-iranian-wiper-attacks-linked-to-syrian-breaches/"
     outlet: "Bleeping Computer"
@@ -142,15 +124,33 @@ coverage:
     date: ""
     type: "news"
     roles: ["quoted", "referenced"]
-  - title: "Iran gas stations down due to cyberattack: report"
-    url: "https://www.i24news.tv/en/news/middle-east/1635253468-iran-gas-stations-down-due-to-cyberattack-report?utm_source=chatgpt.com"
-    outlet: "i24 News"
-    date: ""
-    type: "news"
-    roles: ["mentioned"]
   - title: "Iran gas stations reportedly hit by massive cyberattack | The Jerusalem Post"
     url: "https://www.jpost.com/breaking-news/iran-gas-stations-hit-by-cyber-attack-report-683141"
     outlet: "jpost.com"
+    date: ""
+    type: "news"
+    roles: ["quoted", "mentioned"]
+  - title: "Israeli-linked hackers hit ‘IRGC’s bank’ in major cyberattack - The Jewish Chronicle"
+    url: "https://www.thejc.com/news/world/israeli-linked-hackers-irgc-bank-cyberattack-predatory-sparrow-wepzp92r"
+    outlet: "thejc.com"
+    date: ""
+    type: "news"
+    roles: ["quoted", "mentioned", "referenced"]
+  - title: "Predatory Sparrow's Hacks: There's Smoke, There's Fire"
+    url: "https://www.bankinfosecurity.com/predatory-sparrows-industrial-hacks-risky-but-still-rare-a-19551"
+    outlet: "bankinfosecurity.com"
+    date: ""
+    type: "news"
+    roles: ["quoted", "mentioned", "referenced"]
+  - title: "Predatory Sparrow: When Angry Birds Attack - Jason"
+    url: "https://jasoninstitute.com/predatory-sparrow-when-angry-birds-attack/"
+    outlet: "JASON Institute for Peace and Security Studies"
+    date: ""
+    type: "news"
+    roles: ["quoted", "mentioned", "referenced"]
+  - title: "The Emerging Cyber Threat to the American Rail Industry | Lawfare"
+    url: "https://www.lawfaremedia.org/article/emerging-cyber-threat-american-rail-industry"
+    outlet: "lawfaremedia.org"
     date: ""
     type: "news"
     roles: ["quoted", "mentioned"]
