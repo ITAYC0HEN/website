@@ -1,0 +1,352 @@
+[
+  {
+    "id": "landfall-new-commercial-grade-android-spyware-in-e-9cdfe5",
+    "title": "LANDFALL: New Commercial-Grade Android Spyware in Exploit Chain Targeting Samsung Devices",
+    "url": "https://unit42.paloaltonetworks.com/landfall-is-new-commercial-grade-android-spyware/",
+    "publisher": "Palo Alto Networks Unit 42",
+    "date_published": "2025-11-07",
+    "year": 2025,
+    "month": 11,
+    "authors": [
+      "Itay Cohen"
+    ],
+    "venue_type": "vendor research",
+    "notes": ""
+  },
+  {
+    "id": "when-avatars-come-alive-understanding-hybrid-threa-513a90",
+    "title": "When Avatars Come Alive: Understanding Hybrid Threat Actors",
+    "url": "https://www.virusbulletin.com/uploads/pdf/conference/vb2025/papers/When-avatars-come-alive-understanding-hybrid-threat-actors.pdf",
+    "publisher": "Virus Bulletin",
+    "date_published": "2025-10-01",
+    "year": 2025,
+    "month": 10,
+    "authors": [
+      "Itay Cohen"
+    ],
+    "venue_type": "conference",
+    "notes": ""
+  },
+  {
+    "id": "adaptixc2-a-new-open-source-framework-leveraged-in-dd6aee",
+    "title": "AdaptixC2: A New Open-Source Framework Leveraged in Real-World Attacks",
+    "url": "https://unit42.paloaltonetworks.com/adaptixc2-post-exploitation-framework/",
+    "publisher": "Palo Alto Networks Unit 42",
+    "date_published": "2025-09-10",
+    "year": 2025,
+    "month": 9,
+    "authors": [
+      "Itay Cohen"
+    ],
+    "venue_type": "vendor research",
+    "notes": ""
+  },
+  {
+    "id": "modern-approach-to-attributing-hacktivist-groups-fb08a9",
+    "title": "Modern Approach to Attributing Hacktivist Groups",
+    "url": "https://research.checkpoint.com/2025/modern-approach-to-attributing-hacktivist-groups/",
+    "publisher": "Check Point Research",
+    "date_published": "2025-02-27",
+    "year": 2025,
+    "month": 2,
+    "authors": [
+      "Itay Cohen"
+    ],
+    "venue_type": "vendor research",
+    "notes": ""
+  },
+  {
+    "id": "modern-approach-to-attributing-hacktivist-groups-78b541",
+    "title": "Modern approach to attributing hacktivist groups",
+    "url": "https://www.virusbulletin.com/uploads/pdf/conference/vb2024/papers/Modern-approach-to-attributing-hacktivist-groups.pdf",
+    "publisher": "Virus Bulletin",
+    "date_published": "2024-10-01",
+    "year": 2024,
+    "month": 10,
+    "authors": [
+      "Itay Cohen"
+    ],
+    "venue_type": "conference",
+    "notes": "Virus Bulletin 2024 Conference Paper"
+  },
+  {
+    "id": "the-dragon-who-sold-his-camaro-reversing-a-custom--a94e86",
+    "title": "The Dragon who sold his Camaro reversing a custom router implant",
+    "url": "https://www.virusbulletin.com/uploads/pdf/conference/vb2023/papers/The-Dragon-who-sold-his-Camaro-reversing-a-custom-router-implant.pdf",
+    "publisher": "Virus Bulletin",
+    "date_published": "2023-10-01",
+    "year": 2023,
+    "month": 10,
+    "authors": [
+      "Itay Cohen"
+    ],
+    "venue_type": "conference",
+    "notes": "Virus Bulletin 2023 Conference Paper"
+  },
+  {
+    "id": "the-dragon-who-sold-his-camaro-analyzing-custom-ro-6c3bb7",
+    "title": "The Dragon Who Sold His Camaro: Analyzing Custom Router Implant",
+    "url": "https://research.checkpoint.com/2023/the-dragon-who-sold-his-camaro-analyzing-custom-router-implant/",
+    "publisher": "Check Point Research",
+    "date_published": "2023-05-16",
+    "year": 2023,
+    "month": 5,
+    "authors": [
+      "Itay Cohen"
+    ],
+    "venue_type": "vendor research",
+    "notes": ""
+  },
+  {
+    "id": "evilplayout-attack-against-iran-state-tv-and-radio-37a022",
+    "title": "EvilPlayout attack against Iran state TV and radio broadcaster",
+    "url": "https://www.virusbulletin.com/uploads/pdf/conference/vb2022/papers/VB2022-EvilPlayout-attack-against-Iran-state-TV-and-radio-broadcaster.pdf",
+    "publisher": "Virus Bulletin",
+    "date_published": "2022-10-01",
+    "year": 2022,
+    "month": 10,
+    "authors": [
+      "Itay Cohen"
+    ],
+    "venue_type": "conference",
+    "notes": "Virus Bulletin 2022 Conference Paper"
+  },
+  {
+    "id": "twisted-panda-chinese-apt-espionage-operation-agai-d2681c",
+    "title": "Twisted Panda: Chinese APT espionage operation against Russian state-owned defense institutes",
+    "url": "https://research.checkpoint.com/2022/twisted-panda-chinese-apt-espionage-operation-against-russians-state-owned-defense-institutes/",
+    "publisher": "Check Point Research",
+    "date_published": "2022-05-19",
+    "year": 2022,
+    "month": 5,
+    "authors": [
+      "Itay Cohen"
+    ],
+    "venue_type": "vendor research",
+    "notes": ""
+  },
+  {
+    "id": "evilplayout-attack-against-iran-s-state-broadcaste-99f627",
+    "title": "EvilPlayout: Attack Against Iran’s State Broadcaster",
+    "url": "https://research.checkpoint.com/2022/evilplayout-attack-against-irans-state-broadcaster/",
+    "publisher": "Check Point Research",
+    "date_published": "2022-02-18",
+    "year": 2022,
+    "month": 2,
+    "authors": [
+      "Itay Cohen"
+    ],
+    "venue_type": "vendor research",
+    "notes": ""
+  },
+  {
+    "id": "indra-hackers-behind-recent-attacks-on-iran-cb9664",
+    "title": "Indra — Hackers Behind Recent Attacks on Iran",
+    "url": "https://research.checkpoint.com/2021/indra-hackers-behind-recent-attacks-on-iran/",
+    "publisher": "Check Point Research",
+    "date_published": "2021-08-14",
+    "year": 2021,
+    "month": 8,
+    "authors": [
+      "Itay Cohen"
+    ],
+    "venue_type": "vendor research",
+    "notes": ""
+  },
+  {
+    "id": "indigozebra-apt-continues-to-attack-central-asia-w-c25aa4",
+    "title": "IndigoZebra APT continues to attack Central Asia with evolving tools",
+    "url": "https://research.checkpoint.com/2021/indigozebra-apt-continues-to-attack-central-asia-with-evolving-tools/",
+    "publisher": "Check Point Research",
+    "date_published": "2021-07-01",
+    "year": 2021,
+    "month": 7,
+    "authors": [
+      "Itay Cohen"
+    ],
+    "venue_type": "vendor research",
+    "notes": ""
+  },
+  {
+    "id": "the-story-of-jian-how-apt31-stole-and-used-an-unkn-5dd079",
+    "title": "The Story of Jian - How APT31 Stole and Used an Unknown Equation Group 0-Day",
+    "url": "https://research.checkpoint.com/2021/the-story-of-jian/",
+    "publisher": "Check Point Research",
+    "date_published": "2021-02-22",
+    "year": 2021,
+    "month": 2,
+    "authors": [
+      "Itay Cohen"
+    ],
+    "venue_type": "vendor research",
+    "notes": ""
+  },
+  {
+    "id": "sunburst-teardrop-and-the-netsec-new-normal-ee9b75",
+    "title": "SUNBURST, TEARDROP and the NetSec New Normal",
+    "url": "https://research.checkpoint.com/2020/sunburst-teardrop-and-the-netsec-new-normal/",
+    "publisher": "Check Point Research",
+    "date_published": "2020-12-22",
+    "year": 2020,
+    "month": 12,
+    "authors": [
+      "Itay Cohen"
+    ],
+    "venue_type": "vendor research",
+    "notes": ""
+  },
+  {
+    "id": "pay2key-ransomware-alert-4e0406",
+    "title": "Pay2Key Ransomware Alert",
+    "url": "https://research.checkpoint.com/2020/ransomware-alert-pay2key/",
+    "publisher": "Check Point Research",
+    "date_published": "2020-11-06",
+    "year": 2020,
+    "month": 11,
+    "authors": [
+      "Itay Cohen"
+    ],
+    "venue_type": "vendor research",
+    "notes": ""
+  },
+  {
+    "id": "bandook-signed-delivered-8d4424",
+    "title": "Bandook: Signed & Delivered",
+    "url": "https://research.checkpoint.com/2020/bandook-signed-delivered/",
+    "publisher": "Check Point Research",
+    "date_published": "2020-11-26",
+    "year": 2020,
+    "month": 11,
+    "authors": [
+      "Itay Cohen"
+    ],
+    "venue_type": "vendor research",
+    "notes": ""
+  },
+  {
+    "id": "graphology-of-an-exploit-hunting-for-exploits-by-l-a25d5d",
+    "title": "Graphology of an Exploit - Hunting for exploits by looking for the author's fingerprints",
+    "url": "https://research.checkpoint.com/2020/graphology-of-an-exploit-volodya/",
+    "publisher": "Check Point Research",
+    "date_published": "2020-10-02",
+    "year": 2020,
+    "month": 10,
+    "authors": [
+      "Itay Cohen"
+    ],
+    "venue_type": "vendor research",
+    "notes": ""
+  },
+  {
+    "id": "exploit-developer-spotlight-the-story-of-playbit-ab7477",
+    "title": "Exploit Developer Spotlight: The Story of PlayBit",
+    "url": "https://research.checkpoint.com/2020/graphology-of-an-exploit-playbit/",
+    "publisher": "Check Point Research",
+    "date_published": "2020-10-02",
+    "year": 2020,
+    "month": 10,
+    "authors": [
+      "Itay Cohen"
+    ],
+    "venue_type": "vendor research",
+    "notes": "Part of multi-publication entry"
+  },
+  {
+    "id": "graphology-of-an-exploit-hunting-for-exploits-by-l-ef42c1",
+    "title": "Graphology of an Exploit - Hunting for exploits by looking for the author's fingerprints",
+    "url": "https://vblocalhost.com/uploads/VB2020-Cohen-Itkin.pdf",
+    "publisher": "Virus Bulletin",
+    "date_published": "2020-10-01",
+    "year": 2020,
+    "month": 10,
+    "authors": [
+      "Itay Cohen"
+    ],
+    "venue_type": "conference",
+    "notes": "Virus Bulletin 2020 Conference Paper"
+  },
+  {
+    "id": "nazar-spirits-of-the-past-e7a737",
+    "title": "Nazar: Spirits of the Past",
+    "url": "https://research.checkpoint.com/2020/nazar-spirits-of-the-past/",
+    "publisher": "Check Point Research",
+    "date_published": "2020-05-05",
+    "year": 2020,
+    "month": 5,
+    "authors": [
+      "Itay Cohen"
+    ],
+    "venue_type": "vendor research",
+    "notes": ""
+  },
+  {
+    "id": "mapping-the-connections-inside-russia-s-apt-ecosys-f4590e",
+    "title": "Mapping the connections inside Russia's APT Ecosystem",
+    "url": "https://research.checkpoint.com/2019/russianaptecosystem/",
+    "publisher": "Check Point Research",
+    "date_published": "2019-09-24",
+    "year": 2019,
+    "month": 9,
+    "authors": [
+      "Itay Cohen"
+    ],
+    "venue_type": "vendor research",
+    "notes": ""
+  },
+  {
+    "id": "deobfuscating-apt32-flow-graphs-with-cutter-and-ra-975d6d",
+    "title": "Deobfuscating APT32 Flow Graphs with Cutter and Radare2",
+    "url": "https://research.checkpoint.com/2019/deobfuscating-apt32-flow-graphs-with-cutter-and-radare2/",
+    "publisher": "Check Point Research",
+    "date_published": "2019-04-24",
+    "year": 2019,
+    "month": 4,
+    "authors": [
+      "Itay Cohen"
+    ],
+    "venue_type": "vendor research",
+    "notes": ""
+  },
+  {
+    "id": "the-evolution-of-backswap-77b2e5",
+    "title": "The Evolution of BackSwap",
+    "url": "https://research.checkpoint.com/2018/the-evolution-of-backswap/",
+    "publisher": "Check Point Research",
+    "date_published": "2018-11-30",
+    "year": 2018,
+    "month": 11,
+    "authors": [
+      "Itay Cohen"
+    ],
+    "venue_type": "vendor research",
+    "notes": ""
+  },
+  {
+    "id": "a-targeted-campaign-break-down-ryuk-ransomware-23f478",
+    "title": "A Targeted Campaign Break-Down - Ryuk Ransomware",
+    "url": "https://research.checkpoint.com/2018/ryuk-ransomware-targeted-campaign-break/",
+    "publisher": "Check Point Research",
+    "date_published": "2018-08-20",
+    "year": 2018,
+    "month": 8,
+    "authors": [
+      "Itay Cohen"
+    ],
+    "venue_type": "vendor research",
+    "notes": ""
+  },
+  {
+    "id": "vicious-panda-the-covid-campaign-04f450",
+    "title": "Vicious Panda: The COVID Campaign",
+    "url": "https://research.checkpoint.com/2020/vicious-panda-the-covid-campaign/",
+    "publisher": "Check Point Research",
+    "date_published": null,
+    "year": null,
+    "month": null,
+    "authors": [
+      "Itay Cohen"
+    ],
+    "venue_type": "vendor research",
+    "notes": ""
+  }
+]

@@ -1,0 +1,145 @@
+---
+title: "Bandook: Signed & Delivered"
+date: 2020-11-26
+year: 2020
+combined_venue_label: "Research Publication"
+primary_url: "https://research.checkpoint.com/2020/bandook-signed-delivered/"
+pdf_url: ""
+pub_ids: ["bandook-signed-delivered-8d4424"]
+is_merged: false
+
+# Venues (multiple if merged)
+venues:
+  - publisher: "Check Point Research"
+    venue_type: "vendor research"
+    venue_type_label: "Research Publication"
+    url: "https://research.checkpoint.com/2020/bandook-signed-delivered/"
+    date: "2020-11-26"
+    is_pdf: false
+
+# Google Scholar meta tags
+scholar_title: "Bandook: Signed & Delivered"
+scholar_author: "Itay Cohen"
+scholar_date: "2020/11/26"
+scholar_venue_tag: "citation_technical_report_institution"
+scholar_venue_value: "Check Point Research"
+scholar_pdf_url: ""
+
+# Layout
+layout: "publication"
+type: "publications"
+
+# Coverage count
+coverage_count: 21
+
+# Coverage items (top 20)
+coverage:
+  - title: "Bandook Remote Access Trojan - CC-3684"
+    url: "https://digital.nhs.uk/cyber-alerts/2020/cc-3684"
+    outlet: "NHS Digital UK"
+    date: ""
+    type: "gov"
+    roles: ["cited"]
+  - title: "Digitally Signed Bandook Malware Once Again Targets Multiple Sectors"
+    url: "https://csirt.cy/alerts/digitally-signed-bandook-malware-once-again-targets-multiple-sectors"
+    outlet: "CSIRT-CY"
+    date: ""
+    type: "gov"
+    roles: ["cited"]
+  - title: "Efficient Detection and Recovery of Malicious PowerShell Scripts Embedded into Digital Images"
+    url: "https://onlinelibrary.wiley.com/doi/10.1155/2022/4477317"
+    outlet: "Security and Communication Networks Journal"
+    date: ""
+    type: "academic"
+    roles: ["cited", "referenced"]
+  - title: "Bandidos at Large - Spying Campaign in Latin America"
+    url: "https://www.welivesecurity.com/2021/07/07/bandidos-at-large-spying-campaign-latin-america/"
+    outlet: "ESET WeLiveSecurity"
+    date: "2007-21-07"
+    type: "news"
+    roles: ["cited"]
+  - title: "Dark Caracal: You Missed a Spot"
+    url: "https://www.eff.org/deeplinks/2020/12/dark-caracal-you-missed-spot"
+    outlet: "Electronic Frontier Foundation"
+    date: ""
+    type: "news"
+    roles: ["cited", "referenced"]
+  - title: "Espionage Campaign Using Updated Variant of Bandook Spyware"
+    url: "https://www.databreachtoday.com/espionage-campaign-using-updated-variant-bandook-spyware-a-17060"
+    outlet: "Data Breach Today / ISMG"
+    date: ""
+    type: "news"
+    roles: ["referenced"]
+  - title: "Experts Uncover Malware Attacks Targeting Corporate Networks in Latin America"
+    url: "https://thehackernews.com/2021/07/experts-uncover-malware-attacks.html"
+    outlet: "The Hacker News"
+    date: ""
+    type: "news"
+    roles: ["referenced"]
+  - title: "Unmasking Bandook Malware: A Resurgent Cyber Threat"
+    url: "https://www.infosecinstitute.com/resources/malware-analysis/bandook-malware-what-it-is-how-it-works-and-how-to-prevent-it/"
+    outlet: "Infosec Institute"
+    date: ""
+    type: "news"
+    roles: ["cited"]
+  - title: "Bandook - A 2007 Legacy Still Thriving"
+    url: "https://hivepro.com/threat-advisory/bandook-a-2007-legacy-still-thriving-in-the-threat-landscape/"
+    outlet: "HivePro"
+    date: ""
+    type: "news"
+  - title: "Bandook malware found targeting unusually wide variety of industries, regions"
+    url: "https://www.scmagazine.com/news/bandook-malware-found-targeting-unusually-wide-variety-of-industries-regions"
+    outlet: "SC Media"
+    date: ""
+    type: "news"
+  - title: "Bandook malware variant once again targets various sectors"
+    url: "https://cybersafe.news/bandook-malware-variant-once-again-targets-various-sectors/"
+    outlet: "Cybersafe News"
+    date: ""
+    type: "news"
+  - title: "Dark Caracal Uses Signed Bandook Malware"
+    url: "https://www.anquanke.com/post/id/224295"
+    outlet: "Anquanke"
+    date: ""
+    type: "news"
+  - title: "Digitally Signed Bandook Malware Once Again Targets Multiple Sectors"
+    url: "https://thehackernews.com/2020/11/digitally-signed-bandook-malware-once.html"
+    outlet: "The Hacker News"
+    date: ""
+    type: "news"
+  - title: "Digitally Signed Bandook Trojan Reemerges in Global Spy Campaign"
+    url: "https://threatpost.com/digitally-signed-bandook-trojan-spy-campaign/161676/"
+    outlet: "Threatpost"
+    date: ""
+    type: "news"
+  - title: "ESET Latin America Press Release - Bandook Campaign"
+    url: "https://www.eset.com/pa/acerca-de-eset/sala-de-prensa/comunicados-de-prensa/articulos-de-prensa/eset-descubre-una-campana-de-espionaje-activa-en-america-latina/"
+    outlet: "ESET Latin America"
+    date: ""
+    type: "news"
+  - title: "Long-existing Bandook RAT targets Windows machines"
+    url: "https://securityaffairs.com/157065/malware/bandook-rat-targets-windows.html"
+    outlet: "Security Affairs"
+    date: ""
+    type: "news"
+  - title: "New Signed Version of Old Bandook Malware Emerges"
+    url: "https://duo.com/decipher/new-signed-version-of-old-bandook-malware-emerge"
+    outlet: "Duo Security / Decipher"
+    date: ""
+    type: "news"
+  - title: "Researchers Find Updated Variants of Bandook Spyware"
+    url: "https://www.bankinfosecurity.com/researchers-find-updated-variants-bandook-spyware-a-15485"
+    outlet: "BankInfoSecurity / ISMG"
+    date: ""
+    type: "news"
+  - title: "Signed Bandook Malware Attacks Against Multiple Industrial Sectors"
+    url: "https://gbhackers.com/signed-bandook-malware/"
+    outlet: "GBHackers on Security"
+    date: ""
+    type: "news"
+  - title: "The Forever Sales. Bandook is back. - Daily Briefing Vol. 9, Issue 229"
+    url: "https://thecyberwire.com/newsletters/daily-briefing/9/229"
+    outlet: "The CyberWire"
+    date: ""
+    type: "news"
+---

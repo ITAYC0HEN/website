@@ -1,0 +1,208 @@
+{{ define "title" }}{{ .Title }} - {{ .Site.Title }}{{ end }}
+
+{{ define "meta_tags" }}
+  {{/* Standard meta tags */}}
+  {{ if .Params.description }}<meta name="description" content="{{ .Params.description }}"/>{{ end }}
+  <meta property="og:title" content="{{ .Title }}"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="{{ .Permalink }}"/>
+  {{ if .Params.image }}<meta property="og:image" content="{{ .Params.image | absURL }}"/>{{ end }}
+  {{ if .Params.description }}<meta property="og:description" content="{{ .Params.description }}"/>{{ end }}
+  <meta name="twitter:card" content="summary"/>
+  {{ if .Site.Params.twitter_handle }}<meta name="twitter:site" content="{{ .Site.Params.twitter_handle }}"/>{{ end }}
+  {{ if .Site.Params.twitter_handle }}<meta name="twitter:creator" content="{{ .Site.Params.twitter_handle }}"/>{{ end }}
+
+  {{/* Google Scholar meta tags */}}
+  <meta name="citation_title" content="{{ .Params.scholar_title | default .Title }}">
+  <meta name="citation_author" content="{{ .Params.scholar_author | default "Itay Cohen" }}">
+  {{ if .Params.scholar_date }}
+  <meta name="citation_publication_date" content="{{ .Params.scholar_date }}">
+  {{ end }}
+  {{ if .Params.scholar_venue_value }}
+  <meta name="{{ .Params.scholar_venue_tag }}" content="{{ .Params.scholar_venue_value }}">
+  {{ end }}
+  {{ if .Params.scholar_pdf_url }}
+  <meta name="citation_pdf_url" content="{{ .Params.scholar_pdf_url }}">
+  {{ end }}
+  <meta name="citation_public_url" content="{{ .Permalink }}">
+
+  {{/* Canonical URL */}}
+  <link rel="canonical" href="{{ .Permalink }}">
+{{ end }}
+
+{{ define "body_classes" }}page-publication{{ end }}
+
+{{ define "main" }}
+<div class="intro publication-header">
+  <div class="publication-meta">
+    <span class="publication-type">{{ .Params.combined_venue_label }}</span>
+    {{ if .Params.year }}
+    <span class="publication-year">{{ .Params.year }}</span>
+    {{ end }}
+  </div>
+  <h1>{{ .Title }}{{ if .Site.Params.addDot }}<span class="dot">.</span>{{ end }}</h1>
+
+  {{/* Display all venues/publishers */}}
+  {{ if .Params.venues }}
+  <div class="publication-venues">
+    {{ range $index, $venue := .Params.venues }}
+    <div class="venue-item">
+      <span class="venue-type-badge {{ $venue.venue_type | urlize }}">{{ $venue.venue_type_label }}</span>
+      <span class="venue-publisher">{{ $venue.publisher }}</span>
+      {{ if $venue.date }}
+      <span class="venue-date">({{ $venue.date }})</span>
+      {{ end }}
+    </div>
+    {{ end }}
+  </div>
+  {{ end }}
+</div>
+
+<div class="content publication-content">
+  <div class="publication-actions">
+    {{/* Show buttons for each venue */}}
+    {{ range $index, $venue := .Params.venues }}
+      {{ if $venue.is_pdf }}
+      <a href="{{ $venue.url }}" class="btn btn-secondary" target="_blank" rel="noopener">
+        {{ $venue.publisher }} PDF
+      </a>
+      {{ else }}
+      <a href="{{ $venue.url }}" class="btn btn-primary" target="_blank" rel="noopener">
+        Read on {{ $venue.publisher }}
+      </a>
+      {{ end }}
+    {{ end }}
+  </div>
+
+  {{ .Content }}
+
+  {{/* Presentations section */}}
+  {{ if .Params.presentations }}
+  <section class="presentations-section">
+    <h2>Conference Presentations</h2>
+    <p class="presentations-note">This research was presented at {{ .Params.presentation_count }} conference{{ if gt .Params.presentation_count 1 }}s{{ end }}.</p>
+    <ul class="presentations-list">
+      {{ range .Params.presentations }}
+      <li class="presentation-item">
+        <div class="presentation-main">
+          <span class="presentation-conference">{{ .conference_full }}</span>
+          {{ if .location }}
+          <span class="presentation-location">{{ .location }}</span>
+          {{ end }}
+        </div>
+        <div class="presentation-links">
+          {{ if .video_url }}
+          <a href="{{ .video_url }}" class="presentation-link video" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            Watch Video
+          </a>
+          {{ end }}
+          {{ if .slides_url }}
+          <a href="{{ .slides_url }}" class="presentation-link slides" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+            Slides
+          </a>
+          {{ end }}
+          {{ if .abstract_url }}
+          <a href="{{ .abstract_url }}" class="presentation-link abstract" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+            Abstract
+          </a>
+          {{ end }}
+        </div>
+      </li>
+      {{ end }}
+    </ul>
+  </section>
+  {{ end }}
+
+  {{ if .Params.coverage }}
+  <section class="coverage-section">
+    <h2>Citations &amp; Coverage</h2>
+    {{ if gt .Params.coverage_count 20 }}
+    <p class="coverage-note">Showing {{ len .Params.coverage }} of {{ .Params.coverage_count }} sources</p>
+    {{ end }}
+
+    {{ $govItems := slice }}
+    {{ $academicItems := slice }}
+    {{ $newsItems := slice }}
+
+    {{ range .Params.coverage }}
+      {{ if eq .type "gov" }}
+        {{ $govItems = $govItems | append . }}
+      {{ else if eq .type "academic" }}
+        {{ $academicItems = $academicItems | append . }}
+      {{ else }}
+        {{ $newsItems = $newsItems | append . }}
+      {{ end }}
+    {{ end }}
+
+    {{ if $govItems }}
+    <div class="coverage-group">
+      <h3>Government &amp; Policy</h3>
+      <ul class="coverage-list">
+        {{ range $govItems }}
+        <li class="coverage-item{{ if .roles }} has-roles{{ end }}">
+          <a href="{{ .url }}" target="_blank" rel="noopener">{{ .title }}</a>
+          <span class="coverage-outlet">{{ .outlet }}</span>
+          {{ if .date }}<span class="coverage-date">{{ .date }}</span>{{ end }}
+          {{ if .roles }}
+          <span class="coverage-roles">
+            {{ range .roles }}<span class="role role-{{ . }}">{{ . }}</span>{{ end }}
+          </span>
+          {{ end }}
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+    {{ end }}
+
+    {{ if $academicItems }}
+    <div class="coverage-group">
+      <h3>Academic</h3>
+      <ul class="coverage-list">
+        {{ range $academicItems }}
+        <li class="coverage-item{{ if .roles }} has-roles{{ end }}">
+          <a href="{{ .url }}" target="_blank" rel="noopener">{{ .title }}</a>
+          <span class="coverage-outlet">{{ .outlet }}</span>
+          {{ if .date }}<span class="coverage-date">{{ .date }}</span>{{ end }}
+          {{ if .roles }}
+          <span class="coverage-roles">
+            {{ range .roles }}<span class="role role-{{ . }}">{{ . }}</span>{{ end }}
+          </span>
+          {{ end }}
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+    {{ end }}
+
+    {{ if $newsItems }}
+    <div class="coverage-group">
+      <h3>Media Coverage</h3>
+      <ul class="coverage-list">
+        {{ range $newsItems }}
+        <li class="coverage-item{{ if .roles }} has-roles{{ end }}">
+          <a href="{{ .url }}" target="_blank" rel="noopener">{{ .title }}</a>
+          <span class="coverage-outlet">{{ .outlet }}</span>
+          {{ if .date }}<span class="coverage-date">{{ .date }}</span>{{ end }}
+          {{ if .roles }}
+          <span class="coverage-roles">
+            {{ range .roles }}<span class="role role-{{ . }}">{{ . }}</span>{{ end }}
+          </span>
+          {{ end }}
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+    {{ end }}
+
+    {{ if gt .Params.coverage_count 20 }}
+    <p class="coverage-more">
+      <em>{{ sub .Params.coverage_count 20 }} additional sources not shown</em>
+    </p>
+    {{ end }}
+  </section>
+  {{ end }}
+</div>
+{{ end }}

@@ -1,0 +1,385 @@
+/* Publications Section Styles */
+
+/* Publication page header */
+.publication-header {
+  margin-bottom: 2rem;
+}
+
+.publication-meta {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.publication-type {
+  color: #7b16ff;
+  font-weight: 600;
+}
+
+.publication-year {
+  color: #666;
+}
+
+.publication-info {
+  margin-top: 1rem;
+}
+
+.publication-info .publisher {
+  font-size: 1.1rem;
+  color: #4e5157;
+  margin: 0;
+}
+
+/* Multiple venues display */
+.publication-venues {
+  margin-top: 1rem;
+}
+
+.venue-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.venue-type-badge {
+  font-size: 0.7rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+  background: #f0f0f0;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.venue-type-badge.conference {
+  background: #e8f4fd;
+  color: #1a73e8;
+}
+
+.venue-type-badge.vendor-research {
+  background: #fef7e0;
+  color: #b45309;
+}
+
+.venue-type-badge.merged {
+  background: linear-gradient(135deg, #e8f4fd, #fef7e0);
+  color: #7b16ff;
+  font-weight: 600;
+}
+
+.venue-publisher {
+  font-size: 1rem;
+  color: #4e5157;
+  font-weight: 500;
+}
+
+.venue-date {
+  font-size: 0.85rem;
+  color: #999;
+}
+
+/* List page merged badge */
+.pub-type-badge.merged {
+  background: linear-gradient(135deg, #e8f4fd, #fef7e0);
+  color: #7b16ff;
+  font-weight: 600;
+}
+
+.pub-publishers {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Action buttons */
+.publication-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+}
+
+.publication-actions .btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.publication-actions .btn-primary {
+  background: #7b16ff;
+  color: #fff;
+}
+
+.publication-actions .btn-primary:hover {
+  background: #6310d9;
+}
+
+.publication-actions .btn-secondary {
+  background: #f5f5f5;
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+.publication-actions .btn-secondary:hover {
+  background: #eee;
+}
+
+/* Coverage section */
+.coverage-section {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #eee;
+}
+
+.coverage-section h2 {
+  margin-bottom: 1rem;
+}
+
+.coverage-note {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.coverage-group {
+  margin-bottom: 2rem;
+}
+
+.coverage-group h3 {
+  font-size: 1.1rem;
+  color: #7b16ff;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.coverage-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.coverage-item {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.coverage-item:last-child {
+  border-bottom: none;
+}
+
+.coverage-item a {
+  color: #1c1b1d;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.coverage-item a:hover {
+  color: #7b16ff;
+}
+
+.coverage-outlet {
+  display: block;
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 0.25rem;
+}
+
+.coverage-date {
+  font-size: 0.8rem;
+  color: #999;
+  margin-left: 0.5rem;
+}
+
+.coverage-roles {
+  display: inline-flex;
+  gap: 0.35rem;
+  margin-left: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.role {
+  font-size: 0.7rem;
+  padding: 0.15rem 0.4rem;
+  border-radius: 3px;
+  background: #f0f0f0;
+  color: #666;
+  text-transform: capitalize;
+}
+
+.role-interviewed,
+.role-quoted {
+  background: #e8f4fd;
+  color: #1a73e8;
+}
+
+.role-cited,
+.role-referenced {
+  background: #e6f4ea;
+  color: #137333;
+}
+
+.role-named,
+.role-mentioned {
+  background: #fef7e0;
+  color: #b45309;
+}
+
+.coverage-more {
+  margin-top: 1.5rem;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Presentations section */
+.presentations-section {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: #f9f9f9;
+  border-radius: 8px;
+}
+
+.presentations-section h2 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+}
+
+.presentations-note {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.presentations-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.presentation-item {
+  padding: 1rem;
+  background: #fff;
+  border-radius: 6px;
+  margin-bottom: 0.75rem;
+  border: 1px solid #eee;
+}
+
+.presentation-item:last-child {
+  margin-bottom: 0;
+}
+
+.presentation-main {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+
+.presentation-conference {
+  font-weight: 600;
+  color: #1c1b1d;
+}
+
+.presentation-location {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.presentation-links {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.presentation-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.85rem;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.presentation-link.video {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.presentation-link.video:hover {
+  background: #fecaca;
+}
+
+.presentation-link.slides {
+  background: #e0e7ff;
+  color: #4338ca;
+}
+
+.presentation-link.slides:hover {
+  background: #c7d2fe;
+}
+
+.presentation-link.abstract {
+  background: #f0fdf4;
+  color: #16a34a;
+}
+
+.presentation-link.abstract:hover {
+  background: #dcfce7;
+}
+
+.presentation-link svg {
+  flex-shrink: 0;
+}
+
+/* List page presentation badge */
+.pub-type-badge.presentation {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .publication-actions {
+    flex-direction: column;
+  }
+
+  .publication-actions .btn {
+    text-align: center;
+  }
+
+  .coverage-outlet {
+    display: block;
+  }
+
+  .coverage-date,
+  .coverage-roles {
+    display: block;
+    margin-left: 0;
+    margin-top: 0.25rem;
+  }
+
+  .presentation-main {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .presentation-links {
+    flex-direction: column;
+  }
+
+  .presentation-link {
+    justify-content: center;
+  }
+}

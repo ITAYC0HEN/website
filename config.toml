@@ -3,7 +3,8 @@ languageCode = "en-us"
 theme = "hugo-winston-theme"
 themesDir = "themes"
 title = "Megabeets"
-paginate = 3
+[pagination]
+  pagerSize = 3
 pygmentsCodeFences = true
 pygmentsCodefencesGuessSyntax = true
 pygmentsUseClasses = true
@@ -28,6 +29,9 @@ pygmentsUseClasses = true
   headingColor = "#1c1b1d"
   textColor = "#4e5157"
   dotColor = "#7b16ff"
+  # External publication profiles (fill these in to show links on publications page)
+  # zotero_group_url = "https://www.zotero.org/groups/YOUR_GROUP_ID"
+  # orcid_url = "https://orcid.org/YOUR_ORCID"
     [params.editPost]
       URL = "https://github.com/ITAYC0HEN/website/edit/main/content/"
       Text = "Suggest Changes" # edit text
@@ -44,6 +48,11 @@ pygmentsUseClasses = true
       noClasses = true
       style = 'witch-hazel'
 [menu]
+  [[menu.main]]
+    name = "Publications"
+    identifier = "Publications"
+    weight = 100
+    url = "/publications/"
   [[menu.main]]
     name = "Vegan"
     identifier = "Vegan"

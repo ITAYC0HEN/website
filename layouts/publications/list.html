@@ -1,0 +1,224 @@
+{{ define "title" }}{{ .Title }} - {{ .Site.Title }}{{ end }}
+
+{{ define "body_classes" }}page-publications-list{{ end }}
+
+{{ define "main" }}
+<div class="intro">
+  <h1>{{ .Title }}{{ if .Site.Params.addDot }}<span class="dot">.</span>{{ end }}</h1>
+  {{ if .Params.description }}<p>{{ .Params.description }}</p>{{ end }}
+</div>
+
+<div class="content publications-content">
+  {{ .Content }}
+
+  {{/* External profile links */}}
+  {{ if or .Site.Params.zotero_group_url .Site.Params.orcid_url .Params.zotero_group_url .Params.orcid_url }}
+  <div class="profile-links">
+    {{ with .Site.Params.zotero_group_url | default .Params.zotero_group_url }}
+    <a href="{{ . }}" class="profile-link" target="_blank" rel="noopener">
+      View on Zotero
+    </a>
+    {{ end }}
+    {{ with .Site.Params.orcid_url | default .Params.orcid_url }}
+    <a href="{{ . }}" class="profile-link" target="_blank" rel="noopener">
+      ORCID Profile
+    </a>
+    {{ end }}
+  </div>
+  {{ end }}
+
+  {{/* Search/filter input */}}
+  <div class="publications-filter">
+    <input type="text" id="pub-search" placeholder="Filter publications..." class="pub-search-input">
+  </div>
+
+  {{/* Group publications by year */}}
+  {{ $pages := .Pages.ByDate.Reverse }}
+  {{ $years := slice }}
+  {{ range $pages }}
+    {{ $year := .Params.year | default (dateFormat "2006" .Date) }}
+    {{ if not (in $years $year) }}
+      {{ $years = $years | append $year }}
+    {{ end }}
+  {{ end }}
+
+  <div class="publications-list" id="publications-list">
+    {{ range $year := $years }}
+    <div class="publications-year-group" data-year="{{ $year }}">
+      <h2 class="year-heading">{{ $year }}</h2>
+      <ul class="pub-list">
+        {{ range $pages }}
+          {{ $pubYear := .Params.year | default (dateFormat "2006" .Date) }}
+          {{ if eq $pubYear $year }}
+          <li class="pub-item" data-title="{{ .Title | lower }}" data-publisher="{{ range .Params.venues }}{{ .publisher | lower }} {{ end }}">
+            <div class="pub-item-main">
+              {{ if .Params.is_merged }}
+              <span class="pub-type-badge merged">{{ .Params.combined_venue_label }}</span>
+              {{ else }}
+              {{ range .Params.venues }}
+              <span class="pub-type-badge {{ .venue_type | urlize }}">{{ .venue_type_label }}</span>
+              {{ end }}
+              {{ end }}
+              <a href="{{ .RelPermalink }}" class="pub-title">{{ .Title }}</a>
+            </div>
+            <div class="pub-item-meta">
+              <span class="pub-publishers">
+                {{ $venues := .Params.venues }}
+                {{ range $i, $v := $venues }}{{ if $i }} / {{ end }}{{ $v.publisher }}{{ end }}
+              </span>
+              {{ if .Params.coverage_count }}
+              <span class="pub-coverage-count" title="Citations and coverage">{{ .Params.coverage_count }} sources</span>
+              {{ end }}
+            </div>
+          </li>
+          {{ end }}
+        {{ end }}
+      </ul>
+    </div>
+    {{ end }}
+  </div>
+
+  <p class="no-results" id="no-results" style="display: none;">
+    No publications match your search.
+  </p>
+</div>
+
+<style>
+.publications-filter {
+  margin: 2rem 0;
+}
+.pub-search-input {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+.pub-search-input:focus {
+  outline: none;
+  border-color: {{ .Site.Params.highlightColor | default "#7b16ff" }};
+}
+.publications-year-group {
+  margin-bottom: 2rem;
+}
+.year-heading {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid {{ .Site.Params.highlightColor | default "#7b16ff" }};
+}
+.pub-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.pub-item {
+  padding: 1rem 0;
+  border-bottom: 1px solid #eee;
+}
+.pub-item:last-child {
+  border-bottom: none;
+}
+.pub-item-main {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+.pub-type-badge {
+  font-size: 0.7rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+  background: #f0f0f0;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+}
+.pub-type-badge.conference {
+  background: #e8f4fd;
+  color: #1a73e8;
+}
+.pub-type-badge.vendor-research {
+  background: #fef7e0;
+  color: #b45309;
+}
+.pub-title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: {{ .Site.Params.headingColor | default "#1c1b1d" }};
+  text-decoration: none;
+}
+.pub-title:hover {
+  color: {{ .Site.Params.highlightColor | default "#7b16ff" }};
+}
+.pub-item-meta {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #666;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.pub-coverage-count {
+  color: {{ .Site.Params.highlightColor | default "#7b16ff" }};
+}
+.profile-links {
+  margin: 1.5rem 0;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.profile-link {
+  padding: 0.5rem 1rem;
+  background: #f5f5f5;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #333;
+  font-size: 0.9rem;
+}
+.profile-link:hover {
+  background: #eee;
+}
+.pub-item.hidden {
+  display: none;
+}
+.publications-year-group.hidden {
+  display: none;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const searchInput = document.getElementById('pub-search');
+  const pubList = document.getElementById('publications-list');
+  const noResults = document.getElementById('no-results');
+
+  if (searchInput && pubList) {
+    searchInput.addEventListener('input', function() {
+      const query = this.value.toLowerCase().trim();
+      const items = pubList.querySelectorAll('.pub-item');
+      const yearGroups = pubList.querySelectorAll('.publications-year-group');
+      let visibleCount = 0;
+
+      items.forEach(function(item) {
+        const title = item.dataset.title || '';
+        const publisher = item.dataset.publisher || '';
+        const matches = !query || title.includes(query) || publisher.includes(query);
+        item.classList.toggle('hidden', !matches);
+        if (matches) visibleCount++;
+      });
+
+      // Hide year groups with no visible items
+      yearGroups.forEach(function(group) {
+        const visibleItems = group.querySelectorAll('.pub-item:not(.hidden)');
+        group.classList.toggle('hidden', visibleItems.length === 0);
+      });
+
+      noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+    });
+  }
+});
+</script>
+{{ end }}
