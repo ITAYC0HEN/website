@@ -30,10 +30,16 @@ layout: "publication"
 type: "publications"
 
 # Coverage count
-coverage_count: 4
+coverage_count: 5
 
 # Coverage items (top 20)
 coverage:
+  - title: "Malware Analysis and Static Call Graph Generation with Radare2"
+    url: "https://www.cs.ubbcluj.ro/~studia-i/journal/journal/article/view/85"
+    outlet: "Studia Universitatis Babeș-Bolyai Informatica"
+    date: "2023-07"
+    type: "academic"
+    roles: ["cited"]
   - title: "MACS 2022 Abstracts"
     url: "https://www.cs.ubbcluj.ro/~macs/2022/abs/macs2022_abstracts.pdf"
     outlet: "MACS Academic Conference"
